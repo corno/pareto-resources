@@ -1,0 +1,9 @@
+import * as _pi from 'pareto-core-interface'
+
+export type Parameters = {
+    'arguments': _pi.List<string>,
+}
+
+export type Error = {
+    'exit code': number
+}
