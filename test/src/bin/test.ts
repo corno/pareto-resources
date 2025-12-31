@@ -4,9 +4,9 @@ import * as _pt from 'pareto-core-transformer'
 import * as _pdev from 'pareto-core-dev'
 import * as _pinternals from 'pareto-core-internals'
 
-import * as r_non_normalized_path from "pub/dist/implementation/deserializers/schemas/non_normalized_path"
+import * as r_non_normalized_path from "pub/dist/implementation/manual/schemas/non_normalized_path/deserializers"
 
-import * as r_node_path from "pub/dist/implementation/refiners/schemas/node_path/non_normalized_path"
+import * as r_node_path from "pub/dist/implementation/manual/schemas/node_path/refiners/non_normalized_path"
 
 _pdev.log_debug_message("BEGIN", () => {})
 
