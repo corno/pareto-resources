@@ -1,4 +1,4 @@
-import * as _pt from 'pareto-core-transformer'
+import * as _p from 'pareto-core-transformer'
 import * as _pi from 'pareto-core-interface'
 
 import * as d_in from "../../../../../interface/to_be_generated/read_directory_content"
@@ -18,27 +18,27 @@ import * as t_read_file_to_fountain_pen from "../../read_file/transformers/fount
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
-export const Node_Error: signatures.Node_Error = ($) => _pt.cc($, ($) => {
-    return _pt.cc($, ($) => {
+export const Node_Error: signatures.Node_Error = ($) => _p.cc($, ($) => {
+    return _p.cc($, ($) => {
         switch ($[0]) {
-            case 'file': return _pt.ss($, ($) => t_read_file_to_fountain_pen.Error($))
-            case 'directory': return _pt.ss($, ($) => Error($))
-            default: return _pt.au($[0])
+            case 'file': return _p.ss($, ($) => t_read_file_to_fountain_pen.Error($))
+            case 'directory': return _p.ss($, ($) => Error($))
+            default: return _p.au($[0])
         }
     })
 })
 
-export const Error: signatures.Error = ($) => _pt.cc($, ($) => {
+export const Error: signatures.Error = ($) => _p.cc($, ($) => {
     switch ($[0]) {
-        case 'directory content processing': return _pt.ss($, ($) => sh.b.indent([
+        case 'directory content processing': return _p.ss($, ($) => sh.b.indent([
             sh.g.sub($.to_list(($, key) => sh.g.nested_block([
                 sh.b.snippet(`${key}: `),
                 Node_Error($)
             ])))
         ]))
-        case 'read directory': return _pt.ss($, ($) => sh.b.sub([
+        case 'read directory': return _p.ss($, ($) => sh.b.sub([
             t_read_directory_to_fountain_pen.Error($)
         ]))
-        default: return _pt.au($[0])
+        default: return _p.au($[0])
     }
 })

@@ -1,4 +1,4 @@
-import * as _pc from 'pareto-core-command'
+import * as _p from 'pareto-core-command'
 import * as _pt from 'pareto-core-transformer'
 import * as _pq from 'pareto-core-query'
 
@@ -9,18 +9,18 @@ import * as signatures from "../../../interface/signatures"
 
 import * as t_path_to_path from "../schemas/path/transformers/path"
 
-export const $$: signatures.commands.write_directory_content = _pc.create_command_procedure(
+export const $$: signatures.commands.write_directory_content = _p.create_command_procedure(
     ($p, $cr, $qr) => [
         // $cr['make directory'].execute(
         //     $p.path,
         //     ($): inf.Error => ['make directory', $]
         // ),
-        _pc.dictionary.parallel<d_directory_content.Node, d_write_directory_content.Error, d_write_directory_content.Node_Error>(
+        _p.dictionary.parallel<d_directory_content.Node, d_write_directory_content.Error, d_write_directory_content.Node_Error>(
             $p.directory,
             ($, key) => [
                 _pt.cc($, ($) => {
                     switch ($[0]) {
-                        case 'other': return _pt.ss($, ($) => _pc.sequence([]))
+                        case 'other': return _pt.ss($, ($) => _p.sequence([]))
                         case 'file': return _pt.ss($, ($) => $cr['write file'].execute(
                             {
                                 'path': t_path_to_path.create_node_path($p.path, key),

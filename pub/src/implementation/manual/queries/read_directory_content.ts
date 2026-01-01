@@ -1,4 +1,4 @@
-import * as _pq from 'pareto-core-query'
+import * as _p from 'pareto-core-query'
 import * as _pt from 'pareto-core-transformer'
 import * as _pi from 'pareto-core-interface'
 
@@ -7,14 +7,14 @@ import * as d_read_directory_content from "../../../interface/to_be_generated/re
 
 import * as signatures from "../../../interface/signatures"
 
-export const $$: signatures.queries.read_directory_content = _pq.create_query_function(
+export const $$: signatures.queries.read_directory_content = _p.create_query_function(
     ($p, $r) => $r['read directory'](
         {
             'path': $p.path,
         },
         ($): d_read_directory_content.Error => ['read directory', $],
     ).query_without_error_transformation(
-        ($) => _pq.dictionary.parallel(
+        ($) => _p.dictionary.parallel(
             $.map(($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
                 const path = $.path
                 return _pt.cc($['node type'], ($) => {
@@ -33,7 +33,7 @@ export const $$: signatures.queries.read_directory_content = _pq.create_query_fu
                                 ($): d_read_directory_content.Node_Error => ['directory', $]
                             ).transform_result<d_directory_content.Node>(($): d_directory_content.Node => ['directory', $])
                         })
-                        case 'other': return _pt.ss($, ($) => _pq.fixed(['other', null]))
+                        case 'other': return _pt.ss($, ($) => _p.fixed(['other', null]))
                         default: return _pt.au($[0])
                     }
                 })
