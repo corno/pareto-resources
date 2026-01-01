@@ -1,4 +1,4 @@
-import * as _pt from 'pareto-core-transformer'
+import * as _p from 'pareto-core-refiner'
 import * as _pi from 'pareto-core-interface'
 
 import * as d_out from "../../../../../interface/generated/pareto/schemas/path/data_types/target"
@@ -17,14 +17,14 @@ export const Context_Path = (
 
     let intermediate_result: Intermediate_Result = {
 
-        subppath: _pt.list_literal([]),
+        subppath: _p.list_literal([]),
         up_steps: 0,
     }
 
     $.segments.__for_each(($) => {
-        intermediate_result = _pt.cc($, ($): Intermediate_Result => {
+        intermediate_result = _p.cc($, ($): Intermediate_Result => {
             switch ($[0]) {
-                case 'parent': return _pt.ss($, ($) => ({
+                case 'parent': return _p.ss($, ($) => ({
                     'up_steps': intermediate_result.subppath.get_number_of_elements() === 0
                         ? intermediate_result.up_steps + 1
                         : intermediate_result.up_steps,
@@ -33,13 +33,13 @@ export const Context_Path = (
                         : remove_last_element(intermediate_result.subppath),
                     'node': null,
                 }))
-                case 'child': return _pt.ss($, ($): Intermediate_Result => ({
+                case 'child': return _p.ss($, ($): Intermediate_Result => ({
                     'up_steps': intermediate_result.up_steps,
                     'subppath': intermediate_result.subppath.append_element($),
                 }))
-                case 'current': return _pt.ss($, ($) => intermediate_result)
-                case 'nothing': return _pt.ss($, ($) => intermediate_result)
-                default: return _pt.au($[0])
+                case 'current': return _p.ss($, ($) => intermediate_result)
+                case 'nothing': return _p.ss($, ($) => intermediate_result)
+                default: return _p.au($[0])
             }
         })
     })
