@@ -13,6 +13,7 @@ import * as d_log_error from "./generated/pareto/schemas/log_error/data_types/so
 import * as d_make_directory from "./generated/pareto/schemas/make_directory/data_types/source"
 import * as d_read_directory from "./generated/pareto/schemas/read_directory/data_types/source"
 import * as d_read_directory_content from "./to_be_generated/read_directory_content"
+import * as d_read_directory_structure from "./to_be_generated/read_directory_structure"
 import * as d_read_file from "./generated/pareto/schemas/read_file/data_types/source"
 import * as d_remove from "./generated/pareto/schemas/remove/data_types/source"
 import * as d_stat from "./generated/pareto/schemas/stat/data_types/source"
@@ -48,6 +49,7 @@ export namespace queries {
     export type get_instream_data = _pi.Query<d_get_instream_data.Result, null, d_get_instream_data.Parameters>
     export type read_directory = _pi.Query<d_read_directory.Result, d_read_directory.Error, d_read_directory.Parameters>
     export type read_directory_content = _pi.Query<d_read_directory_content.Result, d_read_directory_content.Error, d_read_directory_content.Parameters>
+    export type read_directory_structure = _pi.Query<d_read_directory_structure.Result, d_read_directory_structure.Error, d_read_directory_structure.Parameters>
     export type read_file = _pi.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
     export type stat = _pi.Query<d_stat.Result, d_stat.Error, d_stat.Parameters>
 
