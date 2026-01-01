@@ -22,12 +22,10 @@ _pdev.log_debug_message(`trailing slash: ${x['trailing slash']}`, () => { })
 
 const $ = r_node_path.Node_Path(
     x,
+    ($) => _pinternals.panic(`aborting due to error: ${$[0]}`),
     {
         'pedantic': true,
     },
-    ($) => {
-        _pinternals.panic(`aborting due to error: ${$[0]}`)
-    }
 )
 
 _pt.cc($.context.start, ($) => {

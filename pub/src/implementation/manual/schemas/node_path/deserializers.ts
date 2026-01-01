@@ -16,10 +16,10 @@ import * as x1 from "./refiners/non_normalized_path"
 import * as x2 from "../non_normalized_path/deserializers"
 
 
-export const Node_Path: signatures.Node_Path = ($, $p, abort) => {
+export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
     return x1.Node_Path(
         x2.Non_Normalized_Path($),
-        $p,
         abort,
+        $p,
     )
 }

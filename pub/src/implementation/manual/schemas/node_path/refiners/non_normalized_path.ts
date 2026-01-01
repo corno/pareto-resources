@@ -21,7 +21,7 @@ export namespace signatures {
     export type Node_Path = _pi.Refiner_With_Parameters<d_out.Node_Path, Error, d_in.Non_Normalized_Path, { 'pedantic': boolean }>
 }
 
-export const Node_Path: signatures.Node_Path = ($, $p, abort) => {
+export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
 
     if ($p.pedantic) {
         if ($['trailing slash']) {
