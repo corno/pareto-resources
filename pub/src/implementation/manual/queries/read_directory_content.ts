@@ -1,5 +1,4 @@
 import * as _p from 'pareto-core-query'
-import * as _pt from 'pareto-core-transformer'
 import * as _pi from 'pareto-core-interface'
 
 import * as d_directory_content from "../../../interface/to_be_generated/directory_content"
@@ -17,13 +16,13 @@ export const $$: signatures.queries.read_directory_content = _p.query_function(
         ($) => _p.dictionary.parallel(
             $.map(($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
                 const path = $.path
-                return _pt.cc($['node type'], ($) => {
+                return _p.cc($['node type'], ($) => {
                     switch ($[0]) {
-                        case 'file': return _pt.ss($, ($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $r['read file'](
+                        case 'file': return _p.ss($, ($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $r['read file'](
                             path,
                             ($): d_read_directory_content.Node_Error => ['file', $],
                         ).transform_result<d_directory_content.Node>(($) => ['file', $]))
-                        case 'directory': return _pt.ss($, ($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
+                        case 'directory': return _p.ss($, ($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
                             return $$(
                                 $r,
                             )(
@@ -33,8 +32,8 @@ export const $$: signatures.queries.read_directory_content = _p.query_function(
                                 ($): d_read_directory_content.Node_Error => ['directory', $]
                             ).transform_result<d_directory_content.Node>(($): d_directory_content.Node => ['directory', $])
                         })
-                        case 'other': return _pt.ss($, ($) => _p.direct_result(['other', null]))
-                        default: return _pt.au($[0])
+                        case 'other': return _p.ss($, ($) => _p.direct_result(['other', null]))
+                        default: return _p.au($[0])
                     }
                 })
             }),
