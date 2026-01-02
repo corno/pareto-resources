@@ -7,7 +7,7 @@ import * as d_read_directory_content from "../../../interface/to_be_generated/re
 
 import * as signatures from "../../../interface/signatures"
 
-export const $$: signatures.queries.read_directory_content = _p.create_query_function(
+export const $$: signatures.queries.read_directory_content = _p.query_function(
     ($p, $r) => $r['read directory'](
         {
             'path': $p.path,
@@ -33,7 +33,7 @@ export const $$: signatures.queries.read_directory_content = _p.create_query_fun
                                 ($): d_read_directory_content.Node_Error => ['directory', $]
                             ).transform_result<d_directory_content.Node>(($): d_directory_content.Node => ['directory', $])
                         })
-                        case 'other': return _pt.ss($, ($) => _p.fixed(['other', null]))
+                        case 'other': return _pt.ss($, ($) => _p.direct_result(['other', null]))
                         default: return _pt.au($[0])
                     }
                 })

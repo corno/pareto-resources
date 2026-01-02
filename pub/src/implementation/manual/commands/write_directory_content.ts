@@ -9,7 +9,7 @@ import * as signatures from "../../../interface/signatures"
 
 import * as t_path_to_path from "../schemas/path/transformers/path"
 
-export const $$: signatures.commands.write_directory_content = _p.create_command_procedure(
+export const $$: signatures.commands.write_directory_content = _p.command_procedure(
     ($p, $cr, $qr) => [
         // $cr['make directory'].execute(
         //     $p.path,
@@ -20,7 +20,7 @@ export const $$: signatures.commands.write_directory_content = _p.create_command
             ($, key) => [
                 _pt.cc($, ($) => {
                     switch ($[0]) {
-                        case 'other': return _pt.ss($, ($) => _p.sequence([]))
+                        case 'other': return _pt.ss($, ($) => _p.nothing())
                         case 'file': return _pt.ss($, ($) => $cr['write file'].execute(
                             {
                                 'path': t_path_to_path.create_node_path($p.path, key),
