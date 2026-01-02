@@ -5,7 +5,7 @@ import * as resources from "./resources"
 export namespace commands {
 
     /**
-     * uses a directory structure to write files in a directory structure
+     * uses a directory content representation to write files in a directory structure
      */
     export type write_directory_content = _pi.Command_Procedure<
         resources.commands.write_directory_content,

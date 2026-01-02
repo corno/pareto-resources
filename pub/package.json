@@ -8,7 +8,7 @@
     "dist"
   ],
   "dependencies": {
-    "pareto-core-command": "^0.2.6",
+    "pareto-core-command": "^0.2.7",
     "pareto-core-query": "^0.1.2",
     "pareto-fountain-pen": "^0.3.23"
   }
