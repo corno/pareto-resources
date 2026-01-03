@@ -25,7 +25,7 @@ export const Context_Path = ($: d_in.Context_Path): string => {
                 default: return _pt.au($[0])
             }
         })
-        if ($.subpath.get_number_of_elements() === 0 && $.start[0] === 'absolute' ) {
+        if ($.subpath.is_empty() && $.start[0] === 'absolute' ) {
             $i['add snippet'](`/`)
         }
         $.subpath.__for_each(($) => {

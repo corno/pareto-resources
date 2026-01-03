@@ -40,12 +40,12 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
             switch ($[0]) {
                 case 'parent': return _pt.ss($, ($) => ({
                     'up_steps': intermediate_result.node === null
-                        ? intermediate_result.subppath.get_number_of_elements() === 0
+                        ? intermediate_result.subppath.is_empty()
                             ? intermediate_result.up_steps + 1
                             : intermediate_result.up_steps
                         : intermediate_result.up_steps,
                     'subppath': intermediate_result.node === null
-                        ? intermediate_result.subppath.get_number_of_elements() === 0
+                        ? intermediate_result.subppath.is_empty()
                             ? _pt.list.literal([])
                             : remove_last_element(intermediate_result.subppath)
                         : intermediate_result.subppath,
