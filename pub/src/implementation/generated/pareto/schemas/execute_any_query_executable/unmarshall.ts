@@ -40,7 +40,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
 export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary_literal({
+        'states': _pa.dictionary.literal({
             'failed to spawn': ($): _i_out._T_Error.SG => ['failed to spawn', _i_generic.process_group(
                 $,
                 {

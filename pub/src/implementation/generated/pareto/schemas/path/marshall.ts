@@ -20,7 +20,7 @@ export const Start: _i_signatures._T_Start = ($, $p) => ['state', _pa.cc($, ($):
         }))
         case 'relative': return _pa.ss($, ($) => ({
             'state': "relative",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'up steps': _pa.cc($['up steps'], ($) => Up_Steps(
                     $,
                     {
@@ -36,7 +36,7 @@ export const Context_Subpath: _i_signatures._T_Context_Subpath = ($, $p) => ['li
     'delimiter': ['quote', null],
     'value': $,
 })])]
-export const Context_Path: _i_signatures._T_Context_Path = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Context_Path: _i_signatures._T_Context_Path = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'start': _pa.cc($['start'], ($) => Start(
         $,
         {
@@ -50,7 +50,7 @@ export const Context_Path: _i_signatures._T_Context_Path = ($, $p) => ['verbose 
         }
     )),
 })]
-export const Node_Path: _i_signatures._T_Node_Path = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Node_Path: _i_signatures._T_Node_Path = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'context': _pa.cc($['context'], ($) => Context_Path(
         $,
         {
@@ -62,7 +62,7 @@ export const Node_Path: _i_signatures._T_Node_Path = ($, $p) => ['verbose group'
         'value': $,
     })]),
 })]
-export const Non_Normalized_Path: _i_signatures._T_Non_Normalized_Path = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Non_Normalized_Path: _i_signatures._T_Non_Normalized_Path = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'leading slash': _pa.cc($['leading slash'], ($) => ['text', ({
         'delimiter': ['backtick', null],
         'value': $p['value serializers']['boolean'](

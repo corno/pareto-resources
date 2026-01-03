@@ -17,7 +17,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_r_path.Node
 export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary_literal({
+        'states': _pa.dictionary.literal({
             'node does not exist': ($): _i_out._T_Error.SG => ['node does not exist', _i_generic.process_nothing(
                 $,
                 null
@@ -28,7 +28,7 @@ export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_uncon
 export const Node_Type: _i_signatures._T_Node_Type = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary_literal({
+        'states': _pa.dictionary.literal({
             'file': ($): _i_out._T_Node_Type.SG => ['file', _i_generic.process_nothing(
                 $,
                 null

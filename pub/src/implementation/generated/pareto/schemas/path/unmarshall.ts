@@ -16,7 +16,7 @@ export const Up_Steps: _i_signatures._T_Up_Steps = ($, $p) => _i_generic.process
 export const Start: _i_signatures._T_Start = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary_literal({
+        'states': _pa.dictionary.literal({
             'absolute': ($): _i_out._T_Start.SG => ['absolute', _i_generic.process_nothing(
                 $,
                 null
@@ -133,7 +133,7 @@ export const Non_Normalized_Path: _i_signatures._T_Non_Normalized_Path = ($, $p)
                     'value': ($) => _i_generic.process_unconstrained_state_group(
                         $,
                         {
-                            'states': _pa.dictionary_literal({
+                            'states': _pa.dictionary.literal({
                                 'parent': ($): _i_out._T_Non_Normalized_Path.segments.L.SG => ['parent', _i_generic.process_nothing(
                                     $,
                                     null

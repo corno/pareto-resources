@@ -13,7 +13,7 @@ export const $$: signatures.queries.read_directory_content = _p.query_function(
         },
         ($): d_read_directory_content.Error => ['read directory', $],
     ).query_without_error_transformation(
-        ($) => _p.dictionary.parallel(
+        ($) => _p.dictionaryx.parallel(
             $.map(($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
                 const path = $.path
                 return _p.cc($['node type'], ($) => {

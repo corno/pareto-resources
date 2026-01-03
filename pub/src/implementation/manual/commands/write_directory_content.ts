@@ -15,7 +15,7 @@ export const $$: signatures.commands.write_directory_content = _p.command_proced
         //     $p.path,
         //     ($): inf.Error => ['make directory', $]
         // ),
-        _p.dictionary.parallel<d_directory_content.Node, d_write_directory_content.Error, d_write_directory_content.Node_Error>(
+        _p.dictionaryx.parallel<d_directory_content.Node, d_write_directory_content.Error, d_write_directory_content.Node_Error>(
             $p.directory,
             ($, key) => [
                 _pt.cc($, ($) => {

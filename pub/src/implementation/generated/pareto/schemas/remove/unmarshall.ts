@@ -40,7 +40,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
 export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary_literal({
+        'states': _pa.dictionary.literal({
             'node does not exist': ($): _i_out._T_Error.SG => ['node does not exist', _i_generic.process_nothing(
                 $,
                 null

@@ -30,7 +30,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
     }
     let intermediate_result: Intermediate_Result = {
 
-        subppath: _pt.list_literal([]),
+        subppath: _pt.list.literal([]),
         node: null,
         up_steps: 0,
     }
@@ -46,7 +46,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
                         : intermediate_result.up_steps,
                     'subppath': intermediate_result.node === null
                         ? intermediate_result.subppath.get_number_of_elements() === 0
-                            ? _pt.list_literal([])
+                            ? _pt.list.literal([])
                             : remove_last_element(intermediate_result.subppath)
                         : intermediate_result.subppath,
                     'node': null,

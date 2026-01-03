@@ -6,7 +6,7 @@ import * as _i_out from "../../../../../interface/generated/pareto/core/astn_tar
 import * as _i_r_path from "../path/marshall"
 
 
-export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'path': _pa.cc($['path'], ($) => _i_r_path.Node_Path(
         $,
         {
@@ -44,7 +44,7 @@ export const Node_Type: _i_signatures._T_Node_Type = ($, $p) => ['state', _pa.cc
         default: return _pa.au($[0])
     }
 })]
-export const Result: _i_signatures._T_Result = ($, $p) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary_literal({
+export const Result: _i_signatures._T_Result = ($, $p) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary.literal({
     'node type': _pa.cc($['node type'], ($) => Node_Type(
         $,
         {

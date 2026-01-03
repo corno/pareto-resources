@@ -6,7 +6,7 @@ import * as _i_out from "../../../../../interface/generated/pareto/core/astn_tar
 import * as _i_r_path from "../path/marshall"
 
 
-export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'source': _pa.cc($['source'], ($) => _i_r_path.Node_Path(
         $,
         {
@@ -19,7 +19,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose grou
             'value serializers': $p['value serializers'],
         }
     )),
-    'options': _pa.cc($['options'], ($) => ['verbose group', _pa.dictionary_literal({
+    'options': _pa.cc($['options'], ($) => ['verbose group', _pa.dictionary.literal({
         'recursive': _pa.cc($['recursive'], ($) => ['optional', $.transform(
             ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                 'delimiter': ['backtick', null],

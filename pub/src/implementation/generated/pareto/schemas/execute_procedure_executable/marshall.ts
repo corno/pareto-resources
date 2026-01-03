@@ -5,7 +5,7 @@ import * as _i_signatures from "../../../../../interface/generated/pareto/schema
 import * as _i_out from "../../../../../interface/generated/pareto/core/astn_target"
 
 
-export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'args': _pa.cc($['args'], ($) => ['list', $.map(($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -15,7 +15,7 @@ export const Error: _i_signatures._T_Error = ($, $p) => ['state', _pa.cc($, ($):
     switch ($[0]) {
         case 'failed to spawn': return _pa.ss($, ($) => ({
             'state': "failed to spawn",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'message': _pa.cc($['message'], ($) => ['text', ({
                     'delimiter': ['quote', null],
                     'value': $,
@@ -24,7 +24,7 @@ export const Error: _i_signatures._T_Error = ($, $p) => ['state', _pa.cc($, ($):
         }))
         case 'non zero exit code': return _pa.ss($, ($) => ({
             'state': "non zero exit code",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'exit code': _pa.cc($['exit code'], ($) => ['optional', $.transform(
                     ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                         'delimiter': ['backtick', null],

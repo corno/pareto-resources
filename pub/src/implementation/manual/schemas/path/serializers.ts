@@ -7,7 +7,7 @@ export const Node_Path = ($: d_in.Node_Path): string => {
 }
 
 export const Context_Path = ($: d_in.Context_Path): string => {
-    return _pt.build_text(($i) => {
+    return _pt.text.build(($i) => {
         _pt.cc($.start, ($) => {
             switch ($[0]) {
                 case 'absolute': return _pt.ss($, ($) => {
