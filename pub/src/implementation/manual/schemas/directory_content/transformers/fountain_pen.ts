@@ -19,13 +19,11 @@ import * as t_read_file_to_fountain_pen from "../../read_file/transformers/fount
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
 export const Node_Error: signatures.Node_Error = ($) => _p.cc($, ($) => {
-    return _p.cc($, ($) => {
-        switch ($[0]) {
-            case 'file': return _p.ss($, ($) => t_read_file_to_fountain_pen.Error($))
-            case 'directory': return _p.ss($, ($) => Error($))
-            default: return _p.au($[0])
-        }
-    })
+    switch ($[0]) {
+        case 'file': return _p.ss($, ($) => t_read_file_to_fountain_pen.Error($))
+        case 'directory': return _p.ss($, ($) => Error($))
+        default: return _p.au($[0])
+    }
 })
 
 export const Error: signatures.Error = ($) => _p.cc($, ($) => {
