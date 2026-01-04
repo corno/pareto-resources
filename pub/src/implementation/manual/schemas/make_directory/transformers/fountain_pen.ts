@@ -8,12 +8,10 @@ export type Error = _pi.Transformer<d_in.Error, d_out.Block_Part>
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
-export const Error: Error = ($) => {
-    return _p.cc($, ($) => {
-        switch ($[0]) {
-            case 'directory already exists': return _p.ss($, ($) => sh.b.snippet(`directory already exists`))
-            case 'permission denied': return _p.ss($, ($) => sh.b.snippet(`permission denied`))
-            default: return _p.au($[0])
-        }
-    })
-}
+export const Error: Error = ($) => _p.cc($, ($) => {
+    switch ($[0]) {
+        case 'directory already exists': return _p.ss($, ($) => sh.b.snippet(`directory already exists`))
+        case 'permission denied': return _p.ss($, ($) => sh.b.snippet(`permission denied`))
+        default: return _p.au($[0])
+    }
+})

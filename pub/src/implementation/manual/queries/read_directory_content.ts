@@ -22,16 +22,14 @@ export const $$: signatures.queries.read_directory_content = _p.query_function(
                             path,
                             ($): d_read_directory_content.Node_Error => ['file', $],
                         ).transform_result<d_directory_content.Node>(($) => ['file', $]))
-                        case 'directory': return _p.ss($, ($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
-                            return $$(
-                                $r,
-                            )(
-                                {
-                                    'path': path,
-                                },
-                                ($): d_read_directory_content.Node_Error => ['directory', $]
-                            ).transform_result<d_directory_content.Node>(($): d_directory_content.Node => ['directory', $])
-                        })
+                        case 'directory': return _p.ss($, ($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $$(
+                            $r,
+                        )(
+                            {
+                                'path': path,
+                            },
+                            ($): d_read_directory_content.Node_Error => ['directory', $]
+                        ).transform_result<d_directory_content.Node>(($): d_directory_content.Node => ['directory', $]))
                         case 'other': return _p.ss($, ($) => _p.direct_result(['other', null]))
                         default: return _p.au($[0])
                     }
