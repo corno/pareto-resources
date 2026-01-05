@@ -18,16 +18,14 @@ export const $$: signatures.queries.read_directory_structure = _p.query_function
                 const path = $.path
                 return _p.cc($['node type'], ($) => {
                     switch ($[0]) {
-                        case 'directory': return _p.ss($, ($): _pi.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => {
-                            return $$(
-                                $r,
-                            )(
-                                {
-                                    'path': path,
-                                },
-                                ($): d_read_directory_structure.Node_Error => ['directory', $]
-                            ).transform_result<d_directory_structure.Node>(($): d_directory_structure.Node => ['directory', $])
-                        })
+                        case 'directory': return _p.ss($, ($): _pi.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => $$(
+                            $r,
+                        )(
+                            {
+                                'path': path,
+                            },
+                            ($): d_read_directory_structure.Node_Error => ['directory', $]
+                        ).transform_result<d_directory_structure.Node>(($): d_directory_structure.Node => ['directory', $]))
                         case 'file': return _p.ss($, ($) => _p.direct_result(['file', null]))
                         case 'other': return _p.ss($, ($) => _p.direct_result(['other', null]))
                         default: return _p.au($[0])
