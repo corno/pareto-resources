@@ -18,7 +18,7 @@ import * as t_read_file_to_fountain_pen from "../../read_file/transformers/fount
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
-export const Node_Error: signatures.Node_Error = ($) => _p.cc($, ($) => {
+export const Node_Error: signatures.Node_Error = ($) => _p.sg($, ($) => {
     switch ($[0]) {
         case 'file': return _p.ss($, ($) => t_read_file_to_fountain_pen.Error($))
         case 'directory': return _p.ss($, ($) => Error($))
@@ -26,10 +26,10 @@ export const Node_Error: signatures.Node_Error = ($) => _p.cc($, ($) => {
     }
 })
 
-export const Error: signatures.Error = ($) => _p.cc($, ($) => {
+export const Error: signatures.Error = ($) => _p.sg($, ($) => {
     switch ($[0]) {
         case 'directory content processing': return _p.ss($, ($) => sh.b.indent([
-            sh.g.sub($.to_list(($, key) => sh.g.nested_block([
+            sh.g.sub(_p.list.from_dictionary($, ($, key) => sh.g.nested_block([
                 sh.b.snippet(`${key}: `),
                 Node_Error($)
             ])))

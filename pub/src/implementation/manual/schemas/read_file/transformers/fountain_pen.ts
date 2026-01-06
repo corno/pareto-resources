@@ -10,7 +10,7 @@ export type Error = _pi.Transformer<d_in.Error, d_out.Block_Part>
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
 export const Error: Error = ($) => {
-    return _p.cc($, ($) => {
+    return _p.sg($, ($) => {
         switch ($[0]) {
             case 'permission denied': return _p.ss($, ($) => sh.b.snippet(`permission denied`))
             case 'file does not exist': return _p.ss($, ($) => sh.b.snippet(`file does not exist`))

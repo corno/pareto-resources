@@ -11,7 +11,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
     $,
     {
         'properties': ($) => ({
-            'program': _pa.cc(_i_generic.get_entry(
+            'program': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "program",
@@ -20,7 +20,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                 $,
                 null
             )),
-            'args': _pa.cc(_i_generic.get_entry(
+            'args': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "args",
@@ -45,7 +45,7 @@ export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_uncon
                 $,
                 {
                     'properties': ($) => ({
-                        'message': _pa.cc(_i_generic.get_entry(
+                        'message': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "message",
@@ -61,7 +61,7 @@ export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_uncon
                 $,
                 {
                     'properties': ($) => ({
-                        'exit code': _pa.cc(_i_generic.get_entry(
+                        'exit code': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "exit code",
@@ -77,7 +77,7 @@ export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_uncon
                                 ),
                             }
                         )),
-                        'stderr': _pa.cc(_i_generic.get_entry(
+                        'stderr': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "stderr",
@@ -86,7 +86,7 @@ export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_uncon
                             $,
                             null
                         )),
-                        'stdout': _pa.cc(_i_generic.get_entry(
+                        'stdout': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "stdout",

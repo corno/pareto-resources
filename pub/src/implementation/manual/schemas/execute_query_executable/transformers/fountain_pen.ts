@@ -13,7 +13,7 @@ export namespace signatures {
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
-export const Error: signatures.Error = ($) => _p.cc($, ($) => {
+export const Error: signatures.Error = ($) => _p.sg($, ($) => {
     switch ($[0]) {
         case 'failed to spawn': return _p.ss($, ($) => sh.b.snippet(`failed to spawn process: ${$.message}`))
         case 'non zero exit code': return _p.ss($, ($) => sh.b.sub([

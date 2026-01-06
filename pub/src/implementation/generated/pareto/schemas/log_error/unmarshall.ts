@@ -11,7 +11,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
     $,
     {
         'properties': ($) => ({
-            'lines': _pa.cc(_i_generic.get_entry(
+            'lines': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "lines",

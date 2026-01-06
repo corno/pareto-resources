@@ -7,14 +7,14 @@ import * as _i_r_path from "../path/marshall"
 
 
 export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
-    'path': _pa.cc($['path'], ($) => _i_r_path.Node_Path(
+    'path': _pa.deprecated_cc($['path'], ($) => _i_r_path.Node_Path(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )),
 })]
-export const Error: _i_signatures._T_Error = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Error: _i_signatures._T_Error = ($, $p) => ['state', _pa.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'directory does not exist': return _pa.ss($, ($) => ({
             'state': "directory does not exist",
@@ -27,7 +27,7 @@ export const Error: _i_signatures._T_Error = ($, $p) => ['state', _pa.cc($, ($):
         default: return _pa.au($[0])
     }
 })]
-export const Node_Type: _i_signatures._T_Node_Type = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Node_Type: _i_signatures._T_Node_Type = ($, $p) => ['state', _pa.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'file': return _pa.ss($, ($) => ({
             'state': "file",
@@ -45,19 +45,19 @@ export const Node_Type: _i_signatures._T_Node_Type = ($, $p) => ['state', _pa.cc
     }
 })]
 export const Result: _i_signatures._T_Result = ($, $p) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary.literal({
-    'node type': _pa.cc($['node type'], ($) => Node_Type(
+    'node type': _pa.deprecated_cc($['node type'], ($) => Node_Type(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )),
-    'context directory': _pa.cc($['context directory'], ($) => _i_r_path.Context_Path(
+    'context directory': _pa.deprecated_cc($['context directory'], ($) => _i_r_path.Context_Path(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )),
-    'path': _pa.cc($['path'], ($) => _i_r_path.Node_Path(
+    'path': _pa.deprecated_cc($['path'], ($) => _i_r_path.Node_Path(
         $,
         {
             'value serializers': $p['value serializers'],

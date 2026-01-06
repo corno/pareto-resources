@@ -12,7 +12,7 @@ export const Up_Steps: _i_signatures._T_Up_Steps = ($, $p) => ['text', ({
         null
     ),
 })]
-export const Start: _i_signatures._T_Start = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Start: _i_signatures._T_Start = ($, $p) => ['state', _pa.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'absolute': return _pa.ss($, ($) => ({
             'state': "absolute",
@@ -21,7 +21,7 @@ export const Start: _i_signatures._T_Start = ($, $p) => ['state', _pa.cc($, ($):
         case 'relative': return _pa.ss($, ($) => ({
             'state': "relative",
             'value': ['verbose group', _pa.dictionary.literal({
-                'up steps': _pa.cc($['up steps'], ($) => Up_Steps(
+                'up steps': _pa.deprecated_cc($['up steps'], ($) => Up_Steps(
                     $,
                     {
                         'value serializers': $p['value serializers'],
@@ -37,13 +37,13 @@ export const Context_Subpath: _i_signatures._T_Context_Subpath = ($, $p) => ['li
     'value': $,
 })])]
 export const Context_Path: _i_signatures._T_Context_Path = ($, $p) => ['verbose group', _pa.dictionary.literal({
-    'start': _pa.cc($['start'], ($) => Start(
+    'start': _pa.deprecated_cc($['start'], ($) => Start(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )),
-    'subpath': _pa.cc($['subpath'], ($) => Context_Subpath(
+    'subpath': _pa.deprecated_cc($['subpath'], ($) => Context_Subpath(
         $,
         {
             'value serializers': $p['value serializers'],
@@ -51,26 +51,26 @@ export const Context_Path: _i_signatures._T_Context_Path = ($, $p) => ['verbose 
     )),
 })]
 export const Node_Path: _i_signatures._T_Node_Path = ($, $p) => ['verbose group', _pa.dictionary.literal({
-    'context': _pa.cc($['context'], ($) => Context_Path(
+    'context': _pa.deprecated_cc($['context'], ($) => Context_Path(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )),
-    'node': _pa.cc($['node'], ($) => ['text', ({
+    'node': _pa.deprecated_cc($['node'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]),
 })]
 export const Non_Normalized_Path: _i_signatures._T_Non_Normalized_Path = ($, $p) => ['verbose group', _pa.dictionary.literal({
-    'leading slash': _pa.cc($['leading slash'], ($) => ['text', ({
+    'leading slash': _pa.deprecated_cc($['leading slash'], ($) => ['text', ({
         'delimiter': ['backtick', null],
         'value': $p['value serializers']['boolean'](
             $,
             null
         ),
     })]),
-    'segments': _pa.cc($['segments'], ($) => ['list', $.map(($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+    'segments': _pa.deprecated_cc($['segments'], ($) => ['list', $.map(($) => ['state', _pa.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
         switch ($[0]) {
             case 'parent': return _pa.ss($, ($) => ({
                 'state': "parent",
@@ -94,7 +94,7 @@ export const Non_Normalized_Path: _i_signatures._T_Non_Normalized_Path = ($, $p)
             default: return _pa.au($[0])
         }
     })])]),
-    'trailing slash': _pa.cc($['trailing slash'], ($) => ['text', ({
+    'trailing slash': _pa.deprecated_cc($['trailing slash'], ($) => ['text', ({
         'delimiter': ['backtick', null],
         'value': $p['value serializers']['boolean'](
             $,

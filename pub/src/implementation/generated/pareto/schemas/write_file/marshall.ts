@@ -7,18 +7,18 @@ import * as _i_r_path from "../path/marshall"
 
 
 export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
-    'path': _pa.cc($['path'], ($) => _i_r_path.Node_Path(
+    'path': _pa.deprecated_cc($['path'], ($) => _i_r_path.Node_Path(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )),
-    'data': _pa.cc($['data'], ($) => ['text', ({
+    'data': _pa.deprecated_cc($['data'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]),
 })]
-export const Error: _i_signatures._T_Error = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Error: _i_signatures._T_Error = ($, $p) => ['state', _pa.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'permission denied': return _pa.ss($, ($) => ({
             'state': "permission denied",

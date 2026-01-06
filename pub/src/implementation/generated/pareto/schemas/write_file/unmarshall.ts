@@ -12,7 +12,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
     $,
     {
         'properties': ($) => ({
-            'path': _pa.cc(_i_generic.get_entry(
+            'path': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "path",
@@ -23,7 +23,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'data': _pa.cc(_i_generic.get_entry(
+            'data': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "data",

@@ -7,13 +7,13 @@ import * as _i_r_path from "../path/marshall"
 
 
 export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
-    'path': _pa.cc($['path'], ($) => _i_r_path.Node_Path(
+    'path': _pa.deprecated_cc($['path'], ($) => _i_r_path.Node_Path(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )),
-    'error if not exists': _pa.cc($['error if not exists'], ($) => ['text', ({
+    'error if not exists': _pa.deprecated_cc($['error if not exists'], ($) => ['text', ({
         'delimiter': ['backtick', null],
         'value': $p['value serializers']['boolean'](
             $,
@@ -21,7 +21,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose grou
         ),
     })]),
 })]
-export const Error: _i_signatures._T_Error = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Error: _i_signatures._T_Error = ($, $p) => ['state', _pa.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'node does not exist': return _pa.ss($, ($) => ({
             'state': "node does not exist",

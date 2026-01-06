@@ -22,20 +22,25 @@ export const Context_Path = (
     }
 
     $.segments.__for_each(($) => {
-        intermediate_result = _p.cc($, ($): Intermediate_Result => {
+        intermediate_result = _p.sg($, ($): Intermediate_Result => {
             switch ($[0]) {
                 case 'parent': return _p.ss($, ($) => ({
-                    'up_steps': intermediate_result.subppath.is_empty()
+                    'up_steps': _p.boolean.list_is_empty(intermediate_result.subppath)
                         ? intermediate_result.up_steps + 1
                         : intermediate_result.up_steps,
-                    'subppath': intermediate_result.subppath.is_empty()
+                    'subppath': _p.boolean.list_is_empty(intermediate_result.subppath)
                         ? intermediate_result.subppath
                         : remove_last_element(intermediate_result.subppath),
                     'node': null,
                 }))
                 case 'child': return _p.ss($, ($): Intermediate_Result => ({
                     'up_steps': intermediate_result.up_steps,
-                    'subppath': intermediate_result.subppath.append_element($),
+                    'subppath': _p.list.nested_literal([
+                        intermediate_result.subppath,
+                        [
+                            $
+                        ]
+                    ]),
                 }))
                 case 'current': return _p.ss($, ($) => intermediate_result)
                 case 'nothing': return _p.ss($, ($) => intermediate_result)

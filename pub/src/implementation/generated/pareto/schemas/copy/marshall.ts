@@ -7,20 +7,20 @@ import * as _i_r_path from "../path/marshall"
 
 
 export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
-    'source': _pa.cc($['source'], ($) => _i_r_path.Node_Path(
+    'source': _pa.deprecated_cc($['source'], ($) => _i_r_path.Node_Path(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )),
-    'target': _pa.cc($['target'], ($) => _i_r_path.Node_Path(
+    'target': _pa.deprecated_cc($['target'], ($) => _i_r_path.Node_Path(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )),
-    'options': _pa.cc($['options'], ($) => ['verbose group', _pa.dictionary.literal({
-        'recursive': _pa.cc($['recursive'], ($) => ['optional', $.transform(
+    'options': _pa.deprecated_cc($['options'], ($) => ['verbose group', _pa.dictionary.literal({
+        'recursive': _pa.deprecated_cc($['recursive'], ($) => ['optional', $.transform(
             ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                 'delimiter': ['backtick', null],
                 'value': $p['value serializers']['boolean'](
@@ -30,7 +30,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose grou
             })]],
             () => ['not set', null]
         )]),
-        'force': _pa.cc($['force'], ($) => ['optional', $.transform(
+        'force': _pa.deprecated_cc($['force'], ($) => ['optional', $.transform(
             ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                 'delimiter': ['backtick', null],
                 'value': $p['value serializers']['boolean'](
@@ -40,7 +40,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose grou
             })]],
             () => ['not set', null]
         )]),
-        'errorOnExist': _pa.cc($['errorOnExist'], ($) => ['optional', $.transform(
+        'errorOnExist': _pa.deprecated_cc($['errorOnExist'], ($) => ['optional', $.transform(
             ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                 'delimiter': ['backtick', null],
                 'value': $p['value serializers']['boolean'](
@@ -52,7 +52,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose grou
         )]),
     })]),
 })]
-export const Error: _i_signatures._T_Error = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Error: _i_signatures._T_Error = ($, $p) => ['state', _pa.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'source does not exist': return _pa.ss($, ($) => ({
             'state': "source does not exist",

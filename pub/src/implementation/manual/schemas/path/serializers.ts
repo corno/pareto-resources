@@ -1,4 +1,4 @@
-import * as _pt from 'pareto-core-serializer'
+import * as _p from 'pareto-core-serializer'
 
 import * as d_in from "../../../../interface/generated/pareto/schemas/path/data_types/target"
 
@@ -7,13 +7,13 @@ export const Node_Path = ($: d_in.Node_Path): string => {
 }
 
 export const Context_Path = ($: d_in.Context_Path): string => {
-    return _pt.text.build(($i) => {
-        _pt.cc($.start, ($) => {
+    return _p.text.deprecated_build(($i) => {
+        _p.sg($.start, ($) => {
             switch ($[0]) {
-                case 'absolute': return _pt.ss($, ($) => {
+                case 'absolute': return _p.ss($, ($) => {
                     // $i['add character'](47) // '/'
                 })
-                case 'relative': return _pt.ss($, ($) => {
+                case 'relative': return _p.ss($, ($) => {
                     $i['add snippet'](`.`)
 
                     let k = $['up steps']
@@ -22,10 +22,10 @@ export const Context_Path = ($: d_in.Context_Path): string => {
                         k -= 1
                     }
                 })
-                default: return _pt.au($[0])
+                default: return _p.au($[0])
             }
         })
-        if ($.subpath.is_empty() && $.start[0] === 'absolute' ) {
+        if (_p.boolean.list_is_empty($.subpath) && $.start[0] === 'absolute' ) {
             $i['add snippet'](`/`)
         }
         $.subpath.__for_each(($) => {

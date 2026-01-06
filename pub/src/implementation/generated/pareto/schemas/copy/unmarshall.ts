@@ -12,7 +12,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
     $,
     {
         'properties': ($) => ({
-            'source': _pa.cc(_i_generic.get_entry(
+            'source': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "source",
@@ -23,7 +23,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'target': _pa.cc(_i_generic.get_entry(
+            'target': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "target",
@@ -34,7 +34,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'options': _pa.cc(_i_generic.get_entry(
+            'options': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "options",
@@ -43,7 +43,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                 $,
                 {
                     'properties': ($) => ({
-                        'recursive': _pa.cc(_i_generic.get_entry(
+                        'recursive': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "recursive",
@@ -59,7 +59,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                                 ),
                             }
                         )),
-                        'force': _pa.cc(_i_generic.get_entry(
+                        'force': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "force",
@@ -75,7 +75,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                                 ),
                             }
                         )),
-                        'errorOnExist': _pa.cc(_i_generic.get_entry(
+                        'errorOnExist': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "errorOnExist",

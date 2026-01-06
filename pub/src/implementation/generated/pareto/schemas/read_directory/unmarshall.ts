@@ -12,7 +12,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
     $,
     {
         'properties': ($) => ({
-            'path': _pa.cc(_i_generic.get_entry(
+            'path': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "path",
@@ -67,7 +67,7 @@ export const Result: _i_signatures._T_Result = ($, $p) => _i_generic.process_unc
             $,
             {
                 'properties': ($) => ({
-                    'node type': _pa.cc(_i_generic.get_entry(
+                    'node type': _pa.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "node type",
@@ -78,7 +78,7 @@ export const Result: _i_signatures._T_Result = ($, $p) => _i_generic.process_unc
                             'value deserializers': $p['value deserializers'],
                         }
                     )),
-                    'context directory': _pa.cc(_i_generic.get_entry(
+                    'context directory': _pa.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "context directory",
@@ -89,7 +89,7 @@ export const Result: _i_signatures._T_Result = ($, $p) => _i_generic.process_unc
                             'value deserializers': $p['value deserializers'],
                         }
                     )),
-                    'path': _pa.cc(_i_generic.get_entry(
+                    'path': _pa.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "path",

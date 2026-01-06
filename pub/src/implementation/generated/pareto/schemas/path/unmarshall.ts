@@ -25,7 +25,7 @@ export const Start: _i_signatures._T_Start = ($, $p) => _i_generic.process_uncon
                 $,
                 {
                     'properties': ($) => ({
-                        'up steps': _pa.cc(_i_generic.get_entry(
+                        'up steps': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "up steps",
@@ -55,7 +55,7 @@ export const Context_Path: _i_signatures._T_Context_Path = ($, $p) => _i_generic
     $,
     {
         'properties': ($) => ({
-            'start': _pa.cc(_i_generic.get_entry(
+            'start': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "start",
@@ -66,7 +66,7 @@ export const Context_Path: _i_signatures._T_Context_Path = ($, $p) => _i_generic
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'subpath': _pa.cc(_i_generic.get_entry(
+            'subpath': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "subpath",
@@ -84,7 +84,7 @@ export const Node_Path: _i_signatures._T_Node_Path = ($, $p) => _i_generic.proce
     $,
     {
         'properties': ($) => ({
-            'context': _pa.cc(_i_generic.get_entry(
+            'context': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "context",
@@ -95,7 +95,7 @@ export const Node_Path: _i_signatures._T_Node_Path = ($, $p) => _i_generic.proce
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'node': _pa.cc(_i_generic.get_entry(
+            'node': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "node",
@@ -111,7 +111,7 @@ export const Non_Normalized_Path: _i_signatures._T_Non_Normalized_Path = ($, $p)
     $,
     {
         'properties': ($) => ({
-            'leading slash': _pa.cc(_i_generic.get_entry(
+            'leading slash': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "leading slash",
@@ -122,7 +122,7 @@ export const Non_Normalized_Path: _i_signatures._T_Non_Normalized_Path = ($, $p)
                     'deserializer': $p['value deserializers']['boolean'],
                 }
             )),
-            'segments': _pa.cc(_i_generic.get_entry(
+            'segments': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "segments",
@@ -155,7 +155,7 @@ export const Non_Normalized_Path: _i_signatures._T_Non_Normalized_Path = ($, $p)
                     ),
                 }
             )),
-            'trailing slash': _pa.cc(_i_generic.get_entry(
+            'trailing slash': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "trailing slash",

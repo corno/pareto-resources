@@ -10,7 +10,12 @@ export const extend_context_path = (
     }
 ): d_path.Context_Path => ({
     'start': $.start,
-    'subpath': $.subpath.append_element($p.addition)
+    'subpath': _p.list.nested_literal([
+        $.subpath,
+        [
+            $p.addition
+        ]
+    ]),
 })
 
 export const extend_node_path = (

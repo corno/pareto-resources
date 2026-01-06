@@ -1,6 +1,5 @@
 import * as _p from 'pareto-core-deserializer'
 import * as _pi from 'pareto-core-interface'
-import * as _pinternals from 'pareto-core-internals'
 
 import { build_list_with_loop, build_text_with_loop } from '../../../temp/temp_core'
 
@@ -9,14 +8,14 @@ import * as d_out from "../../../../interface/generated/pareto/schemas/path/data
 export const Non_Normalized_Path = (
     $: string
 ): d_out.Non_Normalized_Path => {
-    return _p.iterate_partially(
+    return _p.iterate(
         _p.list.from_text($, ($) => $),
         (iterator) => {
             return {
                 'leading slash': iterator.look().transform(
                     ($) => {
                         if ($ === 47) { // '/'
-                            iterator.discard()
+                            iterator.discard(() => null)
                             return true
                         } else {
                             return false
@@ -25,11 +24,11 @@ export const Non_Normalized_Path = (
                     () => false
                 ),
                 'segments': build_list_with_loop<number, d_out.Non_Normalized_Path.segments.L>(iterator, ($, $i) => {
-                    $i['add element'](_pinternals.cc(
+                    $i['add element'](_p.deprecated_cc(
                         build_text_with_loop(iterator, ($, $i) => {
                             if ($ !== 47) { // '/'
                                 $i['add character']($)
-                                iterator.discard()
+                                iterator.discard(() => null)
                                 return false
                             } else {
                                 return true
@@ -47,12 +46,12 @@ export const Non_Normalized_Path = (
                     return iterator.look().transform(
                         ($) => {
                             if ($ !== 47) { // '/'
-                                _pinternals.panic(`Expected '/' but got character code ${$}`)
+                                _p.unreachable_code_path()
                             }
                             return iterator['look ahead'](1).transform(
                                 () => {
                                     // There's more content after the slash, consume and continue
-                                    iterator.discard()
+                                    iterator.discard(() => null)
                                     return false
                                 },
                                 () => {
@@ -67,7 +66,7 @@ export const Non_Normalized_Path = (
                 'trailing slash': iterator.look().transform(
                     ($) => {
                         if ($ === 47) { // '/'
-                            iterator.discard()
+                            iterator.discard(() => null)
                             return true
                         } else {
                             return false
