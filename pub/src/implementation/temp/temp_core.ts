@@ -24,10 +24,12 @@ export const loop = (callback: () => boolean) => {
 }
 
 export const loop_elements = <T>(iterator: _pi.Iterator<T>, callback: ($: T) => boolean) => {
-    loop(() => iterator.look().transform(
-        ($) => callback($),
-        () => true
-    ))
+    loop(() => {
+        const next = iterator.look()
+        return next === null
+            ? true
+            : callback(next[0])
+    })
 }
 
 export const build_list_with_loop = <Iterator_Element, List_Element>(

@@ -12,17 +12,19 @@ export const Non_Normalized_Path = (
         _p.list.from_text($, ($) => $),
         (iterator) => {
             return {
-                'leading slash': iterator.look().transform(
-                    ($) => {
-                        if ($ === 47) { // '/'
+                'leading slash': (() => {
+                    const next = iterator.look()
+                    if (next === null) {
+                        return false
+                    } else {
+                        if (next[0] === 47) { // '/'
                             iterator.discard(() => null)
                             return true
                         } else {
                             return false
                         }
-                    },
-                    () => false
-                ),
+                    }
+                })(),
                 'segments': build_list_with_loop<number, d_out.Non_Normalized_Path.segments.L>(iterator, ($, $i) => {
                     $i['add element'](_p.deprecated_cc(
                         build_text_with_loop(iterator, ($, $i) => {
@@ -43,37 +45,39 @@ export const Non_Normalized_Path = (
                             }
                         })
                     )
-                    return iterator.look().transform(
-                        ($) => {
-                            if ($ !== 47) { // '/'
-                                _p.unreachable_code_path()
-                            }
-                            return iterator['look ahead'](1).transform(
-                                () => {
-                                    // There's more content after the slash, consume and continue
-                                    iterator.discard(() => null)
-                                    return false
-                                },
-                                () => {
-                                    // No more content, this is a trailing slash - don't consume, stop loop
-                                    return true
-                                }
-                            )
-                        },
-                        () => true
-                    )
+                    const next = iterator.look()
+                    if (next === null) {
+                        return true
+                    } else {
+                        if (next[0] !== 47) { // '/'
+                           return _p.unreachable_code_path()
+                        } else {
+                           const la = iterator['look ahead'](1)
+                           if (la === null) {
+                               // There's no more content after the slash, this is a trailing slash - don't consume, stop loop
+                               return true
+                           } else {
+                               // There's more content after the slash, consume and continue
+                               iterator.discard(() => null)
+                               return false
+                           }
+                        }
+                    }
                 }),
-                'trailing slash': iterator.look().transform(
-                    ($) => {
-                        if ($ === 47) { // '/'
+                'trailing slash': (() => {
+                    
+                    const next = iterator.look()
+                    if (next === null) {
+                        return false
+                    } else {
+                        if (next[0] === 47) { // '/'
                             iterator.discard(() => null)
                             return true
                         } else {
                             return false
                         }
-                    },
-                    () => false
-                ),
+                    }
+                })(),
             }
 
         }
