@@ -1,12 +1,12 @@
 import * as _pi from 'pareto-core-interface'
 
 import * as d_copy from "./generated/pareto/schemas/copy/data_types/source"
-import * as d_execute_any_command_procedure from "./generated/pareto/schemas/execute_any_procedure_executable/data_types/source"
+import * as d_execute_any_command_command from "./generated/pareto/schemas/execute_any_command_executable/data_types/source"
 import * as d_execute_query_executable from "./generated/pareto/schemas/execute_query_executable/data_types/source"
 import * as d_execute_any_query_executable from "./generated/pareto/schemas/execute_any_query_executable/data_types/source"
-import * as d_execute_any_smelly_command_procedure from "./generated/pareto/schemas/execute_any_smelly_procedure_executable/data_types/source"
-import * as d_execute_smelly_command_procedure from "./generated/pareto/schemas/execute_smelly_procedure_executable/data_types/source"
-import * as d_execute_command_procedure from "./generated/pareto/schemas/execute_procedure_executable/data_types/source"
+import * as d_execute_any_smelly_command_executable from "./generated/pareto/schemas/execute_any_smelly_command_executable/data_types/source"
+import * as d_execute_smelly_command_command from "./generated/pareto/schemas/execute_smelly_command_executable/data_types/source"
+import * as d_execute_command_command from "./generated/pareto/schemas/execute_command_executable/data_types/source"
 import * as d_get_instream_data from "./generated/pareto/schemas/get_instream_data/data_types/source"
 import * as d_log from "./generated/pareto/schemas/log/data_types/source"
 import * as d_log_error from "./generated/pareto/schemas/log_error/data_types/source"
@@ -27,10 +27,10 @@ import * as d_main from "./to_be_generated/temp_main"
 export namespace commands {
 
     export type copy = _pi.Command<d_copy.Error, d_copy.Parameters>
-    export type execute_any_command_executable = _pi.Command<d_execute_any_command_procedure.Error, d_execute_any_command_procedure.Parameters>
-    export type execute_any_smelly_command_executable = _pi.Command<d_execute_any_smelly_command_procedure.Error, d_execute_any_smelly_command_procedure.Parameters>
-    export type execute_smelly_command_executable = _pi.Command<d_execute_smelly_command_procedure.Error, d_execute_smelly_command_procedure.Parameters>
-    export type execute_command_executable = _pi.Command<d_execute_command_procedure.Error, d_execute_command_procedure.Parameters>
+    export type execute_any_command_executable = _pi.Command<d_execute_any_command_command.Error, d_execute_any_command_command.Parameters>
+    export type execute_any_smelly_command_executable = _pi.Command<d_execute_any_smelly_command_executable.Error, d_execute_any_smelly_command_executable.Parameters>
+    export type execute_smelly_command_executable = _pi.Command<d_execute_smelly_command_command.Error, d_execute_smelly_command_command.Parameters>
+    export type execute_command_executable = _pi.Command<d_execute_command_command.Error, d_execute_command_command.Parameters>
     export type log = _pi.Command<null, d_log.Parameters>
     export type log_error = _pi.Command<null, d_log_error.Parameters>
     export type main = _pi.Command<d_main.Error, d_main.Parameters>

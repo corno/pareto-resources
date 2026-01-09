@@ -1,26 +1,26 @@
-import * as _pa from 'pareto-core-transformer'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-transformer'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/copy/marshall"
 import * as _i_out from "../../../../../interface/generated/pareto/core/astn_target"
 import * as _i_r_path from "../path/marshall"
 
 
-export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose group', _pa.dictionary.literal({
-    'source': _pa.deprecated_cc($['source'], ($) => _i_r_path.Node_Path(
+export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose group', _p.dictionary.literal({
+    'source': _p.deprecated_cc($['source'], ($) => _i_r_path.Node_Path(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )),
-    'target': _pa.deprecated_cc($['target'], ($) => _i_r_path.Node_Path(
+    'target': _p.deprecated_cc($['target'], ($) => _i_r_path.Node_Path(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )),
-    'options': _pa.deprecated_cc($['options'], ($) => ['verbose group', _pa.dictionary.literal({
-        'recursive': _pa.deprecated_cc($['recursive'], ($) => ['optional', $.transform(
+    'options': _p.deprecated_cc($['options'], ($) => ['verbose group', _p.dictionary.literal({
+        'recursive': _p.deprecated_cc($['recursive'], ($) => ['optional', $.transform(
             ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                 'delimiter': ['backtick', null],
                 'value': $p['value serializers']['boolean'](
@@ -30,7 +30,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose grou
             })]],
             () => ['not set', null]
         )]),
-        'force': _pa.deprecated_cc($['force'], ($) => ['optional', $.transform(
+        'force': _p.deprecated_cc($['force'], ($) => ['optional', $.transform(
             ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                 'delimiter': ['backtick', null],
                 'value': $p['value serializers']['boolean'](
@@ -40,7 +40,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose grou
             })]],
             () => ['not set', null]
         )]),
-        'errorOnExist': _pa.deprecated_cc($['errorOnExist'], ($) => ['optional', $.transform(
+        'errorOnExist': _p.deprecated_cc($['errorOnExist'], ($) => ['optional', $.transform(
             ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                 'delimiter': ['backtick', null],
                 'value': $p['value serializers']['boolean'](
@@ -52,28 +52,28 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose grou
         )]),
     })]),
 })]
-export const Error: _i_signatures._T_Error = ($, $p) => ['state', _pa.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
+export const Error: _i_signatures._T_Error = ($, $p) => ['state', _p.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
-        case 'source does not exist': return _pa.ss($, ($) => ({
+        case 'source does not exist': return _p.ss($, ($) => ({
             'state': "source does not exist",
             'value': ['nothing', null],
         }))
-        case 'node is not a file': return _pa.ss($, ($) => ({
+        case 'node is not a file': return _p.ss($, ($) => ({
             'state': "node is not a file",
             'value': ['nothing', null],
         }))
-        case 'permission denied': return _pa.ss($, ($) => ({
+        case 'permission denied': return _p.ss($, ($) => ({
             'state': "permission denied",
             'value': ['nothing', null],
         }))
-        case 'file too large': return _pa.ss($, ($) => ({
+        case 'file too large': return _p.ss($, ($) => ({
             'state': "file too large",
             'value': ['nothing', null],
         }))
-        case 'device not ready': return _pa.ss($, ($) => ({
+        case 'device not ready': return _p.ss($, ($) => ({
             'state': "device not ready",
             'value': ['nothing', null],
         }))
-        default: return _pa.au($[0])
+        default: return _p.au($[0])
     }
 })]

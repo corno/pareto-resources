@@ -1,5 +1,5 @@
-import * as _pa from 'pareto-core-refiner'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-refiner'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/copy/unmarshall"
@@ -12,7 +12,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
     $,
     {
         'properties': ($) => ({
-            'source': _pa.deprecated_cc(_i_generic.get_entry(
+            'source': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "source",
@@ -23,7 +23,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'target': _pa.deprecated_cc(_i_generic.get_entry(
+            'target': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "target",
@@ -34,7 +34,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'options': _pa.deprecated_cc(_i_generic.get_entry(
+            'options': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "options",
@@ -43,7 +43,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                 $,
                 {
                     'properties': ($) => ({
-                        'recursive': _pa.deprecated_cc(_i_generic.get_entry(
+                        'recursive': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "recursive",
@@ -59,7 +59,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                                 ),
                             }
                         )),
-                        'force': _pa.deprecated_cc(_i_generic.get_entry(
+                        'force': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "force",
@@ -75,7 +75,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                                 ),
                             }
                         )),
-                        'errorOnExist': _pa.deprecated_cc(_i_generic.get_entry(
+                        'errorOnExist': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "errorOnExist",
@@ -100,7 +100,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
 export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary.literal({
+        'states': _p.dictionary.literal({
             'source does not exist': ($): _i_out._T_Error.SG => ['source does not exist', _i_generic.process_nothing(
                 $,
                 null

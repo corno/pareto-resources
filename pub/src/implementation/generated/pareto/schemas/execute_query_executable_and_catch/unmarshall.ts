@@ -1,5 +1,5 @@
-import * as _pa from 'pareto-core-refiner'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-refiner'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/execute_query_executable_and_catch/unmarshall"
@@ -11,7 +11,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
     $,
     {
         'properties': ($) => ({
-            'program': _pa.deprecated_cc(_i_generic.get_entry(
+            'program': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "program",
@@ -20,7 +20,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                 $,
                 null
             )),
-            'args': _pa.deprecated_cc(_i_generic.get_entry(
+            'args': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "args",
@@ -40,12 +40,12 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
 export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary.literal({
+        'states': _p.dictionary.literal({
             'failed to spawn': ($): _i_out._T_Error.SG => ['failed to spawn', _i_generic.process_group(
                 $,
                 {
                     'properties': ($) => ({
-                        'message': _pa.deprecated_cc(_i_generic.get_entry(
+                        'message': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "message",
@@ -61,7 +61,7 @@ export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_uncon
                 $,
                 {
                     'properties': ($) => ({
-                        'exit code': _pa.deprecated_cc(_i_generic.get_entry(
+                        'exit code': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "exit code",
@@ -77,7 +77,7 @@ export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_uncon
                                 ),
                             }
                         )),
-                        'stderr': _pa.deprecated_cc(_i_generic.get_entry(
+                        'stderr': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "stderr",
@@ -95,12 +95,12 @@ export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_uncon
 export const Result: _i_signatures._T_Result = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary.literal({
+        'states': _p.dictionary.literal({
             'success': ($): _i_out._T_Result.SG => ['success', _i_generic.process_group(
                 $,
                 {
                     'properties': ($) => ({
-                        'stdout': _pa.deprecated_cc(_i_generic.get_entry(
+                        'stdout': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "stdout",

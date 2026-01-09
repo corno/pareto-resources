@@ -1,5 +1,5 @@
-import * as _pa from 'pareto-core-refiner'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-refiner'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/remove/unmarshall"
@@ -12,7 +12,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
     $,
     {
         'properties': ($) => ({
-            'path': _pa.deprecated_cc(_i_generic.get_entry(
+            'path': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "path",
@@ -23,7 +23,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'error if not exists': _pa.deprecated_cc(_i_generic.get_entry(
+            'error if not exists': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "error if not exists",
@@ -40,7 +40,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
 export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary.literal({
+        'states': _p.dictionary.literal({
             'node does not exist': ($): _i_out._T_Error.SG => ['node does not exist', _i_generic.process_nothing(
                 $,
                 null

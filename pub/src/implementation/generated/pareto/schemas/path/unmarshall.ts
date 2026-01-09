@@ -1,5 +1,5 @@
-import * as _pa from 'pareto-core-refiner'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-refiner'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/path/unmarshall"
@@ -16,7 +16,7 @@ export const Up_Steps: _i_signatures._T_Up_Steps = ($, $p) => _i_generic.process
 export const Start: _i_signatures._T_Start = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary.literal({
+        'states': _p.dictionary.literal({
             'absolute': ($): _i_out._T_Start.SG => ['absolute', _i_generic.process_nothing(
                 $,
                 null
@@ -25,7 +25,7 @@ export const Start: _i_signatures._T_Start = ($, $p) => _i_generic.process_uncon
                 $,
                 {
                     'properties': ($) => ({
-                        'up steps': _pa.deprecated_cc(_i_generic.get_entry(
+                        'up steps': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "up steps",
@@ -55,7 +55,7 @@ export const Context_Path: _i_signatures._T_Context_Path = ($, $p) => _i_generic
     $,
     {
         'properties': ($) => ({
-            'start': _pa.deprecated_cc(_i_generic.get_entry(
+            'start': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "start",
@@ -66,7 +66,7 @@ export const Context_Path: _i_signatures._T_Context_Path = ($, $p) => _i_generic
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'subpath': _pa.deprecated_cc(_i_generic.get_entry(
+            'subpath': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "subpath",
@@ -84,7 +84,7 @@ export const Node_Path: _i_signatures._T_Node_Path = ($, $p) => _i_generic.proce
     $,
     {
         'properties': ($) => ({
-            'context': _pa.deprecated_cc(_i_generic.get_entry(
+            'context': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "context",
@@ -95,7 +95,7 @@ export const Node_Path: _i_signatures._T_Node_Path = ($, $p) => _i_generic.proce
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'node': _pa.deprecated_cc(_i_generic.get_entry(
+            'node': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "node",
@@ -111,7 +111,7 @@ export const Non_Normalized_Path: _i_signatures._T_Non_Normalized_Path = ($, $p)
     $,
     {
         'properties': ($) => ({
-            'leading slash': _pa.deprecated_cc(_i_generic.get_entry(
+            'leading slash': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "leading slash",
@@ -122,7 +122,7 @@ export const Non_Normalized_Path: _i_signatures._T_Non_Normalized_Path = ($, $p)
                     'deserializer': $p['value deserializers']['boolean'],
                 }
             )),
-            'segments': _pa.deprecated_cc(_i_generic.get_entry(
+            'segments': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "segments",
@@ -133,7 +133,7 @@ export const Non_Normalized_Path: _i_signatures._T_Non_Normalized_Path = ($, $p)
                     'value': ($) => _i_generic.process_unconstrained_state_group(
                         $,
                         {
-                            'states': _pa.dictionary.literal({
+                            'states': _p.dictionary.literal({
                                 'parent': ($): _i_out._T_Non_Normalized_Path.segments.L.SG => ['parent', _i_generic.process_nothing(
                                     $,
                                     null
@@ -155,7 +155,7 @@ export const Non_Normalized_Path: _i_signatures._T_Non_Normalized_Path = ($, $p)
                     ),
                 }
             )),
-            'trailing slash': _pa.deprecated_cc(_i_generic.get_entry(
+            'trailing slash': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "trailing slash",

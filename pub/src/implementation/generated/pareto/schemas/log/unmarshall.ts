@@ -1,5 +1,5 @@
-import * as _pa from 'pareto-core-refiner'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-refiner'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/log/unmarshall"
@@ -11,7 +11,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
     $,
     {
         'properties': ($) => ({
-            'lines': _pa.deprecated_cc(_i_generic.get_entry(
+            'lines': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "lines",

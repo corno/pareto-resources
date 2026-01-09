@@ -1,5 +1,5 @@
-import * as _pa from 'pareto-core-refiner'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-refiner'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/write_file/unmarshall"
@@ -12,7 +12,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
     $,
     {
         'properties': ($) => ({
-            'path': _pa.deprecated_cc(_i_generic.get_entry(
+            'path': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "path",
@@ -23,7 +23,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'data': _pa.deprecated_cc(_i_generic.get_entry(
+            'data': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "data",
@@ -38,7 +38,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => _i_generic.pro
 export const Error: _i_signatures._T_Error = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary.literal({
+        'states': _p.dictionary.literal({
             'permission denied': ($): _i_out._T_Error.SG => ['permission denied', _i_generic.process_nothing(
                 $,
                 null

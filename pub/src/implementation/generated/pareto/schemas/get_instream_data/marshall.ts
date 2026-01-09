@@ -1,5 +1,5 @@
-import * as _pa from 'pareto-core-transformer'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-transformer'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/get_instream_data/marshall"
 import * as _i_out from "../../../../../interface/generated/pareto/core/astn_target"
