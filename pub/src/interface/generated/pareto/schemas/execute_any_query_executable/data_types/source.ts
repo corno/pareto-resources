@@ -1,4 +1,4 @@
-import * as _et from 'pareto-core-interface'
+import * as _pi from 'pareto-core-interface'
 
 import * as _i_core from "../../../core/resolved"
 
@@ -14,7 +14,7 @@ export type _T_Error = _i_core._T_State_Group<null,
         readonly 'message': string
     }]
     | readonly ['non zero exit code', {
-        readonly 'exit code': _et.Optional_Value<number>
+        readonly 'exit code': _pi.Optional_Value<number>
         readonly 'stderr': string
     }]
 >
@@ -58,11 +58,11 @@ export namespace _T_Error {
             export namespace exit_code {
                 export type O = number
             }
-            export type exit_code = _et.Optional_Value<number>
+            export type exit_code = _pi.Optional_Value<number>
             export type stderr = string
         }
         export type non_zero_exit_code = {
-            readonly 'exit code': _et.Optional_Value<number>
+            readonly 'exit code': _pi.Optional_Value<number>
             readonly 'stderr': string
         }
     }
@@ -71,7 +71,7 @@ export namespace _T_Error {
             readonly 'message': string
         }]
         | readonly ['non zero exit code', {
-            readonly 'exit code': _et.Optional_Value<number>
+            readonly 'exit code': _pi.Optional_Value<number>
             readonly 'stderr': string
         }]
 }
@@ -107,11 +107,11 @@ export namespace Error {
             export namespace exit_code {
                 export type O = number
             }
-            export type exit_code = _et.Optional_Value<number>
+            export type exit_code = _pi.Optional_Value<number>
             export type stderr = string
         }
         export type non_zero_exit_code = {
-            readonly 'exit code': _et.Optional_Value<number>
+            readonly 'exit code': _pi.Optional_Value<number>
             readonly 'stderr': string
         }
     }
@@ -120,7 +120,7 @@ export namespace Error {
             readonly 'message': string
         }]
         | readonly ['non zero exit code', {
-            readonly 'exit code': _et.Optional_Value<number>
+            readonly 'exit code': _pi.Optional_Value<number>
             readonly 'stderr': string
         }]
 }

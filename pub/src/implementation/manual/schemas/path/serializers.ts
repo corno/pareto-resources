@@ -14,19 +14,22 @@ export const Context_Path = ($: d_in.Context_Path): string => {
                     // $i['add character'](47) // '/'
                 })
                 case 'relative': return _p.ss($, ($) => {
-                    $i['add snippet'](`.`)
+                    $i['add character'](46) // .
 
                     let k = $['up steps']
                     while (k > 0) {
-                        $i['add snippet'](`/..`)
+                        $i['add character'](47) // /
+                        $i['add character'](46) // .
+                        $i['add character'](46) // .
+
                         k -= 1
                     }
                 })
                 default: return _p.au($[0])
             }
         })
-        if (_p.boolean.list_is_empty($.subpath) && $.start[0] === 'absolute' ) {
-            $i['add snippet'](`/`)
+        if (_p.boolean.list_is_empty($.subpath) && $.start[0] === 'absolute') {
+            $i['add character'](47) // '/'
         }
         $.subpath.__for_each(($) => {
             $i['add character'](47) // '/'

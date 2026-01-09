@@ -1,4 +1,4 @@
-import * as _et from 'pareto-core-interface'
+import * as _pi from 'pareto-core-interface'
 
 import * as _i_core from "../../../core/unconstrained"
 import * as _i_imports_path from "../../path/data_types/target"
@@ -9,9 +9,9 @@ export type _T_Parameters = {
     readonly 'source': _i_imports_path._T_Node_Path
     readonly 'target': _i_imports_path._T_Node_Path
     readonly 'options': {
-        readonly 'recursive': _et.Optional_Value<boolean>
-        readonly 'force': _et.Optional_Value<boolean>
-        readonly 'errorOnExist': _et.Optional_Value<boolean>
+        readonly 'recursive': _pi.Optional_Value<boolean>
+        readonly 'force': _pi.Optional_Value<boolean>
+        readonly 'errorOnExist': _pi.Optional_Value<boolean>
     }
 }
 
@@ -46,22 +46,22 @@ export namespace _T_Parameters {
         export namespace recursive {
             export type O = boolean
         }
-        export type recursive = _et.Optional_Value<boolean>
+        export type recursive = _pi.Optional_Value<boolean>
         
         export namespace force {
             export type O = boolean
         }
-        export type force = _et.Optional_Value<boolean>
+        export type force = _pi.Optional_Value<boolean>
         
         export namespace errorOnExist {
             export type O = boolean
         }
-        export type errorOnExist = _et.Optional_Value<boolean>
+        export type errorOnExist = _pi.Optional_Value<boolean>
     }
     export type options = {
-        readonly 'recursive': _et.Optional_Value<boolean>
-        readonly 'force': _et.Optional_Value<boolean>
-        readonly 'errorOnExist': _et.Optional_Value<boolean>
+        readonly 'recursive': _pi.Optional_Value<boolean>
+        readonly 'force': _pi.Optional_Value<boolean>
+        readonly 'errorOnExist': _pi.Optional_Value<boolean>
     }
 }
 
@@ -99,22 +99,22 @@ export namespace Parameters {
         export namespace recursive {
             export type O = boolean
         }
-        export type recursive = _et.Optional_Value<boolean>
+        export type recursive = _pi.Optional_Value<boolean>
         
         export namespace force {
             export type O = boolean
         }
-        export type force = _et.Optional_Value<boolean>
+        export type force = _pi.Optional_Value<boolean>
         
         export namespace errorOnExist {
             export type O = boolean
         }
-        export type errorOnExist = _et.Optional_Value<boolean>
+        export type errorOnExist = _pi.Optional_Value<boolean>
     }
     export type options = {
-        readonly 'recursive': _et.Optional_Value<boolean>
-        readonly 'force': _et.Optional_Value<boolean>
-        readonly 'errorOnExist': _et.Optional_Value<boolean>
+        readonly 'recursive': _pi.Optional_Value<boolean>
+        readonly 'force': _pi.Optional_Value<boolean>
+        readonly 'errorOnExist': _pi.Optional_Value<boolean>
     }
 }
 
