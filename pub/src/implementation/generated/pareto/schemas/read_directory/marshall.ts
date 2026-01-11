@@ -44,7 +44,7 @@ export const Node_Type: _i_signatures._T_Node_Type = ($, $p) => ['state', _p.dep
         default: return _p.au($[0])
     }
 })]
-export const Result: _i_signatures._T_Result = ($, $p) => ['dictionary', $.map(($) => ['verbose group', _p.dictionary.literal({
+export const Result: _i_signatures._T_Result = ($, $p) => ['dictionary', $.__d_map(($) => ['verbose group', _p.dictionary.literal({
     'node type': _p.deprecated_cc($['node type'], ($) => Node_Type(
         $,
         {
