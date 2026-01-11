@@ -16,7 +16,7 @@ export const Error: Error = ($) => _p.sg($, ($) => {
             sh.b.indent([
                 sh.g.nested_block([
                     sh.b.snippet(`exit code: `),
-                    sh.b.snippet($['exit code'].transform(
+                    sh.b.snippet($['exit code'].__decide(
                         ($) => `${$}`, //this is a number converted to a string
                         () => `n/a`
                     ))

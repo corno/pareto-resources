@@ -20,7 +20,7 @@ export const Error: signatures.Error = ($) => _p.sg($, ($) => {
             sh.b.indent([
                 sh.g.nested_block([
                     sh.b.snippet(`exit code: `),
-                    sh.b.snippet($['exit code'].transform(
+                    sh.b.snippet($['exit code'].__decide(
                         ($) => `${$}`,
                         () => `n/a`
                     ))

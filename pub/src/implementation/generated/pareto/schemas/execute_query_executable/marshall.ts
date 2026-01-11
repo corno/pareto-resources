@@ -25,7 +25,7 @@ export const Error: _i_signatures._T_Error = ($, $p) => ['state', _p.deprecated_
         case 'non zero exit code': return _p.ss($, ($) => ({
             'state': "non zero exit code",
             'value': ['verbose group', _p.dictionary.literal({
-                'exit code': _p.deprecated_cc($['exit code'], ($) => ['optional', $.transform(
+                'exit code': _p.deprecated_cc($['exit code'], ($) => ['optional', $.__decide(
                     ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                         'delimiter': ['backtick', null],
                         'value': $p['value serializers']['default number'](

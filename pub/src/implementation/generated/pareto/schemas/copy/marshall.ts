@@ -20,7 +20,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose grou
         }
     )),
     'options': _p.deprecated_cc($['options'], ($) => ['verbose group', _p.dictionary.literal({
-        'recursive': _p.deprecated_cc($['recursive'], ($) => ['optional', $.transform(
+        'recursive': _p.deprecated_cc($['recursive'], ($) => ['optional', $.__decide(
             ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                 'delimiter': ['backtick', null],
                 'value': $p['value serializers']['boolean'](
@@ -30,7 +30,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose grou
             })]],
             () => ['not set', null]
         )]),
-        'force': _p.deprecated_cc($['force'], ($) => ['optional', $.transform(
+        'force': _p.deprecated_cc($['force'], ($) => ['optional', $.__decide(
             ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                 'delimiter': ['backtick', null],
                 'value': $p['value serializers']['boolean'](
@@ -40,7 +40,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose grou
             })]],
             () => ['not set', null]
         )]),
-        'errorOnExist': _p.deprecated_cc($['errorOnExist'], ($) => ['optional', $.transform(
+        'errorOnExist': _p.deprecated_cc($['errorOnExist'], ($) => ['optional', $.__decide(
             ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                 'delimiter': ['backtick', null],
                 'value': $p['value serializers']['boolean'](
