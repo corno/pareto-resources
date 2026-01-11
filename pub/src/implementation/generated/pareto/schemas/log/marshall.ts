@@ -6,7 +6,7 @@ import * as _i_out from "../../../../../interface/generated/pareto/core/astn_tar
 
 
 export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose group', _p.dictionary.literal({
-    'lines': _p.deprecated_cc($['lines'], ($) => ['list', $.map(($) => ['text', ({
+    'lines': _p.deprecated_cc($['lines'], ($) => ['list', $.__l_map(($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })])]),

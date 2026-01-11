@@ -10,7 +10,7 @@ export const Parameters: _i_signatures._T_Parameters = ($, $p) => ['verbose grou
         'delimiter': ['quote', null],
         'value': $,
     })]),
-    'args': _p.deprecated_cc($['args'], ($) => ['list', $.map(($) => ['text', ({
+    'args': _p.deprecated_cc($['args'], ($) => ['list', $.__l_map(($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })])]),

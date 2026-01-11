@@ -32,7 +32,7 @@ export const Start: _i_signatures._T_Start = ($, $p) => ['state', _p.deprecated_
         default: return _p.au($[0])
     }
 })]
-export const Context_Subpath: _i_signatures._T_Context_Subpath = ($, $p) => ['list', $.map(($) => ['text', ({
+export const Context_Subpath: _i_signatures._T_Context_Subpath = ($, $p) => ['list', $.__l_map(($) => ['text', ({
     'delimiter': ['quote', null],
     'value': $,
 })])]
@@ -70,7 +70,7 @@ export const Non_Normalized_Path: _i_signatures._T_Non_Normalized_Path = ($, $p)
             null
         ),
     })]),
-    'segments': _p.deprecated_cc($['segments'], ($) => ['list', $.map(($) => ['state', _p.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
+    'segments': _p.deprecated_cc($['segments'], ($) => ['list', $.__l_map(($) => ['state', _p.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
         switch ($[0]) {
             case 'parent': return _p.ss($, ($) => ({
                 'state': "parent",
