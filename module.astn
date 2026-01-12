@@ -1,0 +1,1208 @@
+(
+    'schema tree': | 'set' {
+        `path`: | 'schema' (
+            'imports': {
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Up Steps`: (
+                    'type parameters': {
+                    }
+                    'node': | 'number' | 'local' (
+                        'precision': | 'exact' (
+                            'decimal separator offset': ~
+                            'type': | 'natural' ~
+                        )
+                    )
+                )
+                `Start`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `absolute`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `relative`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `up steps`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal' `Up Steps`
+                                )
+                            }
+                        )
+                    }
+                )
+                `Context Subpath`: (
+                    'type parameters': {
+                    }
+                    'node': | 'list' (
+                        'node': | 'text' | 'local' (
+                            'type': | 'single line' ~
+                        )
+                    )
+                )
+                `Context Path`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `start`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Start`
+                        )
+                        `subpath`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Context Subpath`
+                        )
+                    }
+                )
+                `Node Path`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `context`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Context Path`
+                        )
+                        `node`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                    }
+                )
+                `Non Normalized Path`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `leading slash`: (
+                            'description': ~
+                            'node': | 'boolean' ~
+                        )
+                        `segments`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'state group' {
+                                    `parent`: (
+                                        'description': ~
+                                        'node': | 'nothing' ~
+                                    )
+                                    `child`: (
+                                        'description': ~
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                    `current`: (
+                                        'description': ~
+                                        'node': | 'nothing' ~
+                                    )
+                                    `nothing`: (
+                                        'description': ~
+                                        'node': | 'nothing' ~
+                                    )
+                                }
+                            )
+                        )
+                        `trailing slash`: (
+                            'description': ~
+                            'node': | 'boolean' ~
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `copy`: | 'schema' (
+            'imports': {
+                `path`: (
+                    'schema set child': `path`
+                    'schema': ~
+                )
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `source`: (
+                            'description': ~
+                            'node': | 'component' | 'external' (
+                                'import': `path`
+                                'type': `Node Path`
+                            )
+                        )
+                        `target`: (
+                            'description': ~
+                            'node': | 'component' | 'external' (
+                                'import': `path`
+                                'type': `Node Path`
+                            )
+                        )
+                        `options`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `recursive`: (
+                                    'description': ~
+                                    'node': | 'optional' | 'boolean' ~
+                                )
+                                `force`: (
+                                    'description': ~
+                                    'node': | 'optional' | 'boolean' ~
+                                )
+                                `errorOnExist`: (
+                                    'description': ~
+                                    'node': | 'optional' | 'boolean' ~
+                                )
+                            }
+                        )
+                    }
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `source does not exist`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `node is not a file`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `permission denied`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `file too large`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `device not ready`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `execute any command executable`: | 'schema' (
+            'imports': {
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `program`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `args`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                        )
+                    }
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `failed to spawn`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `message`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'single line' ~
+                                    )
+                                )
+                            }
+                        )
+                        `non zero exit code`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `exit code`: (
+                                    'description': ~
+                                    'node': | 'optional' | 'number' | 'local' (
+                                        'precision': | 'exact' (
+                                            'decimal separator offset': ~
+                                            'type': | 'integer' ~
+                                        )
+                                    )
+                                )
+                                `stderr`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'multi line' ~
+                                    )
+                                )
+                            }
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `execute any query executable`: | 'schema' (
+            'imports': {
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `program`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `args`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                        )
+                    }
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `failed to spawn`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `message`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'single line' ~
+                                    )
+                                )
+                            }
+                        )
+                        `non zero exit code`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `exit code`: (
+                                    'description': ~
+                                    'node': | 'optional' | 'number' | 'local' (
+                                        'precision': | 'exact' (
+                                            'decimal separator offset': ~
+                                            'type': | 'integer' ~
+                                        )
+                                    )
+                                )
+                                `stderr`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'multi line' ~
+                                    )
+                                )
+                            }
+                        )
+                    }
+                )
+                `Result`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `stdout`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'multi line' ~
+                            )
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `execute any smelly command executable`: | 'schema' (
+            'imports': {
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `program`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `args`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                        )
+                    }
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `failed to spawn`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `message`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'single line' ~
+                                    )
+                                )
+                            }
+                        )
+                        `non zero exit code`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `exit code`: (
+                                    'description': ~
+                                    'node': | 'optional' | 'number' | 'local' (
+                                        'precision': | 'exact' (
+                                            'decimal separator offset': ~
+                                            'type': | 'integer' ~
+                                        )
+                                    )
+                                )
+                                `stderr`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'multi line' ~
+                                    )
+                                )
+                                `stdout`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'multi line' ~
+                                    )
+                                )
+                            }
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `execute command executable`: | 'schema' (
+            'imports': {
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `args`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                        )
+                    }
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `failed to spawn`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `message`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'single line' ~
+                                    )
+                                )
+                            }
+                        )
+                        `non zero exit code`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `exit code`: (
+                                    'description': ~
+                                    'node': | 'optional' | 'number' | 'local' (
+                                        'precision': | 'exact' (
+                                            'decimal separator offset': ~
+                                            'type': | 'integer' ~
+                                        )
+                                    )
+                                )
+                                `stderr`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'multi line' ~
+                                    )
+                                )
+                            }
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `execute query executable and catch`: | 'schema' (
+            'imports': {
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `program`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `args`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                        )
+                    }
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `failed to spawn`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `message`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'single line' ~
+                                    )
+                                )
+                            }
+                        )
+                        `non zero exit code`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `exit code`: (
+                                    'description': ~
+                                    'node': | 'optional' | 'number' | 'local' (
+                                        'precision': | 'exact' (
+                                            'decimal separator offset': ~
+                                            'type': | 'integer' ~
+                                        )
+                                    )
+                                )
+                                `stderr`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'multi line' ~
+                                    )
+                                )
+                            }
+                        )
+                    }
+                )
+                `Result`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `success`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `stdout`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'multi line' ~
+                                    )
+                                )
+                            }
+                        )
+                        `error`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Error`
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `execute query executable`: | 'schema' (
+            'imports': {
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `args`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                        )
+                    }
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `failed to spawn`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `message`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'single line' ~
+                                    )
+                                )
+                            }
+                        )
+                        `non zero exit code`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `exit code`: (
+                                    'description': ~
+                                    'node': | 'optional' | 'number' | 'local' (
+                                        'precision': | 'exact' (
+                                            'decimal separator offset': ~
+                                            'type': | 'integer' ~
+                                        )
+                                    )
+                                )
+                                `stderr`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'multi line' ~
+                                    )
+                                )
+                            }
+                        )
+                    }
+                )
+                `Result`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `stdout`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'multi line' ~
+                            )
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `execute smelly command executable`: | 'schema' (
+            'imports': {
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `args`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                        )
+                    }
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `failed to spawn`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `message`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'single line' ~
+                                    )
+                                )
+                            }
+                        )
+                        `non zero exit code`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `exit code`: (
+                                    'description': ~
+                                    'node': | 'optional' | 'number' | 'local' (
+                                        'precision': | 'exact' (
+                                            'decimal separator offset': ~
+                                            'type': | 'integer' ~
+                                        )
+                                    )
+                                )
+                                `stderr`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'multi line' ~
+                                    )
+                                )
+                                `stdout`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'multi line' ~
+                                    )
+                                )
+                            }
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `get instream data`: | 'schema' (
+            'imports': {
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'nothing' ~
+                )
+                `Result`: (
+                    'type parameters': {
+                    }
+                    'node': | 'text' | 'local' (
+                        'type': | 'multi line' ~
+                    )
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `log error`: | 'schema' (
+            'imports': {
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `lines`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `log`: | 'schema' (
+            'imports': {
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `lines`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'text' | 'local' (
+                                    'type': | 'single line' ~
+                                )
+                            )
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `make directory`: | 'schema' (
+            'imports': {
+                `path`: (
+                    'schema set child': `path`
+                    'schema': ~
+                )
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'component' | 'external' (
+                        'import': `path`
+                        'type': `Node Path`
+                    )
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `directory already exists`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `permission denied`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `read directory`: | 'schema' (
+            'imports': {
+                `path`: (
+                    'schema set child': `path`
+                    'schema': ~
+                )
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `path`: (
+                            'description': ~
+                            'node': | 'component' | 'external' (
+                                'import': `path`
+                                'type': `Node Path`
+                            )
+                        )
+                    }
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `directory does not exist`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `node is not a directory`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                    }
+                )
+                `Node Type`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `file`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `directory`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `other`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                    }
+                )
+                `Result`: (
+                    'type parameters': {
+                    }
+                    'node': | 'dictionary' (
+                        'node': | 'group' {
+                            `node type`: (
+                                'description': ~
+                                'node': | 'component' | 'internal' `Node Type`
+                            )
+                            `context directory`: (
+                                'description': ~
+                                'node': | 'component' | 'external' (
+                                    'import': `path`
+                                    'type': `Context Path`
+                                )
+                            )
+                            `path`: (
+                                'description': ~
+                                'node': | 'component' | 'external' (
+                                    'import': `path`
+                                    'type': `Node Path`
+                                )
+                            )
+                        }
+                        'ordered': `false`
+                    )
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `read file`: | 'schema' (
+            'imports': {
+                `path`: (
+                    'schema set child': `path`
+                    'schema': ~
+                )
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'component' | 'external' (
+                        'import': `path`
+                        'type': `Node Path`
+                    )
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `file does not exist`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `node is not a file`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `permission denied`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `file too large`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `device not ready`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                    }
+                )
+                `Result`: (
+                    'type parameters': {
+                    }
+                    'node': | 'text' | 'local' (
+                        'type': | 'multi line' ~
+                    )
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `remove`: | 'schema' (
+            'imports': {
+                `path`: (
+                    'schema set child': `path`
+                    'schema': ~
+                )
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `path`: (
+                            'description': ~
+                            'node': | 'component' | 'external' (
+                                'import': `path`
+                                'type': `Node Path`
+                            )
+                        )
+                        `error if not exists`: (
+                            'description': ~
+                            'node': | 'boolean' ~
+                        )
+                    }
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `node does not exist`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `permission denied`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `stat`: | 'schema' (
+            'imports': {
+                `path`: (
+                    'schema set child': `path`
+                    'schema': ~
+                )
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'component' | 'external' (
+                        'import': `path`
+                        'type': `Node Path`
+                    )
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `node does not exist`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                    }
+                )
+                `Node Type`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `file`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `directory`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                    }
+                )
+                `Result`: (
+                    'type parameters': {
+                    }
+                    'node': | 'component' | 'internal' `Node Type`
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `write file`: | 'schema' (
+            'imports': {
+                `path`: (
+                    'schema set child': `path`
+                    'schema': ~
+                )
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'group' {
+                        `path`: (
+                            'description': ~
+                            'node': | 'component' | 'external' (
+                                'import': `path`
+                                'type': `Node Path`
+                            )
+                        )
+                        `data`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'multi line' ~
+                            )
+                        )
+                    }
+                )
+                `Error`: (
+                    'type parameters': {
+                    }
+                    'node': | 'state group' {
+                        `permission denied`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                    }
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `write to stderr`: | 'schema' (
+            'imports': {
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'text' | 'local' (
+                        'type': | 'single line' ~
+                    )
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `write to stdout`: | 'schema' (
+            'imports': {
+            }
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                }
+                'number types': {
+                }
+            )
+            'types': {
+                `Parameters`: (
+                    'type parameters': {
+                    }
+                    'node': | 'text' | 'local' (
+                        'type': | 'single line' ~
+                    )
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+    }
+    'operations': {
+    }
+)
