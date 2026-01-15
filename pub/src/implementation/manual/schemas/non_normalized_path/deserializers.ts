@@ -3,7 +3,7 @@ import * as _pi from 'pareto-core-interface'
 
 import { build_list_with_loop, build_text_with_loop } from '../../../temp/temp_core'
 
-import * as d_out from "../../../../interface/generated/pareto/schemas/path/data_types/target"
+import * as d_out from "../../../../interface/generated/pareto/schemas/path/data"
 
 export const Non_Normalized_Path = (
     $: string

@@ -1,7 +1,7 @@
 import * as _p from 'pareto-core-transformer'
 import * as _pi from 'pareto-core-interface'
 
-import * as d_in from "../../../../interface/generated/pareto/schemas/execute_command_executable/data_types/source"
+import * as d_in from "../../../../interface/generated/pareto/schemas/execute_command_executable/data"
 
 export type Error = _pi.Serializer<d_in.Error>
 

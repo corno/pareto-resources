@@ -1,222 +1,111 @@
+
 import * as _pi from "pareto-core-interface"
+
+import * as i_out from "./data"
+
+import * as i_in from "./data"
+
+export namespace Up_Steps_ {
     
-    import * as _i_out from "./data_types/target"
-    import * as _i_in from "./data_types/source"
+    export type I = i_in.Up_Steps
     
-    // **** TYPES
+    export type O = i_out.Up_Steps
     
-    export type _T_Up_Steps = (
-        $$_: _i_in._T_Up_Steps,
-        $$_p: null,
-    ) => _i_out._T_Up_Steps
-    
-    export type _T_Start = (
-        $$_: _i_in._T_Start,
-        $$_p: null,
-    ) => _i_out._T_Start
-    
-    export type _T_Context_Subpath = (
-        $$_: _i_in._T_Context_Subpath,
-        $$_p: null,
-    ) => _i_out._T_Context_Subpath
-    
-    export type _T_Context_Path = (
-        $$_: _i_in._T_Context_Path,
-        $$_p: null,
-    ) => _i_out._T_Context_Path
-    
-    export type _T_Node_Path = (
-        $$_: _i_in._T_Node_Path,
-        $$_p: null,
-    ) => _i_out._T_Node_Path
-    
-    export type _T_Non_Normalized_Path = (
-        $$_: _i_in._T_Non_Normalized_Path,
-        $$_p: null,
-    ) => _i_out._T_Non_Normalized_Path
-    
-    // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
-    
-    export type Up_Steps = _T_Up_Steps
-    
-    export type Start = _T_Start
-    
-    export type Context_Subpath = _T_Context_Subpath
-    
-    export type Context_Path = _T_Context_Path
-    
-    export type Node_Path = _T_Node_Path
-    
-    export type Non_Normalized_Path = _T_Non_Normalized_Path
-    
-    // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
-    
-    export namespace _T_Up_Steps {
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Up_Steps
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Up_Steps
     }
     
-    export namespace _T_Start {
+}
+
+export type Up_Steps_ = (
+    $$_: Up_Steps_.I,
+) => Up_Steps_.O
+
+export namespace Start_ {
+    
+    export type I = i_in.Start
+    
+    export type O = i_out.Start
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Start
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Start
     }
     
-    export namespace _T_Context_Subpath {
+}
+
+export type Start_ = (
+    $$_: Start_.I,
+) => Start_.O
+
+export namespace Context_Subpath_ {
+    
+    export type I = i_in.Context_Subpath
+    
+    export type O = i_out.Context_Subpath
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Context_Subpath
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Context_Subpath
     }
     
-    export namespace _T_Context_Path {
+}
+
+export type Context_Subpath_ = (
+    $$_: Context_Subpath_.I,
+) => Context_Subpath_.O
+
+export namespace Context_Path_ {
+    
+    export type I = i_in.Context_Path
+    
+    export type O = i_out.Context_Path
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Context_Path
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Context_Path
     }
     
-    export namespace _T_Node_Path {
+}
+
+export type Context_Path_ = (
+    $$_: Context_Path_.I,
+) => Context_Path_.O
+
+export namespace Node_Path_ {
+    
+    export type I = i_in.Node_Path
+    
+    export type O = i_out.Node_Path
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Node_Path
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Node_Path
     }
     
-    export namespace _T_Non_Normalized_Path {
+}
+
+export type Node_Path_ = (
+    $$_: Node_Path_.I,
+) => Node_Path_.O
+
+export namespace Non_Normalized_Path_ {
+    
+    export type I = i_in.Non_Normalized_Path
+    
+    export type O = i_out.Non_Normalized_Path
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Non_Normalized_Path
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Non_Normalized_Path
     }
     
-    // *** ALIASES FOR NESTED TYPES
-    
-    export namespace Up_Steps {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Up_Steps
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Up_Steps
-    }
-    
-    export namespace Start {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Start
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Start
-    }
-    
-    export namespace Context_Subpath {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Context_Subpath
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Context_Subpath
-    }
-    
-    export namespace Context_Path {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Context_Path
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Context_Path
-    }
-    
-    export namespace Node_Path {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Node_Path
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Node_Path
-    }
-    
-    export namespace Non_Normalized_Path {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Non_Normalized_Path
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Non_Normalized_Path
-    }
+}
+
+export type Non_Normalized_Path_ = (
+    $$_: Non_Normalized_Path_.I,
+) => Non_Normalized_Path_.O
+
+export { 
+    Up_Steps_ as Up_Steps, 
+    Start_ as Start, 
+    Context_Subpath_ as Context_Subpath, 
+    Context_Path_ as Context_Path, 
+    Node_Path_ as Node_Path, 
+    Non_Normalized_Path_ as Non_Normalized_Path, 
+}

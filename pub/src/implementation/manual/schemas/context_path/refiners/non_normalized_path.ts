@@ -1,8 +1,8 @@
 import * as _p from 'pareto-core-refiner'
 import * as _pi from 'pareto-core-interface'
 
-import * as d_out from "../../../../../interface/generated/pareto/schemas/path/data_types/target"
-import * as d_in from "../../../../../interface/generated/pareto/schemas/path/data_types/source"
+import * as d_out from "../../../../../interface/generated/pareto/schemas/path/data"
+import * as d_in from "../../../../../interface/generated/pareto/schemas/path/data"
 
 import { remove_last_element } from "../../../../temp/temp_core"
 

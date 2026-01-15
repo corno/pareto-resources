@@ -1,6 +1,6 @@
 import * as _pt from 'pareto-core-deserializer'
 
-import * as d_out from "../../../../interface/generated/pareto/schemas/path/data_types/target"
+import * as d_out from "../../../../interface/generated/pareto/schemas/path/data"
 
 import * as x1 from "./refiners/non_normalized_path"
 import * as x2 from "../non_normalized_path/deserializers"

@@ -1,6 +1,6 @@
 import * as _p from 'pareto-core-serializer'
 
-import * as d_in from "../../../../interface/generated/pareto/schemas/path/data_types/target"
+import * as d_in from "../../../../interface/generated/pareto/schemas/path/data"
 
 export const Node_Path = ($: d_in.Node_Path): string => {
     return `${Context_Path($.context)}/${$.node}`

@@ -1,7 +1,7 @@
 import * as _pi from 'pareto-core-interface'
 import * as _p from 'pareto-core-transformer'
 
-import * as d_path from "../../../../../interface/generated/pareto/schemas/path/data_types/target"
+import * as d_path from "../../../../../interface/generated/pareto/schemas/path/data"
 
 export const extend_context_path = (
     $: d_path.Context_Path,

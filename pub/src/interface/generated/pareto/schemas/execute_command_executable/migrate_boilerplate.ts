@@ -1,82 +1,43 @@
+
 import * as _pi from "pareto-core-interface"
+
+import * as i_out from "./data"
+
+import * as i_in from "./data"
+
+export namespace Parameters_ {
     
-    import * as _i_out from "./data_types/target"
-    import * as _i_in from "./data_types/source"
+    export type I = i_in.Parameters
     
-    // **** TYPES
+    export type O = i_out.Parameters
     
-    export type _T_Parameters = (
-        $$_: _i_in._T_Parameters,
-        $$_p: null,
-    ) => _i_out._T_Parameters
-    
-    export type _T_Error = (
-        $$_: _i_in._T_Error,
-        $$_p: null,
-    ) => _i_out._T_Error
-    
-    // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
-    
-    export type Parameters = _T_Parameters
-    
-    export type Error = _T_Error
-    
-    // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
-    
-    export namespace _T_Parameters {
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Parameters
     }
     
-    export namespace _T_Error {
+}
+
+export type Parameters_ = (
+    $$_: Parameters_.I,
+) => Parameters_.O
+
+export namespace Error_ {
+    
+    export type I = i_in.Error
+    
+    export type O = i_out.Error
+    
+    export namespace P {
         
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Error
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Error
     }
     
-    // *** ALIASES FOR NESTED TYPES
-    
-    export namespace Parameters {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Parameters
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Parameters
-    }
-    
-    export namespace Error {
-        
-        export namespace CONTEXT {
-        }
-        export type CONTEXT = _i_in._T_Error
-        
-        export namespace PARAMS {
-        }
-        
-        export namespace RESULT {
-        }
-        export type RESULT = _i_out._T_Error
-    }
+}
+
+export type Error_ = (
+    $$_: Error_.I,
+) => Error_.O
+
+export { 
+    Parameters_ as Parameters, 
+    Error_ as Error, 
+}
