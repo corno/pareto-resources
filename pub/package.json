@@ -8,7 +8,7 @@
     "dist"
   ],
   "dependencies": {
-    "astn": "^0.113.32",
+    "astn": "^0.113.33",
     "astn-core": "^0.1.1",
     "pareto-core-command": "^0.2.17",
     "pareto-core-query": "^0.1.9",
