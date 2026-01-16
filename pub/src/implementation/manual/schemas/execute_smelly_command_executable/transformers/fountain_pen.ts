@@ -27,12 +27,8 @@ export const Error: Error = ($) => _p.sg($, ($) => {
                 sh.g.nested_block([
                     sh.b.snippet(`output:`),
                     sh.b.indent([
-                        sh.g.nested_block([
-                            sh.b.sub($.stdout.__l_map(($) => sh.b.snippet($)))
-                        ]),
-                        sh.g.nested_block([
-                            sh.b.sub($.stderr.__l_map(($) => sh.b.snippet($)))
-                        ])
+                        sh.g.sub($.stdout.__l_map(($) => sh.g.simple_block($))),
+                        sh.g.sub($.stderr.__l_map(($) => sh.g.simple_block($))),
                     ])
                 ])
             ])
