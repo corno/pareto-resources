@@ -26,7 +26,7 @@ export namespace Error_ {
     
     export namespace failed_to_spawn {
         
-        export type message = string
+        export type message = _pi.List<string>
         
     }
     
@@ -44,9 +44,9 @@ export namespace Error_ {
         
         export type exit_code = _pi.Optional_Value<exit_code.O>
         
-        export type stderr = string
+        export type stderr = _pi.List<string>
         
-        export type stdout = string
+        export type stdout = _pi.List<string>
         
     }
     

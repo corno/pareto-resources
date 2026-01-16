@@ -15,7 +15,10 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
 export const Error: signatures.Error = ($) => _p.sg($, ($) => {
     switch ($[0]) {
-        case 'failed to spawn': return _p.ss($, ($) => sh.b.snippet(`failed to spawn process: ${$.message}`))
+        case 'failed to spawn': return _p.ss($, ($) => sh.b.sub([
+            sh.b.snippet(`failed to spawn process:`),
+            sh.b.list($.message.__l_map(($) => sh.b.snippet($)))
+        ]))
         case 'non zero exit code': return _p.ss($, ($) => sh.b.sub([
             sh.b.snippet(`non zero exit code:`),
             sh.b.indent([
@@ -30,7 +33,7 @@ export const Error: signatures.Error = ($) => _p.sg($, ($) => {
                     sh.b.snippet(`output:`),
                     sh.b.indent([
                         sh.g.nested_block([
-                            sh.b.snippet($.stderr) //FIX this should be split up in lines
+                            sh.b.sub($.stderr.__l_map(($) => sh.b.snippet($)))
                         ])
                     ])
                 ])
