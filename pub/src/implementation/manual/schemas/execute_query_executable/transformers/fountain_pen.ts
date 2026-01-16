@@ -17,7 +17,9 @@ export const Error: signatures.Error = ($) => _p.sg($, ($) => {
     switch ($[0]) {
         case 'failed to spawn': return _p.ss($, ($) => sh.b.sub([
             sh.b.snippet(`failed to spawn process:`),
-            sh.b.list($.message.__l_map(($) => sh.b.snippet($)))
+            sh.b.indent([
+                sh.g.sub($['message as list'].__l_map(($) => sh.g.simple_block($)))
+            ])
         ]))
         case 'non zero exit code': return _p.ss($, ($) => sh.b.sub([
             sh.b.snippet(`non zero exit code:`),
@@ -32,7 +34,7 @@ export const Error: signatures.Error = ($) => _p.sg($, ($) => {
                 sh.g.nested_block([
                     sh.b.snippet(`output:`),
                     sh.b.indent([
-                        sh.g.sub($.stderr.__l_map(($) => sh.g.simple_block($)))
+                        sh.g.sub($['stderr as list'].__l_map(($) => sh.g.simple_block($)))
                     ])
                 ])
             ])
