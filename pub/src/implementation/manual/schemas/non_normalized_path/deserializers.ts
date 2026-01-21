@@ -1,5 +1,6 @@
-import * as _p from 'pareto-core-deserializer'
+import * as _p from 'pareto-core-refiner'
 import * as _pi from 'pareto-core-interface'
+import * as _pd from 'pareto-core-deserializer'
 
 import { build_list_with_loop, build_text_with_loop } from '../../../temp/temp_core'
 
@@ -9,7 +10,7 @@ export const Non_Normalized_Path = (
     $: string
 ): d_out.Non_Normalized_Path => {
     return _p.iterate(
-        _p.list.from_text($, ($) => $),
+        _pd.list.from_text($, ($) => $),
         (iterator) => {
             return {
                 'leading slash': (() => {

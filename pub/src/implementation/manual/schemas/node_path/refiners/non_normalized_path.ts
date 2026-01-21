@@ -55,7 +55,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
                     'up_steps': intermediate_result.up_steps,
                     'subppath': intermediate_result.node === null
                         ? intermediate_result.subppath
-                        : _p.list.nested_literal([
+                        : _p.list.nested_literal_old([
                             intermediate_result.subppath,
                             [
                                 intermediate_result.node

@@ -5,7 +5,7 @@ import * as _pi from 'pareto-core-interface'
 export const remove_last_element = <T>(list: _pi.List<T>): _pi.List<T> => {
     const length = _p.natural.amount_of_list_elements(list)
     let index = -1
-    return _p_temp_serializer.list.deprecated_build(($i) => {
+    return _p.list.deprecated_build(($i) => {
         list.__for_each(($) => {
             index += 1
             if (index < length - 1) {
@@ -36,7 +36,7 @@ export const build_list_with_loop = <Iterator_Element, List_Element>(
     iterator: _pi.Iterator<Iterator_Element>,
     callback: ($: Iterator_Element, $i: { 'add element': (element: List_Element) => void }) => boolean,
 ): _pi.List<List_Element> => {
-    return _p_temp_serializer.list.deprecated_build(($i) => {
+    return _p.list.deprecated_build(($i) => {
         loop_elements(iterator, ($) => {
             return callback($, {
                 'add element': $i['add element']

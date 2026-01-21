@@ -1,4 +1,5 @@
-import * as _p from 'pareto-core-serializer'
+import * as _p from 'pareto-core-transformer'
+import * as _ps from 'pareto-core-serializer'
 
 import * as d_in from "../../../../interface/generated/pareto/schemas/path/data"
 
@@ -7,7 +8,7 @@ export const Node_Path = ($: d_in.Node_Path): string => {
 }
 
 export const Context_Path = ($: d_in.Context_Path): string => {
-    return _p.text.deprecated_build(($i) => {
+    return _ps.text.deprecated_build(($i) => {
         _p.sg($.start, ($) => {
             switch ($[0]) {
                 case 'absolute': return _p.ss($, ($) => {
