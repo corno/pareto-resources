@@ -1,4 +1,4 @@
-import * as _pt from 'pareto-core-deserializer'
+import * as _pt from 'pareto-core/dist/deserializer'
 
 import * as d_out from "../../../../interface/generated/pareto/schemas/path/data"
 

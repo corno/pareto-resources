@@ -1,6 +1,6 @@
-import * as _p from 'pareto-core-command'
-import * as _pt from 'pareto-core-transformer'
-import * as _pq from 'pareto-core-query'
+import * as _p from 'pareto-core/dist/command'
+import * as _pt from 'pareto-core/dist/transformer'
+import * as _pq from 'pareto-core/dist/query'
 
 import * as d_directory_content from "../../../interface/to_be_generated/directory_content"
 import * as d_write_directory_content from "../../../interface/to_be_generated/write_directory_content"

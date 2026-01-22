@@ -1,5 +1,5 @@
-import * as _p from 'pareto-core-query'
-import * as _pi from 'pareto-core-interface'
+import * as _p from 'pareto-core/dist/query'
+import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_directory_content from "../../../interface/to_be_generated/directory_content"
 import * as d_read_directory_content from "../../../interface/to_be_generated/read_directory_content"

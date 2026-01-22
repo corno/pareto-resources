@@ -1,4 +1,4 @@
-import * as _pi from 'pareto-core-interface'
+import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_out from "../../../../interface/generated/pareto/schemas/path/data"
 import * as d_error from "./refiners/non_normalized_path"
@@ -9,7 +9,7 @@ export namespace signatures {
     export type Node_Path = _pi.Deserializer_With_Parameters<d_out.Node_Path, d_error.Error, Parameters>
 }
 
-import * as _pt from 'pareto-core-transformer'
+import * as _pt from 'pareto-core/dist/transformer'
 
 //dependencies
 import * as x1 from "./refiners/non_normalized_path"

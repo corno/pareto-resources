@@ -1,6 +1,6 @@
-import * as _p from 'pareto-core-transformer'
-import * as _p_temp_serializer from 'pareto-core-serializer'
-import * as _pi from 'pareto-core-interface'
+import * as _p from 'pareto-core/dist/transformer'
+import * as _p_temp_serializer from 'pareto-core/dist/serializer'
+import * as _pi from 'pareto-core/dist/interface'
 
 export const remove_last_element = <T>(list: _pi.List<T>): _pi.List<T> => {
     const length = _p.natural.amount_of_list_elements(list)

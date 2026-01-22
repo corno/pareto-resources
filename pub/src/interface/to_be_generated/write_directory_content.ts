@@ -1,4 +1,4 @@
-import * as _pi from 'pareto-core-interface'
+import * as _pi from 'pareto-core/dist/interface'
 
 // import * as d_make_directory from "../generated/pareto/schemas/make_directory/data"
 import * as d_write_file from "../generated/pareto/schemas/write_file/data"
