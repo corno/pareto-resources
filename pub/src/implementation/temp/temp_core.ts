@@ -47,12 +47,12 @@ export const build_list_with_loop = <Iterator_Element, List_Element>(
 
 export const build_text_with_loop = (
     iterator: _pi.Iterator<number>,
-    callback: ($: number, $i: { 'add character': (char: number) => void }) => boolean,
+    callback: ($: number, $i: { add_character: (char: number) => void }) => boolean,
 ): string => {
     return _p_temp_serializer.text.deprecated_build(($textBuilder) => {
         loop_elements(iterator, ($) => {
             return callback($, {
-                'add character': $textBuilder['add character']
+                add_character: $textBuilder.add_character
             })
         })
     })

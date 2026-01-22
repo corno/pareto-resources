@@ -30,7 +30,7 @@ export const Non_Normalized_Path = (
                     $i['add element'](_p.deprecated_cc(
                         build_text_with_loop(iterator, ($, $i) => {
                             if ($ !== 47) { // '/'
-                                $i['add character']($)
+                                $i.add_character($)
                                 iterator.discard(() => null)
                                 return false
                             } else {
@@ -53,7 +53,7 @@ export const Non_Normalized_Path = (
                         if (next[0] !== 47) { // '/'
                            return _p.unreachable_code_path()
                         } else {
-                           const la = iterator['look ahead'](1)
+                           const la = iterator.look_ahead(1)
                            if (la === null) {
                                // There's no more content after the slash, this is a trailing slash - don't consume, stop loop
                                return true

@@ -12,16 +12,16 @@ export const Context_Path = ($: d_in.Context_Path): string => {
         _p.sg($.start, ($) => {
             switch ($[0]) {
                 case 'absolute': return _p.ss($, ($) => {
-                    // $i['add character'](47) // '/'
+                    // $i.add_character(47) // '/'
                 })
                 case 'relative': return _p.ss($, ($) => {
-                    $i['add character'](46) // .
+                    $i.add_character(46) // .
 
                     let k = $['up steps']
                     while (k > 0) {
-                        $i['add character'](47) // /
-                        $i['add character'](46) // .
-                        $i['add character'](46) // .
+                        $i.add_character(47) // /
+                        $i.add_character(46) // .
+                        $i.add_character(46) // .
 
                         k -= 1
                     }
@@ -30,11 +30,11 @@ export const Context_Path = ($: d_in.Context_Path): string => {
             }
         })
         if (_p.boolean.list_is_empty($.subpath) && $.start[0] === 'absolute') {
-            $i['add character'](47) // '/'
+            $i.add_character(47) // '/'
         }
         $.subpath.__for_each(($) => {
-            $i['add character'](47) // '/'
-            $i['add snippet']($)
+            $i.add_character(47) // '/'
+            $i.add_snippet($)
         })
     })
 }
