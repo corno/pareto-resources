@@ -10,7 +10,7 @@ export namespace commands {
     export type write_directory_content = _pi.Command_Procedure<
         resources.commands.write_directory_content,
         {
-            // 'make directory': resources_exupery.commands.make_directory
+            // 'make directory': resources_pareto.commands.make_directory
             'write file': resources.commands.write_file
 
         },
