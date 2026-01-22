@@ -1,6 +1,6 @@
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as d_out from "../../../../interface/generated/pareto/schemas/path/data"
+import * as d_out from "../../../../interface/generated/liana/schemas/path/data"
 import * as d_error from "./refiners/non_normalized_path"
 
 export type Parameters = { 'pedantic': boolean }

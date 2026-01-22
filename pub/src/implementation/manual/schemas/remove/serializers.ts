@@ -1,7 +1,7 @@
 import * as _p from 'pareto-core/dist/transformer'
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as d_in from "../../../../interface/generated/pareto/schemas/remove/data"
+import * as d_in from "../../../../interface/generated/liana/schemas/remove/data"
 
 export type Error = _pi.Serializer<d_in.Error>
 

@@ -1,8 +1,8 @@
 import * as _p from 'pareto-core/dist/transformer'
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as d_in from "../../../../../interface/generated/pareto/schemas/write_file/data"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data"
+import * as d_in from "../../../../../interface/generated/liana/schemas/write_file/data"
+import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
 
 export type Error = _pi.Transformer<d_in.Error, d_out.Block_Part>
 

@@ -1,7 +1,7 @@
 import * as _p from 'pareto-core/dist/transformer'
 import * as _ps from 'pareto-core/dist/serializer'
 
-import * as d_in from "../../../../interface/generated/pareto/schemas/path/data"
+import * as d_in from "../../../../interface/generated/liana/schemas/path/data"
 
 export const Node_Path = ($: d_in.Node_Path): string => {
     return `${Context_Path($.context)}/${$.node}`

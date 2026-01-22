@@ -4,7 +4,7 @@ import * as _pd from 'pareto-core/dist/deserializer'
 
 import { build_list_with_loop, build_text_with_loop } from '../../../temp/temp_core'
 
-import * as d_out from "../../../../interface/generated/pareto/schemas/path/data"
+import * as d_out from "../../../../interface/generated/liana/schemas/path/data"
 
 export const Non_Normalized_Path = (
     $: string
