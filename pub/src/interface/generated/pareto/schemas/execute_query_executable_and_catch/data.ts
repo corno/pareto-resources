@@ -3,6 +3,8 @@ import * as _pi from "pareto-core/dist/interface"
 
 import * as i__location from "../../core/location"
 
+import * as i__imports_terminal_output from "../terminal_output/data"
+
 export namespace Parameters_ {
     
     export type program = string
@@ -26,7 +28,7 @@ export namespace Error_ {
     
     export namespace failed_to_spawn {
         
-        export type message = _pi.List<string>
+        export type message = i__imports_terminal_output.Message
         
     }
     
@@ -44,7 +46,7 @@ export namespace Error_ {
         
         export type exit_code = _pi.Optional_Value<exit_code.O>
         
-        export type stderr = _pi.List<string>
+        export type stderr = i__imports_terminal_output.Message
         
     }
     
@@ -63,7 +65,7 @@ export namespace Result_ {
     
     export namespace success {
         
-        export type stdout = _pi.List<string>
+        export type stdout = i__imports_terminal_output.Message
         
     }
     
