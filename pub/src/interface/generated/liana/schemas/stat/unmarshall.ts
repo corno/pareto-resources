@@ -1,0 +1,77 @@
+
+import * as _pi from "pareto-core/dist/interface"
+
+import * as i_out from "./data"
+
+import * as i_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
+
+export namespace Parameters_ {
+    
+    export type I = i_in.Value
+    
+    export type O = i_out.Parameters
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Parameters_ = (
+    context: Parameters_.I,
+) => Parameters_.O
+
+export namespace Error_ {
+    
+    export type I = i_in.Value
+    
+    export type O = i_out.Error
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Error_ = (
+    context: Error_.I,
+) => Error_.O
+
+export namespace Node_Type_ {
+    
+    export type I = i_in.Value
+    
+    export type O = i_out.Node_Type
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Node_Type_ = (
+    context: Node_Type_.I,
+) => Node_Type_.O
+
+export namespace Result_ {
+    
+    export type I = i_in.Value
+    
+    export type O = i_out.Result
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Result_ = (
+    context: Result_.I,
+) => Result_.O
+
+export { 
+    Parameters_ as Parameters, 
+    Error_ as Error, 
+    Node_Type_ as Node_Type, 
+    Result_ as Result, 
+}
