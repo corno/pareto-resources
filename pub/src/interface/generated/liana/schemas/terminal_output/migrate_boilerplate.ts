@@ -18,7 +18,7 @@ export namespace Message_ {
 }
 
 export type Message_ = (
-    $$_: Message_.I,
+    context: Message_.I,
 ) => Message_.O
 
 export { 

@@ -18,7 +18,7 @@ export namespace Parameters_ {
 }
 
 export type Parameters_ = (
-    $$_: Parameters_.I,
+    context: Parameters_.I,
 ) => Parameters_.O
 
 export namespace Error_ {
@@ -34,7 +34,7 @@ export namespace Error_ {
 }
 
 export type Error_ = (
-    $$_: Error_.I,
+    context: Error_.I,
 ) => Error_.O
 
 export { 

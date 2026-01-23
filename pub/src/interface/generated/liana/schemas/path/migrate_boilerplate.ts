@@ -18,7 +18,7 @@ export namespace Up_Steps_ {
 }
 
 export type Up_Steps_ = (
-    $$_: Up_Steps_.I,
+    context: Up_Steps_.I,
 ) => Up_Steps_.O
 
 export namespace Start_ {
@@ -34,7 +34,7 @@ export namespace Start_ {
 }
 
 export type Start_ = (
-    $$_: Start_.I,
+    context: Start_.I,
 ) => Start_.O
 
 export namespace Context_Subpath_ {
@@ -50,7 +50,7 @@ export namespace Context_Subpath_ {
 }
 
 export type Context_Subpath_ = (
-    $$_: Context_Subpath_.I,
+    context: Context_Subpath_.I,
 ) => Context_Subpath_.O
 
 export namespace Context_Path_ {
@@ -66,7 +66,7 @@ export namespace Context_Path_ {
 }
 
 export type Context_Path_ = (
-    $$_: Context_Path_.I,
+    context: Context_Path_.I,
 ) => Context_Path_.O
 
 export namespace Node_Path_ {
@@ -82,7 +82,7 @@ export namespace Node_Path_ {
 }
 
 export type Node_Path_ = (
-    $$_: Node_Path_.I,
+    context: Node_Path_.I,
 ) => Node_Path_.O
 
 export namespace Non_Normalized_Path_ {
@@ -98,7 +98,7 @@ export namespace Non_Normalized_Path_ {
 }
 
 export type Non_Normalized_Path_ = (
-    $$_: Non_Normalized_Path_.I,
+    context: Non_Normalized_Path_.I,
 ) => Non_Normalized_Path_.O
 
 export { 

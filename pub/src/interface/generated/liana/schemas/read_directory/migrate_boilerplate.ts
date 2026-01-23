@@ -18,7 +18,7 @@ export namespace Parameters_ {
 }
 
 export type Parameters_ = (
-    $$_: Parameters_.I,
+    context: Parameters_.I,
 ) => Parameters_.O
 
 export namespace Error_ {
@@ -34,7 +34,7 @@ export namespace Error_ {
 }
 
 export type Error_ = (
-    $$_: Error_.I,
+    context: Error_.I,
 ) => Error_.O
 
 export namespace Node_Type_ {
@@ -50,7 +50,7 @@ export namespace Node_Type_ {
 }
 
 export type Node_Type_ = (
-    $$_: Node_Type_.I,
+    context: Node_Type_.I,
 ) => Node_Type_.O
 
 export namespace Result_ {
@@ -66,7 +66,7 @@ export namespace Result_ {
 }
 
 export type Result_ = (
-    $$_: Result_.I,
+    context: Result_.I,
 ) => Result_.O
 
 export { 

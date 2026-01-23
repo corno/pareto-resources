@@ -18,7 +18,7 @@ export namespace Parameters_ {
 }
 
 export type Parameters_ = (
-    $$_: Parameters_.I,
+    context: Parameters_.I,
 ) => Parameters_.O
 
 export { 
