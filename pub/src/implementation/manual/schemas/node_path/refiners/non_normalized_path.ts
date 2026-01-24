@@ -36,7 +36,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
     }
 
     $.segments.__for_each(($) => {
-        intermediate_result = _p.sg($, ($): Intermediate_Result => {
+        intermediate_result = _p.decide.state($, ($): Intermediate_Result => {
             switch ($[0]) {
                 case 'parent': return _p.ss($, ($) => ({
                     'up_steps': intermediate_result.node === null

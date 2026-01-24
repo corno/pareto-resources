@@ -9,7 +9,7 @@ export const Node_Path = ($: d_in.Node_Path): string => {
 
 export const Context_Path = ($: d_in.Context_Path): string => {
     return _ps.text.deprecated_build(($i) => {
-        _p.sg($.start, ($) => {
+        _p.decide.state($.start, ($) => {
             switch ($[0]) {
                 case 'absolute': return _p.ss($, ($) => {
                     // $i.add_character(47) // '/'

@@ -22,7 +22,7 @@ export const Context_Path = (
     }
 
     $.segments.__for_each(($) => {
-        intermediate_result = _p.sg($, ($): Intermediate_Result => {
+        intermediate_result = _p.decide.state($, ($): Intermediate_Result => {
             switch ($[0]) {
                 case 'parent': return _p.ss($, ($) => ({
                     'up_steps': _p.boolean.list_is_empty(intermediate_result.subppath)

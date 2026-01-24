@@ -16,7 +16,7 @@ export const $$: signatures.queries.read_directory_content = _p.query_function(
         ($) => _p.dictionaryx.parallel(
             $.__d_map(($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
                 const path = $.path
-                return _p.sg($['node type'], ($) => {
+                return _p.decide.state($['node type'], ($) => {
                     switch ($[0]) {
                         case 'file': return _p.ss($, ($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $r['read file'](
                             path,

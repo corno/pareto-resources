@@ -9,7 +9,7 @@ export type Error = _pi.Transformer<d_in.Error, d_out.Block_Part>
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
 export const Error: Error = ($) => {
-    return _p.sg($, ($) => {
+    return _p.decide.state($, ($) => {
         switch ($[0]) {
             case 'node does not exist': return _p.ss($, ($) => sh.b.snippet(`node does not exist`))
             case 'permission denied': return _p.ss($, ($) => sh.b.snippet(`permission denied`))
