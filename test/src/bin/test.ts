@@ -27,7 +27,7 @@ import * as _pdev from 'pareto-core-dev'
 //     },
 // )
 
-// _pt.sg($.context.start, ($) => {
+// _pt.decide.state($.context.start, ($) => {
 //     switch ($[0]) {
 //         case 'absolute': return _pt.ss($, ($) => _pdev.log_debug_message(`abs`, () => {}))
 //         case 'relative': return _pt.ss($, ($) => _pdev.log_debug_message(`rel up steps: ${$['up steps']}`, () => {}))

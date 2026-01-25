@@ -18,7 +18,7 @@ export const $$: signatures.commands.write_directory_content = _p.command_proced
         _p.dictionaryx.parallel<d_directory_content.Node, d_write_directory_content.Error, d_write_directory_content.Node_Error>(
             $p.directory,
             ($, key) => [
-                _pt.sg($, ($) => {
+                _pt.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'other': return _pt.ss($, ($) => _p.nothing())
                         case 'file': return _pt.ss($, ($) => $cr['write file'].execute(
