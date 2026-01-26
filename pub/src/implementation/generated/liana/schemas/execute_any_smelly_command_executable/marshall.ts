@@ -1,0 +1,50 @@
+
+import * as _p from "pareto-core/dist/transformer"
+
+import * as t_signatures from "../../../../../interface/generated/liana/schemas/execute_any_smelly_command_executable/marshall"
+
+import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_target/data"
+
+import * as v_serialize_number from "liana-core/dist/implementation/manual/primitives/integer/serializers/decimal"
+
+import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
+
+import * as v_external__terminal_output from "../terminal_output/marshall"
+export const Parameters: t_signatures.Parameters = ($,) => ['group', ['verbose', _p.dictionary.literal(({
+    'program': _p.deprecated_cc($['program'], ($,) => ['text', ({
+        'delimiter': ['quote', null],
+        'value': $,
+    })]),
+    'args': _p.deprecated_cc($['args'], ($,) => ['list', $.__l_map(($,) => ['text', ({
+        'delimiter': ['quote', null],
+        'value': $,
+    })])]),
+}))]]
+export const Error: t_signatures.Error = ($,) => ['state', _p.decide.state($, ($,): t_out.Value.state => {
+    switch ($[0]) {
+        case 'failed to spawn':
+            return _p.ss($, ($,) => ({
+                'option': "failed to spawn",
+                'value': ['group', ['verbose', _p.dictionary.literal(({
+                    'message': _p.deprecated_cc($['message'], ($,) => v_external_terminal_output.Message($)),
+                }))]],
+            }))
+        case 'non zero exit code':
+            return _p.ss($, ($,) => ({
+                'option': "non zero exit code",
+                'value': ['group', ['verbose', _p.dictionary.literal(({
+                    'exit code': _p.deprecated_cc($['exit code'], ($,) => ['optional', $(($,) => ['set', ['text', ({
+                        'delimiter': ['backtick', null],
+                        'value': v_serialize_number.serialize($),
+                    })]], () => ['set', ['text', ({
+                        'delimiter': ['backtick', null],
+                        'value': v_serialize_number.serialize($),
+                    })]])]),
+                    'stderr': _p.deprecated_cc($['stderr'], ($,) => v_external_terminal_output.Message($)),
+                    'stdout': _p.deprecated_cc($['stdout'], ($,) => v_external_terminal_output.Message($)),
+                }))]],
+            }))
+        default:
+            return _p.au($[0])
+    }
+})]
