@@ -21,7 +21,7 @@ export const Error: t_signatures.Error = ($,) => ['state', _p.decide.state($, ($
     switch ($[0]) {
         case 'permission denied':
             return _p.ss($, ($,) => ({
-                'option': "permission denied",
+                'option': 'permission denied',
                 'value': ['nothing', null],
             }))
         default:

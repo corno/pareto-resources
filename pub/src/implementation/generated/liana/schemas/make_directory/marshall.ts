@@ -15,12 +15,12 @@ export const Error: t_signatures.Error = ($,) => ['state', _p.decide.state($, ($
     switch ($[0]) {
         case 'directory already exists':
             return _p.ss($, ($,) => ({
-                'option': "directory already exists",
+                'option': 'directory already exists',
                 'value': ['nothing', null],
             }))
         case 'permission denied':
             return _p.ss($, ($,) => ({
-                'option': "permission denied",
+                'option': 'permission denied',
                 'value': ['nothing', null],
             }))
         default:

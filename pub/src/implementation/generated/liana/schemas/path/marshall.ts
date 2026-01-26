@@ -9,19 +9,19 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 export const Up_Steps: t_signatures.Up_Steps = ($,) => ['text', ({
-    'delimiter': ['backtick', null],
+    'delimiter': ['none', null],
     'value': v_serialize_number.serialize($),
 })]
 export const Start: t_signatures.Start = ($,) => ['state', _p.decide.state($, ($,): t_out.Value.state => {
     switch ($[0]) {
         case 'absolute':
             return _p.ss($, ($,) => ({
-                'option': "absolute",
+                'option': 'absolute',
                 'value': ['nothing', null],
             }))
         case 'relative':
             return _p.ss($, ($,) => ({
-                'option': "relative",
+                'option': 'relative',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                     'up steps': _p.deprecated_cc($['up steps'], ($,) => Up_Steps($)),
                 }))]],
@@ -47,19 +47,19 @@ export const Node_Path: t_signatures.Node_Path = ($,) => ['group', ['verbose', _
 }))]]
 export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($,) => ['group', ['verbose', _p.dictionary.literal(({
     'leading slash': _p.deprecated_cc($['leading slash'], ($,) => ['text', ({
-        'delimiter': ['backtick', null],
+        'delimiter': ['none', null],
         'value': v_serialize_boolean.serialize($),
     })]),
     'segments': _p.deprecated_cc($['segments'], ($,) => ['list', $.__l_map(($,) => ['state', _p.decide.state($, ($,): t_out.Value.state => {
         switch ($[0]) {
             case 'parent':
                 return _p.ss($, ($,) => ({
-                    'option': "parent",
+                    'option': 'parent',
                     'value': ['nothing', null],
                 }))
             case 'child':
                 return _p.ss($, ($,) => ({
-                    'option': "child",
+                    'option': 'child',
                     'value': ['text', ({
                         'delimiter': ['quote', null],
                         'value': $,
@@ -67,12 +67,12 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($,) => ['g
                 }))
             case 'current':
                 return _p.ss($, ($,) => ({
-                    'option': "current",
+                    'option': 'current',
                     'value': ['nothing', null],
                 }))
             case 'nothing':
                 return _p.ss($, ($,) => ({
-                    'option': "nothing",
+                    'option': 'nothing',
                     'value': ['nothing', null],
                 }))
             default:
@@ -80,7 +80,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($,) => ['g
         }
     })])]),
     'trailing slash': _p.deprecated_cc($['trailing slash'], ($,) => ['text', ({
-        'delimiter': ['backtick', null],
+        'delimiter': ['none', null],
         'value': v_serialize_boolean.serialize($),
     })]),
 }))]]

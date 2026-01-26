@@ -15,27 +15,27 @@ export const Error: t_signatures.Error = ($,) => ['state', _p.decide.state($, ($
     switch ($[0]) {
         case 'file does not exist':
             return _p.ss($, ($,) => ({
-                'option': "file does not exist",
+                'option': 'file does not exist',
                 'value': ['nothing', null],
             }))
         case 'node is not a file':
             return _p.ss($, ($,) => ({
-                'option': "node is not a file",
+                'option': 'node is not a file',
                 'value': ['nothing', null],
             }))
         case 'permission denied':
             return _p.ss($, ($,) => ({
-                'option': "permission denied",
+                'option': 'permission denied',
                 'value': ['nothing', null],
             }))
         case 'file too large':
             return _p.ss($, ($,) => ({
-                'option': "file too large",
+                'option': 'file too large',
                 'value': ['nothing', null],
             }))
         case 'device not ready':
             return _p.ss($, ($,) => ({
-                'option': "device not ready",
+                'option': 'device not ready',
                 'value': ['nothing', null],
             }))
         default:

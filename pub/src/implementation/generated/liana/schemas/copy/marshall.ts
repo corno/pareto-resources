@@ -15,15 +15,15 @@ export const Parameters: t_signatures.Parameters = ($,) => ['group', ['verbose',
     'target': _p.deprecated_cc($['target'], ($,) => v_external_path.Node_Path($)),
     'options': _p.deprecated_cc($['options'], ($,) => ['group', ['verbose', _p.dictionary.literal(({
         'recursive': _p.deprecated_cc($['recursive'], ($,) => ['optional', $.__decide(($,): t_out.Value.optional => ['set', ['text', ({
-            'delimiter': ['backtick', null],
+            'delimiter': ['none', null],
             'value': v_serialize_boolean.serialize($),
         })]], () => ['not set', null])]),
         'force': _p.deprecated_cc($['force'], ($,) => ['optional', $.__decide(($,): t_out.Value.optional => ['set', ['text', ({
-            'delimiter': ['backtick', null],
+            'delimiter': ['none', null],
             'value': v_serialize_boolean.serialize($),
         })]], () => ['not set', null])]),
         'errorOnExist': _p.deprecated_cc($['errorOnExist'], ($,) => ['optional', $.__decide(($,): t_out.Value.optional => ['set', ['text', ({
-            'delimiter': ['backtick', null],
+            'delimiter': ['none', null],
             'value': v_serialize_boolean.serialize($),
         })]], () => ['not set', null])]),
     }))]]),
@@ -32,27 +32,27 @@ export const Error: t_signatures.Error = ($,) => ['state', _p.decide.state($, ($
     switch ($[0]) {
         case 'source does not exist':
             return _p.ss($, ($,) => ({
-                'option': "source does not exist",
+                'option': 'source does not exist',
                 'value': ['nothing', null],
             }))
         case 'node is not a file':
             return _p.ss($, ($,) => ({
-                'option': "node is not a file",
+                'option': 'node is not a file',
                 'value': ['nothing', null],
             }))
         case 'permission denied':
             return _p.ss($, ($,) => ({
-                'option': "permission denied",
+                'option': 'permission denied',
                 'value': ['nothing', null],
             }))
         case 'file too large':
             return _p.ss($, ($,) => ({
-                'option': "file too large",
+                'option': 'file too large',
                 'value': ['nothing', null],
             }))
         case 'device not ready':
             return _p.ss($, ($,) => ({
-                'option': "device not ready",
+                'option': 'device not ready',
                 'value': ['nothing', null],
             }))
         default:

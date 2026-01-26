@@ -1,6 +1,8 @@
 
 import * as _pi from "pareto-core/dist/interface"
 
+import * as i_generic from "../../generic/deserialize"
+
 import * as i_out from "./data"
 
 export namespace Up_Steps_ {
@@ -8,6 +10,8 @@ export namespace Up_Steps_ {
     export type I = string
     
     export type O = i_out.Up_Steps
+    
+    export type E = i_generic.Error
     
     export namespace P {
         
@@ -17,6 +21,7 @@ export namespace Up_Steps_ {
 
 export type Up_Steps_ = (
     context: Up_Steps_.I,
+    abort: _pi.Abort<Up_Steps_.E>,
 ) => Up_Steps_.O
 
 export namespace Start_ {
@@ -24,6 +29,8 @@ export namespace Start_ {
     export type I = string
     
     export type O = i_out.Start
+    
+    export type E = i_generic.Error
     
     export namespace P {
         
@@ -33,6 +40,7 @@ export namespace Start_ {
 
 export type Start_ = (
     context: Start_.I,
+    abort: _pi.Abort<Start_.E>,
 ) => Start_.O
 
 export namespace Context_Subpath_ {
@@ -40,6 +48,8 @@ export namespace Context_Subpath_ {
     export type I = string
     
     export type O = i_out.Context_Subpath
+    
+    export type E = i_generic.Error
     
     export namespace P {
         
@@ -49,6 +59,7 @@ export namespace Context_Subpath_ {
 
 export type Context_Subpath_ = (
     context: Context_Subpath_.I,
+    abort: _pi.Abort<Context_Subpath_.E>,
 ) => Context_Subpath_.O
 
 export namespace Context_Path_ {
@@ -56,6 +67,8 @@ export namespace Context_Path_ {
     export type I = string
     
     export type O = i_out.Context_Path
+    
+    export type E = i_generic.Error
     
     export namespace P {
         
@@ -65,6 +78,7 @@ export namespace Context_Path_ {
 
 export type Context_Path_ = (
     context: Context_Path_.I,
+    abort: _pi.Abort<Context_Path_.E>,
 ) => Context_Path_.O
 
 export namespace Node_Path_ {
@@ -72,6 +86,8 @@ export namespace Node_Path_ {
     export type I = string
     
     export type O = i_out.Node_Path
+    
+    export type E = i_generic.Error
     
     export namespace P {
         
@@ -81,6 +97,7 @@ export namespace Node_Path_ {
 
 export type Node_Path_ = (
     context: Node_Path_.I,
+    abort: _pi.Abort<Node_Path_.E>,
 ) => Node_Path_.O
 
 export namespace Non_Normalized_Path_ {
@@ -88,6 +105,8 @@ export namespace Non_Normalized_Path_ {
     export type I = string
     
     export type O = i_out.Non_Normalized_Path
+    
+    export type E = i_generic.Error
     
     export namespace P {
         
@@ -97,6 +116,7 @@ export namespace Non_Normalized_Path_ {
 
 export type Non_Normalized_Path_ = (
     context: Non_Normalized_Path_.I,
+    abort: _pi.Abort<Non_Normalized_Path_.E>,
 ) => Non_Normalized_Path_.O
 
 export { 
