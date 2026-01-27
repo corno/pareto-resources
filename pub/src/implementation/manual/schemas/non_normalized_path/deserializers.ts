@@ -27,7 +27,7 @@ export const Non_Normalized_Path = (
                     }
                 })(),
                 'segments': build_list_with_loop<number, d_out.Non_Normalized_Path.segments.L>(iterator, ($, $i) => {
-                    $i['add element'](_p.deprecated_cc(
+                    $i['add item'](_p.deprecated_cc(
                         build_text_with_loop(iterator, ($, $i) => {
                             if ($ !== 47) { // '/'
                                 $i.add_character($)
