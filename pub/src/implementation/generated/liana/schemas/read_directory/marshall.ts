@@ -50,7 +50,7 @@ export const Node_Type: t_signatures.Node_Type = ($,) => ['state', _p.decide.sta
             return _p.au($[0])
     }
 })]
-export const Result: t_signatures.Result = ($,) => ['dictionary', $.__d_map(($,key,) => ['group', ['verbose', _p.dictionary.literal(({
+export const Result: t_signatures.Result = ($,) => ['dictionary', $.__d_map(($,id,) => ['group', ['verbose', _p.dictionary.literal(({
     'node type': _p.deprecated_cc($['node type'], ($,) => Node_Type($)),
     'context directory': _p.deprecated_cc($['context directory'], ($,) => v_external_path.Context_Path($)),
     'path': _p.deprecated_cc($['path'], ($,) => v_external_path.Node_Path($)),

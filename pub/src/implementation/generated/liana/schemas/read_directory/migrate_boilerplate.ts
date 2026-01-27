@@ -31,7 +31,7 @@ export const Node_Type: t_signatures.Node_Type = ($,) => _p.decide.state($, ($,)
             return _p.au($[0])
     }
 })
-export const Result: t_signatures.Result = ($,) => $.__d_map(($,key,) => ({
+export const Result: t_signatures.Result = ($,) => $.__d_map(($,id,) => ({
     'node type': _p.deprecated_cc($['node type'], ($,) => Node_Type($)),
     'context directory': _p.deprecated_cc($['context directory'], ($,) => v_path.Context_Path($)),
     'path': _p.deprecated_cc($['path'], ($,) => v_path.Node_Path($)),
