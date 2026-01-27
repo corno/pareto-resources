@@ -17,13 +17,13 @@ export const $$: signatures.commands.write_directory_content = _p.command_proced
         // ),
         _p.dictionaryx.parallel<d_directory_content.Node, d_write_directory_content.Error, d_write_directory_content.Node_Error>(
             $p.directory,
-            ($, key) => [
+            ($, id) => [
                 _pt.decide.state($, ($) => {
                     switch ($[0]) {
                         case 'other': return _pt.ss($, ($) => _p.nothing())
                         case 'file': return _pt.ss($, ($) => $cr['write file'].execute(
                             {
-                                'path': t_path_to_path.create_node_path($p.path, key),
+                                'path': t_path_to_path.create_node_path($p.path, id),
                                 'data': $
                             },
                             ($): d_write_directory_content.Node_Error => ['file', $]
@@ -31,7 +31,7 @@ export const $$: signatures.commands.write_directory_content = _p.command_proced
                         case 'directory': return _pt.ss($, ($) => $$($cr, null).execute(
                             {
                                 'directory': $,
-                                'path': t_path_to_path.extend_context_path($p.path, { 'addition': key }),
+                                'path': t_path_to_path.extend_context_path($p.path, { 'addition': id }),
                             },
                             ($): d_write_directory_content.Node_Error => ['directory', $]
                             
