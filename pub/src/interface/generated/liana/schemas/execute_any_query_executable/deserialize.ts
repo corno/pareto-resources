@@ -15,6 +15,10 @@ export namespace Parameters_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -22,6 +26,10 @@ export namespace Parameters_ {
 export type Parameters_ = (
     context: Parameters_.I,
     abort: _pi.Abort<Parameters_.E>,
+    parameters: {
+        readonly 'document resource identifier': Parameters_.P.document_resource_identifier
+        readonly 'indentation': Parameters_.P.indentation
+    },
 ) => Parameters_.O
 
 export namespace Error_ {
@@ -34,6 +42,10 @@ export namespace Error_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -41,6 +53,10 @@ export namespace Error_ {
 export type Error_ = (
     context: Error_.I,
     abort: _pi.Abort<Error_.E>,
+    parameters: {
+        readonly 'document resource identifier': Error_.P.document_resource_identifier
+        readonly 'indentation': Error_.P.indentation
+    },
 ) => Error_.O
 
 export namespace Result_ {
@@ -53,6 +69,10 @@ export namespace Result_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -60,6 +80,10 @@ export namespace Result_ {
 export type Result_ = (
     context: Result_.I,
     abort: _pi.Abort<Result_.E>,
+    parameters: {
+        readonly 'document resource identifier': Result_.P.document_resource_identifier
+        readonly 'indentation': Result_.P.indentation
+    },
 ) => Result_.O
 
 export { 

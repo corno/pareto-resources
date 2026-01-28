@@ -7,3 +7,4 @@ import * as t_out from "../../../../../interface/generated/liana/schemas/log_err
 export const Parameters: t_signatures.Parameters = ($,) => ({
     'lines': _p.deprecated_cc($['lines'], ($,) => $.__l_map(($,) => $)),
 })
+export const Error: t_signatures.Error = ($,) => null

@@ -19,6 +19,9 @@ export type Parameters_ = {
     readonly 'lines': Parameters_.lines
 }
 
+export type Error_ = null
+
 export { 
     Parameters_ as Parameters, 
+    Error_ as Error, 
 }

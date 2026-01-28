@@ -15,6 +15,10 @@ export namespace Message_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -22,6 +26,10 @@ export namespace Message_ {
 export type Message_ = (
     context: Message_.I,
     abort: _pi.Abort<Message_.E>,
+    parameters: {
+        readonly 'document resource identifier': Message_.P.document_resource_identifier
+        readonly 'indentation': Message_.P.indentation
+    },
 ) => Message_.O
 
 export { 

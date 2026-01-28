@@ -21,6 +21,23 @@ export type Parameters_ = (
     context: Parameters_.I,
 ) => Parameters_.O
 
+export namespace Error_ {
+    
+    export type I = i_in.Error
+    
+    export type O = i_out.Error
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Error_ = (
+    context: Error_.I,
+) => Error_.O
+
 export { 
     Parameters_ as Parameters, 
+    Error_ as Error, 
 }

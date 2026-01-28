@@ -14,3 +14,4 @@ export const Parameters: t_signatures.Parameters = ($,) => ['group', ['verbose',
         'value': $,
     })])]),
 }))]]
+export const Error: t_signatures.Error = ($,) => ['nothing', null]

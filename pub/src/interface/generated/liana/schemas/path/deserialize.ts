@@ -15,6 +15,10 @@ export namespace Up_Steps_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -22,6 +26,10 @@ export namespace Up_Steps_ {
 export type Up_Steps_ = (
     context: Up_Steps_.I,
     abort: _pi.Abort<Up_Steps_.E>,
+    parameters: {
+        readonly 'document resource identifier': Up_Steps_.P.document_resource_identifier
+        readonly 'indentation': Up_Steps_.P.indentation
+    },
 ) => Up_Steps_.O
 
 export namespace Start_ {
@@ -34,6 +42,10 @@ export namespace Start_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -41,6 +53,10 @@ export namespace Start_ {
 export type Start_ = (
     context: Start_.I,
     abort: _pi.Abort<Start_.E>,
+    parameters: {
+        readonly 'document resource identifier': Start_.P.document_resource_identifier
+        readonly 'indentation': Start_.P.indentation
+    },
 ) => Start_.O
 
 export namespace Context_Subpath_ {
@@ -53,6 +69,10 @@ export namespace Context_Subpath_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -60,6 +80,10 @@ export namespace Context_Subpath_ {
 export type Context_Subpath_ = (
     context: Context_Subpath_.I,
     abort: _pi.Abort<Context_Subpath_.E>,
+    parameters: {
+        readonly 'document resource identifier': Context_Subpath_.P.document_resource_identifier
+        readonly 'indentation': Context_Subpath_.P.indentation
+    },
 ) => Context_Subpath_.O
 
 export namespace Context_Path_ {
@@ -72,6 +96,10 @@ export namespace Context_Path_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -79,6 +107,10 @@ export namespace Context_Path_ {
 export type Context_Path_ = (
     context: Context_Path_.I,
     abort: _pi.Abort<Context_Path_.E>,
+    parameters: {
+        readonly 'document resource identifier': Context_Path_.P.document_resource_identifier
+        readonly 'indentation': Context_Path_.P.indentation
+    },
 ) => Context_Path_.O
 
 export namespace Node_Path_ {
@@ -91,6 +123,10 @@ export namespace Node_Path_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -98,6 +134,10 @@ export namespace Node_Path_ {
 export type Node_Path_ = (
     context: Node_Path_.I,
     abort: _pi.Abort<Node_Path_.E>,
+    parameters: {
+        readonly 'document resource identifier': Node_Path_.P.document_resource_identifier
+        readonly 'indentation': Node_Path_.P.indentation
+    },
 ) => Node_Path_.O
 
 export namespace Non_Normalized_Path_ {
@@ -110,6 +150,10 @@ export namespace Non_Normalized_Path_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -117,6 +161,10 @@ export namespace Non_Normalized_Path_ {
 export type Non_Normalized_Path_ = (
     context: Non_Normalized_Path_.I,
     abort: _pi.Abort<Non_Normalized_Path_.E>,
+    parameters: {
+        readonly 'document resource identifier': Non_Normalized_Path_.P.document_resource_identifier
+        readonly 'indentation': Non_Normalized_Path_.P.indentation
+    },
 ) => Non_Normalized_Path_.O
 
 export { 
