@@ -10,26 +10,49 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
 import * as v_external_path from "../path/marshall"
-export const Parameters: t_signatures.Parameters = ($,) => ['group', ['verbose', _p.dictionary.literal(({
-    'path': _p.deprecated_cc($['path'], ($,) => v_external_path.Node_Path($)),
-    'error if not exists': _p.deprecated_cc($['error if not exists'], ($,) => ['text', ({
-        'delimiter': ['none', null],
-        'value': v_serialize_boolean.serialize($),
-    })]),
-}))]]
-export const Error: t_signatures.Error = ($,) => ['state', _p.decide.state($, ($,): t_out.Value.state => {
-    switch ($[0]) {
-        case 'node does not exist':
-            return _p.ss($, ($,) => ({
-                'option': 'node does not exist',
-                'value': ['nothing', null],
-            }))
-        case 'permission denied':
-            return _p.ss($, ($,) => ({
-                'option': 'permission denied',
-                'value': ['nothing', null],
-            }))
-        default:
-            return _p.au($[0])
+export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
+    ({
+        'path': _p.deprecated_cc(
+            $['path'], 
+            ($) => v_external_path.Node_Path(
+                $
+            )
+        ),
+        'error if not exists': _p.deprecated_cc(
+            $['error if not exists'], 
+            ($) => ['text', ({
+                'delimiter': ['none', null],
+                'value': v_serialize_boolean.serialize(
+                    $
+                ),
+            })]
+        ),
+    })
+)]]
+export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
+    $, 
+    ($): t_out.Value.state => {
+        switch ($[0]) {
+            case 'node does not exist':
+                return _p.ss(
+                    $, 
+                    ($) => ({
+                        'option': 'node does not exist',
+                        'value': ['nothing', null],
+                    })
+                )
+            case 'permission denied':
+                return _p.ss(
+                    $, 
+                    ($) => ({
+                        'option': 'permission denied',
+                        'value': ['nothing', null],
+                    })
+                )
+            default:
+                return _p.au(
+                    $[0]
+                )
+        }
     }
-})]
+)]

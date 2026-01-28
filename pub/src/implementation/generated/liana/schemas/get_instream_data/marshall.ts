@@ -8,8 +8,8 @@ import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 import * as v_serialize_number from "liana-core/dist/implementation/manual/primitives/integer/serializers/decimal"
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
-export const Parameters: t_signatures.Parameters = ($,) => ['nothing', null]
-export const Result: t_signatures.Result = ($,) => ['text', ({
+export const Parameters: t_signatures.Parameters = ($) => ['nothing', null]
+export const Result: t_signatures.Result = ($) => ['text', ({
     'delimiter': ['quote', null],
     'value': $,
 })]
