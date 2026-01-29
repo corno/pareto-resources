@@ -1,13 +1,21 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
+import { 
+    _p_unreachable_code_path, 
+} from "pareto-core/dist/unreachable_code_path"
+
+import { 
+    _p_cc, 
+} from "pareto-core/dist/change_context"
+
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/read_directory/migrate_boilerplate"
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/read_directory/data"
 
 import * as v_path from "../path/migrate_boilerplate"
 export const Parameters: t_signatures.Parameters = ($) => ({
-    'path': _p.deprecated_cc(
+    'path': _p_cc(
         $['path'], 
         ($) => v_path.Node_Path(
             $
@@ -63,19 +71,19 @@ export const Node_Type: t_signatures.Node_Type = ($) => _p.decide.state(
 )
 export const Result: t_signatures.Result = ($) => $.__d_map(
     ($,id) => ({
-        'node type': _p.deprecated_cc(
+        'node type': _p_cc(
             $['node type'], 
             ($) => Node_Type(
                 $
             )
         ),
-        'context directory': _p.deprecated_cc(
+        'context directory': _p_cc(
             $['context directory'], 
             ($) => v_path.Context_Path(
                 $
             )
         ),
-        'path': _p.deprecated_cc(
+        'path': _p_cc(
             $['path'], 
             ($) => v_path.Node_Path(
                 $

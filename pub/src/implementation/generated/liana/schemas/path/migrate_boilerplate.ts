@@ -1,6 +1,14 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
+import { 
+    _p_unreachable_code_path, 
+} from "pareto-core/dist/unreachable_code_path"
+
+import { 
+    _p_cc, 
+} from "pareto-core/dist/change_context"
+
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/path/migrate_boilerplate"
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/path/data"
@@ -18,7 +26,7 @@ export const Start: t_signatures.Start = ($) => _p.decide.state(
                 return _p.ss(
                     $, 
                     ($) => ['relative', ({
-                        'up steps': _p.deprecated_cc(
+                        'up steps': _p_cc(
                             $['up steps'], 
                             ($) => Up_Steps(
                                 $
@@ -37,13 +45,13 @@ export const Context_Subpath: t_signatures.Context_Subpath = ($) => $.__l_map(
     ($) => $
 )
 export const Context_Path: t_signatures.Context_Path = ($) => ({
-    'start': _p.deprecated_cc(
+    'start': _p_cc(
         $['start'], 
         ($) => Start(
             $
         )
     ),
-    'subpath': _p.deprecated_cc(
+    'subpath': _p_cc(
         $['subpath'], 
         ($) => Context_Subpath(
             $
@@ -51,23 +59,23 @@ export const Context_Path: t_signatures.Context_Path = ($) => ({
     ),
 })
 export const Node_Path: t_signatures.Node_Path = ($) => ({
-    'context': _p.deprecated_cc(
+    'context': _p_cc(
         $['context'], 
         ($) => Context_Path(
             $
         )
     ),
-    'node': _p.deprecated_cc(
+    'node': _p_cc(
         $['node'], 
         ($) => $
     ),
 })
 export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ({
-    'leading slash': _p.deprecated_cc(
+    'leading slash': _p_cc(
         $['leading slash'], 
         ($) => $
     ),
-    'segments': _p.deprecated_cc(
+    'segments': _p_cc(
         $['segments'], 
         ($) => $.__l_map(
             ($) => _p.decide.state(
@@ -103,7 +111,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ({
             )
         )
     ),
-    'trailing slash': _p.deprecated_cc(
+    'trailing slash': _p_cc(
         $['trailing slash'], 
         ($) => $
     ),

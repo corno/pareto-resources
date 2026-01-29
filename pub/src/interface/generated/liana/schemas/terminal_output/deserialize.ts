@@ -17,7 +17,7 @@ export namespace Message_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -28,7 +28,7 @@ export type Message_ = (
     abort: _pi.Abort<Message_.E>,
     parameters: {
         readonly 'document resource identifier': Message_.P.document_resource_identifier
-        readonly 'indentation': Message_.P.indentation
+        readonly 'tab size': Message_.P.tab_size
     },
 ) => Message_.O
 

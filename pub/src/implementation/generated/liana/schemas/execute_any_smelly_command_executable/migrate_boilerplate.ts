@@ -1,17 +1,25 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
+import { 
+    _p_unreachable_code_path, 
+} from "pareto-core/dist/unreachable_code_path"
+
+import { 
+    _p_cc, 
+} from "pareto-core/dist/change_context"
+
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/execute_any_smelly_command_executable/migrate_boilerplate"
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/execute_any_smelly_command_executable/data"
 
 import * as v_terminal_output from "../terminal_output/migrate_boilerplate"
 export const Parameters: t_signatures.Parameters = ($) => ({
-    'program': _p.deprecated_cc(
+    'program': _p_cc(
         $['program'], 
         ($) => $
     ),
-    'args': _p.deprecated_cc(
+    'args': _p_cc(
         $['args'], 
         ($) => $.__l_map(
             ($) => $
@@ -26,7 +34,7 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
                 return _p.ss(
                     $, 
                     ($) => ['failed to spawn', ({
-                        'message': _p.deprecated_cc(
+                        'message': _p_cc(
                             $['message'], 
                             ($) => v_terminal_output.Message(
                                 $
@@ -38,19 +46,19 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
                 return _p.ss(
                     $, 
                     ($) => ['non zero exit code', ({
-                        'exit code': _p.deprecated_cc(
+                        'exit code': _p_cc(
                             $['exit code'], 
                             ($) => $.__o_map(
                                 ($) => $
                             )
                         ),
-                        'stderr': _p.deprecated_cc(
+                        'stderr': _p_cc(
                             $['stderr'], 
                             ($) => v_terminal_output.Message(
                                 $
                             )
                         ),
-                        'stdout': _p.deprecated_cc(
+                        'stdout': _p_cc(
                             $['stdout'], 
                             ($) => v_terminal_output.Message(
                                 $

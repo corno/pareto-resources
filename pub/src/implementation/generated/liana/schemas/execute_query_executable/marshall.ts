@@ -1,6 +1,14 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
+import { 
+    _p_unreachable_code_path, 
+} from "pareto-core/dist/unreachable_code_path"
+
+import { 
+    _p_cc, 
+} from "pareto-core/dist/change_context"
+
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/execute_query_executable/marshall"
 
 import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_target/data"
@@ -12,7 +20,7 @@ import * as v_serialize_boolean from "liana-core/dist/implementation/manual/prim
 import * as v_external_terminal_output from "../terminal_output/marshall"
 export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
-        'args': _p.deprecated_cc(
+        'args': _p_cc(
             $['args'], 
             ($) => ['list', $.__l_map(
                 ($) => ['text', ({
@@ -34,7 +42,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                         'option': 'failed to spawn',
                         'value': ['group', ['verbose', _p.dictionary.literal(
                             ({
-                                'message': _p.deprecated_cc(
+                                'message': _p_cc(
                                     $['message'], 
                                     ($) => v_external_terminal_output.Message(
                                         $
@@ -51,7 +59,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                         'option': 'non zero exit code',
                         'value': ['group', ['verbose', _p.dictionary.literal(
                             ({
-                                'exit code': _p.deprecated_cc(
+                                'exit code': _p_cc(
                                     $['exit code'], 
                                     ($) => ['optional', $.__decide(
                                         ($): t_out.Value.optional => ['set', ['text', ({
@@ -63,7 +71,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                                         () => ['not set', null]
                                     )]
                                 ),
-                                'stderr': _p.deprecated_cc(
+                                'stderr': _p_cc(
                                     $['stderr'], 
                                     ($) => v_external_terminal_output.Message(
                                         $
@@ -82,7 +90,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
 )]
 export const Result: t_signatures.Result = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
-        'stdout': _p.deprecated_cc(
+        'stdout': _p_cc(
             $['stdout'], 
             ($) => v_external_terminal_output.Message(
                 $

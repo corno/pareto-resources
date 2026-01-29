@@ -1,6 +1,9 @@
 import * as _p from 'pareto-core/dist/refiner'
 import * as _pi from 'pareto-core/dist/interface'
 import * as _pd from 'pareto-core/dist/deserializer'
+import { _p_iterate } from 'pareto-core/dist/iterate'
+import { _p_unreachable_code_path } from 'pareto-core/dist/unreachable_code_path'
+import { _p_cc } from 'pareto-core/dist/change_context'
 
 import { build_list_with_loop, build_text_with_loop } from '../../../temp/temp_core'
 
@@ -9,7 +12,7 @@ import * as d_out from "../../../../interface/generated/liana/schemas/path/data"
 export const Non_Normalized_Path = (
     $: string
 ): d_out.Non_Normalized_Path => {
-    return _p.iterate(
+    return _p_iterate(
         _pd.list.from_text($, ($) => $),
         (iterator) => {
             return {
@@ -27,7 +30,7 @@ export const Non_Normalized_Path = (
                     }
                 })(),
                 'segments': build_list_with_loop<number, d_out.Non_Normalized_Path.segments.L>(iterator, ($, $i) => {
-                    $i['add item'](_p.deprecated_cc(
+                    $i['add item'](_p_cc(
                         build_text_with_loop(iterator, ($, $i) => {
                             if ($ !== 47) { // '/'
                                 $i.add_character($)
@@ -51,7 +54,7 @@ export const Non_Normalized_Path = (
                         return true
                     } else {
                         if (next[0] !== 47) { // '/'
-                           return _p.unreachable_code_path()
+                           return _p_unreachable_code_path()
                         } else {
                            const la = iterator.look_ahead(1)
                            if (la === null) {

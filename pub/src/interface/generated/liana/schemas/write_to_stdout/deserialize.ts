@@ -17,7 +17,7 @@ export namespace Parameters_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -28,7 +28,7 @@ export type Parameters_ = (
     abort: _pi.Abort<Parameters_.E>,
     parameters: {
         readonly 'document resource identifier': Parameters_.P.document_resource_identifier
-        readonly 'indentation': Parameters_.P.indentation
+        readonly 'tab size': Parameters_.P.tab_size
     },
 ) => Parameters_.O
 

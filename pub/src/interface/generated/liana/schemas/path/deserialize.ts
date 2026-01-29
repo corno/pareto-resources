@@ -17,7 +17,7 @@ export namespace Up_Steps_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -28,7 +28,7 @@ export type Up_Steps_ = (
     abort: _pi.Abort<Up_Steps_.E>,
     parameters: {
         readonly 'document resource identifier': Up_Steps_.P.document_resource_identifier
-        readonly 'indentation': Up_Steps_.P.indentation
+        readonly 'tab size': Up_Steps_.P.tab_size
     },
 ) => Up_Steps_.O
 
@@ -44,7 +44,7 @@ export namespace Start_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -55,7 +55,7 @@ export type Start_ = (
     abort: _pi.Abort<Start_.E>,
     parameters: {
         readonly 'document resource identifier': Start_.P.document_resource_identifier
-        readonly 'indentation': Start_.P.indentation
+        readonly 'tab size': Start_.P.tab_size
     },
 ) => Start_.O
 
@@ -71,7 +71,7 @@ export namespace Context_Subpath_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -82,7 +82,7 @@ export type Context_Subpath_ = (
     abort: _pi.Abort<Context_Subpath_.E>,
     parameters: {
         readonly 'document resource identifier': Context_Subpath_.P.document_resource_identifier
-        readonly 'indentation': Context_Subpath_.P.indentation
+        readonly 'tab size': Context_Subpath_.P.tab_size
     },
 ) => Context_Subpath_.O
 
@@ -98,7 +98,7 @@ export namespace Context_Path_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -109,7 +109,7 @@ export type Context_Path_ = (
     abort: _pi.Abort<Context_Path_.E>,
     parameters: {
         readonly 'document resource identifier': Context_Path_.P.document_resource_identifier
-        readonly 'indentation': Context_Path_.P.indentation
+        readonly 'tab size': Context_Path_.P.tab_size
     },
 ) => Context_Path_.O
 
@@ -125,7 +125,7 @@ export namespace Node_Path_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -136,7 +136,7 @@ export type Node_Path_ = (
     abort: _pi.Abort<Node_Path_.E>,
     parameters: {
         readonly 'document resource identifier': Node_Path_.P.document_resource_identifier
-        readonly 'indentation': Node_Path_.P.indentation
+        readonly 'tab size': Node_Path_.P.tab_size
     },
 ) => Node_Path_.O
 
@@ -152,7 +152,7 @@ export namespace Non_Normalized_Path_ {
         
         export type document_resource_identifier = string
         
-        export type indentation = number
+        export type tab_size = number
         
     }
     
@@ -163,7 +163,7 @@ export type Non_Normalized_Path_ = (
     abort: _pi.Abort<Non_Normalized_Path_.E>,
     parameters: {
         readonly 'document resource identifier': Non_Normalized_Path_.P.document_resource_identifier
-        readonly 'indentation': Non_Normalized_Path_.P.indentation
+        readonly 'tab size': Non_Normalized_Path_.P.tab_size
     },
 ) => Non_Normalized_Path_.O
 

@@ -1,6 +1,14 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
+import { 
+    _p_unreachable_code_path, 
+} from "pareto-core/dist/unreachable_code_path"
+
+import { 
+    _p_cc, 
+} from "pareto-core/dist/change_context"
+
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/copy/marshall"
 
 import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_target/data"
@@ -12,23 +20,23 @@ import * as v_serialize_boolean from "liana-core/dist/implementation/manual/prim
 import * as v_external_path from "../path/marshall"
 export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
-        'source': _p.deprecated_cc(
+        'source': _p_cc(
             $['source'], 
             ($) => v_external_path.Node_Path(
                 $
             )
         ),
-        'target': _p.deprecated_cc(
+        'target': _p_cc(
             $['target'], 
             ($) => v_external_path.Node_Path(
                 $
             )
         ),
-        'options': _p.deprecated_cc(
+        'options': _p_cc(
             $['options'], 
             ($) => ['group', ['verbose', _p.dictionary.literal(
                 ({
-                    'recursive': _p.deprecated_cc(
+                    'recursive': _p_cc(
                         $['recursive'], 
                         ($) => ['optional', $.__decide(
                             ($): t_out.Value.optional => ['set', ['text', ({
@@ -40,7 +48,7 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                             () => ['not set', null]
                         )]
                     ),
-                    'force': _p.deprecated_cc(
+                    'force': _p_cc(
                         $['force'], 
                         ($) => ['optional', $.__decide(
                             ($): t_out.Value.optional => ['set', ['text', ({
@@ -52,7 +60,7 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                             () => ['not set', null]
                         )]
                     ),
-                    'errorOnExist': _p.deprecated_cc(
+                    'errorOnExist': _p_cc(
                         $['errorOnExist'], 
                         ($) => ['optional', $.__decide(
                             ($): t_out.Value.optional => ['set', ['text', ({
