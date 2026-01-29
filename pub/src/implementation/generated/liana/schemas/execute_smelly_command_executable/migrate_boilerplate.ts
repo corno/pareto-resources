@@ -27,19 +27,19 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
             case 'failed to spawn':
                 return _p.ss(
                     $,
-                    ($) => ['failed to spawn', ({
+                    ($) => ['failed to spawn', {
                         'message': _p_cc(
                             $['message'],
                             ($) => v_terminal_output.Message(
                                 $
                             )
                         ),
-                    })]
+                    }]
                 )
             case 'non zero exit code':
                 return _p.ss(
                     $,
-                    ($) => ['non zero exit code', ({
+                    ($) => ['non zero exit code', {
                         'exit code': _p_cc(
                             $['exit code'],
                             ($) => $.__o_map(
@@ -58,7 +58,7 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
                                 $
                             )
                         ),
-                    })]
+                    }]
                 )
             default:
                 return _p.au(

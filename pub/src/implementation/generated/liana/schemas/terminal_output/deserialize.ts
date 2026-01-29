@@ -13,10 +13,10 @@ export const Message: t_signatures.Message = ($, abort, $p) => v_unmarshall.Mess
         ($) => abort(
             ['tbd', null]
         ),
-        ({
+        {
             'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
-        })
+        }
     )['content'],
     ($) => abort(
         ['tbd', null]

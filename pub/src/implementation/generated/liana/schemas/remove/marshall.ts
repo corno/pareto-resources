@@ -16,7 +16,7 @@ import * as v_serialize_boolean from "liana-core/dist/implementation/manual/prim
 import * as v_external_path from "../path/marshall"
 
 export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'path': _p_cc(
             $['path'],
             ($) => v_external_path.Node_Path(
@@ -25,14 +25,14 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
         ),
         'error if not exists': _p_cc(
             $['error if not exists'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['none', null],
                 'value': v_serialize_boolean.serialize(
                     $
                 ),
-            })]
+            }]
         ),
-    })
+    }
 )]]
 
 export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(

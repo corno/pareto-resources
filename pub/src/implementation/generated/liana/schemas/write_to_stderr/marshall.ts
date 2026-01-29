@@ -13,7 +13,7 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-export const Parameters: t_signatures.Parameters = ($) => ['text', ({
+export const Parameters: t_signatures.Parameters = ($) => ['text', {
     'delimiter': ['quote', null],
     'value': $,
-})]
+}]

@@ -23,14 +23,14 @@ export const Start: t_signatures.Start = ($) => _p.decide.state(
             case 'relative':
                 return _p.ss(
                     $,
-                    ($) => ['relative', ({
+                    ($) => ['relative', {
                         'up steps': _p_cc(
                             $['up steps'],
                             ($) => Up_Steps(
                                 $
                             )
                         ),
-                    })]
+                    }]
                 )
             default:
                 return _p.au(

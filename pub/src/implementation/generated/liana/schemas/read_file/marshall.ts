@@ -71,7 +71,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
     }
 )]
 
-export const Result: t_signatures.Result = ($) => ['text', ({
+export const Result: t_signatures.Result = ($) => ['text', {
     'delimiter': ['quote', null],
     'value': $,
-})]
+}]

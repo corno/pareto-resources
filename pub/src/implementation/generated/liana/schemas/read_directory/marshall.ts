@@ -16,14 +16,14 @@ import * as v_serialize_boolean from "liana-core/dist/implementation/manual/prim
 import * as v_external_path from "../path/marshall"
 
 export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'path': _p_cc(
             $['path'],
             ($) => v_external_path.Node_Path(
                 $
             )
         ),
-    })
+    }
 )]]
 
 export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
@@ -92,7 +92,7 @@ export const Node_Type: t_signatures.Node_Type = ($) => ['state', _p.decide.stat
 
 export const Result: t_signatures.Result = ($) => ['dictionary', $.__d_map(
     ($, id) => ['group', ['verbose', _p.dictionary.literal(
-        ({
+        {
             'node type': _p_cc(
                 $['node type'],
                 ($) => Node_Type(
@@ -111,6 +111,6 @@ export const Result: t_signatures.Result = ($) => ['dictionary', $.__d_map(
                     $
                 )
             ),
-        })
+        }
     )]]
 )]

@@ -15,7 +15,7 @@ import * as v_serialize_boolean from "liana-core/dist/implementation/manual/prim
 
 export const Parameters: t_signatures.Parameters = ($) => ['nothing', null]
 
-export const Result: t_signatures.Result = ($) => ['text', ({
+export const Result: t_signatures.Result = ($) => ['text', {
     'delimiter': ['quote', null],
     'value': $,
-})]
+}]

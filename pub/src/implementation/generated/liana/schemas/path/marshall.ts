@@ -13,12 +13,12 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-export const Up_Steps: t_signatures.Up_Steps = ($) => ['text', ({
+export const Up_Steps: t_signatures.Up_Steps = ($) => ['text', {
     'delimiter': ['none', null],
     'value': v_serialize_number.serialize(
         $
     ),
-})]
+}]
 
 export const Start: t_signatures.Start = ($) => ['state', _p.decide.state(
     $,
@@ -38,14 +38,14 @@ export const Start: t_signatures.Start = ($) => ['state', _p.decide.state(
                     ($) => ({
                         'option': 'relative',
                         'value': ['group', ['verbose', _p.dictionary.literal(
-                            ({
+                            {
                                 'up steps': _p_cc(
                                     $['up steps'],
                                     ($) => Up_Steps(
                                         $
                                     )
                                 ),
-                            })
+                            }
                         )]],
                     })
                 )
@@ -58,14 +58,14 @@ export const Start: t_signatures.Start = ($) => ['state', _p.decide.state(
 )]
 
 export const Context_Subpath: t_signatures.Context_Subpath = ($) => ['list', $.__l_map(
-    ($) => ['text', ({
+    ($) => ['text', {
         'delimiter': ['quote', null],
         'value': $,
-    })]
+    }]
 )]
 
 export const Context_Path: t_signatures.Context_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'start': _p_cc(
             $['start'],
             ($) => Start(
@@ -78,11 +78,11 @@ export const Context_Path: t_signatures.Context_Path = ($) => ['group', ['verbos
                 $
             )
         ),
-    })
+    }
 )]]
 
 export const Node_Path: t_signatures.Node_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'context': _p_cc(
             $['context'],
             ($) => Context_Path(
@@ -91,24 +91,24 @@ export const Node_Path: t_signatures.Node_Path = ($) => ['group', ['verbose', _p
         ),
         'node': _p_cc(
             $['node'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
-            })]
+            }]
         ),
-    })
+    }
 )]]
 
 export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'leading slash': _p_cc(
             $['leading slash'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['none', null],
                 'value': v_serialize_boolean.serialize(
                     $
                 ),
-            })]
+            }]
         ),
         'segments': _p_cc(
             $['segments'],
@@ -130,10 +130,10 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
                                     $,
                                     ($) => ({
                                         'option': 'child',
-                                        'value': ['text', ({
+                                        'value': ['text', {
                                             'delimiter': ['quote', null],
                                             'value': $,
-                                        })],
+                                        }],
                                     })
                                 )
                             case 'current':
@@ -163,12 +163,12 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
         ),
         'trailing slash': _p_cc(
             $['trailing slash'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['none', null],
                 'value': v_serialize_boolean.serialize(
                     $
                 ),
-            })]
+            }]
         ),
-    })
+    }
 )]]

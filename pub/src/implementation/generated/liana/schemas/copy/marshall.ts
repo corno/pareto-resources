@@ -16,7 +16,7 @@ import * as v_serialize_boolean from "liana-core/dist/implementation/manual/prim
 import * as v_external_path from "../path/marshall"
 
 export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'source': _p_cc(
             $['source'],
             ($) => v_external_path.Node_Path(
@@ -32,47 +32,47 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
         'options': _p_cc(
             $['options'],
             ($) => ['group', ['verbose', _p.dictionary.literal(
-                ({
+                {
                     'recursive': _p_cc(
                         $['recursive'],
                         ($) => ['optional', $.__decide(
-                            ($): t_out.Value.optional => ['set', ['text', ({
+                            ($): t_out.Value.optional => ['set', ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })]],
+                            }]],
                             () => ['not set', null]
                         )]
                     ),
                     'force': _p_cc(
                         $['force'],
                         ($) => ['optional', $.__decide(
-                            ($): t_out.Value.optional => ['set', ['text', ({
+                            ($): t_out.Value.optional => ['set', ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })]],
+                            }]],
                             () => ['not set', null]
                         )]
                     ),
                     'errorOnExist': _p_cc(
                         $['errorOnExist'],
                         ($) => ['optional', $.__decide(
-                            ($): t_out.Value.optional => ['set', ['text', ({
+                            ($): t_out.Value.optional => ['set', ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })]],
+                            }]],
                             () => ['not set', null]
                         )]
                     ),
-                })
+                }
             )]]
         ),
-    })
+    }
 )]]
 
 export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(

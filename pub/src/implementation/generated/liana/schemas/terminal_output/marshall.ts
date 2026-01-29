@@ -14,22 +14,22 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
 export const Message: t_signatures.Message = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'lines': _p_cc(
             $['lines'],
             ($) => ['list', $.__l_map(
-                ($) => ['text', ({
+                ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
-                })]
+                }]
             )]
         ),
         'raw': _p_cc(
             $['raw'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
-            })]
+            }]
         ),
-    })
+    }
 )]]

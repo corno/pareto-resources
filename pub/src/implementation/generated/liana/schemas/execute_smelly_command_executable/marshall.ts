@@ -16,17 +16,17 @@ import * as v_serialize_boolean from "liana-core/dist/implementation/manual/prim
 import * as v_external_terminal_output from "../terminal_output/marshall"
 
 export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'args': _p_cc(
             $['args'],
             ($) => ['list', $.__l_map(
-                ($) => ['text', ({
+                ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
-                })]
+                }]
             )]
         ),
-    })
+    }
 )]]
 
 export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
@@ -39,14 +39,14 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                     ($) => ({
                         'option': 'failed to spawn',
                         'value': ['group', ['verbose', _p.dictionary.literal(
-                            ({
+                            {
                                 'message': _p_cc(
                                     $['message'],
                                     ($) => v_external_terminal_output.Message(
                                         $
                                     )
                                 ),
-                            })
+                            }
                         )]],
                     })
                 )
@@ -56,16 +56,16 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                     ($) => ({
                         'option': 'non zero exit code',
                         'value': ['group', ['verbose', _p.dictionary.literal(
-                            ({
+                            {
                                 'exit code': _p_cc(
                                     $['exit code'],
                                     ($) => ['optional', $.__decide(
-                                        ($): t_out.Value.optional => ['set', ['text', ({
+                                        ($): t_out.Value.optional => ['set', ['text', {
                                             'delimiter': ['none', null],
                                             'value': v_serialize_number.serialize(
                                                 $
                                             ),
-                                        })]],
+                                        }]],
                                         () => ['not set', null]
                                     )]
                                 ),
@@ -81,7 +81,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                                         $
                                     )
                                 ),
-                            })
+                            }
                         )]],
                     })
                 )
