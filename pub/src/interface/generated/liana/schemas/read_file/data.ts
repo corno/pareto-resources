@@ -1,8 +1,6 @@
 
 import * as _pi from "pareto-core/dist/interface"
 
-import * as i__location from "../../generic/location"
-
 import * as i__imports_path from "../path/data"
 
 export type Parameters_ = i__imports_path.Node_Path

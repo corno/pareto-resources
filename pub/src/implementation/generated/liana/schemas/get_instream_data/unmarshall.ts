@@ -1,12 +1,12 @@
 
 import * as _p from "pareto-core/dist/refiner"
 
-import { 
-    _p_unreachable_code_path, 
+import {
+    _p_unreachable_code_path,
 } from "pareto-core/dist/unreachable_code_path"
 
-import { 
-    _p_cc, 
+import {
+    _p_cc,
 } from "pareto-core/dist/change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/get_instream_data/unmarshall"
@@ -15,15 +15,19 @@ import * as v_deserialize_number from "liana-core/dist/implementation/manual/pri
 
 import * as v_deserialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/deserializers/true_false"
 
-import * as v_generic from "astn-core/dist/implementation/manual/schemas/unmarshalled/refiners/parse_tree"
-export const Parameters: t_signatures.Parameters = ($,abort) => v_generic.expect_nothing(
-    $, 
+import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/manual/schemas/unmarshalled/refiners/parse_tree"
+
+import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
+
+export const Parameters: t_signatures.Parameters = ($, abort) => v_unmarshalled_from_parse_tree.Nothing(
+    $,
     ($) => abort(
         ['expected a nothing', null]
     )
 )
-export const Result: t_signatures.Result = ($,abort) => v_generic.expect_text(
-    $, 
+
+export const Result: t_signatures.Result = ($, abort) => v_unmarshalled_from_parse_tree.Text(
+    $,
     ($) => abort(
         ['expected a text', null]
     )

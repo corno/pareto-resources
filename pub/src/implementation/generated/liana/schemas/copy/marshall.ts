@@ -1,12 +1,12 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
-import { 
-    _p_unreachable_code_path, 
+import {
+    _p_unreachable_code_path,
 } from "pareto-core/dist/unreachable_code_path"
 
-import { 
-    _p_cc, 
+import {
+    _p_cc,
 } from "pareto-core/dist/change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/copy/marshall"
@@ -18,57 +18,58 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
 import * as v_external_path from "../path/marshall"
+
 export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
         'source': _p_cc(
-            $['source'], 
+            $['source'],
             ($) => v_external_path.Node_Path(
                 $
             )
         ),
         'target': _p_cc(
-            $['target'], 
+            $['target'],
             ($) => v_external_path.Node_Path(
                 $
             )
         ),
         'options': _p_cc(
-            $['options'], 
+            $['options'],
             ($) => ['group', ['verbose', _p.dictionary.literal(
                 ({
                     'recursive': _p_cc(
-                        $['recursive'], 
+                        $['recursive'],
                         ($) => ['optional', $.__decide(
                             ($): t_out.Value.optional => ['set', ['text', ({
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })]], 
+                            })]],
                             () => ['not set', null]
                         )]
                     ),
                     'force': _p_cc(
-                        $['force'], 
+                        $['force'],
                         ($) => ['optional', $.__decide(
                             ($): t_out.Value.optional => ['set', ['text', ({
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })]], 
+                            })]],
                             () => ['not set', null]
                         )]
                     ),
                     'errorOnExist': _p_cc(
-                        $['errorOnExist'], 
+                        $['errorOnExist'],
                         ($) => ['optional', $.__decide(
                             ($): t_out.Value.optional => ['set', ['text', ({
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
                                     $
                                 ),
-                            })]], 
+                            })]],
                             () => ['not set', null]
                         )]
                     ),
@@ -77,13 +78,14 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
         ),
     })
 )]]
+
 export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
-    $, 
+    $,
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'source does not exist':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ({
                         'option': 'source does not exist',
                         'value': ['nothing', null],
@@ -91,7 +93,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                 )
             case 'node is not a file':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ({
                         'option': 'node is not a file',
                         'value': ['nothing', null],
@@ -99,7 +101,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                 )
             case 'permission denied':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ({
                         'option': 'permission denied',
                         'value': ['nothing', null],
@@ -107,7 +109,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                 )
             case 'file too large':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ({
                         'option': 'file too large',
                         'value': ['nothing', null],
@@ -115,7 +117,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                 )
             case 'device not ready':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ({
                         'option': 'device not ready',
                         'value': ['nothing', null],

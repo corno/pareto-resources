@@ -1,12 +1,12 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
-import { 
-    _p_unreachable_code_path, 
+import {
+    _p_unreachable_code_path,
 } from "pareto-core/dist/unreachable_code_path"
 
-import { 
-    _p_cc, 
+import {
+    _p_cc,
 } from "pareto-core/dist/change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/path/marshall"
@@ -16,19 +16,21 @@ import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 import * as v_serialize_number from "liana-core/dist/implementation/manual/primitives/integer/serializers/decimal"
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
+
 export const Up_Steps: t_signatures.Up_Steps = ($) => ['text', ({
     'delimiter': ['none', null],
     'value': v_serialize_number.serialize(
         $
     ),
 })]
+
 export const Start: t_signatures.Start = ($) => ['state', _p.decide.state(
-    $, 
+    $,
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'absolute':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ({
                         'option': 'absolute',
                         'value': ['nothing', null],
@@ -36,13 +38,13 @@ export const Start: t_signatures.Start = ($) => ['state', _p.decide.state(
                 )
             case 'relative':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ({
                         'option': 'relative',
                         'value': ['group', ['verbose', _p.dictionary.literal(
                             ({
                                 'up steps': _p_cc(
-                                    $['up steps'], 
+                                    $['up steps'],
                                     ($) => Up_Steps(
                                         $
                                     )
@@ -58,38 +60,41 @@ export const Start: t_signatures.Start = ($) => ['state', _p.decide.state(
         }
     }
 )]
+
 export const Context_Subpath: t_signatures.Context_Subpath = ($) => ['list', $.__l_map(
     ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
     })]
 )]
+
 export const Context_Path: t_signatures.Context_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
         'start': _p_cc(
-            $['start'], 
+            $['start'],
             ($) => Start(
                 $
             )
         ),
         'subpath': _p_cc(
-            $['subpath'], 
+            $['subpath'],
             ($) => Context_Subpath(
                 $
             )
         ),
     })
 )]]
+
 export const Node_Path: t_signatures.Node_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
         'context': _p_cc(
-            $['context'], 
+            $['context'],
             ($) => Context_Path(
                 $
             )
         ),
         'node': _p_cc(
-            $['node'], 
+            $['node'],
             ($) => ['text', ({
                 'delimiter': ['quote', null],
                 'value': $,
@@ -97,10 +102,11 @@ export const Node_Path: t_signatures.Node_Path = ($) => ['group', ['verbose', _p
         ),
     })
 )]]
+
 export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
     ({
         'leading slash': _p_cc(
-            $['leading slash'], 
+            $['leading slash'],
             ($) => ['text', ({
                 'delimiter': ['none', null],
                 'value': v_serialize_boolean.serialize(
@@ -109,15 +115,15 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
             })]
         ),
         'segments': _p_cc(
-            $['segments'], 
+            $['segments'],
             ($) => ['list', $.__l_map(
                 ($) => ['state', _p.decide.state(
-                    $, 
+                    $,
                     ($): t_out.Value.state => {
                         switch ($[0]) {
                             case 'parent':
                                 return _p.ss(
-                                    $, 
+                                    $,
                                     ($) => ({
                                         'option': 'parent',
                                         'value': ['nothing', null],
@@ -125,7 +131,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
                                 )
                             case 'child':
                                 return _p.ss(
-                                    $, 
+                                    $,
                                     ($) => ({
                                         'option': 'child',
                                         'value': ['text', ({
@@ -136,7 +142,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
                                 )
                             case 'current':
                                 return _p.ss(
-                                    $, 
+                                    $,
                                     ($) => ({
                                         'option': 'current',
                                         'value': ['nothing', null],
@@ -144,7 +150,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
                                 )
                             case 'nothing':
                                 return _p.ss(
-                                    $, 
+                                    $,
                                     ($) => ({
                                         'option': 'nothing',
                                         'value': ['nothing', null],
@@ -160,7 +166,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
             )]
         ),
         'trailing slash': _p_cc(
-            $['trailing slash'], 
+            $['trailing slash'],
             ($) => ['text', ({
                 'delimiter': ['none', null],
                 'value': v_serialize_boolean.serialize(

@@ -1,12 +1,12 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
-import { 
-    _p_unreachable_code_path, 
+import {
+    _p_unreachable_code_path,
 } from "pareto-core/dist/unreachable_code_path"
 
-import { 
-    _p_cc, 
+import {
+    _p_cc,
 } from "pareto-core/dist/change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/execute_query_executable/migrate_boilerplate"
@@ -14,24 +14,26 @@ import * as t_signatures from "../../../../../interface/generated/liana/schemas/
 import * as t_out from "../../../../../interface/generated/liana/schemas/execute_query_executable/data"
 
 import * as v_terminal_output from "../terminal_output/migrate_boilerplate"
+
 export const Parameters: t_signatures.Parameters = ($) => ({
     'args': _p_cc(
-        $['args'], 
+        $['args'],
         ($) => $.__l_map(
             ($) => $
         )
     ),
 })
+
 export const Error: t_signatures.Error = ($) => _p.decide.state(
-    $, 
+    $,
     ($): t_out.Error => {
         switch ($[0]) {
             case 'failed to spawn':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ['failed to spawn', ({
                         'message': _p_cc(
-                            $['message'], 
+                            $['message'],
                             ($) => v_terminal_output.Message(
                                 $
                             )
@@ -40,16 +42,16 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
                 )
             case 'non zero exit code':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ['non zero exit code', ({
                         'exit code': _p_cc(
-                            $['exit code'], 
+                            $['exit code'],
                             ($) => $.__o_map(
                                 ($) => $
                             )
                         ),
                         'stderr': _p_cc(
-                            $['stderr'], 
+                            $['stderr'],
                             ($) => v_terminal_output.Message(
                                 $
                             )
@@ -63,9 +65,10 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
         }
     }
 )
+
 export const Result: t_signatures.Result = ($) => ({
     'stdout': _p_cc(
-        $['stdout'], 
+        $['stdout'],
         ($) => v_terminal_output.Message(
             $
         )

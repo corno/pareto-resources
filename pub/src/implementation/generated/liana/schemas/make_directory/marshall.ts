@@ -1,12 +1,12 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
-import { 
-    _p_unreachable_code_path, 
+import {
+    _p_unreachable_code_path,
 } from "pareto-core/dist/unreachable_code_path"
 
-import { 
-    _p_cc, 
+import {
+    _p_cc,
 } from "pareto-core/dist/change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/make_directory/marshall"
@@ -18,16 +18,18 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
 import * as v_external_path from "../path/marshall"
+
 export const Parameters: t_signatures.Parameters = ($) => v_external_path.Node_Path(
     $
 )
+
 export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
-    $, 
+    $,
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'directory already exists':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ({
                         'option': 'directory already exists',
                         'value': ['nothing', null],
@@ -35,7 +37,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                 )
             case 'permission denied':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ({
                         'option': 'permission denied',
                         'value': ['nothing', null],

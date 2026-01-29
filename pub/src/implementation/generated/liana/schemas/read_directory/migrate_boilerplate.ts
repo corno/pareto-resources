@@ -1,12 +1,12 @@
 
 import * as _p from "pareto-core/dist/transformer"
 
-import { 
-    _p_unreachable_code_path, 
+import {
+    _p_unreachable_code_path,
 } from "pareto-core/dist/unreachable_code_path"
 
-import { 
-    _p_cc, 
+import {
+    _p_cc,
 } from "pareto-core/dist/change_context"
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/read_directory/migrate_boilerplate"
@@ -14,26 +14,28 @@ import * as t_signatures from "../../../../../interface/generated/liana/schemas/
 import * as t_out from "../../../../../interface/generated/liana/schemas/read_directory/data"
 
 import * as v_path from "../path/migrate_boilerplate"
+
 export const Parameters: t_signatures.Parameters = ($) => ({
     'path': _p_cc(
-        $['path'], 
+        $['path'],
         ($) => v_path.Node_Path(
             $
         )
     ),
 })
+
 export const Error: t_signatures.Error = ($) => _p.decide.state(
-    $, 
+    $,
     ($): t_out.Error => {
         switch ($[0]) {
             case 'directory does not exist':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ['directory does not exist', null]
                 )
             case 'node is not a directory':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ['node is not a directory', null]
                 )
             default:
@@ -43,23 +45,24 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
         }
     }
 )
+
 export const Node_Type: t_signatures.Node_Type = ($) => _p.decide.state(
-    $, 
+    $,
     ($): t_out.Node_Type => {
         switch ($[0]) {
             case 'file':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ['file', null]
                 )
             case 'directory':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ['directory', null]
                 )
             case 'other':
                 return _p.ss(
-                    $, 
+                    $,
                     ($) => ['other', null]
                 )
             default:
@@ -69,22 +72,23 @@ export const Node_Type: t_signatures.Node_Type = ($) => _p.decide.state(
         }
     }
 )
+
 export const Result: t_signatures.Result = ($) => $.__d_map(
-    ($,id) => ({
+    ($, id) => ({
         'node type': _p_cc(
-            $['node type'], 
+            $['node type'],
             ($) => Node_Type(
                 $
             )
         ),
         'context directory': _p_cc(
-            $['context directory'], 
+            $['context directory'],
             ($) => v_path.Context_Path(
                 $
             )
         ),
         'path': _p_cc(
-            $['path'], 
+            $['path'],
             ($) => v_path.Node_Path(
                 $
             )
