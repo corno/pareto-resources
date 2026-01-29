@@ -11,6 +11,8 @@ import {
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/path/unmarshall"
 
+import * as t_out from "../../../../../interface/generated/liana/schemas/path/data"
+
 import * as v_deserialize_number from "liana-core/dist/implementation/manual/primitives/integer/deserializers/decimal"
 
 import * as v_deserialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/deserializers/true_false"
@@ -31,7 +33,62 @@ export const Up_Steps: t_signatures.Up_Steps = ($, abort) => v_deserialize_numbe
     )
 )
 
-export const Start: t_signatures.Start = ($, abort) => _p_unreachable_code_path(
+export const Start: t_signatures.Start = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.State(
+        $,
+        ($) => abort(
+            ['expected a state', null]
+        )
+    ),
+    ($) => _p.decide.text(
+        $['option']['value'],
+        ($t): t_out.Start => {
+            switch ($t) {
+                case 'absolute':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['absolute', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                case 'relative':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['relative', _p_cc(
+                            v_unmarshalled_from_parse_tree.Group(
+                                $,
+                                ($) => abort(
+                                    ['expected a group', null]
+                                )
+                            ),
+                            ($) => ({
+                                'up steps': _p_cc(
+                                    $.__get_entry(
+                                        'up steps',
+                                        ($) => abort(
+                                            ['no such entry', "up steps"]
+                                        )
+                                    ),
+                                    ($) => Up_Steps(
+                                        $,
+                                        ($) => abort(
+                                            $
+                                        )
+                                    )
+                                ),
+                            })
+                        )]
+                    )
+                default:
+                    return abort(
+                        ['unknown option', $['option']['value']]
+                    )
+            }
+        }
+    )
 )
 
 export const Context_Subpath: t_signatures.Context_Subpath = ($, abort) => v_unmarshalled_from_parse_tree.List(
@@ -166,7 +223,64 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
                     ['expected a list', null]
                 )
             ).__l_map(
-                ($) => _p_unreachable_code_path(
+                ($) => _p_cc(
+                    v_unmarshalled_from_parse_tree.State(
+                        $,
+                        ($) => abort(
+                            ['expected a state', null]
+                        )
+                    ),
+                    ($) => _p.decide.text(
+                        $['option']['value'],
+                        ($t): t_out.Non_Normalized_Path.segments.L => {
+                            switch ($t) {
+                                case 'parent':
+                                    return _p_cc(
+                                        $['value'],
+                                        ($) => ['parent', v_unmarshalled_from_parse_tree.Nothing(
+                                            $,
+                                            ($) => abort(
+                                                ['expected a nothing', null]
+                                            )
+                                        )]
+                                    )
+                                case 'child':
+                                    return _p_cc(
+                                        $['value'],
+                                        ($) => ['child', v_unmarshalled_from_parse_tree.Text(
+                                            $,
+                                            ($) => abort(
+                                                ['expected a text', null]
+                                            )
+                                        )]
+                                    )
+                                case 'current':
+                                    return _p_cc(
+                                        $['value'],
+                                        ($) => ['current', v_unmarshalled_from_parse_tree.Nothing(
+                                            $,
+                                            ($) => abort(
+                                                ['expected a nothing', null]
+                                            )
+                                        )]
+                                    )
+                                case 'nothing':
+                                    return _p_cc(
+                                        $['value'],
+                                        ($) => ['nothing', v_unmarshalled_from_parse_tree.Nothing(
+                                            $,
+                                            ($) => abort(
+                                                ['expected a nothing', null]
+                                            )
+                                        )]
+                                    )
+                                default:
+                                    return abort(
+                                        ['unknown option', $['option']['value']]
+                                    )
+                            }
+                        }
+                    )
                 )
             )
         ),

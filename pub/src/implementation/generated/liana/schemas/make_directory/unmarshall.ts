@@ -11,6 +11,8 @@ import {
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/make_directory/unmarshall"
 
+import * as t_out from "../../../../../interface/generated/liana/schemas/make_directory/data"
+
 import * as t_external_path from "../path/unmarshall"
 
 import * as v_deserialize_number from "liana-core/dist/implementation/manual/primitives/integer/deserializers/decimal"
@@ -30,5 +32,42 @@ export const Parameters: t_signatures.Parameters = ($, abort) => v_external_path
     )
 )
 
-export const Error: t_signatures.Error = ($, abort) => _p_unreachable_code_path(
+export const Error: t_signatures.Error = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.State(
+        $,
+        ($) => abort(
+            ['expected a state', null]
+        )
+    ),
+    ($) => _p.decide.text(
+        $['option']['value'],
+        ($t): t_out.Error => {
+            switch ($t) {
+                case 'directory already exists':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['directory already exists', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                case 'permission denied':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['permission denied', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                default:
+                    return abort(
+                        ['unknown option', $['option']['value']]
+                    )
+            }
+        }
+    )
 )

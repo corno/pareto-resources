@@ -11,6 +11,8 @@ import {
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/read_directory/unmarshall"
 
+import * as t_out from "../../../../../interface/generated/liana/schemas/read_directory/data"
+
 import * as t_external_path from "../path/unmarshall"
 
 import * as v_deserialize_number from "liana-core/dist/implementation/manual/primitives/integer/deserializers/decimal"
@@ -48,10 +50,94 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_cc(
     })
 )
 
-export const Error: t_signatures.Error = ($, abort) => _p_unreachable_code_path(
+export const Error: t_signatures.Error = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.State(
+        $,
+        ($) => abort(
+            ['expected a state', null]
+        )
+    ),
+    ($) => _p.decide.text(
+        $['option']['value'],
+        ($t): t_out.Error => {
+            switch ($t) {
+                case 'directory does not exist':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['directory does not exist', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                case 'node is not a directory':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['node is not a directory', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                default:
+                    return abort(
+                        ['unknown option', $['option']['value']]
+                    )
+            }
+        }
+    )
 )
 
-export const Node_Type: t_signatures.Node_Type = ($, abort) => _p_unreachable_code_path(
+export const Node_Type: t_signatures.Node_Type = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.State(
+        $,
+        ($) => abort(
+            ['expected a state', null]
+        )
+    ),
+    ($) => _p.decide.text(
+        $['option']['value'],
+        ($t): t_out.Node_Type => {
+            switch ($t) {
+                case 'file':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['file', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                case 'directory':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['directory', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                case 'other':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['other', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                default:
+                    return abort(
+                        ['unknown option', $['option']['value']]
+                    )
+            }
+        }
+    )
 )
 
 export const Result: t_signatures.Result = ($, abort) => v_unmarshalled_from_parse_tree.Dictionary(

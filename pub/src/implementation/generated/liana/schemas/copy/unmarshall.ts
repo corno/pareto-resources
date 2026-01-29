@@ -11,6 +11,8 @@ import {
 
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/copy/unmarshall"
 
+import * as t_out from "../../../../../interface/generated/liana/schemas/copy/data"
+
 import * as t_external_path from "../path/unmarshall"
 
 import * as v_deserialize_number from "liana-core/dist/implementation/manual/primitives/integer/deserializers/decimal"
@@ -158,5 +160,72 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_cc(
     })
 )
 
-export const Error: t_signatures.Error = ($, abort) => _p_unreachable_code_path(
+export const Error: t_signatures.Error = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.State(
+        $,
+        ($) => abort(
+            ['expected a state', null]
+        )
+    ),
+    ($) => _p.decide.text(
+        $['option']['value'],
+        ($t): t_out.Error => {
+            switch ($t) {
+                case 'source does not exist':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['source does not exist', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                case 'node is not a file':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['node is not a file', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                case 'permission denied':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['permission denied', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                case 'file too large':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['file too large', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                case 'device not ready':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['device not ready', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                default:
+                    return abort(
+                        ['unknown option', $['option']['value']]
+                    )
+            }
+        }
+    )
 )
