@@ -11,29 +11,11 @@ export namespace Parameters_ {
     
     export namespace options {
         
-        export namespace recursive {
-            
-            export type O = boolean
-            
-        }
+        export type recursive = boolean
         
-        export type recursive = _pi.Optional_Value<recursive.O>
+        export type force = boolean
         
-        export namespace force {
-            
-            export type O = boolean
-            
-        }
-        
-        export type force = _pi.Optional_Value<force.O>
-        
-        export namespace errorOnExist {
-            
-            export type O = boolean
-            
-        }
-        
-        export type errorOnExist = _pi.Optional_Value<errorOnExist.O>
+        export type errorOnExist = boolean
         
     }
     

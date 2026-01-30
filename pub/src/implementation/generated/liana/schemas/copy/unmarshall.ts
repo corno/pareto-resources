@@ -79,23 +79,15 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_cc(
                                 ['no such entry', "recursive"]
                             )
                         ),
-                        ($) => _p.optional.map(
-                            v_unmarshalled_from_parse_tree.Optional(
+                        ($) => v_deserialize_boolean.deserialize(
+                            v_unmarshalled_from_parse_tree.Text(
                                 $,
                                 ($) => abort(
-                                    ['expected an optional', null]
+                                    ['expected a text', null]
                                 )
                             ),
-                            ($) => v_deserialize_boolean.deserialize(
-                                v_unmarshalled_from_parse_tree.Text(
-                                    $,
-                                    ($) => abort(
-                                        ['expected a text', null]
-                                    )
-                                ),
-                                ($) => abort(
-                                    ['not a valid boolean', null]
-                                )
+                            ($) => abort(
+                                ['not a valid boolean', null]
                             )
                         )
                     ),
@@ -106,23 +98,15 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_cc(
                                 ['no such entry', "force"]
                             )
                         ),
-                        ($) => _p.optional.map(
-                            v_unmarshalled_from_parse_tree.Optional(
+                        ($) => v_deserialize_boolean.deserialize(
+                            v_unmarshalled_from_parse_tree.Text(
                                 $,
                                 ($) => abort(
-                                    ['expected an optional', null]
+                                    ['expected a text', null]
                                 )
                             ),
-                            ($) => v_deserialize_boolean.deserialize(
-                                v_unmarshalled_from_parse_tree.Text(
-                                    $,
-                                    ($) => abort(
-                                        ['expected a text', null]
-                                    )
-                                ),
-                                ($) => abort(
-                                    ['not a valid boolean', null]
-                                )
+                            ($) => abort(
+                                ['not a valid boolean', null]
                             )
                         )
                     ),
@@ -133,23 +117,15 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_cc(
                                 ['no such entry', "errorOnExist"]
                             )
                         ),
-                        ($) => _p.optional.map(
-                            v_unmarshalled_from_parse_tree.Optional(
+                        ($) => v_deserialize_boolean.deserialize(
+                            v_unmarshalled_from_parse_tree.Text(
                                 $,
                                 ($) => abort(
-                                    ['expected an optional', null]
+                                    ['expected a text', null]
                                 )
                             ),
-                            ($) => v_deserialize_boolean.deserialize(
-                                v_unmarshalled_from_parse_tree.Text(
-                                    $,
-                                    ($) => abort(
-                                        ['expected a text', null]
-                                    )
-                                ),
-                                ($) => abort(
-                                    ['not a valid boolean', null]
-                                )
+                            ($) => abort(
+                                ['not a valid boolean', null]
                             )
                         )
                     ),
