@@ -35,7 +35,8 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                 {
                     'recursive': _p_cc(
                         $['recursive'],
-                        ($) => ['optional', $.__decide(
+                        ($) => ['optional', _p.decide.optional(
+                            $,
                             ($): t_out.Value.optional => ['set', ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
@@ -47,7 +48,8 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                     ),
                     'force': _p_cc(
                         $['force'],
-                        ($) => ['optional', $.__decide(
+                        ($) => ['optional', _p.decide.optional(
+                            $,
                             ($): t_out.Value.optional => ['set', ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(
@@ -59,7 +61,8 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                     ),
                     'errorOnExist': _p_cc(
                         $['errorOnExist'],
-                        ($) => ['optional', $.__decide(
+                        ($) => ['optional', _p.decide.optional(
+                            $,
                             ($): t_out.Value.optional => ['set', ['text', {
                                 'delimiter': ['none', null],
                                 'value': v_serialize_boolean.serialize(

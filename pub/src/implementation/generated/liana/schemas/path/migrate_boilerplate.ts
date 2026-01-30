@@ -40,7 +40,8 @@ export const Start: t_signatures.Start = ($) => _p.decide.state(
     }
 )
 
-export const Context_Subpath: t_signatures.Context_Subpath = ($) => $.__l_map(
+export const Context_Subpath: t_signatures.Context_Subpath = ($) => _p.list.map(
+    $,
     ($) => $
 )
 
@@ -79,7 +80,8 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ({
     ),
     'segments': _p_cc(
         $['segments'],
-        ($) => $.__l_map(
+        ($) => _p.list.map(
+            $,
             ($) => _p.decide.state(
                 $,
                 ($): t_out.Non_Normalized_Path.segments.L => {

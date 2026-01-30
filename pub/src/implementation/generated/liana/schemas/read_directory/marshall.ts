@@ -90,7 +90,8 @@ export const Node_Type: t_signatures.Node_Type = ($) => ['state', _p.decide.stat
     }
 )]
 
-export const Result: t_signatures.Result = ($) => ['dictionary', $.__d_map(
+export const Result: t_signatures.Result = ($) => ['dictionary', _p.dictionary.map(
+    $,
     ($, id) => ['group', ['verbose', _p.dictionary.literal(
         {
             'node type': _p_cc(

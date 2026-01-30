@@ -19,7 +19,8 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     {
         'args': _p_cc(
             $['args'],
-            ($) => ['list', $.__l_map(
+            ($) => ['list', _p.list.map(
+                $,
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
@@ -59,7 +60,8 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                             {
                                 'exit code': _p_cc(
                                     $['exit code'],
-                                    ($) => ['optional', $.__decide(
+                                    ($) => ['optional', _p.decide.optional(
+                                        $,
                                         ($): t_out.Value.optional => ['set', ['text', {
                                             'delimiter': ['none', null],
                                             'value': v_serialize_number.serialize(

@@ -17,7 +17,8 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     {
         'lines': _p_cc(
             $['lines'],
-            ($) => ['list', $.__l_map(
+            ($) => ['list', _p.list.map(
+                $,
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,

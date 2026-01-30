@@ -50,12 +50,13 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_cc(
                     ['no such entry', "args"]
                 )
             ),
-            ($) => v_unmarshalled_from_parse_tree.List(
-                $,
-                ($) => abort(
-                    ['expected a list', null]
-                )
-            ).__l_map(
+            ($) => _p.list.map(
+                v_unmarshalled_from_parse_tree.List(
+                    $,
+                    ($) => abort(
+                        ['expected a list', null]
+                    )
+                ),
                 ($) => v_unmarshalled_from_parse_tree.Text(
                     $,
                     ($) => abort(
@@ -124,12 +125,13 @@ export const Error: t_signatures.Error = ($, abort) => _p_cc(
                                             ['no such entry', "exit code"]
                                         )
                                     ),
-                                    ($) => v_unmarshalled_from_parse_tree.Optional(
-                                        $,
-                                        ($) => abort(
-                                            ['expected an optional', null]
-                                        )
-                                    ).__o_map(
+                                    ($) => _p.optional.map(
+                                        v_unmarshalled_from_parse_tree.Optional(
+                                            $,
+                                            ($) => abort(
+                                                ['expected an optional', null]
+                                            )
+                                        ),
                                         ($) => v_deserialize_number.deserialize(
                                             v_unmarshalled_from_parse_tree.Text(
                                                 $,

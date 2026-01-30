@@ -12,7 +12,8 @@ import * as t_out from "../../../../../interface/generated/liana/schemas/termina
 export const Message: t_signatures.Message = ($) => ({
     'lines': _p_cc(
         $['lines'],
-        ($) => $.__l_map(
+        ($) => _p.list.map(
+            $,
             ($) => $
         )
     ),

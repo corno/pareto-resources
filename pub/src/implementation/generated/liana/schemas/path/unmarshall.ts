@@ -87,12 +87,13 @@ export const Start: t_signatures.Start = ($, abort) => _p_cc(
     )
 )
 
-export const Context_Subpath: t_signatures.Context_Subpath = ($, abort) => v_unmarshalled_from_parse_tree.List(
-    $,
-    ($) => abort(
-        ['expected a list', null]
-    )
-).__l_map(
+export const Context_Subpath: t_signatures.Context_Subpath = ($, abort) => _p.list.map(
+    v_unmarshalled_from_parse_tree.List(
+        $,
+        ($) => abort(
+            ['expected a list', null]
+        )
+    ),
     ($) => v_unmarshalled_from_parse_tree.Text(
         $,
         ($) => abort(
@@ -213,12 +214,13 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
                     ['no such entry', "segments"]
                 )
             ),
-            ($) => v_unmarshalled_from_parse_tree.List(
-                $,
-                ($) => abort(
-                    ['expected a list', null]
-                )
-            ).__l_map(
+            ($) => _p.list.map(
+                v_unmarshalled_from_parse_tree.List(
+                    $,
+                    ($) => abort(
+                        ['expected a list', null]
+                    )
+                ),
                 ($) => _p_cc(
                     v_unmarshalled_from_parse_tree.State(
                         $,

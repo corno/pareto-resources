@@ -14,7 +14,8 @@ import * as v_terminal_output from "../terminal_output/migrate_boilerplate"
 export const Parameters: t_signatures.Parameters = ($) => ({
     'args': _p_cc(
         $['args'],
-        ($) => $.__l_map(
+        ($) => _p.list.map(
+            $,
             ($) => $
         )
     ),
@@ -42,7 +43,8 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
                     ($) => ['non zero exit code', {
                         'exit code': _p_cc(
                             $['exit code'],
-                            ($) => $.__o_map(
+                            ($) => _p.optional.map(
+                                $,
                                 ($) => $
                             )
                         ),

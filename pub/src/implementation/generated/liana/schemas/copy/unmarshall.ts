@@ -79,12 +79,13 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_cc(
                                 ['no such entry', "recursive"]
                             )
                         ),
-                        ($) => v_unmarshalled_from_parse_tree.Optional(
-                            $,
-                            ($) => abort(
-                                ['expected an optional', null]
-                            )
-                        ).__o_map(
+                        ($) => _p.optional.map(
+                            v_unmarshalled_from_parse_tree.Optional(
+                                $,
+                                ($) => abort(
+                                    ['expected an optional', null]
+                                )
+                            ),
                             ($) => v_deserialize_boolean.deserialize(
                                 v_unmarshalled_from_parse_tree.Text(
                                     $,
@@ -105,12 +106,13 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_cc(
                                 ['no such entry', "force"]
                             )
                         ),
-                        ($) => v_unmarshalled_from_parse_tree.Optional(
-                            $,
-                            ($) => abort(
-                                ['expected an optional', null]
-                            )
-                        ).__o_map(
+                        ($) => _p.optional.map(
+                            v_unmarshalled_from_parse_tree.Optional(
+                                $,
+                                ($) => abort(
+                                    ['expected an optional', null]
+                                )
+                            ),
                             ($) => v_deserialize_boolean.deserialize(
                                 v_unmarshalled_from_parse_tree.Text(
                                     $,
@@ -131,12 +133,13 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_cc(
                                 ['no such entry', "errorOnExist"]
                             )
                         ),
-                        ($) => v_unmarshalled_from_parse_tree.Optional(
-                            $,
-                            ($) => abort(
-                                ['expected an optional', null]
-                            )
-                        ).__o_map(
+                        ($) => _p.optional.map(
+                            v_unmarshalled_from_parse_tree.Optional(
+                                $,
+                                ($) => abort(
+                                    ['expected an optional', null]
+                                )
+                            ),
                             ($) => v_deserialize_boolean.deserialize(
                                 v_unmarshalled_from_parse_tree.Text(
                                     $,

@@ -12,7 +12,8 @@ import * as t_out from "../../../../../interface/generated/liana/schemas/log_err
 export const Parameters: t_signatures.Parameters = ($) => ({
     'lines': _p_cc(
         $['lines'],
-        ($) => $.__l_map(
+        ($) => _p.list.map(
+            $,
             ($) => $
         )
     ),

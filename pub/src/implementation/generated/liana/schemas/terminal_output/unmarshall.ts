@@ -32,12 +32,13 @@ export const Message: t_signatures.Message = ($, abort) => _p_cc(
                     ['no such entry', "lines"]
                 )
             ),
-            ($) => v_unmarshalled_from_parse_tree.List(
-                $,
-                ($) => abort(
-                    ['expected a list', null]
-                )
-            ).__l_map(
+            ($) => _p.list.map(
+                v_unmarshalled_from_parse_tree.List(
+                    $,
+                    ($) => abort(
+                        ['expected a list', null]
+                    )
+                ),
                 ($) => v_unmarshalled_from_parse_tree.Text(
                     $,
                     ($) => abort(

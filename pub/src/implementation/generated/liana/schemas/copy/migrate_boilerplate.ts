@@ -29,19 +29,22 @@ export const Parameters: t_signatures.Parameters = ($) => ({
         ($) => ({
             'recursive': _p_cc(
                 $['recursive'],
-                ($) => $.__o_map(
+                ($) => _p.optional.map(
+                    $,
                     ($) => $
                 )
             ),
             'force': _p_cc(
                 $['force'],
-                ($) => $.__o_map(
+                ($) => _p.optional.map(
+                    $,
                     ($) => $
                 )
             ),
             'errorOnExist': _p_cc(
                 $['errorOnExist'],
-                ($) => $.__o_map(
+                ($) => _p.optional.map(
+                    $,
                     ($) => $
                 )
             ),

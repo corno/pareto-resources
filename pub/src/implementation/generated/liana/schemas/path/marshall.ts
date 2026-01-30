@@ -57,7 +57,8 @@ export const Start: t_signatures.Start = ($) => ['state', _p.decide.state(
     }
 )]
 
-export const Context_Subpath: t_signatures.Context_Subpath = ($) => ['list', $.__l_map(
+export const Context_Subpath: t_signatures.Context_Subpath = ($) => ['list', _p.list.map(
+    $,
     ($) => ['text', {
         'delimiter': ['quote', null],
         'value': $,
@@ -112,7 +113,8 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
         ),
         'segments': _p_cc(
             $['segments'],
-            ($) => ['list', $.__l_map(
+            ($) => ['list', _p.list.map(
+                $,
                 ($) => ['state', _p.decide.state(
                     $,
                     ($): t_out.Value.state => {
