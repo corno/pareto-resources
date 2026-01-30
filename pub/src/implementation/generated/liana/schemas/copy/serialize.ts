@@ -7,8 +7,6 @@ import * as v_serialize from "astn-core/dist/implementation/manual/schemas/seale
 
 import * as v_marshall from "./marshall"
 
-import * as v_r_path from "../path/serialize"
-
 export const Parameters: t_signatures.Parameters = ($) => v_serialize.Document(
     v_marshall.Parameters(
         $
