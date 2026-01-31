@@ -7,39 +7,7 @@ import * as v_deserialize from "astn-core/dist/implementation/manual/schemas/par
 
 import * as v_unmarshall from "./unmarshall"
 
-export const Up_Steps: t_signatures.Up_Steps = ($, abort, $p) => v_unmarshall.Up_Steps(
-    v_deserialize.Document(
-        $,
-        ($) => abort(
-            ['tbd', null]
-        ),
-        {
-            'document resource identifier': $p['document resource identifier'],
-            'tab size': $p['tab size'],
-        }
-    )['content'],
-    ($) => abort(
-        ['tbd', null]
-    )
-)
-
-export const Start: t_signatures.Start = ($, abort, $p) => v_unmarshall.Start(
-    v_deserialize.Document(
-        $,
-        ($) => abort(
-            ['tbd', null]
-        ),
-        {
-            'document resource identifier': $p['document resource identifier'],
-            'tab size': $p['tab size'],
-        }
-    )['content'],
-    ($) => abort(
-        ['tbd', null]
-    )
-)
-
-export const Context_Subpath: t_signatures.Context_Subpath = ($, abort, $p) => v_unmarshall.Context_Subpath(
+export const Node_Path: t_signatures.Node_Path = ($, abort, $p) => v_unmarshall.Node_Path(
     v_deserialize.Document(
         $,
         ($) => abort(
@@ -71,7 +39,39 @@ export const Context_Path: t_signatures.Context_Path = ($, abort, $p) => v_unmar
     )
 )
 
-export const Node_Path: t_signatures.Node_Path = ($, abort, $p) => v_unmarshall.Node_Path(
+export const Context_Subpath: t_signatures.Context_Subpath = ($, abort, $p) => v_unmarshall.Context_Subpath(
+    v_deserialize.Document(
+        $,
+        ($) => abort(
+            ['tbd', null]
+        ),
+        {
+            'document resource identifier': $p['document resource identifier'],
+            'tab size': $p['tab size'],
+        }
+    )['content'],
+    ($) => abort(
+        ['tbd', null]
+    )
+)
+
+export const Start: t_signatures.Start = ($, abort, $p) => v_unmarshall.Start(
+    v_deserialize.Document(
+        $,
+        ($) => abort(
+            ['tbd', null]
+        ),
+        {
+            'document resource identifier': $p['document resource identifier'],
+            'tab size': $p['tab size'],
+        }
+    )['content'],
+    ($) => abort(
+        ['tbd', null]
+    )
+)
+
+export const Up_Steps: t_signatures.Up_Steps = ($, abort, $p) => v_unmarshall.Up_Steps(
     v_deserialize.Document(
         $,
         ($) => abort(

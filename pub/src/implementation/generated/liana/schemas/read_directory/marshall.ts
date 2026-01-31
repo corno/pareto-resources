@@ -54,6 +54,32 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
     }
 )]
 
+export const Result: t_signatures.Result = ($) => ['dictionary', _p.dictionary.map(
+    $,
+    ($, id) => ['group', ['verbose', _p.dictionary.literal(
+        {
+            'node type': _p_cc(
+                $['node type'],
+                ($) => Node_Type(
+                    $
+                )
+            ),
+            'context directory': _p_cc(
+                $['context directory'],
+                ($) => v_external_path.Context_Path(
+                    $
+                )
+            ),
+            'path': _p_cc(
+                $['path'],
+                ($) => v_external_path.Node_Path(
+                    $
+                )
+            ),
+        }
+    )]]
+)]
+
 export const Node_Type: t_signatures.Node_Type = ($) => ['state', _p.decide.state(
     $,
     ($): t_out.Value.state => {
@@ -88,30 +114,4 @@ export const Node_Type: t_signatures.Node_Type = ($) => ['state', _p.decide.stat
                 )
         }
     }
-)]
-
-export const Result: t_signatures.Result = ($) => ['dictionary', _p.dictionary.map(
-    $,
-    ($, id) => ['group', ['verbose', _p.dictionary.literal(
-        {
-            'node type': _p_cc(
-                $['node type'],
-                ($) => Node_Type(
-                    $
-                )
-            ),
-            'context directory': _p_cc(
-                $['context directory'],
-                ($) => v_external_path.Context_Path(
-                    $
-                )
-            ),
-            'path': _p_cc(
-                $['path'],
-                ($) => v_external_path.Node_Path(
-                    $
-                )
-            ),
-        }
-    )]]
 )]

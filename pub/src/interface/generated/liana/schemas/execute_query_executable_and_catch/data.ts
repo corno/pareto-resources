@@ -22,6 +22,26 @@ export type Parameters_ = {
     readonly 'args': Parameters_.args
 }
 
+export namespace Result_ {
+    
+    export namespace success {
+        
+        export type stdout = i__imports_terminal_output.Message
+        
+    }
+    
+    export type success = {
+        readonly 'stdout': success.stdout
+    }
+    
+    export type error = Error_
+    
+}
+
+export type Result_ = 
+    | readonly ['success', Result_.success]
+    | readonly ['error', Result_.error]
+
 export namespace Error_ {
     
     export namespace failed_to_spawn {
@@ -59,28 +79,8 @@ export type Error_ =
     | readonly ['failed to spawn', Error_.failed_to_spawn]
     | readonly ['non zero exit code', Error_.non_zero_exit_code]
 
-export namespace Result_ {
-    
-    export namespace success {
-        
-        export type stdout = i__imports_terminal_output.Message
-        
-    }
-    
-    export type success = {
-        readonly 'stdout': success.stdout
-    }
-    
-    export type error = Error_
-    
-}
-
-export type Result_ = 
-    | readonly ['success', Result_.success]
-    | readonly ['error', Result_.error]
-
 export { 
     Parameters_ as Parameters, 
-    Error_ as Error, 
     Result_ as Result, 
+    Error_ as Error, 
 }

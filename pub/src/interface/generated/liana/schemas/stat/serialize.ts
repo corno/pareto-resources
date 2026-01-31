@@ -35,22 +35,6 @@ export type Error_ = (
     context: Error_.I,
 ) => Error_.O
 
-export namespace Node_Type_ {
-    
-    export type I = i_in.Node_Type
-    
-    export type O = string
-    
-    export namespace P {
-        
-    }
-    
-}
-
-export type Node_Type_ = (
-    context: Node_Type_.I,
-) => Node_Type_.O
-
 export namespace Result_ {
     
     export type I = i_in.Result
@@ -67,9 +51,25 @@ export type Result_ = (
     context: Result_.I,
 ) => Result_.O
 
+export namespace Node_Type_ {
+    
+    export type I = i_in.Node_Type
+    
+    export type O = string
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Node_Type_ = (
+    context: Node_Type_.I,
+) => Node_Type_.O
+
 export { 
     Parameters_ as Parameters, 
     Error_ as Error, 
-    Node_Type_ as Node_Type, 
     Result_ as Result, 
+    Node_Type_ as Node_Type, 
 }

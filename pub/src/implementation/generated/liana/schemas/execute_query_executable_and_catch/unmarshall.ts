@@ -68,6 +68,64 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_cc(
     })
 )
 
+export const Result: t_signatures.Result = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.State(
+        $,
+        ($) => abort(
+            ['expected a state', null]
+        )
+    ),
+    ($) => _p.decide.text(
+        $['option']['value'],
+        ($t): t_out.Result => {
+            switch ($t) {
+                case 'success':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['success', _p_cc(
+                            v_unmarshalled_from_parse_tree.Group(
+                                $,
+                                ($) => abort(
+                                    ['expected a group', null]
+                                )
+                            ),
+                            ($) => ({
+                                'stdout': _p_cc(
+                                    $.__get_entry(
+                                        'stdout',
+                                        ($) => abort(
+                                            ['no such entry', "stdout"]
+                                        )
+                                    ),
+                                    ($) => v_external_terminal_output.Message(
+                                        $,
+                                        ($) => abort(
+                                            $
+                                        )
+                                    )
+                                ),
+                            })
+                        )]
+                    )
+                case 'error':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['error', Error(
+                            $,
+                            ($) => abort(
+                                $
+                            )
+                        )]
+                    )
+                default:
+                    return abort(
+                        ['unknown option', $['option']['value']]
+                    )
+            }
+        }
+    )
+)
+
 export const Error: t_signatures.Error = ($, abort) => _p_cc(
     v_unmarshalled_from_parse_tree.State(
         $,
@@ -160,64 +218,6 @@ export const Error: t_signatures.Error = ($, abort) => _p_cc(
                                     )
                                 ),
                             })
-                        )]
-                    )
-                default:
-                    return abort(
-                        ['unknown option', $['option']['value']]
-                    )
-            }
-        }
-    )
-)
-
-export const Result: t_signatures.Result = ($, abort) => _p_cc(
-    v_unmarshalled_from_parse_tree.State(
-        $,
-        ($) => abort(
-            ['expected a state', null]
-        )
-    ),
-    ($) => _p.decide.text(
-        $['option']['value'],
-        ($t): t_out.Result => {
-            switch ($t) {
-                case 'success':
-                    return _p_cc(
-                        $['value'],
-                        ($) => ['success', _p_cc(
-                            v_unmarshalled_from_parse_tree.Group(
-                                $,
-                                ($) => abort(
-                                    ['expected a group', null]
-                                )
-                            ),
-                            ($) => ({
-                                'stdout': _p_cc(
-                                    $.__get_entry(
-                                        'stdout',
-                                        ($) => abort(
-                                            ['no such entry', "stdout"]
-                                        )
-                                    ),
-                                    ($) => v_external_terminal_output.Message(
-                                        $,
-                                        ($) => abort(
-                                            $
-                                        )
-                                    )
-                                ),
-                            })
-                        )]
-                    )
-                case 'error':
-                    return _p_cc(
-                        $['value'],
-                        ($) => ['error', Error(
-                            $,
-                            ($) => abort(
-                                $
-                            )
                         )]
                     )
                 default:

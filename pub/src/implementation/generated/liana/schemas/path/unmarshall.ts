@@ -17,15 +17,96 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
 
-export const Up_Steps: t_signatures.Up_Steps = ($, abort) => v_deserialize_number.deserialize(
-    v_unmarshalled_from_parse_tree.Text(
+export const Node_Path: t_signatures.Node_Path = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.Group(
+        $,
+        ($) => abort(
+            ['expected a group', null]
+        )
+    ),
+    ($) => ({
+        'context': _p_cc(
+            $.__get_entry(
+                'context',
+                ($) => abort(
+                    ['no such entry', "context"]
+                )
+            ),
+            ($) => Context_Path(
+                $,
+                ($) => abort(
+                    $
+                )
+            )
+        ),
+        'node': _p_cc(
+            $.__get_entry(
+                'node',
+                ($) => abort(
+                    ['no such entry', "node"]
+                )
+            ),
+            ($) => v_unmarshalled_from_parse_tree.Text(
+                $,
+                ($) => abort(
+                    ['expected a text', null]
+                )
+            )
+        ),
+    })
+)
+
+export const Context_Path: t_signatures.Context_Path = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.Group(
+        $,
+        ($) => abort(
+            ['expected a group', null]
+        )
+    ),
+    ($) => ({
+        'start': _p_cc(
+            $.__get_entry(
+                'start',
+                ($) => abort(
+                    ['no such entry', "start"]
+                )
+            ),
+            ($) => Start(
+                $,
+                ($) => abort(
+                    $
+                )
+            )
+        ),
+        'subpath': _p_cc(
+            $.__get_entry(
+                'subpath',
+                ($) => abort(
+                    ['no such entry', "subpath"]
+                )
+            ),
+            ($) => Context_Subpath(
+                $,
+                ($) => abort(
+                    $
+                )
+            )
+        ),
+    })
+)
+
+export const Context_Subpath: t_signatures.Context_Subpath = ($, abort) => _p.list.map(
+    v_unmarshalled_from_parse_tree.List(
+        $,
+        ($) => abort(
+            ['expected a list', null]
+        )
+    ),
+    ($) => v_unmarshalled_from_parse_tree.Text(
         $,
         ($) => abort(
             ['expected a text', null]
         )
-    ),
-    ($) => abort(
-        ['not a valid number', null]
     )
 )
 
@@ -87,97 +168,16 @@ export const Start: t_signatures.Start = ($, abort) => _p_cc(
     )
 )
 
-export const Context_Subpath: t_signatures.Context_Subpath = ($, abort) => _p.list.map(
-    v_unmarshalled_from_parse_tree.List(
-        $,
-        ($) => abort(
-            ['expected a list', null]
-        )
-    ),
-    ($) => v_unmarshalled_from_parse_tree.Text(
+export const Up_Steps: t_signatures.Up_Steps = ($, abort) => v_deserialize_number.deserialize(
+    v_unmarshalled_from_parse_tree.Text(
         $,
         ($) => abort(
             ['expected a text', null]
         )
+    ),
+    ($) => abort(
+        ['not a valid number', null]
     )
-)
-
-export const Context_Path: t_signatures.Context_Path = ($, abort) => _p_cc(
-    v_unmarshalled_from_parse_tree.Group(
-        $,
-        ($) => abort(
-            ['expected a group', null]
-        )
-    ),
-    ($) => ({
-        'start': _p_cc(
-            $.__get_entry(
-                'start',
-                ($) => abort(
-                    ['no such entry', "start"]
-                )
-            ),
-            ($) => Start(
-                $,
-                ($) => abort(
-                    $
-                )
-            )
-        ),
-        'subpath': _p_cc(
-            $.__get_entry(
-                'subpath',
-                ($) => abort(
-                    ['no such entry', "subpath"]
-                )
-            ),
-            ($) => Context_Subpath(
-                $,
-                ($) => abort(
-                    $
-                )
-            )
-        ),
-    })
-)
-
-export const Node_Path: t_signatures.Node_Path = ($, abort) => _p_cc(
-    v_unmarshalled_from_parse_tree.Group(
-        $,
-        ($) => abort(
-            ['expected a group', null]
-        )
-    ),
-    ($) => ({
-        'context': _p_cc(
-            $.__get_entry(
-                'context',
-                ($) => abort(
-                    ['no such entry', "context"]
-                )
-            ),
-            ($) => Context_Path(
-                $,
-                ($) => abort(
-                    $
-                )
-            )
-        ),
-        'node': _p_cc(
-            $.__get_entry(
-                'node',
-                ($) => abort(
-                    ['no such entry', "node"]
-                )
-            ),
-            ($) => v_unmarshalled_from_parse_tree.Text(
-                $,
-                ($) => abort(
-                    ['expected a text', null]
-                )
-            )
-        ),
-    })
 )
 
 export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) => _p_cc(

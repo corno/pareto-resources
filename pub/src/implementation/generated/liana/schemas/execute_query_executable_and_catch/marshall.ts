@@ -37,6 +37,45 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     }
 )]]
 
+export const Result: t_signatures.Result = ($) => ['state', _p.decide.state(
+    $,
+    ($): t_out.Value.state => {
+        switch ($[0]) {
+            case 'success':
+                return _p.ss(
+                    $,
+                    ($) => ({
+                        'option': 'success',
+                        'value': ['group', ['verbose', _p.dictionary.literal(
+                            {
+                                'stdout': _p_cc(
+                                    $['stdout'],
+                                    ($) => v_external_terminal_output.Message(
+                                        $
+                                    )
+                                ),
+                            }
+                        )]],
+                    })
+                )
+            case 'error':
+                return _p.ss(
+                    $,
+                    ($) => ({
+                        'option': 'error',
+                        'value': Error(
+                            $
+                        ),
+                    })
+                )
+            default:
+                return _p.au(
+                    $[0]
+                )
+        }
+    }
+)]
+
 export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
     $,
     ($): t_out.Value.state => {
@@ -86,45 +125,6 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                                 ),
                             }
                         )]],
-                    })
-                )
-            default:
-                return _p.au(
-                    $[0]
-                )
-        }
-    }
-)]
-
-export const Result: t_signatures.Result = ($) => ['state', _p.decide.state(
-    $,
-    ($): t_out.Value.state => {
-        switch ($[0]) {
-            case 'success':
-                return _p.ss(
-                    $,
-                    ($) => ({
-                        'option': 'success',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
-                            {
-                                'stdout': _p_cc(
-                                    $['stdout'],
-                                    ($) => v_external_terminal_output.Message(
-                                        $
-                                    )
-                                ),
-                            }
-                        )]],
-                    })
-                )
-            case 'error':
-                return _p.ss(
-                    $,
-                    ($) => ({
-                        'option': 'error',
-                        'value': Error(
-                            $
-                        ),
                     })
                 )
             default:

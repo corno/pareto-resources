@@ -25,21 +25,6 @@ export type Error_ =
     | readonly ['directory does not exist', Error_.directory_does_not_exist]
     | readonly ['node is not a directory', Error_.node_is_not_a_directory]
 
-export namespace Node_Type_ {
-    
-    export type file = null
-    
-    export type directory = null
-    
-    export type other = null
-    
-}
-
-export type Node_Type_ = 
-    | readonly ['file', Node_Type_.file]
-    | readonly ['directory', Node_Type_.directory]
-    | readonly ['other', Node_Type_.other]
-
 export namespace Result_ {
     
     export namespace D {
@@ -62,9 +47,24 @@ export namespace Result_ {
 
 export type Result_ = _pi.Dictionary<Result_.D>
 
+export namespace Node_Type_ {
+    
+    export type file = null
+    
+    export type directory = null
+    
+    export type other = null
+    
+}
+
+export type Node_Type_ = 
+    | readonly ['file', Node_Type_.file]
+    | readonly ['directory', Node_Type_.directory]
+    | readonly ['other', Node_Type_.other]
+
 export { 
     Parameters_ as Parameters, 
     Error_ as Error, 
-    Node_Type_ as Node_Type, 
     Result_ as Result, 
+    Node_Type_ as Node_Type, 
 }

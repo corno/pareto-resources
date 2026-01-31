@@ -45,25 +45,6 @@ export type Error_ = (
     abort: _pi.Abort<Error_.E>,
 ) => Error_.O
 
-export namespace Node_Type_ {
-    
-    export type I = i_in.Value
-    
-    export type O = i_out.Node_Type
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
-    }
-    
-}
-
-export type Node_Type_ = (
-    context: Node_Type_.I,
-    abort: _pi.Abort<Node_Type_.E>,
-) => Node_Type_.O
-
 export namespace Result_ {
     
     export type I = i_in.Value
@@ -83,9 +64,28 @@ export type Result_ = (
     abort: _pi.Abort<Result_.E>,
 ) => Result_.O
 
+export namespace Node_Type_ {
+    
+    export type I = i_in.Value
+    
+    export type O = i_out.Node_Type
+    
+    export type E = i_generic.Error
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Node_Type_ = (
+    context: Node_Type_.I,
+    abort: _pi.Abort<Node_Type_.E>,
+) => Node_Type_.O
+
 export { 
     Parameters_ as Parameters, 
     Error_ as Error, 
-    Node_Type_ as Node_Type, 
     Result_ as Result, 
+    Node_Type_ as Node_Type, 
 }

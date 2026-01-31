@@ -13,14 +13,14 @@ export const Parameters: t_signatures.Parameters = ($) => v_serialize.Document(
     )
 )
 
-export const Error: t_signatures.Error = ($) => v_serialize.Document(
-    v_marshall.Error(
+export const Result: t_signatures.Result = ($) => v_serialize.Document(
+    v_marshall.Result(
         $
     )
 )
 
-export const Result: t_signatures.Result = ($) => v_serialize.Document(
-    v_marshall.Result(
+export const Error: t_signatures.Error = ($) => v_serialize.Document(
+    v_marshall.Error(
         $
     )
 )

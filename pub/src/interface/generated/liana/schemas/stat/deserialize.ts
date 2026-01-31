@@ -59,33 +59,6 @@ export type Error_ = (
     },
 ) => Error_.O
 
-export namespace Node_Type_ {
-    
-    export type I = string
-    
-    export type O = i_out.Node_Type
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
-        
-    }
-    
-}
-
-export type Node_Type_ = (
-    context: Node_Type_.I,
-    abort: _pi.Abort<Node_Type_.E>,
-    parameters: {
-        readonly 'document resource identifier': Node_Type_.P.document_resource_identifier
-        readonly 'tab size': Node_Type_.P.tab_size
-    },
-) => Node_Type_.O
-
 export namespace Result_ {
     
     export type I = string
@@ -113,9 +86,36 @@ export type Result_ = (
     },
 ) => Result_.O
 
+export namespace Node_Type_ {
+    
+    export type I = string
+    
+    export type O = i_out.Node_Type
+    
+    export type E = i_generic.Error
+    
+    export namespace P {
+        
+        export type document_resource_identifier = string
+        
+        export type tab_size = number
+        
+    }
+    
+}
+
+export type Node_Type_ = (
+    context: Node_Type_.I,
+    abort: _pi.Abort<Node_Type_.E>,
+    parameters: {
+        readonly 'document resource identifier': Node_Type_.P.document_resource_identifier
+        readonly 'tab size': Node_Type_.P.tab_size
+    },
+) => Node_Type_.O
+
 export { 
     Parameters_ as Parameters, 
     Error_ as Error, 
-    Node_Type_ as Node_Type, 
     Result_ as Result, 
+    Node_Type_ as Node_Type, 
 }

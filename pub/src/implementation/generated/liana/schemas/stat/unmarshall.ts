@@ -58,6 +58,13 @@ export const Error: t_signatures.Error = ($, abort) => _p_cc(
     )
 )
 
+export const Result: t_signatures.Result = ($, abort) => Node_Type(
+    $,
+    ($) => abort(
+        $
+    )
+)
+
 export const Node_Type: t_signatures.Node_Type = ($, abort) => _p_cc(
     v_unmarshalled_from_parse_tree.State(
         $,
@@ -95,12 +102,5 @@ export const Node_Type: t_signatures.Node_Type = ($, abort) => _p_cc(
                     )
             }
         }
-    )
-)
-
-export const Result: t_signatures.Result = ($, abort) => Node_Type(
-    $,
-    ($) => abort(
-        $
     )
 )

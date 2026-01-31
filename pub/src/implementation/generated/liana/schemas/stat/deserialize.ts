@@ -41,7 +41,7 @@ export const Error: t_signatures.Error = ($, abort, $p) => v_unmarshall.Error(
     )
 )
 
-export const Node_Type: t_signatures.Node_Type = ($, abort, $p) => v_unmarshall.Node_Type(
+export const Result: t_signatures.Result = ($, abort, $p) => v_unmarshall.Result(
     v_deserialize.Document(
         $,
         ($) => abort(
@@ -57,7 +57,7 @@ export const Node_Type: t_signatures.Node_Type = ($, abort, $p) => v_unmarshall.
     )
 )
 
-export const Result: t_signatures.Result = ($, abort, $p) => v_unmarshall.Result(
+export const Node_Type: t_signatures.Node_Type = ($, abort, $p) => v_unmarshall.Node_Type(
     v_deserialize.Document(
         $,
         ($) => abort(

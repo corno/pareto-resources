@@ -25,6 +25,37 @@ export const Parameters: t_signatures.Parameters = ($) => ({
     ),
 })
 
+export const Result: t_signatures.Result = ($) => _p.decide.state(
+    $,
+    ($): t_out.Result => {
+        switch ($[0]) {
+            case 'success':
+                return _p.ss(
+                    $,
+                    ($) => ['success', {
+                        'stdout': _p_cc(
+                            $['stdout'],
+                            ($) => v_terminal_output.Message(
+                                $
+                            )
+                        ),
+                    }]
+                )
+            case 'error':
+                return _p.ss(
+                    $,
+                    ($) => ['error', Error(
+                        $
+                    )]
+                )
+            default:
+                return _p.au(
+                    $[0]
+                )
+        }
+    }
+)
+
 export const Error: t_signatures.Error = ($) => _p.decide.state(
     $,
     ($): t_out.Error => {
@@ -59,37 +90,6 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
                             )
                         ),
                     }]
-                )
-            default:
-                return _p.au(
-                    $[0]
-                )
-        }
-    }
-)
-
-export const Result: t_signatures.Result = ($) => _p.decide.state(
-    $,
-    ($): t_out.Result => {
-        switch ($[0]) {
-            case 'success':
-                return _p.ss(
-                    $,
-                    ($) => ['success', {
-                        'stdout': _p_cc(
-                            $['stdout'],
-                            ($) => v_terminal_output.Message(
-                                $
-                            )
-                        ),
-                    }]
-                )
-            case 'error':
-                return _p.ss(
-                    $,
-                    ($) => ['error', Error(
-                        $
-                    )]
                 )
             default:
                 return _p.au(

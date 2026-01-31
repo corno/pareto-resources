@@ -13,12 +13,48 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-export const Up_Steps: t_signatures.Up_Steps = ($) => ['text', {
-    'delimiter': ['none', null],
-    'value': v_serialize_number.serialize(
-        $
-    ),
-}]
+export const Node_Path: t_signatures.Node_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
+    {
+        'context': _p_cc(
+            $['context'],
+            ($) => Context_Path(
+                $
+            )
+        ),
+        'node': _p_cc(
+            $['node'],
+            ($) => ['text', {
+                'delimiter': ['quote', null],
+                'value': $,
+            }]
+        ),
+    }
+)]]
+
+export const Context_Path: t_signatures.Context_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
+    {
+        'start': _p_cc(
+            $['start'],
+            ($) => Start(
+                $
+            )
+        ),
+        'subpath': _p_cc(
+            $['subpath'],
+            ($) => Context_Subpath(
+                $
+            )
+        ),
+    }
+)]]
+
+export const Context_Subpath: t_signatures.Context_Subpath = ($) => ['list', _p.list.map(
+    $,
+    ($) => ['text', {
+        'delimiter': ['quote', null],
+        'value': $,
+    }]
+)]
 
 export const Start: t_signatures.Start = ($) => ['state', _p.decide.state(
     $,
@@ -57,48 +93,12 @@ export const Start: t_signatures.Start = ($) => ['state', _p.decide.state(
     }
 )]
 
-export const Context_Subpath: t_signatures.Context_Subpath = ($) => ['list', _p.list.map(
-    $,
-    ($) => ['text', {
-        'delimiter': ['quote', null],
-        'value': $,
-    }]
-)]
-
-export const Context_Path: t_signatures.Context_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
-    {
-        'start': _p_cc(
-            $['start'],
-            ($) => Start(
-                $
-            )
-        ),
-        'subpath': _p_cc(
-            $['subpath'],
-            ($) => Context_Subpath(
-                $
-            )
-        ),
-    }
-)]]
-
-export const Node_Path: t_signatures.Node_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
-    {
-        'context': _p_cc(
-            $['context'],
-            ($) => Context_Path(
-                $
-            )
-        ),
-        'node': _p_cc(
-            $['node'],
-            ($) => ['text', {
-                'delimiter': ['quote', null],
-                'value': $,
-            }]
-        ),
-    }
-)]]
+export const Up_Steps: t_signatures.Up_Steps = ($) => ['text', {
+    'delimiter': ['none', null],
+    'value': v_serialize_number.serialize(
+        $
+    ),
+}]
 
 export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
     {

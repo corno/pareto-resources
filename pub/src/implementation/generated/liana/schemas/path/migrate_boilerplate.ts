@@ -9,7 +9,38 @@ import * as t_signatures from "../../../../../interface/generated/liana/schemas/
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/path/data"
 
-export const Up_Steps: t_signatures.Up_Steps = ($) => $
+export const Node_Path: t_signatures.Node_Path = ($) => ({
+    'context': _p_cc(
+        $['context'],
+        ($) => Context_Path(
+            $
+        )
+    ),
+    'node': _p_cc(
+        $['node'],
+        ($) => $
+    ),
+})
+
+export const Context_Path: t_signatures.Context_Path = ($) => ({
+    'start': _p_cc(
+        $['start'],
+        ($) => Start(
+            $
+        )
+    ),
+    'subpath': _p_cc(
+        $['subpath'],
+        ($) => Context_Subpath(
+            $
+        )
+    ),
+})
+
+export const Context_Subpath: t_signatures.Context_Subpath = ($) => _p.list.map(
+    $,
+    ($) => $
+)
 
 export const Start: t_signatures.Start = ($) => _p.decide.state(
     $,
@@ -40,38 +71,7 @@ export const Start: t_signatures.Start = ($) => _p.decide.state(
     }
 )
 
-export const Context_Subpath: t_signatures.Context_Subpath = ($) => _p.list.map(
-    $,
-    ($) => $
-)
-
-export const Context_Path: t_signatures.Context_Path = ($) => ({
-    'start': _p_cc(
-        $['start'],
-        ($) => Start(
-            $
-        )
-    ),
-    'subpath': _p_cc(
-        $['subpath'],
-        ($) => Context_Subpath(
-            $
-        )
-    ),
-})
-
-export const Node_Path: t_signatures.Node_Path = ($) => ({
-    'context': _p_cc(
-        $['context'],
-        ($) => Context_Path(
-            $
-        )
-    ),
-    'node': _p_cc(
-        $['node'],
-        ($) => $
-    ),
-})
+export const Up_Steps: t_signatures.Up_Steps = ($) => $
 
 export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ({
     'leading slash': _p_cc(

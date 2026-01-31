@@ -14,6 +14,8 @@ export namespace Error_ {
 export type Error_ = 
     | readonly ['node does not exist', Error_.node_does_not_exist]
 
+export type Result_ = Node_Type_
+
 export namespace Node_Type_ {
     
     export type file = null
@@ -26,11 +28,9 @@ export type Node_Type_ =
     | readonly ['file', Node_Type_.file]
     | readonly ['directory', Node_Type_.directory]
 
-export type Result_ = Node_Type_
-
 export { 
     Parameters_ as Parameters, 
     Error_ as Error, 
-    Node_Type_ as Node_Type, 
     Result_ as Result, 
+    Node_Type_ as Node_Type, 
 }

@@ -19,14 +19,14 @@ export const Error: t_signatures.Error = ($) => v_serialize.Document(
     )
 )
 
-export const Node_Type: t_signatures.Node_Type = ($) => v_serialize.Document(
-    v_marshall.Node_Type(
+export const Result: t_signatures.Result = ($) => v_serialize.Document(
+    v_marshall.Result(
         $
     )
 )
 
-export const Result: t_signatures.Result = ($) => v_serialize.Document(
-    v_marshall.Result(
+export const Node_Type: t_signatures.Node_Type = ($) => v_serialize.Document(
+    v_marshall.Node_Type(
         $
     )
 )

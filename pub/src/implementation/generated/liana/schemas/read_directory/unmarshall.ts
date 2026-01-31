@@ -86,56 +86,6 @@ export const Error: t_signatures.Error = ($, abort) => _p_cc(
     )
 )
 
-export const Node_Type: t_signatures.Node_Type = ($, abort) => _p_cc(
-    v_unmarshalled_from_parse_tree.State(
-        $,
-        ($) => abort(
-            ['expected a state', null]
-        )
-    ),
-    ($) => _p.decide.text(
-        $['option']['value'],
-        ($t): t_out.Node_Type => {
-            switch ($t) {
-                case 'file':
-                    return _p_cc(
-                        $['value'],
-                        ($) => ['file', v_unmarshalled_from_parse_tree.Nothing(
-                            $,
-                            ($) => abort(
-                                ['expected a nothing', null]
-                            )
-                        )]
-                    )
-                case 'directory':
-                    return _p_cc(
-                        $['value'],
-                        ($) => ['directory', v_unmarshalled_from_parse_tree.Nothing(
-                            $,
-                            ($) => abort(
-                                ['expected a nothing', null]
-                            )
-                        )]
-                    )
-                case 'other':
-                    return _p_cc(
-                        $['value'],
-                        ($) => ['other', v_unmarshalled_from_parse_tree.Nothing(
-                            $,
-                            ($) => abort(
-                                ['expected a nothing', null]
-                            )
-                        )]
-                    )
-                default:
-                    return abort(
-                        ['unknown option', $['option']['value']]
-                    )
-            }
-        }
-    )
-)
-
 export const Result: t_signatures.Result = ($, abort) => _p.dictionary.map(
     v_unmarshalled_from_parse_tree.Dictionary(
         $,
@@ -194,5 +144,55 @@ export const Result: t_signatures.Result = ($, abort) => _p.dictionary.map(
                 )
             ),
         })
+    )
+)
+
+export const Node_Type: t_signatures.Node_Type = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.State(
+        $,
+        ($) => abort(
+            ['expected a state', null]
+        )
+    ),
+    ($) => _p.decide.text(
+        $['option']['value'],
+        ($t): t_out.Node_Type => {
+            switch ($t) {
+                case 'file':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['file', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                case 'directory':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['directory', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                case 'other':
+                    return _p_cc(
+                        $['value'],
+                        ($) => ['other', v_unmarshalled_from_parse_tree.Nothing(
+                            $,
+                            ($) => abort(
+                                ['expected a nothing', null]
+                            )
+                        )]
+                    )
+                default:
+                    return abort(
+                        ['unknown option', $['option']['value']]
+                    )
+            }
+        }
     )
 )

@@ -42,6 +42,30 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
     }
 )
 
+export const Result: t_signatures.Result = ($) => _p.dictionary.map(
+    $,
+    ($, id) => ({
+        'node type': _p_cc(
+            $['node type'],
+            ($) => Node_Type(
+                $
+            )
+        ),
+        'context directory': _p_cc(
+            $['context directory'],
+            ($) => v_path.Context_Path(
+                $
+            )
+        ),
+        'path': _p_cc(
+            $['path'],
+            ($) => v_path.Node_Path(
+                $
+            )
+        ),
+    })
+)
+
 export const Node_Type: t_signatures.Node_Type = ($) => _p.decide.state(
     $,
     ($): t_out.Node_Type => {
@@ -67,28 +91,4 @@ export const Node_Type: t_signatures.Node_Type = ($) => _p.decide.state(
                 )
         }
     }
-)
-
-export const Result: t_signatures.Result = ($) => _p.dictionary.map(
-    $,
-    ($, id) => ({
-        'node type': _p_cc(
-            $['node type'],
-            ($) => Node_Type(
-                $
-            )
-        ),
-        'context directory': _p_cc(
-            $['context directory'],
-            ($) => v_path.Context_Path(
-                $
-            )
-        ),
-        'path': _p_cc(
-            $['path'],
-            ($) => v_path.Node_Path(
-                $
-            )
-        ),
-    })
 )

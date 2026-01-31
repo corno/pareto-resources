@@ -32,6 +32,10 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
     }
 )
 
+export const Result: t_signatures.Result = ($) => Node_Type(
+    $
+)
+
 export const Node_Type: t_signatures.Node_Type = ($) => _p.decide.state(
     $,
     ($): t_out.Node_Type => {
@@ -52,8 +56,4 @@ export const Node_Type: t_signatures.Node_Type = ($) => _p.decide.state(
                 )
         }
     }
-)
-
-export const Result: t_signatures.Result = ($) => Node_Type(
-    $
 )
