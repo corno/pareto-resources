@@ -1,5 +1,5 @@
 import * as _p from 'pareto-core/dist/command'
-import * as _pt from 'pareto-core/dist/transformer'
+import * as _pt from 'pareto-core/dist/expression'
 import * as _pq from 'pareto-core/dist/query'
 
 import * as d_directory_content from "../../../interface/to_be_generated/directory_content"

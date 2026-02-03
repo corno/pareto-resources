@@ -1,19 +1,19 @@
-import * as _p from 'pareto-core/dist/refiner'
+import * as _p from 'pareto-core/dist/expression'
 import * as _pi from 'pareto-core/dist/interface'
-import * as _pd from 'pareto-core/dist/deserializer'
-import { _p_iterate } from 'pareto-core/dist/iterate'
-import { _p_unreachable_code_path } from 'pareto-core/dist/unreachable_code_path'
-import { _p_cc } from 'pareto-core/dist/change_context'
+import _p_iterate from 'pareto-core/dist/_p_iterate'
+import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
+import _p_change_context from 'pareto-core/dist/_p_change_context'
+import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
-import { build_list_with_loop, build_text_with_loop } from '../../../temp/temp_core'
+import { build_list_with_loop, build_text_with_loop } from '../../../../temp/temp_core'
 
-import * as d_out from "../../../../interface/generated/liana/schemas/path/data"
+import * as d_out from "../../../../../interface/generated/liana/schemas/path/data"
 
 export const Non_Normalized_Path = (
     $: string
 ): d_out.Non_Normalized_Path => {
     return _p_iterate(
-        _pd.list.from_text($, ($) => $),
+        _p_list_from_text($, ($) => $),
         (iterator) => {
             return {
                 'leading slash': (() => {
@@ -30,7 +30,7 @@ export const Non_Normalized_Path = (
                     }
                 })(),
                 'segments': build_list_with_loop<number, d_out.Non_Normalized_Path.segments.L>(iterator, ($, $i) => {
-                    $i['add item'](_p_cc(
+                    $i['add item'](_p_change_context(
                         build_text_with_loop(iterator, ($, $i) => {
                             if ($ !== 47) { // '/'
                                 $i.add_character($)

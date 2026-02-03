@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as _pt from 'pareto-core/dist/transformer'
+import * as _pt from 'pareto-core/dist/expression'
 import * as _pdev from 'pareto-core-dev'
 
 // import * as r_non_normalized_path from "pub/dist/implementation/manual/schemas/non_normalized_path/deserializers"

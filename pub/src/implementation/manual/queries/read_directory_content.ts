@@ -14,15 +14,15 @@ export const $$: signatures.queries.read_directory_content = _p.query_function(
         ($): d_read_directory_content.Error => ['read directory', $],
     ).query_without_error_transformation(
         ($) => _p.dictionaryx.parallel(
-            $.__d_map(($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
+            $.__d_map(($): _p.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
                 const path = $.path
                 return _p.decide.state($['node type'], ($) => {
                     switch ($[0]) {
-                        case 'file': return _p.ss($, ($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $r['read file'](
+                        case 'file': return _p.ss($, ($): _p.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $r['read file'](
                             path,
                             ($): d_read_directory_content.Node_Error => ['file', $],
                         ).transform_result<d_directory_content.Node>(($) => ['file', $]))
-                        case 'directory': return _p.ss($, ($): _pi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $$(
+                        case 'directory': return _p.ss($, ($): _p.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $$(
                             $r,
                         )(
                             {

@@ -9,11 +9,11 @@ export namespace signatures {
     export type Node_Path = _pi.Deserializer_With_Parameters<d_out.Node_Path, d_error.Error, Parameters>
 }
 
-import * as _pt from 'pareto-core/dist/transformer'
+import * as _pt from 'pareto-core/dist/expression'
 
 //dependencies
 import * as x1 from "./refiners/non_normalized_path"
-import * as x2 from "../non_normalized_path/deserializers"
+import * as x2 from "../non_normalized_path/refiners/text"
 
 
 export const Node_Path: signatures.Node_Path = ($, abort, $p) => {

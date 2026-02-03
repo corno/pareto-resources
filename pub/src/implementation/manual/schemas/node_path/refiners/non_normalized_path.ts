@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/refiner'
+import * as _p from 'pareto-core/dist/expression'
 import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_out from "../../../../../interface/generated/liana/schemas/path/data"
@@ -35,7 +35,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
         up_steps: 0,
     }
 
-    $.segments.__for_each(($) => {
+    $.segments.__l_map(($) => {
         intermediate_result = _p.decide.state($, ($): Intermediate_Result => {
             switch ($[0]) {
                 case 'parent': return _p.ss($, ($) => ({

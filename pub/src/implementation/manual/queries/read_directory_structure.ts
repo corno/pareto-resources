@@ -1,5 +1,4 @@
 import * as _p from 'pareto-core/dist/query'
-import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_directory_structure from "../../../interface/to_be_generated/directory_structure"
 import * as d_read_directory_structure from "../../../interface/to_be_generated/read_directory_structure"
@@ -14,11 +13,11 @@ export const $$: signatures.queries.read_directory_structure = _p.query_function
         ($): d_read_directory_structure.Error => ['read directory', $],
     ).query_without_error_transformation(
         ($) => _p.dictionaryx.parallel(
-            $.__d_map(($): _pi.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => {
+            $.__d_map(($): _p.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => {
                 const path = $.path
                 return _p.decide.state($['node type'], ($) => {
                     switch ($[0]) {
-                        case 'directory': return _p.ss($, ($): _pi.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => $$(
+                        case 'directory': return _p.ss($, ($): _p.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => $$(
                             $r,
                         )(
                             {
