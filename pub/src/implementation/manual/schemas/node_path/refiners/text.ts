@@ -1,8 +1,8 @@
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as d_out from "../../../../interface/generated/liana/schemas/path/data"
+import * as d_out from "../../../../../interface/generated/liana/schemas/path/data"
 import * as d_in from "pareto-fountain-pen/dist/interface/to_be_generated/text"
-import * as d_error from "./refiners/non_normalized_path"
+import * as d_error from "./non_normalized_path"
 
 export type Parameters = { 'pedantic': boolean }
 
@@ -13,8 +13,8 @@ export namespace signatures {
 import * as _pt from 'pareto-core/dist/expression'
 
 //dependencies
-import * as x1 from "./refiners/non_normalized_path"
-import * as x2 from "../non_normalized_path/refiners/text"
+import * as x1 from "./non_normalized_path"
+import * as x2 from "../../non_normalized_path/refiners/text"
 
 
 export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
