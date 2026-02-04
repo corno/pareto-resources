@@ -5,12 +5,12 @@ import * as i__imports_fountain_pen_multiline from "../fountain_pen_multiline/da
 
 export namespace Parameters_ {
     
-    export type messsage = i__imports_fountain_pen_multiline.Block_Part
+    export type message = i__imports_fountain_pen_multiline.Group
     
 }
 
 export type Parameters_ = {
-    readonly 'messsage': Parameters_.messsage
+    readonly 'message': Parameters_.message
 }
 
 export type Error_ = null
