@@ -1,0 +1,109 @@
+
+import * as _pi from "pareto-core/dist/interface"
+
+import * as i_in from "./data"
+
+export namespace Directory_ {
+    
+    export type I = i_in.Directory
+    
+    export type O = string
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Directory_ = (
+    context: Directory_.I,
+) => Directory_.O
+
+export namespace Node_ {
+    
+    export type I = i_in.Node
+    
+    export type O = string
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Node_ = (
+    context: Node_.I,
+) => Node_.O
+
+export namespace Group_ {
+    
+    export type I = i_in.Group
+    
+    export type O = string
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Group_ = (
+    context: Group_.I,
+) => Group_.O
+
+export namespace Group_Part_ {
+    
+    export type I = i_in.Group_Part
+    
+    export type O = string
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Group_Part_ = (
+    context: Group_Part_.I,
+) => Group_Part_.O
+
+export namespace Block_ {
+    
+    export type I = i_in.Block
+    
+    export type O = string
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Block_ = (
+    context: Block_.I,
+) => Block_.O
+
+export namespace Block_Part_ {
+    
+    export type I = i_in.Block_Part
+    
+    export type O = string
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Block_Part_ = (
+    context: Block_Part_.I,
+) => Block_Part_.O
+
+export { 
+    Directory_ as Directory, 
+    Node_ as Node, 
+    Group_ as Group, 
+    Group_Part_ as Group_Part, 
+    Block_ as Block, 
+    Block_Part_ as Block_Part, 
+}
