@@ -1,12 +1,13 @@
 import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_out from "../../../../interface/generated/liana/schemas/path/data"
+import * as d_in from "pareto-fountain-pen/dist/interface/to_be_generated/text"
 import * as d_error from "./refiners/non_normalized_path"
 
 export type Parameters = { 'pedantic': boolean }
 
 export namespace signatures {
-    export type Node_Path = _pi.Deserializer_With_Parameters<d_out.Node_Path, d_error.Error, Parameters>
+    export type Node_Path = _pi.Refiner_With_Parameters<d_out.Node_Path, d_error.Error, d_in.Text, Parameters>
 }
 
 import * as _pt from 'pareto-core/dist/expression'

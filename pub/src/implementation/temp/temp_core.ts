@@ -1,8 +1,8 @@
 import * as _p from 'pareto-core/dist/expression'
 import * as _pi from 'pareto-core/dist/interface'
 import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
-import _p_text_build_deprecated from 'pareto-core/dist/_p_text_build_deprecated'
 
+//data types
 
 export const remove_last_element = <T>(list: _pi.List<T>): _pi.List<T> => {
     const length = _p.natural.amount_of_list_items(list)
@@ -42,19 +42,6 @@ export const build_list_with_loop = <Iterator_Element, List_Element>(
         loop_elements(iterator, ($) => {
             return callback($, {
                 'add item': $i['add item']
-            })
-        })
-    })
-}
-
-export const build_text_with_loop = (
-    iterator: _pi.Iterator<number>,
-    callback: ($: number, $i: { add_character: (char: number) => void }) => boolean,
-): string => {
-    return _p_text_build_deprecated(($textBuilder) => {
-        loop_elements(iterator, ($) => {
-            return callback($, {
-                add_character: $textBuilder.add_character
             })
         })
     })

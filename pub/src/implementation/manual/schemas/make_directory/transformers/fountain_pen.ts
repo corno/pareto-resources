@@ -10,8 +10,8 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
 export const Error: Error = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
-        case 'directory already exists': return _p.ss($, ($) => sh.b.snippet(`directory already exists`))
-        case 'permission denied': return _p.ss($, ($) => sh.b.snippet(`permission denied`))
+        case 'directory already exists': return _p.ss($, ($) => sh.b.literal("directory already exists"))
+        case 'permission denied': return _p.ss($, ($) => sh.b.literal("permission denied"))
         default: return _p.au($[0])
     }
 })

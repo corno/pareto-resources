@@ -23,7 +23,7 @@ export const $$: signatures.commands.write_directory_content = _p.command_proced
                         case 'other': return _pt.ss($, ($) => _p.nothing())
                         case 'file': return _pt.ss($, ($) => $cr['write file'].execute(
                             {
-                                'path': t_path_to_path.create_node_path($p.path, id),
+                                'path': t_path_to_path.create_node_path($p.path, { 'node': id }),
                                 'data': $
                             },
                             ($): d_write_directory_content.Node_Error => ['file', $]

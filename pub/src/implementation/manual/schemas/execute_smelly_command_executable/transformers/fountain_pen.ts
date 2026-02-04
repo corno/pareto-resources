@@ -11,21 +11,21 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 export const Error: Error = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
         case 'failed to spawn': return _p.ss($, ($) => sh.b.sub([
-            sh.b.snippet(`failed to spawn process:`),
-            sh.b.list($.message.lines.__l_map(($) => sh.b.snippet($)))
+            sh.b.literal("failed to spawn process:"),
+            sh.b.list($.message.lines.__l_map(($) => sh.b.literal($)))
         ]))
         case 'non zero exit code': return _p.ss($, ($) => sh.b.sub([
-            sh.b.snippet(`non zero exit code:`),
+            sh.b.literal("non zero exit code:"),
             sh.b.indent([
                 sh.g.nested_block([
-                    sh.b.snippet(`exit code: `),
-                    sh.b.snippet($['exit code'].__decide(
-                        ($) => `${$}`, //this is a number converted to a string
-                        () => `n/a`
-                    ))
+                    sh.b.literal("exit code: "),
+                    $['exit code'].__decide(
+                        ($) => sh.b.decimal($),
+                        () => sh.b.literal("n/a")
+                    )
                 ]),
                 sh.g.nested_block([
-                    sh.b.snippet(`output:`),
+                    sh.b.literal("output:"),
                     sh.b.indent([
                         sh.g.sub($.stdout.lines.__l_map(($) => sh.g.simple_block($))),
                         sh.g.sub($.stderr.lines.__l_map(($) => sh.g.simple_block($))),

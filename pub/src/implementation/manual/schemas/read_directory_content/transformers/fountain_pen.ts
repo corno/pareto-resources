@@ -30,7 +30,7 @@ export const Error: signatures.Error = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
         case 'directory content processing': return _p.ss($, ($) => sh.b.indent([
             sh.g.sub(_p.list.from_dictionary($, ($, id) => sh.g.nested_block([
-                sh.b.snippet(`${id}: `),
+                sh.b.literal("${id}: "),
                 Node_Error($)
             ])))
         ]))

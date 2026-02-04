@@ -11,7 +11,7 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 export const Error: Error = ($) => {
     return _p.decide.state($, ($) => {
         switch ($[0]) {
-            case 'permission denied': return _p.ss($, ($) => sh.b.snippet(`permission denied`))
+            case 'permission denied': return _p.ss($, ($) => sh.b.literal("permission denied"))
             default: return _p.au($[0])
         }
     })

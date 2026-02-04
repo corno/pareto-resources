@@ -12,11 +12,11 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 export const Error: Error = ($) => {
     return _p.decide.state($, ($) => {
         switch ($[0]) {
-            case 'permission denied': return _p.ss($, ($) => sh.b.snippet(`permission denied`))
-            case 'file does not exist': return _p.ss($, ($) => sh.b.snippet(`file does not exist`))
-            case 'node is not a file': return _p.ss($, ($) => sh.b.snippet(`node is not a file`))
-            case 'file too large': return _p.ss($, ($) => sh.b.snippet(`file too large`))
-            case 'device not ready': return _p.ss($, ($) => sh.b.snippet(`device not ready`))
+            case 'permission denied': return _p.ss($, ($) => sh.b.literal("permission denied"))
+            case 'file does not exist': return _p.ss($, ($) => sh.b.literal("file does not exist"))
+            case 'node is not a file': return _p.ss($, ($) => sh.b.literal("node is not a file"))
+            case 'file too large': return _p.ss($, ($) => sh.b.literal("file too large"))
+            case 'device not ready': return _p.ss($, ($) => sh.b.literal("device not ready"))
             default: return _p.au($[0])
         }
     })

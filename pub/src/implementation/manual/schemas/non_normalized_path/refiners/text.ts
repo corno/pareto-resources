@@ -3,17 +3,18 @@ import * as _pi from 'pareto-core/dist/interface'
 import _p_iterate from 'pareto-core/dist/_p_iterate'
 import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 import _p_change_context from 'pareto-core/dist/_p_change_context'
-import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
+import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
 
-import { build_list_with_loop, build_text_with_loop } from '../../../../temp/temp_core'
+import { build_list_with_loop } from '../../../../temp/temp_core'
 
 import * as d_out from "../../../../../interface/generated/liana/schemas/path/data"
+import * as d_in from "pareto-fountain-pen/dist/interface/to_be_generated/text"
 
 export const Non_Normalized_Path = (
-    $: string
+    $: d_in.Text,
 ): d_out.Non_Normalized_Path => {
     return _p_iterate(
-        _p_list_from_text($, ($) => $),
+        $,
         (iterator) => {
             return {
                 'leading slash': (() => {
@@ -31,15 +32,21 @@ export const Non_Normalized_Path = (
                 })(),
                 'segments': build_list_with_loop<number, d_out.Non_Normalized_Path.segments.L>(iterator, ($, $i) => {
                     $i['add item'](_p_change_context(
-                        build_text_with_loop(iterator, ($, $i) => {
-                            if ($ !== 47) { // '/'
-                                $i.add_character($)
-                                iterator.discard(() => null)
-                                return false
-                            } else {
-                                return true
-                            }
-                        }),
+                        _p_text_from_list(
+                            build_list_with_loop<number, number>(
+                                iterator,
+                                ($, $i) => {
+                                    if ($ !== 47) { // '/'
+                                        $i['add item']($)
+                                        iterator.discard(() => null)
+                                        return false
+                                    } else {
+                                        return true
+                                    }
+                                }
+                            ),
+                            ($) => $
+                        ),
                         ($) => {
                             switch ($) {
                                 case "..": return ['parent', null]
@@ -54,22 +61,22 @@ export const Non_Normalized_Path = (
                         return true
                     } else {
                         if (next[0] !== 47) { // '/'
-                           return _p_unreachable_code_path()
+                            return _p_unreachable_code_path()
                         } else {
-                           const la = iterator.look_ahead(1)
-                           if (la === null) {
-                               // There's no more content after the slash, this is a trailing slash - don't consume, stop loop
-                               return true
-                           } else {
-                               // There's more content after the slash, consume and continue
-                               iterator.discard(() => null)
-                               return false
-                           }
+                            const la = iterator.look_ahead(1)
+                            if (la === null) {
+                                // There's no more content after the slash, this is a trailing slash - don't consume, stop loop
+                                return true
+                            } else {
+                                // There's more content after the slash, consume and continue
+                                iterator.discard(() => null)
+                                return false
+                            }
                         }
                     }
                 }),
                 'trailing slash': (() => {
-                    
+
                     const next = iterator.look()
                     if (next === null) {
                         return false
