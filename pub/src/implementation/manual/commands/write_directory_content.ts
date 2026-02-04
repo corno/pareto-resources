@@ -1,6 +1,7 @@
 import * as _p from 'pareto-core/dist/command'
 import * as _pt from 'pareto-core/dist/expression'
 import * as _pq from 'pareto-core/dist/query'
+import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 import * as d_directory_content from "../../../interface/to_be_generated/directory_content"
 import * as d_write_directory_content from "../../../interface/to_be_generated/write_directory_content"
@@ -24,7 +25,10 @@ export const $$: signatures.commands.write_directory_content = _p.command_proced
                         case 'file': return _pt.ss($, ($) => $cr['write file'].execute(
                             {
                                 'path': t_path_to_path.create_node_path($p.path, { 'node': id }),
-                                'data': $
+                                'data': _p_list_from_text(
+                                    $,
+                                    ($) => $
+                                ),
                             },
                             ($): d_write_directory_content.Node_Error => ['file', $]
                         ))
@@ -34,9 +38,9 @@ export const $$: signatures.commands.write_directory_content = _p.command_proced
                                 'path': t_path_to_path.extend_context_path($p.path, { 'addition': id }),
                             },
                             ($): d_write_directory_content.Node_Error => ['directory', $]
-                            
+
                         ))
-                            
+
                         default: return _pt.au($[0])
                     }
                 })

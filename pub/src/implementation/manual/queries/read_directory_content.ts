@@ -1,5 +1,6 @@
 import * as _p from 'pareto-core/dist/query'
 import * as _pi from 'pareto-core/dist/interface'
+import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
 
 import * as d_directory_content from "../../../interface/to_be_generated/directory_content"
 import * as d_read_directory_content from "../../../interface/to_be_generated/read_directory_content"
@@ -21,7 +22,7 @@ export const $$: signatures.queries.read_directory_content = _p.query_function(
                         case 'file': return _p.ss($, ($): _p.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $r['read file'](
                             path,
                             ($): d_read_directory_content.Node_Error => ['file', $],
-                        ).transform_result<d_directory_content.Node>(($) => ['file', $]))
+                        ).transform_result<d_directory_content.Node>(($) => ['file', _p_text_from_list($, ($) => $)]))
                         case 'directory': return _p.ss($, ($): _p.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $$(
                             $r,
                         )(

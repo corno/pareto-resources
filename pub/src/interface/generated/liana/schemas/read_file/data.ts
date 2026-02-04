@@ -3,6 +3,8 @@ import * as _pi from "pareto-core/dist/interface"
 
 import * as i__imports_path from "../path/data"
 
+import * as i__imports_list_of_characters from "../list_of_characters/data"
+
 export type Parameters_ = i__imports_path.Node_Path
 
 export namespace Error_ {
@@ -26,7 +28,7 @@ export type Error_ =
     | readonly ['file too large', Error_.file_too_large]
     | readonly ['device not ready', Error_.device_not_ready]
 
-export type Result_ = string
+export type Result_ = i__imports_list_of_characters.List_of_Characters
 
 export { 
     Parameters_ as Parameters, 

@@ -1,20 +1,16 @@
 
 import * as _pi from "pareto-core/dist/interface"
 
+import * as i__imports_fountain_pen_multiline from "../fountain_pen_multiline/data"
+
 export namespace Parameters_ {
     
-    export namespace lines {
-        
-        export type L = string
-        
-    }
-    
-    export type lines = _pi.List<lines.L>
+    export type message = i__imports_fountain_pen_multiline.Group
     
 }
 
 export type Parameters_ = {
-    readonly 'lines': Parameters_.lines
+    readonly 'message': Parameters_.message
 }
 
 export type Error_ = null
