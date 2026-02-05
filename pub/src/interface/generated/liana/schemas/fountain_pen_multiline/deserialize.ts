@@ -3,11 +3,13 @@
     
     import * as i_generic from "astn-core/dist/interface/to_be_generated/deserialize"
     
+    import * as i_in from "pareto-fountain-pen/dist/interface/to_be_generated/list_of_characters"
+    
     import * as i_out from "./data"
     
     export namespace Directory_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Directory
         
@@ -34,7 +36,7 @@
     
     export namespace Node_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Node
         
@@ -61,7 +63,7 @@
     
     export namespace Paragraph_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Paragraph
         
@@ -88,7 +90,7 @@
     
     export namespace Phrase_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Phrase
         
@@ -115,7 +117,7 @@
     
     export namespace Single_Line_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Single_Line
         
@@ -142,7 +144,7 @@
     
     export namespace List_of_Characters_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.List_of_Characters
         

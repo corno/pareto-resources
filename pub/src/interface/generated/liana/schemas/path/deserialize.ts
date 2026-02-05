@@ -3,11 +3,13 @@
     
     import * as i_generic from "astn-core/dist/interface/to_be_generated/deserialize"
     
+    import * as i_in from "pareto-fountain-pen/dist/interface/to_be_generated/list_of_characters"
+    
     import * as i_out from "./data"
     
     export namespace Node_Path_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Node_Path
         
@@ -34,7 +36,7 @@
     
     export namespace Context_Path_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Context_Path
         
@@ -61,7 +63,7 @@
     
     export namespace Context_Subpath_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Context_Subpath
         
@@ -88,7 +90,7 @@
     
     export namespace Start_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Start
         
@@ -115,7 +117,7 @@
     
     export namespace Up_Steps_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Up_Steps
         
@@ -142,7 +144,7 @@
     
     export namespace Non_Normalized_Path_ {
         
-        export type I = string
+        export type I = i_in.List_of_Characters
         
         export type O = i_out.Non_Normalized_Path
         
