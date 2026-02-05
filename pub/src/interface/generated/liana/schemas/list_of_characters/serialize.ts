@@ -3,11 +3,13 @@
     
     import * as i_in from "./data"
     
+    import * as i_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
+    
     export namespace List_of_Characters_ {
         
         export type I = i_in.List_of_Characters
         
-        export type O = string
+        export type O = i_out.Paragraph
         
         export namespace P {
             
