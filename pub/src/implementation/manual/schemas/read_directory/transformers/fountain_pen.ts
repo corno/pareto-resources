@@ -6,7 +6,7 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 
 export namespace signatures {   
 
-export type Error = _pi.Transformer<d_in.Error, d_out.Block_Part>
+export type Error = _pi.Transformer<d_in.Error, d_out.Phrase>
 
 }
 
@@ -14,8 +14,8 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
 export const Error: signatures.Error = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
-        case 'directory does not exist': return _p.ss($, ($) => sh.b.literal("directory does not exist"))
-        case 'node is not a directory':return _p.ss($, ($) => sh.b.literal("node is not a directory"))
+        case 'directory does not exist': return _p.ss($, ($) => sh.ph.literal("directory does not exist"))
+        case 'node is not a directory':return _p.ss($, ($) => sh.ph.literal("node is not a directory"))
         default: return _p.au($[0])
     }
 })

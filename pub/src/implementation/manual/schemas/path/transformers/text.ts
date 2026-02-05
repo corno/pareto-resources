@@ -3,9 +3,9 @@ import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
 import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 import * as d_in from "../../../../../interface/generated/liana/schemas/path/data"
-import * as d_out from "pareto-fountain-pen/dist/interface/to_be_generated/text"
+import * as d_out from "pareto-fountain-pen/dist/interface/to_be_generated/list_of_characters"
 
-export const Node_Path = ($: d_in.Node_Path): d_out.Text => {
+export const Node_Path = ($: d_in.Node_Path): d_out.List_of_Characters => {
     return _p.list.nested_literal_old([
         Context_Path($.context),
         [
@@ -15,7 +15,7 @@ export const Node_Path = ($: d_in.Node_Path): d_out.Text => {
     ])
 }
 
-export const Context_Path = ($: d_in.Context_Path): d_out.Text => {
+export const Context_Path = ($: d_in.Context_Path): d_out.List_of_Characters => {
     return _p_list_build_deprecated(($i) => {
         _p.decide.state($.start, ($) => {
             switch ($[0]) {

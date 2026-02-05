@@ -1,24 +1,24 @@
-
-import * as _pi from "pareto-core/dist/interface"
-
-import * as i_in from "./data"
-
-export namespace List_of_Characters_ {
     
-    export type I = i_in.List_of_Characters
+    import * as _pi from "pareto-core/dist/interface"
     
-    export type O = string
+    import * as i_in from "./data"
     
-    export namespace P {
+    export namespace List_of_Characters_ {
+        
+        export type I = i_in.List_of_Characters
+        
+        export type O = string
+        
+        export namespace P {
+            
+        }
         
     }
     
-}
-
-export type List_of_Characters_ = (
-    context: List_of_Characters_.I,
-) => List_of_Characters_.O
-
-export { 
-    List_of_Characters_ as List_of_Characters, 
-}
+    export type List_of_Characters_ = (
+        context: List_of_Characters_.I,
+    ) => List_of_Characters_.O
+    
+    export { 
+        List_of_Characters_ as List_of_Characters, 
+    }

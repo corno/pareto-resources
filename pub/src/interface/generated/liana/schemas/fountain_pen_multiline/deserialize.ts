@@ -1,177 +1,177 @@
-
-import * as _pi from "pareto-core/dist/interface"
-
-import * as i_generic from "../../generic/deserialize"
-
-import * as i_out from "./data"
-
-export namespace Directory_ {
     
-    export type I = string
+    import * as _pi from "pareto-core/dist/interface"
     
-    export type O = i_out.Directory
+    import * as i_generic from "../../generic/deserialize"
     
-    export type E = i_generic.Error
+    import * as i_out from "./data"
     
-    export namespace P {
+    export namespace Directory_ {
         
-        export type document_resource_identifier = string
+        export type I = string
         
-        export type tab_size = number
+        export type O = i_out.Directory
         
-    }
-    
-}
-
-export type Directory_ = (
-    context: Directory_.I,
-    abort: _pi.Abort<Directory_.E>,
-    parameters: {
-        readonly 'document resource identifier': Directory_.P.document_resource_identifier
-        readonly 'tab size': Directory_.P.tab_size
-    },
-) => Directory_.O
-
-export namespace Node_ {
-    
-    export type I = string
-    
-    export type O = i_out.Node
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+        export type E = i_generic.Error
         
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
         
     }
     
-}
-
-export type Node_ = (
-    context: Node_.I,
-    abort: _pi.Abort<Node_.E>,
-    parameters: {
-        readonly 'document resource identifier': Node_.P.document_resource_identifier
-        readonly 'tab size': Node_.P.tab_size
-    },
-) => Node_.O
-
-export namespace Group_ {
+    export type Directory_ = (
+        context: Directory_.I,
+        abort: _pi.Abort<Directory_.E>,
+        parameters: {
+            readonly 'document resource identifier': Directory_.P.document_resource_identifier
+            readonly 'tab size': Directory_.P.tab_size
+        },
+    ) => Directory_.O
     
-    export type I = string
-    
-    export type O = i_out.Group
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+    export namespace Node_ {
         
-        export type document_resource_identifier = string
+        export type I = string
         
-        export type tab_size = number
+        export type O = i_out.Node
         
-    }
-    
-}
-
-export type Group_ = (
-    context: Group_.I,
-    abort: _pi.Abort<Group_.E>,
-    parameters: {
-        readonly 'document resource identifier': Group_.P.document_resource_identifier
-        readonly 'tab size': Group_.P.tab_size
-    },
-) => Group_.O
-
-export namespace Group_Part_ {
-    
-    export type I = string
-    
-    export type O = i_out.Group_Part
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+        export type E = i_generic.Error
         
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
         
     }
     
-}
-
-export type Group_Part_ = (
-    context: Group_Part_.I,
-    abort: _pi.Abort<Group_Part_.E>,
-    parameters: {
-        readonly 'document resource identifier': Group_Part_.P.document_resource_identifier
-        readonly 'tab size': Group_Part_.P.tab_size
-    },
-) => Group_Part_.O
-
-export namespace Block_ {
+    export type Node_ = (
+        context: Node_.I,
+        abort: _pi.Abort<Node_.E>,
+        parameters: {
+            readonly 'document resource identifier': Node_.P.document_resource_identifier
+            readonly 'tab size': Node_.P.tab_size
+        },
+    ) => Node_.O
     
-    export type I = string
-    
-    export type O = i_out.Block
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+    export namespace Paragraph_ {
         
-        export type document_resource_identifier = string
+        export type I = string
         
-        export type tab_size = number
+        export type O = i_out.Paragraph
         
-    }
-    
-}
-
-export type Block_ = (
-    context: Block_.I,
-    abort: _pi.Abort<Block_.E>,
-    parameters: {
-        readonly 'document resource identifier': Block_.P.document_resource_identifier
-        readonly 'tab size': Block_.P.tab_size
-    },
-) => Block_.O
-
-export namespace Block_Part_ {
-    
-    export type I = string
-    
-    export type O = i_out.Block_Part
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+        export type E = i_generic.Error
         
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
         
     }
     
-}
-
-export type Block_Part_ = (
-    context: Block_Part_.I,
-    abort: _pi.Abort<Block_Part_.E>,
-    parameters: {
-        readonly 'document resource identifier': Block_Part_.P.document_resource_identifier
-        readonly 'tab size': Block_Part_.P.tab_size
-    },
-) => Block_Part_.O
-
-export { 
-    Directory_ as Directory, 
-    Node_ as Node, 
-    Group_ as Group, 
-    Group_Part_ as Group_Part, 
-    Block_ as Block, 
-    Block_Part_ as Block_Part, 
-}
+    export type Paragraph_ = (
+        context: Paragraph_.I,
+        abort: _pi.Abort<Paragraph_.E>,
+        parameters: {
+            readonly 'document resource identifier': Paragraph_.P.document_resource_identifier
+            readonly 'tab size': Paragraph_.P.tab_size
+        },
+    ) => Paragraph_.O
+    
+    export namespace Phrase_ {
+        
+        export type I = string
+        
+        export type O = i_out.Phrase
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type Phrase_ = (
+        context: Phrase_.I,
+        abort: _pi.Abort<Phrase_.E>,
+        parameters: {
+            readonly 'document resource identifier': Phrase_.P.document_resource_identifier
+            readonly 'tab size': Phrase_.P.tab_size
+        },
+    ) => Phrase_.O
+    
+    export namespace Single_Line_ {
+        
+        export type I = string
+        
+        export type O = i_out.Single_Line
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type Single_Line_ = (
+        context: Single_Line_.I,
+        abort: _pi.Abort<Single_Line_.E>,
+        parameters: {
+            readonly 'document resource identifier': Single_Line_.P.document_resource_identifier
+            readonly 'tab size': Single_Line_.P.tab_size
+        },
+    ) => Single_Line_.O
+    
+    export namespace List_of_Characters_ {
+        
+        export type I = string
+        
+        export type O = i_out.List_of_Characters
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type List_of_Characters_ = (
+        context: List_of_Characters_.I,
+        abort: _pi.Abort<List_of_Characters_.E>,
+        parameters: {
+            readonly 'document resource identifier': List_of_Characters_.P.document_resource_identifier
+            readonly 'tab size': List_of_Characters_.P.tab_size
+        },
+    ) => List_of_Characters_.O
+    
+    export { 
+        Directory_ as Directory, 
+        Node_ as Node, 
+        Paragraph_ as Paragraph, 
+        Phrase_ as Phrase, 
+        Single_Line_ as Single_Line, 
+        List_of_Characters_ as List_of_Characters, 
+    }

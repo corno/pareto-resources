@@ -1,65 +1,65 @@
-
-import * as _pi from "pareto-core/dist/interface"
-
-import * as i_generic from "../../generic/deserialize"
-
-import * as i_out from "./data"
-
-export namespace Parameters_ {
     
-    export type I = string
+    import * as _pi from "pareto-core/dist/interface"
     
-    export type O = i_out.Parameters
+    import * as i_generic from "../../generic/deserialize"
     
-    export type E = i_generic.Error
+    import * as i_out from "./data"
     
-    export namespace P {
+    export namespace Parameters_ {
         
-        export type document_resource_identifier = string
+        export type I = string
         
-        export type tab_size = number
+        export type O = i_out.Parameters
         
-    }
-    
-}
-
-export type Parameters_ = (
-    context: Parameters_.I,
-    abort: _pi.Abort<Parameters_.E>,
-    parameters: {
-        readonly 'document resource identifier': Parameters_.P.document_resource_identifier
-        readonly 'tab size': Parameters_.P.tab_size
-    },
-) => Parameters_.O
-
-export namespace Error_ {
-    
-    export type I = string
-    
-    export type O = i_out.Error
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
+        export type E = i_generic.Error
         
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
         
     }
     
-}
-
-export type Error_ = (
-    context: Error_.I,
-    abort: _pi.Abort<Error_.E>,
-    parameters: {
-        readonly 'document resource identifier': Error_.P.document_resource_identifier
-        readonly 'tab size': Error_.P.tab_size
-    },
-) => Error_.O
-
-export { 
-    Parameters_ as Parameters, 
-    Error_ as Error, 
-}
+    export type Parameters_ = (
+        context: Parameters_.I,
+        abort: _pi.Abort<Parameters_.E>,
+        parameters: {
+            readonly 'document resource identifier': Parameters_.P.document_resource_identifier
+            readonly 'tab size': Parameters_.P.tab_size
+        },
+    ) => Parameters_.O
+    
+    export namespace Error_ {
+        
+        export type I = string
+        
+        export type O = i_out.Error
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type Error_ = (
+        context: Error_.I,
+        abort: _pi.Abort<Error_.E>,
+        parameters: {
+            readonly 'document resource identifier': Error_.P.document_resource_identifier
+            readonly 'tab size': Error_.P.tab_size
+        },
+    ) => Error_.O
+    
+    export { 
+        Parameters_ as Parameters, 
+        Error_ as Error, 
+    }
