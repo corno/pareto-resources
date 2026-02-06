@@ -64,6 +64,25 @@
         abort: _pi.Abort<Paragraph_.E>,
     ) => Paragraph_.O
     
+    export namespace Sentence_ {
+        
+        export type I = i_in.Value
+        
+        export type O = i_out.Sentence
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+        }
+        
+    }
+    
+    export type Sentence_ = (
+        context: Sentence_.I,
+        abort: _pi.Abort<Sentence_.E>,
+    ) => Sentence_.O
+    
     export namespace Phrase_ {
         
         export type I = i_in.Value
@@ -125,6 +144,7 @@
         Directory_ as Directory, 
         Node_ as Node, 
         Paragraph_ as Paragraph, 
+        Sentence_ as Sentence, 
         Phrase_ as Phrase, 
         Single_Line_ as Single_Line, 
         List_of_Characters_ as List_of_Characters, 

@@ -88,6 +88,33 @@
         },
     ) => Paragraph_.O
     
+    export namespace Sentence_ {
+        
+        export type I = i_in.List_of_Characters
+        
+        export type O = i_out.Sentence
+        
+        export type E = i_generic.Error
+        
+        export namespace P {
+            
+            export type document_resource_identifier = string
+            
+            export type tab_size = number
+            
+        }
+        
+    }
+    
+    export type Sentence_ = (
+        context: Sentence_.I,
+        abort: _pi.Abort<Sentence_.E>,
+        parameters: {
+            readonly 'document resource identifier': Sentence_.P.document_resource_identifier
+            readonly 'tab size': Sentence_.P.tab_size
+        },
+    ) => Sentence_.O
+    
     export namespace Phrase_ {
         
         export type I = i_in.List_of_Characters
@@ -173,6 +200,7 @@
         Directory_ as Directory, 
         Node_ as Node, 
         Paragraph_ as Paragraph, 
+        Sentence_ as Sentence, 
         Phrase_ as Phrase, 
         Single_Line_ as Single_Line, 
         List_of_Characters_ as List_of_Characters, 

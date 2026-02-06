@@ -25,6 +25,12 @@
         ),
     )
     
+    export const Sentence: t_signatures.Sentence = ($) => v_serialize.Document(
+        v_marshall.Sentence(
+            $,
+        ),
+    )
+    
     export const Phrase: t_signatures.Phrase = ($) => v_serialize.Document(
         v_marshall.Phrase(
             $,

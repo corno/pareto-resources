@@ -76,7 +76,7 @@
                             'option': 'sentences',
                             'value': ['list', _p.list.map(
                                 $,
-                                ($) => Phrase(
+                                ($) => Sentence(
                                     $,
                                 ),
                             )],
@@ -115,14 +115,14 @@
                                         $['items'],
                                         ($) => ['list', _p.list.map(
                                             $,
-                                            ($) => Paragraph(
+                                            ($) => Sentence(
                                                 $,
                                             ),
                                         )],
                                     ),
                                     "if empty": _p_change_context(
                                         $['if empty'],
-                                        ($) => Paragraph(
+                                        ($) => Sentence(
                                             $,
                                         ),
                                     ),
@@ -144,19 +144,19 @@
                                                 ),
                                                 "before": _p_change_context(
                                                     $['before'],
-                                                    ($) => Paragraph(
+                                                    ($) => Phrase(
                                                         $,
                                                     ),
                                                 ),
                                                 "separator": _p_change_context(
                                                     $['separator'],
-                                                    ($) => Paragraph(
+                                                    ($) => Phrase(
                                                         $,
                                                     ),
                                                 ),
                                                 "after": _p_change_context(
                                                     $['after'],
-                                                    ($) => Paragraph(
+                                                    ($) => Phrase(
                                                         $,
                                                     ),
                                                 ),
@@ -174,6 +174,10 @@
             }
         },
     )]
+    
+    export const Sentence: t_signatures.Sentence = ($) => Phrase(
+        $,
+    )
     
     export const Phrase: t_signatures.Phrase = ($) => ['state', _p.decide.state(
         $,

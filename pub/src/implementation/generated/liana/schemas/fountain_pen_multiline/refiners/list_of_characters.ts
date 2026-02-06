@@ -55,6 +55,22 @@
         ),
     )
     
+    export const Sentence: t_signatures.Sentence = ($, abort, $p) => v_unmarshall.Sentence(
+        v_deserialize.Document(
+            $,
+            ($) => abort(
+                ['parse error', $],
+            ),
+            {
+                'document resource identifier': $p['document resource identifier'],
+                'tab size': $p['tab size'],
+            },
+        )['content'],
+        ($) => abort(
+            ['unmarshall error', $],
+        ),
+    )
+    
     export const Phrase: t_signatures.Phrase = ($, abort, $p) => v_unmarshall.Phrase(
         v_deserialize.Document(
             $,

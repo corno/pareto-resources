@@ -111,7 +111,7 @@
                                         ['expected a list', null],
                                     ),
                                 ),
-                                ($) => Phrase(
+                                ($) => Sentence(
                                     $,
                                     ($) => abort(
                                         $,
@@ -172,7 +172,7 @@
                                                     ['expected a list', null],
                                                 ),
                                             ),
-                                            ($) => Paragraph(
+                                            ($) => Sentence(
                                                 $,
                                                 ($) => abort(
                                                     $,
@@ -187,7 +187,7 @@
                                                 ['no such entry', "if empty"],
                                             ),
                                         ),
-                                        ($) => Paragraph(
+                                        ($) => Sentence(
                                             $,
                                             ($) => abort(
                                                 $,
@@ -238,7 +238,7 @@
                                                             ['no such entry', "before"],
                                                         ),
                                                     ),
-                                                    ($) => Paragraph(
+                                                    ($) => Phrase(
                                                         $,
                                                         ($) => abort(
                                                             $,
@@ -252,7 +252,7 @@
                                                             ['no such entry', "separator"],
                                                         ),
                                                     ),
-                                                    ($) => Paragraph(
+                                                    ($) => Phrase(
                                                         $,
                                                         ($) => abort(
                                                             $,
@@ -266,7 +266,7 @@
                                                             ['no such entry', "after"],
                                                         ),
                                                     ),
-                                                    ($) => Paragraph(
+                                                    ($) => Phrase(
                                                         $,
                                                         ($) => abort(
                                                             $,
@@ -285,6 +285,13 @@
                         )
                 }
             },
+        ),
+    )
+    
+    export const Sentence: t_signatures.Sentence = ($, abort) => Phrase(
+        $,
+        ($) => abort(
+            $,
         ),
     )
     
