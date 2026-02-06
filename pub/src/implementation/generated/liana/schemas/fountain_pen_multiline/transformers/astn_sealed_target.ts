@@ -1,9 +1,9 @@
     
-    import * as _p from "pareto-core/dist/expression"
+    import * as _p from 'pareto-core/dist/expression'
     
-    import _p_change_context from "pareto-core/dist/_p_change_context"
+    import _p_change_context from 'pareto-core/dist/_p_change_context'
     
-    import _p_text_from_list from "pareto-core/dist/_p_text_from_list"
+    import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
     
     import * as t_signatures from "../../../../../../interface/generated/liana/schemas/fountain_pen_multiline/marshall"
     
@@ -111,7 +111,7 @@
                             'option': 'rich list',
                             'value': ['group', ['verbose', _p.dictionary.literal(
                                 {
-                                    'items': _p_change_context(
+                                    "items": _p_change_context(
                                         $['items'],
                                         ($) => ['list', _p.list.map(
                                             $,
@@ -120,17 +120,17 @@
                                             ),
                                         )],
                                     ),
-                                    'if empty': _p_change_context(
+                                    "if empty": _p_change_context(
                                         $['if empty'],
                                         ($) => Paragraph(
                                             $,
                                         ),
                                     ),
-                                    'if not empty': _p_change_context(
+                                    "if not empty": _p_change_context(
                                         $['if not empty'],
                                         ($) => ['group', ['verbose', _p.dictionary.literal(
                                             {
-                                                'indent': _p_change_context(
+                                                "indent": _p_change_context(
                                                     $['indent'],
                                                     ($) => ['text', {
                                                         'delimiter': ['none', null],
@@ -142,19 +142,19 @@
                                                         ),
                                                     }],
                                                 ),
-                                                'before': _p_change_context(
+                                                "before": _p_change_context(
                                                     $['before'],
                                                     ($) => Paragraph(
                                                         $,
                                                     ),
                                                 ),
-                                                'separator': _p_change_context(
+                                                "separator": _p_change_context(
                                                     $['separator'],
                                                     ($) => Paragraph(
                                                         $,
                                                     ),
                                                 ),
-                                                'after': _p_change_context(
+                                                "after": _p_change_context(
                                                     $['after'],
                                                     ($) => Paragraph(
                                                         $,
@@ -241,7 +241,7 @@
                             'option': 'rich list',
                             'value': ['group', ['verbose', _p.dictionary.literal(
                                 {
-                                    'items': _p_change_context(
+                                    "items": _p_change_context(
                                         $['items'],
                                         ($) => ['list', _p.list.map(
                                             $,
@@ -250,29 +250,29 @@
                                             ),
                                         )],
                                     ),
-                                    'if empty': _p_change_context(
+                                    "if empty": _p_change_context(
                                         $['if empty'],
                                         ($) => Phrase(
                                             $,
                                         ),
                                     ),
-                                    'if not empty': _p_change_context(
+                                    "if not empty": _p_change_context(
                                         $['if not empty'],
                                         ($) => ['group', ['verbose', _p.dictionary.literal(
                                             {
-                                                'before': _p_change_context(
+                                                "before": _p_change_context(
                                                     $['before'],
                                                     ($) => Phrase(
                                                         $,
                                                     ),
                                                 ),
-                                                'separator': _p_change_context(
+                                                "separator": _p_change_context(
                                                     $['separator'],
                                                     ($) => Phrase(
                                                         $,
                                                     ),
                                                 ),
-                                                'after': _p_change_context(
+                                                "after": _p_change_context(
                                                     $['after'],
                                                     ($) => Phrase(
                                                         $,
@@ -327,7 +327,7 @@
                                 'option': 'rich list',
                                 'value': ['group', ['verbose', _p.dictionary.literal(
                                     {
-                                        'items': _p_change_context(
+                                        "items": _p_change_context(
                                             $['items'],
                                             ($) => ['list', _p.list.map(
                                                 $,
@@ -336,29 +336,29 @@
                                                 ),
                                             )],
                                         ),
-                                        'if empty': _p_change_context(
+                                        "if empty": _p_change_context(
                                             $['if empty'],
                                             ($) => Single_Line(
                                                 $,
                                             ),
                                         ),
-                                        'if not empty': _p_change_context(
+                                        "if not empty": _p_change_context(
                                             $['if not empty'],
                                             ($) => ['group', ['verbose', _p.dictionary.literal(
                                                 {
-                                                    'before': _p_change_context(
+                                                    "before": _p_change_context(
                                                         $['before'],
                                                         ($) => Single_Line(
                                                             $,
                                                         ),
                                                     ),
-                                                    'separator': _p_change_context(
+                                                    "separator": _p_change_context(
                                                         $['separator'],
                                                         ($) => Single_Line(
                                                             $,
                                                         ),
                                                     ),
-                                                    'after': _p_change_context(
+                                                    "after": _p_change_context(
                                                         $['after'],
                                                         ($) => Single_Line(
                                                             $,

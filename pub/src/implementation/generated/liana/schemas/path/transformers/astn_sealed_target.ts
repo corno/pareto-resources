@@ -1,9 +1,9 @@
     
-    import * as _p from "pareto-core/dist/expression"
+    import * as _p from 'pareto-core/dist/expression'
     
-    import _p_change_context from "pareto-core/dist/_p_change_context"
+    import _p_change_context from 'pareto-core/dist/_p_change_context'
     
-    import _p_text_from_list from "pareto-core/dist/_p_text_from_list"
+    import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
     
     import * as t_signatures from "../../../../../../interface/generated/liana/schemas/path/marshall"
     
@@ -15,13 +15,13 @@
     
     export const Node_Path: t_signatures.Node_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'context': _p_change_context(
+            "context": _p_change_context(
                 $['context'],
                 ($) => Context_Path(
                     $,
                 ),
             ),
-            'node': _p_change_context(
+            "node": _p_change_context(
                 $['node'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
@@ -33,13 +33,13 @@
     
     export const Context_Path: t_signatures.Context_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'start': _p_change_context(
+            "start": _p_change_context(
                 $['start'],
                 ($) => Start(
                     $,
                 ),
             ),
-            'subpath': _p_change_context(
+            "subpath": _p_change_context(
                 $['subpath'],
                 ($) => Context_Subpath(
                     $,
@@ -75,7 +75,7 @@
                             'option': 'relative',
                             'value': ['group', ['verbose', _p.dictionary.literal(
                                 {
-                                    'up steps': _p_change_context(
+                                    "up steps": _p_change_context(
                                         $['up steps'],
                                         ($) => Up_Steps(
                                             $,
@@ -105,7 +105,7 @@
     
     export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'leading slash': _p_change_context(
+            "leading slash": _p_change_context(
                 $['leading slash'],
                 ($) => ['text', {
                     'delimiter': ['none', null],
@@ -117,7 +117,7 @@
                     ),
                 }],
             ),
-            'segments': _p_change_context(
+            "segments": _p_change_context(
                 $['segments'],
                 ($) => ['list', _p.list.map(
                     $,
@@ -169,7 +169,7 @@
                     )],
                 )],
             ),
-            'trailing slash': _p_change_context(
+            "trailing slash": _p_change_context(
                 $['trailing slash'],
                 ($) => ['text', {
                     'delimiter': ['none', null],

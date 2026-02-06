@@ -1,9 +1,9 @@
     
-    import * as _p from "pareto-core/dist/expression"
+    import * as _p from 'pareto-core/dist/expression'
     
-    import _p_change_context from "pareto-core/dist/_p_change_context"
+    import _p_change_context from 'pareto-core/dist/_p_change_context'
     
-    import _p_text_from_list from "pareto-core/dist/_p_text_from_list"
+    import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
     
     import * as t_signatures from "../../../../../../interface/generated/liana/schemas/copy/marshall"
     
@@ -17,23 +17,23 @@
     
     export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'source': _p_change_context(
+            "source": _p_change_context(
                 $['source'],
                 ($) => v_external_path.Node_Path(
                     $,
                 ),
             ),
-            'target': _p_change_context(
+            "target": _p_change_context(
                 $['target'],
                 ($) => v_external_path.Node_Path(
                     $,
                 ),
             ),
-            'options': _p_change_context(
+            "options": _p_change_context(
                 $['options'],
                 ($) => ['group', ['verbose', _p.dictionary.literal(
                     {
-                        'recursive': _p_change_context(
+                        "recursive": _p_change_context(
                             $['recursive'],
                             ($) => ['text', {
                                 'delimiter': ['none', null],
@@ -45,7 +45,7 @@
                                 ),
                             }],
                         ),
-                        'force': _p_change_context(
+                        "force": _p_change_context(
                             $['force'],
                             ($) => ['text', {
                                 'delimiter': ['none', null],
@@ -57,7 +57,7 @@
                                 ),
                             }],
                         ),
-                        'errorOnExist': _p_change_context(
+                        "errorOnExist": _p_change_context(
                             $['errorOnExist'],
                             ($) => ['text', {
                                 'delimiter': ['none', null],

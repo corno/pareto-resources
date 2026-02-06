@@ -1,9 +1,9 @@
     
-    import * as _p from "pareto-core/dist/expression"
+    import * as _p from 'pareto-core/dist/expression'
     
-    import _p_change_context from "pareto-core/dist/_p_change_context"
+    import _p_change_context from 'pareto-core/dist/_p_change_context'
     
-    import _p_text_from_list from "pareto-core/dist/_p_text_from_list"
+    import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
     
     import * as t_signatures from "../../../../../../interface/generated/liana/schemas/read_directory/marshall"
     
@@ -17,7 +17,7 @@
     
     export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'path': _p_change_context(
+            "path": _p_change_context(
                 $['path'],
                 ($) => v_external_path.Node_Path(
                     $,
@@ -58,19 +58,19 @@
         $,
         ($, id) => ['group', ['verbose', _p.dictionary.literal(
             {
-                'node type': _p_change_context(
+                "node type": _p_change_context(
                     $['node type'],
                     ($) => Node_Type(
                         $,
                     ),
                 ),
-                'context directory': _p_change_context(
+                "context directory": _p_change_context(
                     $['context directory'],
                     ($) => v_external_path.Context_Path(
                         $,
                     ),
                 ),
-                'path': _p_change_context(
+                "path": _p_change_context(
                     $['path'],
                     ($) => v_external_path.Node_Path(
                         $,

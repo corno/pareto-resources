@@ -1,5 +1,5 @@
     
-    import * as _pi from "pareto-core/dist/interface"
+    import * as _pi from 'pareto-core/dist/interface'
     
     import * as i__imports_fountain_pen_multiline from "../fountain_pen_multiline/data"
     

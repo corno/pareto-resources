@@ -1,9 +1,9 @@
     
-    import * as _p from "pareto-core/dist/expression"
+    import * as _p from 'pareto-core/dist/expression'
     
-    import _p_change_context from "pareto-core/dist/_p_change_context"
+    import _p_change_context from 'pareto-core/dist/_p_change_context'
     
-    import _p_text_from_list from "pareto-core/dist/_p_text_from_list"
+    import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
     
     import * as t_signatures from "../../../../../../interface/generated/liana/schemas/execute_query_executable/marshall"
     
@@ -17,7 +17,7 @@
     
     export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'args': _p_change_context(
+            "args": _p_change_context(
                 $['args'],
                 ($) => ['list', _p.list.map(
                     $,
@@ -41,7 +41,7 @@
                             'option': 'failed to spawn',
                             'value': ['group', ['verbose', _p.dictionary.literal(
                                 {
-                                    'message': _p_change_context(
+                                    "message": _p_change_context(
                                         $['message'],
                                         ($) => v_external_terminal_output.Message(
                                             $,
@@ -58,7 +58,7 @@
                             'option': 'non zero exit code',
                             'value': ['group', ['verbose', _p.dictionary.literal(
                                 {
-                                    'exit code': _p_change_context(
+                                    "exit code": _p_change_context(
                                         $['exit code'],
                                         ($) => ['optional', _p.decide.optional(
                                             $,
@@ -74,7 +74,7 @@
                                             () => ['not set', null],
                                         )],
                                     ),
-                                    'stderr': _p_change_context(
+                                    "stderr": _p_change_context(
                                         $['stderr'],
                                         ($) => v_external_terminal_output.Message(
                                             $,
@@ -94,7 +94,7 @@
     
     export const Result: t_signatures.Result = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'stdout': _p_change_context(
+            "stdout": _p_change_context(
                 $['stdout'],
                 ($) => v_external_terminal_output.Message(
                     $,

@@ -1,5 +1,5 @@
     
-    import * as _pi from "pareto-core/dist/interface"
+    import * as _pi from 'pareto-core/dist/interface'
     
     import * as i__imports_terminal_output from "../terminal_output/data"
     
