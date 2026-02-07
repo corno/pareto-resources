@@ -102,25 +102,6 @@ export type Phrase_ = (
     abort: _pi.Abort<Phrase_.E>,
 ) => Phrase_.O
 
-export namespace Single_Line_ {
-    
-    export type I = i_in.Value
-    
-    export type O = i_out.Single_Line
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
-    }
-    
-}
-
-export type Single_Line_ = (
-    context: Single_Line_.I,
-    abort: _pi.Abort<Single_Line_.E>,
-) => Single_Line_.O
-
 export namespace List_of_Characters_ {
     
     export type I = i_in.Value
@@ -146,6 +127,5 @@ export {
     Paragraph_ as Paragraph, 
     Sentence_ as Sentence, 
     Phrase_ as Phrase, 
-    Single_Line_ as Single_Line, 
     List_of_Characters_ as List_of_Characters, 
 }

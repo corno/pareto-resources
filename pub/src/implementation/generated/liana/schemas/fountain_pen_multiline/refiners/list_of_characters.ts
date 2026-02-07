@@ -87,22 +87,6 @@ export const Phrase: t_signatures.Phrase = ($, abort, $p) => v_unmarshall.Phrase
     ),
 )
 
-export const Single_Line: t_signatures.Single_Line = ($, abort, $p) => v_unmarshall.Single_Line(
-    v_deserialize.Document(
-        $,
-        ($) => abort(
-            ['parse error', $],
-        ),
-        {
-            'document resource identifier': $p['document resource identifier'],
-            'tab size': $p['tab size'],
-        },
-    )['content'],
-    ($) => abort(
-        ['unmarshall error', $],
-    ),
-)
-
 export const List_of_Characters: t_signatures.List_of_Characters = ($, abort, $p) => v_unmarshall.List_of_Characters(
     v_deserialize.Document(
         $,

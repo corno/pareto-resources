@@ -99,33 +99,49 @@ export const Paragraph: t_signatures.Paragraph = ($) => _p.decide.state(
                         ),
                         'if empty': _p_change_context(
                             $['if empty'],
-                            ($) => Sentence(
+                            ($) => _p.optional.from.optional(
                                 $,
+                            ).map(
+                                ($) => Sentence(
+                                    $,
+                                ),
                             ),
                         ),
                         'if not empty': _p_change_context(
                             $['if not empty'],
                             ($) => ({
+                                'before': _p_change_context(
+                                    $['before'],
+                                    ($) => _p.optional.from.optional(
+                                        $,
+                                    ).map(
+                                        ($) => Sentence(
+                                            $,
+                                        ),
+                                    ),
+                                ),
                                 'indent': _p_change_context(
                                     $['indent'],
                                     ($) => $,
                                 ),
-                                'before': _p_change_context(
-                                    $['before'],
-                                    ($) => Phrase(
-                                        $,
-                                    ),
-                                ),
                                 'separator': _p_change_context(
                                     $['separator'],
-                                    ($) => Phrase(
+                                    ($) => _p.optional.from.optional(
                                         $,
+                                    ).map(
+                                        ($) => Phrase(
+                                            $,
+                                        ),
                                     ),
                                 ),
                                 'after': _p_change_context(
                                     $['after'],
-                                    ($) => Phrase(
+                                    ($) => _p.optional.from.optional(
                                         $,
+                                    ).map(
+                                        ($) => Sentence(
+                                            $,
+                                        ),
                                     ),
                                 ),
                             }),
@@ -152,11 +168,31 @@ export const Phrase: t_signatures.Phrase = ($) => _p.decide.state(
     $,
     ($): t_out.Phrase => {
         switch ($[0]) {
-            case 'single line':
+            case 'value':
                 return _p.ss(
                     $,
-                    ($) => ['single line', Single_Line(
+                    ($) => ['value', _p.decide.state(
                         $,
+                        ($): t_out.Phrase.value => {
+                            switch ($[0]) {
+                                case 'text':
+                                    return _p.ss(
+                                        $,
+                                        ($) => ['text', $],
+                                    )
+                                case 'list of characters':
+                                    return _p.ss(
+                                        $,
+                                        ($) => ['list of characters', List_of_Characters(
+                                            $,
+                                        )],
+                                    )
+                                default:
+                                    return _p.au(
+                                        $[0],
+                                    )
+                            }
+                        },
                     )],
                 )
             case 'indent':
@@ -244,79 +280,6 @@ export const Phrase: t_signatures.Phrase = ($) => _p.decide.state(
                 )
         }
     },
-)
-
-export const Single_Line: t_signatures.Single_Line = ($) => _p.list.from.list(
-    $,
-).map(
-    ($) => _p.decide.state(
-        $,
-        ($): t_out.Single_Line.L => {
-            switch ($[0]) {
-                case 'snippet':
-                    return _p.ss(
-                        $,
-                        ($) => ['snippet', $],
-                    )
-                case 'serialize':
-                    return _p.ss(
-                        $,
-                        ($) => ['serialize', List_of_Characters(
-                            $,
-                        )],
-                    )
-                case 'rich list':
-                    return _p.ss(
-                        $,
-                        ($) => ['rich list', {
-                            'items': _p_change_context(
-                                $['items'],
-                                ($) => _p.list.from.list(
-                                    $,
-                                ).map(
-                                    ($) => Single_Line(
-                                        $,
-                                    ),
-                                ),
-                            ),
-                            'if empty': _p_change_context(
-                                $['if empty'],
-                                ($) => Single_Line(
-                                    $,
-                                ),
-                            ),
-                            'if not empty': _p_change_context(
-                                $['if not empty'],
-                                ($) => ({
-                                    'before': _p_change_context(
-                                        $['before'],
-                                        ($) => Single_Line(
-                                            $,
-                                        ),
-                                    ),
-                                    'separator': _p_change_context(
-                                        $['separator'],
-                                        ($) => Single_Line(
-                                            $,
-                                        ),
-                                    ),
-                                    'after': _p_change_context(
-                                        $['after'],
-                                        ($) => Single_Line(
-                                            $,
-                                        ),
-                                    ),
-                                }),
-                            ),
-                        }],
-                    )
-                default:
-                    return _p.au(
-                        $[0],
-                    )
-            }
-        },
-    ),
 )
 
 export const List_of_Characters: t_signatures.List_of_Characters = ($) => _p.list.from.list(

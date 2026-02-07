@@ -37,12 +37,6 @@ export const Phrase: t_signatures.Phrase = ($) => v_serialize.Document(
     ),
 )
 
-export const Single_Line: t_signatures.Single_Line = ($) => v_serialize.Document(
-    v_marshall.Single_Line(
-        $,
-    ),
-)
-
 export const List_of_Characters: t_signatures.List_of_Characters = ($) => v_serialize.Document(
     v_marshall.List_of_Characters(
         $,

@@ -192,10 +192,19 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                             ['no such entry', "if empty"],
                                         ),
                                     ),
-                                    ($) => Sentence(
-                                        $,
-                                        ($) => abort(
+                                    ($) => _p.optional.from.optional(
+                                        v_unmarshalled_from_parse_tree.Optional(
                                             $,
+                                            ($) => abort(
+                                                ['expected an optional', null],
+                                            ),
+                                        ),
+                                    ).map(
+                                        ($) => Sentence(
+                                            $,
+                                            ($) => abort(
+                                                $,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -214,6 +223,29 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                             ),
                                         ),
                                         ($) => ({
+                                            'before': _p_change_context(
+                                                $.__get_entry_deprecated(
+                                                    'before',
+                                                    ($) => abort(
+                                                        ['no such entry', "before"],
+                                                    ),
+                                                ),
+                                                ($) => _p.optional.from.optional(
+                                                    v_unmarshalled_from_parse_tree.Optional(
+                                                        $,
+                                                        ($) => abort(
+                                                            ['expected an optional', null],
+                                                        ),
+                                                    ),
+                                                ).map(
+                                                    ($) => Sentence(
+                                                        $,
+                                                        ($) => abort(
+                                                            $,
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
                                             'indent': _p_change_context(
                                                 $.__get_entry_deprecated(
                                                     'indent',
@@ -236,20 +268,6 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                     ),
                                                 ),
                                             ),
-                                            'before': _p_change_context(
-                                                $.__get_entry_deprecated(
-                                                    'before',
-                                                    ($) => abort(
-                                                        ['no such entry', "before"],
-                                                    ),
-                                                ),
-                                                ($) => Phrase(
-                                                    $,
-                                                    ($) => abort(
-                                                        $,
-                                                    ),
-                                                ),
-                                            ),
                                             'separator': _p_change_context(
                                                 $.__get_entry_deprecated(
                                                     'separator',
@@ -257,10 +275,19 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                         ['no such entry', "separator"],
                                                     ),
                                                 ),
-                                                ($) => Phrase(
-                                                    $,
-                                                    ($) => abort(
+                                                ($) => _p.optional.from.optional(
+                                                    v_unmarshalled_from_parse_tree.Optional(
                                                         $,
+                                                        ($) => abort(
+                                                            ['expected an optional', null],
+                                                        ),
+                                                    ),
+                                                ).map(
+                                                    ($) => Phrase(
+                                                        $,
+                                                        ($) => abort(
+                                                            $,
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -271,10 +298,19 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                         ['no such entry', "after"],
                                                     ),
                                                 ),
-                                                ($) => Phrase(
-                                                    $,
-                                                    ($) => abort(
+                                                ($) => _p.optional.from.optional(
+                                                    v_unmarshalled_from_parse_tree.Optional(
                                                         $,
+                                                        ($) => abort(
+                                                            ['expected an optional', null],
+                                                        ),
+                                                    ),
+                                                ).map(
+                                                    ($) => Sentence(
+                                                        $,
+                                                        ($) => abort(
+                                                            $,
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -320,13 +356,46 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
         $['option']['value'],
         ($t): t_out.Phrase => {
             switch ($t) {
-                case 'single line':
+                case 'value':
                     return _p_change_context(
                         $['value'],
-                        ($) => ['single line', Single_Line(
-                            $,
-                            ($) => abort(
+                        ($) => ['value', _p_change_context(
+                            v_unmarshalled_from_parse_tree.State(
                                 $,
+                                ($) => abort(
+                                    ['expected a state', null],
+                                ),
+                            ),
+                            ($) => _p.decide.text(
+                                $['option']['value'],
+                                ($t): t_out.Phrase.value => {
+                                    switch ($t) {
+                                        case 'text':
+                                            return _p_change_context(
+                                                $['value'],
+                                                ($) => ['text', v_unmarshalled_from_parse_tree.Text(
+                                                    $,
+                                                    ($) => abort(
+                                                        ['expected a text', null],
+                                                    ),
+                                                )],
+                                            )
+                                        case 'list of characters':
+                                            return _p_change_context(
+                                                $['value'],
+                                                ($) => ['list of characters', List_of_Characters(
+                                                    $,
+                                                    ($) => abort(
+                                                        $,
+                                                    ),
+                                                )],
+                                            )
+                                        default:
+                                            return abort(
+                                                ['unknown option', $['option']['value']],
+                                            )
+                                    }
+                                },
                             ),
                         )],
                     )
@@ -505,166 +574,6 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                     )
             }
         },
-    ),
-)
-
-export const Single_Line: t_signatures.Single_Line = ($, abort) => _p.list.from.list(
-    v_unmarshalled_from_parse_tree.List(
-        $,
-        ($) => abort(
-            ['expected a list', null],
-        ),
-    ),
-).map(
-    ($) => _p_change_context(
-        v_unmarshalled_from_parse_tree.State(
-            $,
-            ($) => abort(
-                ['expected a state', null],
-            ),
-        ),
-        ($) => _p.decide.text(
-            $['option']['value'],
-            ($t): t_out.Single_Line.L => {
-                switch ($t) {
-                    case 'snippet':
-                        return _p_change_context(
-                            $['value'],
-                            ($) => ['snippet', v_unmarshalled_from_parse_tree.Text(
-                                $,
-                                ($) => abort(
-                                    ['expected a text', null],
-                                ),
-                            )],
-                        )
-                    case 'serialize':
-                        return _p_change_context(
-                            $['value'],
-                            ($) => ['serialize', List_of_Characters(
-                                $,
-                                ($) => abort(
-                                    $,
-                                ),
-                            )],
-                        )
-                    case 'rich list':
-                        return _p_change_context(
-                            $['value'],
-                            ($) => ['rich list', _p_change_context(
-                                v_unmarshalled_from_parse_tree.Group(
-                                    $,
-                                    ($) => abort(
-                                        ['expected a group', null],
-                                    ),
-                                ),
-                                ($) => ({
-                                    'items': _p_change_context(
-                                        $.__get_entry_deprecated(
-                                            'items',
-                                            ($) => abort(
-                                                ['no such entry', "items"],
-                                            ),
-                                        ),
-                                        ($) => _p.list.from.list(
-                                            v_unmarshalled_from_parse_tree.List(
-                                                $,
-                                                ($) => abort(
-                                                    ['expected a list', null],
-                                                ),
-                                            ),
-                                        ).map(
-                                            ($) => Single_Line(
-                                                $,
-                                                ($) => abort(
-                                                    $,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                    'if empty': _p_change_context(
-                                        $.__get_entry_deprecated(
-                                            'if empty',
-                                            ($) => abort(
-                                                ['no such entry', "if empty"],
-                                            ),
-                                        ),
-                                        ($) => Single_Line(
-                                            $,
-                                            ($) => abort(
-                                                $,
-                                            ),
-                                        ),
-                                    ),
-                                    'if not empty': _p_change_context(
-                                        $.__get_entry_deprecated(
-                                            'if not empty',
-                                            ($) => abort(
-                                                ['no such entry', "if not empty"],
-                                            ),
-                                        ),
-                                        ($) => _p_change_context(
-                                            v_unmarshalled_from_parse_tree.Group(
-                                                $,
-                                                ($) => abort(
-                                                    ['expected a group', null],
-                                                ),
-                                            ),
-                                            ($) => ({
-                                                'before': _p_change_context(
-                                                    $.__get_entry_deprecated(
-                                                        'before',
-                                                        ($) => abort(
-                                                            ['no such entry', "before"],
-                                                        ),
-                                                    ),
-                                                    ($) => Single_Line(
-                                                        $,
-                                                        ($) => abort(
-                                                            $,
-                                                        ),
-                                                    ),
-                                                ),
-                                                'separator': _p_change_context(
-                                                    $.__get_entry_deprecated(
-                                                        'separator',
-                                                        ($) => abort(
-                                                            ['no such entry', "separator"],
-                                                        ),
-                                                    ),
-                                                    ($) => Single_Line(
-                                                        $,
-                                                        ($) => abort(
-                                                            $,
-                                                        ),
-                                                    ),
-                                                ),
-                                                'after': _p_change_context(
-                                                    $.__get_entry_deprecated(
-                                                        'after',
-                                                        ($) => abort(
-                                                            ['no such entry', "after"],
-                                                        ),
-                                                    ),
-                                                    ($) => Single_Line(
-                                                        $,
-                                                        ($) => abort(
-                                                            $,
-                                                        ),
-                                                    ),
-                                                ),
-                                            }),
-                                        ),
-                                    ),
-                                }),
-                            )],
-                        )
-                    default:
-                        return abort(
-                            ['unknown option', $['option']['value']],
-                        )
-                }
-            },
-        ),
     ),
 )
 
