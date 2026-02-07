@@ -1,6 +1,6 @@
 {
   "name": "pareto-resources",
-  "version": "0.2.37",
+  "version": "0.2.38",
   "description": "A library providing resources forthe Pareto programming Language",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,6 +10,6 @@
   "dependencies": {
     "astn-core": "^0.5.30",
     "liana-core": "^0.0.15",
-    "pareto-fountain-pen": "^0.4.27"
+    "pareto-fountain-pen": "^0.4.28"
   }
 }

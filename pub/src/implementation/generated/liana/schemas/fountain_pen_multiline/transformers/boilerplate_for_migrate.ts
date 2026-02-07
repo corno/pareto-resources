@@ -140,8 +140,12 @@ export const Paragraph: t_signatures.Paragraph = ($) => _p.decide.state(
     },
 )
 
-export const Sentence: t_signatures.Sentence = ($) => Phrase(
+export const Sentence: t_signatures.Sentence = ($) => _p.list.from.list(
     $,
+).map(
+    ($) => Phrase(
+        $,
+    ),
 )
 
 export const Phrase: t_signatures.Phrase = ($) => _p.decide.state(

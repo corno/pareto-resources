@@ -293,10 +293,19 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
     ),
 )
 
-export const Sentence: t_signatures.Sentence = ($, abort) => Phrase(
-    $,
-    ($) => abort(
+export const Sentence: t_signatures.Sentence = ($, abort) => _p.list.from.list(
+    v_unmarshalled_from_parse_tree.List(
         $,
+        ($) => abort(
+            ['expected a list', null],
+        ),
+    ),
+).map(
+    ($) => Phrase(
+        $,
+        ($) => abort(
+            $,
+        ),
     ),
 )
 

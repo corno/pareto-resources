@@ -179,9 +179,13 @@ export const Paragraph: t_signatures.Paragraph = ($) => ['state', _p.decide.stat
     },
 )]
 
-export const Sentence: t_signatures.Sentence = ($) => Phrase(
+export const Sentence: t_signatures.Sentence = ($) => ['list', _p.list.from.list(
     $,
-)
+).map(
+    ($) => Phrase(
+        $,
+    ),
+)]
 
 export const Phrase: t_signatures.Phrase = ($) => ['state', _p.decide.state(
     $,

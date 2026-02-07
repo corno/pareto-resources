@@ -29,7 +29,7 @@ export const Node_Error: signatures.Node_Error = ($) => _p.decide.state($, ($) =
 export const Error: signatures.Error = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
         case 'directory content processing': return _p.ss($, ($) => sh.ph.indent(
-            sh.pg.sentences(_p.list.from.dictionary($).convert(($, id) => sh.ph.composed([
+            sh.pg.sentences(_p.list.from.dictionary($).convert(($, id) => sh.sentence([
                 sh.ph.literal(id),
                 sh.ph.literal(": "),
                 Node_Error($)

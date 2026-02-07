@@ -25,19 +25,21 @@ export const Error: signatures.Error = ($) => _p.decide.state($, ($) => {
         case 'non zero exit code': return _p.ss($, ($) => sh.ph.composed([
             sh.ph.literal("non zero exit code:"),
             sh.ph.indent(sh.pg.sentences([
-                sh.ph.composed([
+                sh.sentence([
                     sh.ph.literal("exit code: "),
                     $['exit code'].__decide(
                         ($) => sh.ph.decimal($),
                         () => sh.ph.literal("n/a")
                     ),
                 ]),
-                sh.ph.composed([
+                sh.sentence([
                     sh.ph.literal("output:"),
                     sh.ph.indent(
                         sh.pg.sentences(
                             $.stderr.lines.__l_map(
-                                ($) => sh.ph.literal($)
+                                ($) => sh.sentence([
+                                    sh.ph.literal($)
+                                ])
                             )
                         )
                     ),
