@@ -28,7 +28,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
     ),
     ($) => ({
         'path': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'path',
                 ($) => abort(
                     ['no such entry', "path"],
@@ -42,7 +42,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
             ),
         ),
         'error if not exists': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'error if not exists',
                 ($) => abort(
                     ['no such entry', "error if not exists"],

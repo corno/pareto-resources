@@ -28,7 +28,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
     ),
     ($) => ({
         'path': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'path',
                 ($) => abort(
                     ['no such entry', "path"],
@@ -100,7 +100,7 @@ export const Result: t_signatures.Result = ($, abort) => _p.dictionary.map(
         ),
         ($) => ({
             'node type': _p_change_context(
-                $.__get_entry(
+                $.__get_entry_deprecated(
                     'node type',
                     ($) => abort(
                         ['no such entry', "node type"],
@@ -114,7 +114,7 @@ export const Result: t_signatures.Result = ($, abort) => _p.dictionary.map(
                 ),
             ),
             'context directory': _p_change_context(
-                $.__get_entry(
+                $.__get_entry_deprecated(
                     'context directory',
                     ($) => abort(
                         ['no such entry', "context directory"],
@@ -128,7 +128,7 @@ export const Result: t_signatures.Result = ($, abort) => _p.dictionary.map(
                 ),
             ),
             'path': _p_change_context(
-                $.__get_entry(
+                $.__get_entry_deprecated(
                     'path',
                     ($) => abort(
                         ['no such entry', "path"],

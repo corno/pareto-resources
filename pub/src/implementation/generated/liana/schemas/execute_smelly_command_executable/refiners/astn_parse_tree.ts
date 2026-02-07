@@ -28,7 +28,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
     ),
     ($) => ({
         'args': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'args',
                 ($) => abort(
                     ['no such entry', "args"],
@@ -75,7 +75,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                             ),
                             ($) => ({
                                 'message': _p_change_context(
-                                    $.__get_entry(
+                                    $.__get_entry_deprecated(
                                         'message',
                                         ($) => abort(
                                             ['no such entry', "message"],
@@ -103,7 +103,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                             ),
                             ($) => ({
                                 'exit code': _p_change_context(
-                                    $.__get_entry(
+                                    $.__get_entry_deprecated(
                                         'exit code',
                                         ($) => abort(
                                             ['no such entry', "exit code"],
@@ -133,7 +133,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                     ),
                                 ),
                                 'stderr': _p_change_context(
-                                    $.__get_entry(
+                                    $.__get_entry_deprecated(
                                         'stderr',
                                         ($) => abort(
                                             ['no such entry', "stderr"],
@@ -147,7 +147,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                     ),
                                 ),
                                 'stdout': _p_change_context(
-                                    $.__get_entry(
+                                    $.__get_entry_deprecated(
                                         'stdout',
                                         ($) => abort(
                                             ['no such entry', "stdout"],

@@ -7,7 +7,7 @@ import * as d_error from "./non_normalized_path"
 export type Parameters = { 'pedantic': boolean }
 
 export namespace signatures {
-    export type Node_Path = _pi.Refiner_With_Parameters<d_out.Node_Path, d_error.Error, d_in.List_of_Characters, Parameters>
+    export type Node_Path = _pi.Refiner_With_Parameter<d_out.Node_Path, d_error.Error, d_in.List_of_Characters, Parameters>
 }
 
 import * as _pt from 'pareto-core/dist/expression'

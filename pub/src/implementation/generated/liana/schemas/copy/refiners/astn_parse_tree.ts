@@ -28,7 +28,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
     ),
     ($) => ({
         'source': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'source',
                 ($) => abort(
                     ['no such entry', "source"],
@@ -42,7 +42,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
             ),
         ),
         'target': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'target',
                 ($) => abort(
                     ['no such entry', "target"],
@@ -56,7 +56,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
             ),
         ),
         'options': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'options',
                 ($) => abort(
                     ['no such entry', "options"],
@@ -71,7 +71,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                 ),
                 ($) => ({
                     'recursive': _p_change_context(
-                        $.__get_entry(
+                        $.__get_entry_deprecated(
                             'recursive',
                             ($) => abort(
                                 ['no such entry', "recursive"],
@@ -93,7 +93,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                         ),
                     ),
                     'force': _p_change_context(
-                        $.__get_entry(
+                        $.__get_entry_deprecated(
                             'force',
                             ($) => abort(
                                 ['no such entry', "force"],
@@ -115,7 +115,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                         ),
                     ),
                     'errorOnExist': _p_change_context(
-                        $.__get_entry(
+                        $.__get_entry_deprecated(
                             'errorOnExist',
                             ($) => abort(
                                 ['no such entry', "errorOnExist"],

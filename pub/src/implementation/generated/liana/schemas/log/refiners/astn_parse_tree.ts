@@ -28,7 +28,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
     ),
     ($) => ({
         'message': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'message',
                 ($) => abort(
                     ['no such entry', "message"],

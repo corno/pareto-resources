@@ -26,7 +26,7 @@ export const Node_Path: t_signatures.Node_Path = ($, abort) => _p_change_context
     ),
     ($) => ({
         'context': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'context',
                 ($) => abort(
                     ['no such entry', "context"],
@@ -40,7 +40,7 @@ export const Node_Path: t_signatures.Node_Path = ($, abort) => _p_change_context
             ),
         ),
         'node': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'node',
                 ($) => abort(
                     ['no such entry', "node"],
@@ -65,7 +65,7 @@ export const Context_Path: t_signatures.Context_Path = ($, abort) => _p_change_c
     ),
     ($) => ({
         'start': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'start',
                 ($) => abort(
                     ['no such entry', "start"],
@@ -79,7 +79,7 @@ export const Context_Path: t_signatures.Context_Path = ($, abort) => _p_change_c
             ),
         ),
         'subpath': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'subpath',
                 ($) => abort(
                     ['no such entry', "subpath"],
@@ -143,7 +143,7 @@ export const Start: t_signatures.Start = ($, abort) => _p_change_context(
                             ),
                             ($) => ({
                                 'up steps': _p_change_context(
-                                    $.__get_entry(
+                                    $.__get_entry_deprecated(
                                         'up steps',
                                         ($) => abort(
                                             ['no such entry', "up steps"],
@@ -192,7 +192,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
     ),
     ($) => ({
         'leading slash': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'leading slash',
                 ($) => abort(
                     ['no such entry', "leading slash"],
@@ -214,7 +214,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
             ),
         ),
         'segments': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'segments',
                 ($) => abort(
                     ['no such entry', "segments"],
@@ -289,7 +289,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
             ),
         ),
         'trailing slash': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'trailing slash',
                 ($) => abort(
                     ['no such entry', "trailing slash"],

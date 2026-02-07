@@ -26,7 +26,7 @@ export const Message: t_signatures.Message = ($, abort) => _p_change_context(
     ),
     ($) => ({
         'lines': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'lines',
                 ($) => abort(
                     ['no such entry', "lines"],
@@ -48,7 +48,7 @@ export const Message: t_signatures.Message = ($, abort) => _p_change_context(
             ),
         ),
         'raw': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'raw',
                 ($) => abort(
                     ['no such entry', "raw"],

@@ -159,7 +159,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                             ),
                             ($) => ({
                                 'items': _p_change_context(
-                                    $.__get_entry(
+                                    $.__get_entry_deprecated(
                                         'items',
                                         ($) => abort(
                                             ['no such entry', "items"],
@@ -181,7 +181,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                     ),
                                 ),
                                 'if empty': _p_change_context(
-                                    $.__get_entry(
+                                    $.__get_entry_deprecated(
                                         'if empty',
                                         ($) => abort(
                                             ['no such entry', "if empty"],
@@ -195,7 +195,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                     ),
                                 ),
                                 'if not empty': _p_change_context(
-                                    $.__get_entry(
+                                    $.__get_entry_deprecated(
                                         'if not empty',
                                         ($) => abort(
                                             ['no such entry', "if not empty"],
@@ -210,7 +210,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                         ),
                                         ($) => ({
                                             'indent': _p_change_context(
-                                                $.__get_entry(
+                                                $.__get_entry_deprecated(
                                                     'indent',
                                                     ($) => abort(
                                                         ['no such entry', "indent"],
@@ -232,7 +232,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                 ),
                                             ),
                                             'before': _p_change_context(
-                                                $.__get_entry(
+                                                $.__get_entry_deprecated(
                                                     'before',
                                                     ($) => abort(
                                                         ['no such entry', "before"],
@@ -246,7 +246,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                 ),
                                             ),
                                             'separator': _p_change_context(
-                                                $.__get_entry(
+                                                $.__get_entry_deprecated(
                                                     'separator',
                                                     ($) => abort(
                                                         ['no such entry', "separator"],
@@ -260,7 +260,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                 ),
                                             ),
                                             'after': _p_change_context(
-                                                $.__get_entry(
+                                                $.__get_entry_deprecated(
                                                     'after',
                                                     ($) => abort(
                                                         ['no such entry', "after"],
@@ -384,7 +384,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                             ),
                             ($) => ({
                                 'items': _p_change_context(
-                                    $.__get_entry(
+                                    $.__get_entry_deprecated(
                                         'items',
                                         ($) => abort(
                                             ['no such entry', "items"],
@@ -406,7 +406,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                     ),
                                 ),
                                 'if empty': _p_change_context(
-                                    $.__get_entry(
+                                    $.__get_entry_deprecated(
                                         'if empty',
                                         ($) => abort(
                                             ['no such entry', "if empty"],
@@ -420,7 +420,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                     ),
                                 ),
                                 'if not empty': _p_change_context(
-                                    $.__get_entry(
+                                    $.__get_entry_deprecated(
                                         'if not empty',
                                         ($) => abort(
                                             ['no such entry', "if not empty"],
@@ -435,7 +435,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                         ),
                                         ($) => ({
                                             'before': _p_change_context(
-                                                $.__get_entry(
+                                                $.__get_entry_deprecated(
                                                     'before',
                                                     ($) => abort(
                                                         ['no such entry', "before"],
@@ -449,7 +449,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                                 ),
                                             ),
                                             'separator': _p_change_context(
-                                                $.__get_entry(
+                                                $.__get_entry_deprecated(
                                                     'separator',
                                                     ($) => abort(
                                                         ['no such entry', "separator"],
@@ -463,7 +463,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                                 ),
                                             ),
                                             'after': _p_change_context(
-                                                $.__get_entry(
+                                                $.__get_entry_deprecated(
                                                     'after',
                                                     ($) => abort(
                                                         ['no such entry', "after"],
@@ -541,7 +541,7 @@ export const Single_Line: t_signatures.Single_Line = ($, abort) => _p.list.map(
                                 ),
                                 ($) => ({
                                     'items': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'items',
                                             ($) => abort(
                                                 ['no such entry', "items"],
@@ -563,7 +563,7 @@ export const Single_Line: t_signatures.Single_Line = ($, abort) => _p.list.map(
                                         ),
                                     ),
                                     'if empty': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'if empty',
                                             ($) => abort(
                                                 ['no such entry', "if empty"],
@@ -577,7 +577,7 @@ export const Single_Line: t_signatures.Single_Line = ($, abort) => _p.list.map(
                                         ),
                                     ),
                                     'if not empty': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'if not empty',
                                             ($) => abort(
                                                 ['no such entry', "if not empty"],
@@ -592,7 +592,7 @@ export const Single_Line: t_signatures.Single_Line = ($, abort) => _p.list.map(
                                             ),
                                             ($) => ({
                                                 'before': _p_change_context(
-                                                    $.__get_entry(
+                                                    $.__get_entry_deprecated(
                                                         'before',
                                                         ($) => abort(
                                                             ['no such entry', "before"],
@@ -606,7 +606,7 @@ export const Single_Line: t_signatures.Single_Line = ($, abort) => _p.list.map(
                                                     ),
                                                 ),
                                                 'separator': _p_change_context(
-                                                    $.__get_entry(
+                                                    $.__get_entry_deprecated(
                                                         'separator',
                                                         ($) => abort(
                                                             ['no such entry', "separator"],
@@ -620,7 +620,7 @@ export const Single_Line: t_signatures.Single_Line = ($, abort) => _p.list.map(
                                                     ),
                                                 ),
                                                 'after': _p_change_context(
-                                                    $.__get_entry(
+                                                    $.__get_entry_deprecated(
                                                         'after',
                                                         ($) => abort(
                                                             ['no such entry', "after"],
