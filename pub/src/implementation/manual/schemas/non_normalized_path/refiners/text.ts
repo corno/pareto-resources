@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
 import _p_iterate from 'pareto-core/dist/_p_iterate'
 import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
@@ -61,7 +61,7 @@ export const Non_Normalized_Path = (
                         return true
                     } else {
                         if (next[0] !== 47) { // '/'
-                            return _p_unreachable_code_path()
+                            return _p_unreachable_code_path("the slash was used as a separator, so we should never encounter a non-slash here")
                         } else {
                             const la = iterator.look_ahead(1)
                             if (la === null) {

@@ -1,5 +1,5 @@
 import * as _pi from 'pareto-core/dist/interface'
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import * as d_parse_tree from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
 
@@ -10,8 +10,9 @@ export const expect_dictionary = (
     switch ($[0]) {
         case 'concrete': return _p.ss($, ($) => _p.decide.state($, ($) => {
             switch ($[0]) {
-                case 'dictionary': return _p.ss($, ($) => _p.dictionary.from_list(
+                case 'dictionary': return _p.ss($, ($) => _p.dictionary.from.list(
                     $.entries,
+                ).convert(
                     ($) => $.id.value,
                     ($) => $.value.__decide(
                         ($) => $.value,
@@ -36,8 +37,9 @@ export const expect_group = (
                 case 'group': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
                         // case 'concise':
-                        case 'verbose': return _p.ss($, ($) => _p.dictionary.from_list(
+                        case 'verbose': return _p.ss($, ($) => _p.dictionary.from.list(
                             $.entries,
+                        ).convert(
                             ($) => $.id.value,
                             ($) => $.value.__decide(
                                 ($) => $.value,
@@ -92,10 +94,10 @@ export const expect_optional = (
     switch ($[0]) {
         case 'concrete': return _p.ss($, ($) => _p.decide.state($, ($) => {
             switch ($[0]) {
-                case 'nothing': return _p.ss($, ($) => _p.optional.not_set())
+                case 'nothing': return _p.ss($, ($) => _p.optional.literal.not_set())
                 case 'optional': return _p.ss($, ($) => _p.decide.state($, ($) => {
                     switch ($[0]) {
-                        case 'set': return _p.ss($, ($) => _p.optional.set($.value))
+                        case 'set': return _p.ss($, ($) => _p.optional.literal.set($.value))
                         default: return abort(null)
                     }
                 }))

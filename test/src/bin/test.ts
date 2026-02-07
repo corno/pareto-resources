@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as _pt from 'pareto-core/dist/expression'
+import * as _pt from 'pareto-core/dist/assign'
 import * as _pdev from 'pareto-core-dev'
 
 // import * as r_non_normalized_path from "pub/dist/implementation/manual/schemas/non_normalized_path/deserializers"
@@ -29,7 +29,7 @@ import * as _pdev from 'pareto-core-dev'
 
 // _pt.decide.state($.context.start, ($) => {
 //     switch ($[0]) {
-//         case 'absolute': return _pt.ss($, ($) => _pdev.log_debug_message(`abs`, () => {}))
+//         case 'absolute': return _pt.ss($, ($) => _pdev.log_debug_message("abs", () => {}))
 //         case 'relative': return _pt.ss($, ($) => _pdev.log_debug_message(`rel up steps: ${$['up steps']}`, () => {}))
 //         default: return _pt.au($[0])
 //     }

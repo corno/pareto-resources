@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -17,13 +17,14 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
 
-export const Directory: t_signatures.Directory = ($, abort) => _p.dictionary.map(
+export const Directory: t_signatures.Directory = ($, abort) => _p.dictionary.from.dictionary(
     v_unmarshalled_from_parse_tree.Dictionary(
         $,
         ($) => abort(
             ['expected a dictionary', null],
         ),
     ),
+).map(
     ($, id) => Node(
         $,
         ($) => abort(
@@ -86,13 +87,14 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                 case 'composed':
                     return _p_change_context(
                         $['value'],
-                        ($) => ['composed', _p.list.map(
+                        ($) => ['composed', _p.list.from.list(
                             v_unmarshalled_from_parse_tree.List(
                                 $,
                                 ($) => abort(
                                     ['expected a list', null],
                                 ),
                             ),
+                        ).map(
                             ($) => Paragraph(
                                 $,
                                 ($) => abort(
@@ -104,13 +106,14 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                 case 'sentences':
                     return _p_change_context(
                         $['value'],
-                        ($) => ['sentences', _p.list.map(
+                        ($) => ['sentences', _p.list.from.list(
                             v_unmarshalled_from_parse_tree.List(
                                 $,
                                 ($) => abort(
                                     ['expected a list', null],
                                 ),
                             ),
+                        ).map(
                             ($) => Sentence(
                                 $,
                                 ($) => abort(
@@ -122,13 +125,14 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                 case 'optional':
                     return _p_change_context(
                         $['value'],
-                        ($) => ['optional', _p.optional.map(
+                        ($) => ['optional', _p.optional.from.optional(
                             v_unmarshalled_from_parse_tree.Optional(
                                 $,
                                 ($) => abort(
                                     ['expected an optional', null],
                                 ),
                             ),
+                        ).map(
                             ($) => Paragraph(
                                 $,
                                 ($) => abort(
@@ -165,13 +169,14 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                             ['no such entry', "items"],
                                         ),
                                     ),
-                                    ($) => _p.list.map(
+                                    ($) => _p.list.from.list(
                                         v_unmarshalled_from_parse_tree.List(
                                             $,
                                             ($) => abort(
                                                 ['expected a list', null],
                                             ),
                                         ),
+                                    ).map(
                                         ($) => Sentence(
                                             $,
                                             ($) => abort(
@@ -329,13 +334,14 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                 case 'composed':
                     return _p_change_context(
                         $['value'],
-                        ($) => ['composed', _p.list.map(
+                        ($) => ['composed', _p.list.from.list(
                             v_unmarshalled_from_parse_tree.List(
                                 $,
                                 ($) => abort(
                                     ['expected a list', null],
                                 ),
                             ),
+                        ).map(
                             ($) => Phrase(
                                 $,
                                 ($) => abort(
@@ -347,13 +353,14 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                 case 'optional':
                     return _p_change_context(
                         $['value'],
-                        ($) => ['optional', _p.optional.map(
+                        ($) => ['optional', _p.optional.from.optional(
                             v_unmarshalled_from_parse_tree.Optional(
                                 $,
                                 ($) => abort(
                                     ['expected an optional', null],
                                 ),
                             ),
+                        ).map(
                             ($) => Phrase(
                                 $,
                                 ($) => abort(
@@ -390,13 +397,14 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                             ['no such entry', "items"],
                                         ),
                                     ),
-                                    ($) => _p.list.map(
+                                    ($) => _p.list.from.list(
                                         v_unmarshalled_from_parse_tree.List(
                                             $,
                                             ($) => abort(
                                                 ['expected a list', null],
                                             ),
                                         ),
+                                    ).map(
                                         ($) => Phrase(
                                             $,
                                             ($) => abort(
@@ -491,13 +499,14 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
     ),
 )
 
-export const Single_Line: t_signatures.Single_Line = ($, abort) => _p.list.map(
+export const Single_Line: t_signatures.Single_Line = ($, abort) => _p.list.from.list(
     v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             ['expected a list', null],
         ),
     ),
+).map(
     ($) => _p_change_context(
         v_unmarshalled_from_parse_tree.State(
             $,
@@ -547,13 +556,14 @@ export const Single_Line: t_signatures.Single_Line = ($, abort) => _p.list.map(
                                                 ['no such entry', "items"],
                                             ),
                                         ),
-                                        ($) => _p.list.map(
+                                        ($) => _p.list.from.list(
                                             v_unmarshalled_from_parse_tree.List(
                                                 $,
                                                 ($) => abort(
                                                     ['expected a list', null],
                                                 ),
                                             ),
+                                        ).map(
                                             ($) => Single_Line(
                                                 $,
                                                 ($) => abort(
@@ -649,13 +659,14 @@ export const Single_Line: t_signatures.Single_Line = ($, abort) => _p.list.map(
     ),
 )
 
-export const List_of_Characters: t_signatures.List_of_Characters = ($, abort) => _p.list.map(
+export const List_of_Characters: t_signatures.List_of_Characters = ($, abort) => _p.list.from.list(
     v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             ['expected a list', null],
         ),
     ),
+).map(
     ($) => v_deserialize_number.deserialize(
         _p_list_from_text(
             v_unmarshalled_from_parse_tree.Text(

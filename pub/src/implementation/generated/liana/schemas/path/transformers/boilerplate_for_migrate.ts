@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -35,8 +35,9 @@ export const Context_Path: t_signatures.Context_Path = ($) => ({
     ),
 })
 
-export const Context_Subpath: t_signatures.Context_Subpath = ($) => _p.list.map(
+export const Context_Subpath: t_signatures.Context_Subpath = ($) => _p.list.from.list(
     $,
+).map(
     ($) => $,
 )
 
@@ -78,8 +79,9 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ({
     ),
     'segments': _p_change_context(
         $['segments'],
-        ($) => _p.list.map(
+        ($) => _p.list.from.list(
             $,
+        ).map(
             ($) => _p.decide.state(
                 $,
                 ($): t_out.Non_Normalized_Path.segments.L => {

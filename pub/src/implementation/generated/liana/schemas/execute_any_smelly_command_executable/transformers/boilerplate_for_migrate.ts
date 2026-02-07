@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -16,8 +16,9 @@ export const Parameters: t_signatures.Parameters = ($) => ({
     ),
     'args': _p_change_context(
         $['args'],
-        ($) => _p.list.map(
+        ($) => _p.list.from.list(
             $,
+        ).map(
             ($) => $,
         ),
     ),
@@ -45,8 +46,9 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
                     ($) => ['non zero exit code', {
                         'exit code': _p_change_context(
                             $['exit code'],
-                            ($) => _p.optional.map(
+                            ($) => _p.optional.from.optional(
                                 $,
+                            ).map(
                                 ($) => $,
                             ),
                         ),

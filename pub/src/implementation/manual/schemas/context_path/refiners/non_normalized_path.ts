@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_out from "../../../../../interface/generated/liana/schemas/path/data"
@@ -25,10 +25,10 @@ export const Context_Path = (
         intermediate_result = _p.decide.state($, ($): Intermediate_Result => {
             switch ($[0]) {
                 case 'parent': return _p.ss($, ($) => ({
-                    'up_steps': _p.boolean.list_is_empty(intermediate_result.subppath)
+                    'up_steps': _p.boolean.from.list(intermediate_result.subppath).is_empty()
                         ? intermediate_result.up_steps + 1
                         : intermediate_result.up_steps,
-                    'subppath': _p.boolean.list_is_empty(intermediate_result.subppath)
+                    'subppath': _p.boolean.from.list(intermediate_result.subppath).is_empty()
                         ? intermediate_result.subppath
                         : remove_last_element(intermediate_result.subppath),
                     'node': null,

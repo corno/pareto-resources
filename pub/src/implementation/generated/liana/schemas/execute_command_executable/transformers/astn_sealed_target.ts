@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -19,8 +19,9 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     {
         "args": _p_change_context(
             $['args'],
-            ($) => ['list', _p.list.map(
+            ($) => ['list', _p.list.from.list(
                 $,
+            ).map(
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,

@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -13,8 +13,9 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-export const List_of_Characters: t_signatures.List_of_Characters = ($) => ['list', _p.list.map(
+export const List_of_Characters: t_signatures.List_of_Characters = ($) => ['list', _p.list.from.list(
     $,
+).map(
     ($) => ['text', {
         'delimiter': ['none', null],
         'value': _p_text_from_list(

@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
 import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
@@ -37,7 +37,7 @@ export const Context_Path = ($: d_in.Context_Path): d_out.List_of_Characters => 
                 default: return _p.au($[0])
             }
         })
-        if (_p.boolean.list_is_empty($.subpath) && $.start[0] === 'absolute') {
+        if (_p.boolean.from.list($.subpath).is_empty() && $.start[0] === 'absolute') {
             $i['add item'](47) // '/'
         }
         $.subpath.__l_map(($) => {

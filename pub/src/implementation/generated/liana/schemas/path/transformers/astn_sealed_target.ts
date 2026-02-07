@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -48,8 +48,9 @@ export const Context_Path: t_signatures.Context_Path = ($) => ['group', ['verbos
     },
 )]]
 
-export const Context_Subpath: t_signatures.Context_Subpath = ($) => ['list', _p.list.map(
+export const Context_Subpath: t_signatures.Context_Subpath = ($) => ['list', _p.list.from.list(
     $,
+).map(
     ($) => ['text', {
         'delimiter': ['quote', null],
         'value': $,
@@ -119,8 +120,9 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
         ),
         "segments": _p_change_context(
             $['segments'],
-            ($) => ['list', _p.list.map(
+            ($) => ['list', _p.list.from.list(
                 $,
+            ).map(
                 ($) => ['state', _p.decide.state(
                     $,
                     ($): t_out.Value.state => {

@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -10,8 +10,9 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/term
 export const Message: t_signatures.Message = ($) => ({
     'lines': _p_change_context(
         $['lines'],
-        ($) => _p.list.map(
+        ($) => _p.list.from.list(
             $,
+        ).map(
             ($) => $,
         ),
     ),

@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -54,8 +54,9 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
     },
 )]
 
-export const Result: t_signatures.Result = ($) => ['dictionary', _p.dictionary.map(
+export const Result: t_signatures.Result = ($) => ['dictionary', _p.dictionary.from.dictionary(
     $,
+).map(
     ($, id) => ['group', ['verbose', _p.dictionary.literal(
         {
             "node type": _p_change_context(

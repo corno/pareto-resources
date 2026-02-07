@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -95,13 +95,14 @@ export const Context_Path: t_signatures.Context_Path = ($, abort) => _p_change_c
     }),
 )
 
-export const Context_Subpath: t_signatures.Context_Subpath = ($, abort) => _p.list.map(
+export const Context_Subpath: t_signatures.Context_Subpath = ($, abort) => _p.list.from.list(
     v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             ['expected a list', null],
         ),
     ),
+).map(
     ($) => v_unmarshalled_from_parse_tree.Text(
         $,
         ($) => abort(
@@ -220,13 +221,14 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
                     ['no such entry', "segments"],
                 ),
             ),
-            ($) => _p.list.map(
+            ($) => _p.list.from.list(
                 v_unmarshalled_from_parse_tree.List(
                     $,
                     ($) => abort(
                         ['expected a list', null],
                     ),
                 ),
+            ).map(
                 ($) => _p_change_context(
                     v_unmarshalled_from_parse_tree.State(
                         $,

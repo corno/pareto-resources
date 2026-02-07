@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -32,13 +32,14 @@ export const Message: t_signatures.Message = ($, abort) => _p_change_context(
                     ['no such entry', "lines"],
                 ),
             ),
-            ($) => _p.list.map(
+            ($) => _p.list.from.list(
                 v_unmarshalled_from_parse_tree.List(
                     $,
                     ($) => abort(
                         ['expected a list', null],
                     ),
                 ),
+            ).map(
                 ($) => v_unmarshalled_from_parse_tree.Text(
                     $,
                     ($) => abort(

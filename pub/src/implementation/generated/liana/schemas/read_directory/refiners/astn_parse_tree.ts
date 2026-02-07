@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -84,13 +84,14 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
     ),
 )
 
-export const Result: t_signatures.Result = ($, abort) => _p.dictionary.map(
+export const Result: t_signatures.Result = ($, abort) => _p.dictionary.from.dictionary(
     v_unmarshalled_from_parse_tree.Dictionary(
         $,
         ($) => abort(
             ['expected a dictionary', null],
         ),
     ),
+).map(
     ($, id) => _p_change_context(
         v_unmarshalled_from_parse_tree.Group(
             $,

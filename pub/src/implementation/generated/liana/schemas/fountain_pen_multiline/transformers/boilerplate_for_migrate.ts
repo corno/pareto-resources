@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -7,8 +7,9 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/fountain_pen_multiline/data"
 
-export const Directory: t_signatures.Directory = ($) => _p.dictionary.map(
+export const Directory: t_signatures.Directory = ($) => _p.dictionary.from.dictionary(
     $,
+).map(
     ($, id) => Node(
         $,
     ),
@@ -47,8 +48,9 @@ export const Paragraph: t_signatures.Paragraph = ($) => _p.decide.state(
             case 'composed':
                 return _p.ss(
                     $,
-                    ($) => ['composed', _p.list.map(
+                    ($) => ['composed', _p.list.from.list(
                         $,
+                    ).map(
                         ($) => Paragraph(
                             $,
                         ),
@@ -57,8 +59,9 @@ export const Paragraph: t_signatures.Paragraph = ($) => _p.decide.state(
             case 'sentences':
                 return _p.ss(
                     $,
-                    ($) => ['sentences', _p.list.map(
+                    ($) => ['sentences', _p.list.from.list(
                         $,
+                    ).map(
                         ($) => Sentence(
                             $,
                         ),
@@ -67,8 +70,9 @@ export const Paragraph: t_signatures.Paragraph = ($) => _p.decide.state(
             case 'optional':
                 return _p.ss(
                     $,
-                    ($) => ['optional', _p.optional.map(
+                    ($) => ['optional', _p.optional.from.optional(
                         $,
+                    ).map(
                         ($) => Paragraph(
                             $,
                         ),
@@ -85,8 +89,9 @@ export const Paragraph: t_signatures.Paragraph = ($) => _p.decide.state(
                     ($) => ['rich list', {
                         'items': _p_change_context(
                             $['items'],
-                            ($) => _p.list.map(
+                            ($) => _p.list.from.list(
                                 $,
+                            ).map(
                                 ($) => Sentence(
                                     $,
                                 ),
@@ -160,8 +165,9 @@ export const Phrase: t_signatures.Phrase = ($) => _p.decide.state(
             case 'composed':
                 return _p.ss(
                     $,
-                    ($) => ['composed', _p.list.map(
+                    ($) => ['composed', _p.list.from.list(
                         $,
+                    ).map(
                         ($) => Phrase(
                             $,
                         ),
@@ -170,8 +176,9 @@ export const Phrase: t_signatures.Phrase = ($) => _p.decide.state(
             case 'optional':
                 return _p.ss(
                     $,
-                    ($) => ['optional', _p.optional.map(
+                    ($) => ['optional', _p.optional.from.optional(
                         $,
+                    ).map(
                         ($) => Phrase(
                             $,
                         ),
@@ -188,8 +195,9 @@ export const Phrase: t_signatures.Phrase = ($) => _p.decide.state(
                     ($) => ['rich list', {
                         'items': _p_change_context(
                             $['items'],
-                            ($) => _p.list.map(
+                            ($) => _p.list.from.list(
                                 $,
+                            ).map(
                                 ($) => Phrase(
                                     $,
                                 ),
@@ -234,8 +242,9 @@ export const Phrase: t_signatures.Phrase = ($) => _p.decide.state(
     },
 )
 
-export const Single_Line: t_signatures.Single_Line = ($) => _p.list.map(
+export const Single_Line: t_signatures.Single_Line = ($) => _p.list.from.list(
     $,
+).map(
     ($) => _p.decide.state(
         $,
         ($): t_out.Single_Line.L => {
@@ -258,8 +267,9 @@ export const Single_Line: t_signatures.Single_Line = ($) => _p.list.map(
                         ($) => ['rich list', {
                             'items': _p_change_context(
                                 $['items'],
-                                ($) => _p.list.map(
+                                ($) => _p.list.from.list(
                                     $,
+                                ).map(
                                     ($) => Single_Line(
                                         $,
                                     ),
@@ -305,7 +315,8 @@ export const Single_Line: t_signatures.Single_Line = ($) => _p.list.map(
     ),
 )
 
-export const List_of_Characters: t_signatures.List_of_Characters = ($) => _p.list.map(
+export const List_of_Characters: t_signatures.List_of_Characters = ($) => _p.list.from.list(
     $,
+).map(
     ($) => $,
 )
