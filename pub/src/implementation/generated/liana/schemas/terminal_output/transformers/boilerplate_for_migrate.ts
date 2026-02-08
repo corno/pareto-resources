@@ -7,13 +7,13 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/terminal_output/data"
 
+import * as v_fountain_pen from "../../fountain_pen/transformers/boilerplate_for_migrate"
+
 export const Message: t_signatures.Message = ($) => ({
-    'lines': _p_change_context(
-        $['lines'],
-        ($) => _p.list.from.list(
+    'paragraph': _p_change_context(
+        $['paragraph'],
+        ($) => v_fountain_pen.Paragraph(
             $,
-        ).map(
-            ($) => $,
         ),
     ),
     'raw': _p_change_context(

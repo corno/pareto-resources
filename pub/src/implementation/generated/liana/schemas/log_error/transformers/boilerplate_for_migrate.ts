@@ -7,12 +7,12 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/log_error/data"
 
-import * as v_fountain_pen_multiline from "../../fountain_pen_multiline/transformers/boilerplate_for_migrate"
+import * as v_fountain_pen from "../../fountain_pen/transformers/boilerplate_for_migrate"
 
 export const Parameters: t_signatures.Parameters = ($) => ({
     'message': _p_change_context(
         $['message'],
-        ($) => v_fountain_pen_multiline.Paragraph(
+        ($) => v_fountain_pen.Paragraph(
             $,
         ),
     ),

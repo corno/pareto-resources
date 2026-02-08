@@ -5,9 +5,9 @@ import _p_change_context from 'pareto-core/dist/_p_change_context'
 
 import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
-import * as t_signatures from "../../../../../../interface/generated/liana/schemas/fountain_pen_multiline/unmarshall"
+import * as t_signatures from "../../../../../../interface/generated/liana/schemas/fountain_pen/unmarshall"
 
-import * as t_out from "../../../../../../interface/generated/liana/schemas/fountain_pen_multiline/data"
+import * as t_out from "../../../../../../interface/generated/liana/schemas/fountain_pen/data"
 
 import * as v_deserialize_number from "liana-core/dist/implementation/manual/primitives/integer/deserializers/decimal"
 

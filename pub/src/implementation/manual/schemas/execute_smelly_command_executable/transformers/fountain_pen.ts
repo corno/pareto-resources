@@ -12,7 +12,7 @@ export const Error: Error = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
         case 'failed to spawn': return _p.ss($, ($) => sh.ph.composed([
             sh.ph.literal("failed to spawn process:"),
-            sh.ph.composed($.message.lines.__l_map(($) => sh.ph.literal($)))
+            sh.ph.indent($.message.paragraph)
         ]))
         case 'non zero exit code': return _p.ss($, ($) => sh.ph.composed([
             sh.ph.literal("non zero exit code:"),
@@ -27,16 +27,8 @@ export const Error: Error = ($) => _p.decide.state($, ($) => {
                 sh.sentence([
                     sh.ph.literal("output:"),
                     sh.ph.indent(sh.pg.composed([
-                        sh.pg.sentences(
-                            $.stdout.lines.__l_map(($) => sh.sentence([
-                                sh.ph.literal($)
-                            ]))
-                        ),
-                        sh.pg.sentences(
-                            $.stderr.lines.__l_map(($) => sh.sentence([
-                                sh.ph.literal($)
-                            ]))
-                        )
+                        $.stdout.paragraph,
+                        $.stderr.paragraph
                     ]))
                 ])
             ]))

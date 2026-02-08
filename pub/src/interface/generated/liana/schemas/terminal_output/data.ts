@@ -1,22 +1,18 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
+import * as i__imports_fountain_pen from "../fountain_pen/data"
+
 export namespace Message_ {
     
-    export namespace lines {
-        
-        export type L = string
-        
-    }
-    
-    export type lines = _pi.List<lines.L>
+    export type paragraph = i__imports_fountain_pen.Paragraph
     
     export type raw = string
     
 }
 
 export type Message_ = {
-    readonly 'lines': Message_.lines
+    readonly 'paragraph': Message_.paragraph
     readonly 'raw': Message_.raw
 }
 

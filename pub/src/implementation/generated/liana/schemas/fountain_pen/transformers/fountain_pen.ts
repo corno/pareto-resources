@@ -1,7 +1,7 @@
 
 import * as _p from 'pareto-core/dist/assign'
 
-import * as t_signatures from "../../../../../../interface/generated/liana/schemas/fountain_pen_multiline/serialize"
+import * as t_signatures from "../../../../../../interface/generated/liana/schemas/fountain_pen/serialize"
 
 import * as v_serialize from "astn-core/dist/implementation/manual/schemas/sealed_target/transformers/fountain_pen"
 

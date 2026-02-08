@@ -1,11 +1,11 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i__imports_fountain_pen_multiline from "../fountain_pen_multiline/data"
+import * as i__imports_fountain_pen from "../fountain_pen/data"
 
 export namespace Parameters_ {
     
-    export type message = i__imports_fountain_pen_multiline.Paragraph
+    export type message = i__imports_fountain_pen.Paragraph
     
 }
 

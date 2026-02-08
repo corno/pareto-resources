@@ -18,11 +18,7 @@ export const Error: signatures.Error = ($) => _p.decide.state($, ($) => {
         case 'failed to spawn': return _p.ss($, ($) => sh.ph.composed([
             sh.ph.literal("failed to spawn process:"),
             sh.ph.indent(
-                sh.pg.sentences(
-                    $.message.lines.__l_map(($) => sh.sentence([
-                        sh.ph.literal($)
-                    ]))
-                )
+                $.message.paragraph
             )
         ]))
         case 'non zero exit code': return _p.ss($, ($) => sh.ph.composed([
@@ -38,11 +34,8 @@ export const Error: signatures.Error = ($) => _p.decide.state($, ($) => {
                 sh.sentence([
                     sh.ph.literal("output:"),
                     sh.ph.indent(
-                        sh.pg.sentences(
-                            $.stderr.lines.__l_map(($) => sh.sentence([
-                                sh.ph.literal($)
-                            ]))
-                        ))
+                        $.stderr.paragraph
+                    )
                 ])
             ]))
         ]))

@@ -17,7 +17,7 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
 
-import * as v_external_fountain_pen_multiline from "../../fountain_pen_multiline/refiners/astn_parse_tree"
+import * as v_external_fountain_pen from "../../fountain_pen/refiners/astn_parse_tree"
 
 export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
@@ -34,7 +34,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                     ['no such entry', "message"],
                 ),
             ),
-            ($) => v_external_fountain_pen_multiline.Paragraph(
+            ($) => v_external_fountain_pen.Paragraph(
                 $,
                 ($) => abort(
                     $,
