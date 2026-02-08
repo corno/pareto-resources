@@ -18,7 +18,9 @@ export const expect_dictionary = (
                         ($) => $.value,
                         () => abort(null)
                     ),
-                    () => abort(null),
+                    {
+                        duplicate_id: () => abort(null)
+                    },
                 ))
                 default: return abort(null)
             }
@@ -45,7 +47,9 @@ export const expect_group = (
                                 ($) => $.value,
                                 () => abort(null)
                             ),
-                            () => abort(null),
+                            {
+                                duplicate_id: () => abort(null)
+                            },
                         ))
                         default: return abort(null)
                     }
