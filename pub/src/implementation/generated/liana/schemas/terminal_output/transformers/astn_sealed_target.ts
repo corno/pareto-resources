@@ -13,15 +13,18 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-import * as v_external_fountain_pen from "../../fountain_pen/transformers/astn_sealed_target"
-
 export const Message: t_signatures.Message = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
-        "paragraph": _p_change_context(
-            $['paragraph'],
-            ($) => v_external_fountain_pen.Paragraph(
+        "lines": _p_change_context(
+            $['lines'],
+            ($) => ['list', _p.list.from.list(
                 $,
-            ),
+            ).map(
+                ($) => ['text', {
+                    'delimiter': ['quote', null],
+                    'value': $,
+                }],
+            )],
         ),
         "raw": _p_change_context(
             $['raw'],
