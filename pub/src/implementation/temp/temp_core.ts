@@ -17,7 +17,11 @@ export const remove_last_element = <T>(list: _pi.List<T>): _pi.List<T> => {
     })
 }
 
-export const loop = (callback: () => boolean) => {
+export const build_list_with_loop = <Iterator_Element, List_Element>(
+    iterator: _pi.Iterator<Iterator_Element>,
+    callback: ($: Iterator_Element, $i: { 'add item': (element: List_Element) => void }) => boolean,
+): _pi.List<List_Element> => {
+    const loop = (callback: () => boolean) => {
     while (true) {
         if (callback()) {
             break
@@ -25,7 +29,7 @@ export const loop = (callback: () => boolean) => {
     }
 }
 
-export const loop_elements = <T>(iterator: _pi.Iterator<T>, callback: ($: T) => boolean) => {
+    const loop_elements = <T>(iterator: _pi.Iterator<T>, callback: ($: T) => boolean) => {
     loop(() => {
         const next = iterator.look()
         return next === null
@@ -33,11 +37,6 @@ export const loop_elements = <T>(iterator: _pi.Iterator<T>, callback: ($: T) => 
             : callback(next[0])
     })
 }
-
-export const build_list_with_loop = <Iterator_Element, List_Element>(
-    iterator: _pi.Iterator<Iterator_Element>,
-    callback: ($: Iterator_Element, $i: { 'add item': (element: List_Element) => void }) => boolean,
-): _pi.List<List_Element> => {
     return _p_list_build_deprecated(($i) => {
         loop_elements(iterator, ($) => {
             return callback($, {
