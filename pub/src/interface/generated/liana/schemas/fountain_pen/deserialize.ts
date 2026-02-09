@@ -7,60 +7,6 @@ import * as i_in from "pareto-fountain-pen/dist/interface/to_be_generated/list_o
 
 import * as i_out from "./data"
 
-export namespace Directory_ {
-    
-    export type I = i_in.List_of_Characters
-    
-    export type O = i_out.Directory
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
-        
-    }
-    
-}
-
-export type Directory_ = (
-    context: Directory_.I,
-    abort: _pi.Abort<Directory_.E>,
-    parameters: {
-        readonly 'document resource identifier': Directory_.P.document_resource_identifier
-        readonly 'tab size': Directory_.P.tab_size
-    },
-) => Directory_.O
-
-export namespace Node_ {
-    
-    export type I = i_in.List_of_Characters
-    
-    export type O = i_out.Node
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
-        
-    }
-    
-}
-
-export type Node_ = (
-    context: Node_.I,
-    abort: _pi.Abort<Node_.E>,
-    parameters: {
-        readonly 'document resource identifier': Node_.P.document_resource_identifier
-        readonly 'tab size': Node_.P.tab_size
-    },
-) => Node_.O
-
 export namespace Paragraph_ {
     
     export type I = i_in.List_of_Characters
@@ -142,38 +88,8 @@ export type Phrase_ = (
     },
 ) => Phrase_.O
 
-export namespace List_of_Characters_ {
-    
-    export type I = i_in.List_of_Characters
-    
-    export type O = i_out.List_of_Characters
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
-        
-    }
-    
-}
-
-export type List_of_Characters_ = (
-    context: List_of_Characters_.I,
-    abort: _pi.Abort<List_of_Characters_.E>,
-    parameters: {
-        readonly 'document resource identifier': List_of_Characters_.P.document_resource_identifier
-        readonly 'tab size': List_of_Characters_.P.tab_size
-    },
-) => List_of_Characters_.O
-
 export { 
-    Directory_ as Directory, 
-    Node_ as Node, 
     Paragraph_ as Paragraph, 
     Sentence_ as Sentence, 
     Phrase_ as Phrase, 
-    List_of_Characters_ as List_of_Characters, 
 }

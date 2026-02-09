@@ -17,61 +17,7 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
 
-export const Directory: t_signatures.Directory = ($, abort) => _p.dictionary.from.dictionary(
-    v_unmarshalled_from_parse_tree.Dictionary(
-        $,
-        ($) => abort(
-            ['expected a dictionary', null],
-        ),
-    ),
-).map(
-    ($, id) => Node(
-        $,
-        ($) => abort(
-            $,
-        ),
-    ),
-)
-
-export const Node: t_signatures.Node = ($, abort) => _p_change_context(
-    v_unmarshalled_from_parse_tree.State(
-        $,
-        ($) => abort(
-            ['expected a state', null],
-        ),
-    ),
-    ($) => _p.decide.text(
-        $['option']['value'],
-        ($t): t_out.Node => {
-            switch ($t) {
-                case 'file':
-                    return _p_change_context(
-                        $['value'],
-                        ($) => ['file', Paragraph(
-                            $,
-                            ($) => abort(
-                                $,
-                            ),
-                        )],
-                    )
-                case 'directory':
-                    return _p_change_context(
-                        $['value'],
-                        ($) => ['directory', Directory(
-                            $,
-                            ($) => abort(
-                                $,
-                            ),
-                        )],
-                    )
-                default:
-                    return abort(
-                        ['unknown option', $['option']['value']],
-                    )
-            }
-        },
-    ),
-)
+import * as v_external_list_of_characters from "../../list_of_characters/refiners/astn_parse_tree"
 
 export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.State(
@@ -397,7 +343,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                         case 'list of characters':
                                             return _p_change_context(
                                                 $['value'],
-                                                ($) => ['list of characters', List_of_Characters(
+                                                ($) => ['list of characters', v_external_list_of_characters.List_of_Characters(
                                                     $,
                                                     ($) => abort(
                                                         $,
@@ -600,29 +546,5 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                     )
             }
         },
-    ),
-)
-
-export const List_of_Characters: t_signatures.List_of_Characters = ($, abort) => _p.list.from.list(
-    v_unmarshalled_from_parse_tree.List(
-        $,
-        ($) => abort(
-            ['expected a list', null],
-        ),
-    ),
-).map(
-    ($) => v_deserialize_number.deserialize(
-        _p_list_from_text(
-            v_unmarshalled_from_parse_tree.Text(
-                $,
-                ($) => abort(
-                    ['expected a text', null],
-                ),
-            ),
-            ($) => $,
-        ),
-        ($) => abort(
-            ['not a valid number', null],
-        ),
     ),
 )

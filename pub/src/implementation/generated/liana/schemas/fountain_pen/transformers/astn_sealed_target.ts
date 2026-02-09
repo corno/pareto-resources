@@ -13,45 +13,7 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-export const Directory: t_signatures.Directory = ($) => ['dictionary', _p.dictionary.from.dictionary(
-    $,
-).map(
-    ($, id) => Node(
-        $,
-    ),
-)]
-
-export const Node: t_signatures.Node = ($) => ['state', _p.decide.state(
-    $,
-    ($): t_out.Value.state => {
-        switch ($[0]) {
-            case 'file':
-                return _p.ss(
-                    $,
-                    ($) => ({
-                        'option': 'file',
-                        'value': Paragraph(
-                            $,
-                        ),
-                    }),
-                )
-            case 'directory':
-                return _p.ss(
-                    $,
-                    ($) => ({
-                        'option': 'directory',
-                        'value': Directory(
-                            $,
-                        ),
-                    }),
-                )
-            default:
-                return _p.au(
-                    $[0],
-                )
-        }
-    },
-)]
+import * as v_external_list_of_characters from "../../list_of_characters/transformers/astn_sealed_target"
 
 export const Paragraph: t_signatures.Paragraph = ($) => ['state', _p.decide.state(
     $,
@@ -232,7 +194,7 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', _p.decide.state(
                                             $,
                                             ($) => ({
                                                 'option': 'list of characters',
-                                                'value': List_of_Characters(
+                                                'value': v_external_list_of_characters.List_of_Characters(
                                                     $,
                                                 ),
                                             }),
@@ -350,18 +312,4 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', _p.decide.state(
                 )
         }
     },
-)]
-
-export const List_of_Characters: t_signatures.List_of_Characters = ($) => ['list', _p.list.from.list(
-    $,
-).map(
-    ($) => ['text', {
-        'delimiter': ['none', null],
-        'value': _p_text_from_list(
-            v_serialize_number.serialize(
-                $,
-            ),
-            ($) => $,
-        ),
-    }],
 )]

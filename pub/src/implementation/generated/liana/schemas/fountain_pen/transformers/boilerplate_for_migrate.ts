@@ -7,39 +7,7 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/fountain_pen/data"
 
-export const Directory: t_signatures.Directory = ($) => _p.dictionary.from.dictionary(
-    $,
-).map(
-    ($, id) => Node(
-        $,
-    ),
-)
-
-export const Node: t_signatures.Node = ($) => _p.decide.state(
-    $,
-    ($): t_out.Node => {
-        switch ($[0]) {
-            case 'file':
-                return _p.ss(
-                    $,
-                    ($) => ['file', Paragraph(
-                        $,
-                    )],
-                )
-            case 'directory':
-                return _p.ss(
-                    $,
-                    ($) => ['directory', Directory(
-                        $,
-                    )],
-                )
-            default:
-                return _p.au(
-                    $[0],
-                )
-        }
-    },
-)
+import * as v_list_of_characters from "../../list_of_characters/transformers/boilerplate_for_migrate"
 
 export const Paragraph: t_signatures.Paragraph = ($) => _p.decide.state(
     $,
@@ -183,7 +151,7 @@ export const Phrase: t_signatures.Phrase = ($) => _p.decide.state(
                                 case 'list of characters':
                                     return _p.ss(
                                         $,
-                                        ($) => ['list of characters', List_of_Characters(
+                                        ($) => ['list of characters', v_list_of_characters.List_of_Characters(
                                             $,
                                         )],
                                     )
@@ -280,10 +248,4 @@ export const Phrase: t_signatures.Phrase = ($) => _p.decide.state(
                 )
         }
     },
-)
-
-export const List_of_Characters: t_signatures.List_of_Characters = ($) => _p.list.from.list(
-    $,
-).map(
-    ($) => $,
 )

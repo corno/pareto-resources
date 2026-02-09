@@ -2,7 +2,7 @@ import * as _p from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_in from "../../../../../interface/generated/liana/schemas/execute_command_executable/data"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
+import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 export namespace signatures {
 
@@ -10,7 +10,7 @@ export namespace signatures {
 
 }
 
-import * as sh from "pareto-fountain-pen/dist/shorthands/block"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error: signatures.Error = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
