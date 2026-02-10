@@ -403,7 +403,7 @@ export const stream_processor: signatures.commands.stream_in_to_stream_out =
 Write a complete directory tree:
 
 ```typescript
-import * as t_fp_to_loc from "pareto-fountain-pen/dist/implementation/manual/schemas/prose/transformers/list_of_characters"
+import * as t_fp_to_loc from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
 
 $cr['write directory content'].execute(
     {

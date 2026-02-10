@@ -8,7 +8,7 @@ import * as d_write_directory_content from "../../../interface/to_be_generated/w
 
 import * as signatures from "../../../interface/signatures"
 
-import * as t_path_to_path from "../schemas/path/transformers/path"
+import * as t_path_to_path from "../transformers/path/path"
 
 export const $$: signatures.commands.write_directory_content = _p.command_procedure(
     ($p, $cr, $qr) => [
