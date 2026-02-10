@@ -268,7 +268,7 @@ const input = $qr['get instream data'](
 ### Path Construction
 
 ```typescript
-import * as t_path from "pareto-resources/dist/implementation/manual/schemas/path/transformers/path"
+import * as t_path from "pareto-resources/dist/implementation/manual/transformers/path/path"
 
 // Extend context path with subdirectory
 const newPath = t_path.extend_context_path(
@@ -292,7 +292,7 @@ const created = t_path.create_node_path(
 ### Path to Text
 
 ```typescript
-import * as t_path_to_text from "pareto-resources/dist/implementation/manual/schemas/path/transformers/text"
+import * as t_path_to_text from "pareto-resources/dist/implementation/manual/transformers/path/text"
 
 // Convert to string representation
 const pathString = t_path_to_text.Node_Path(nodePath)
@@ -329,7 +329,7 @@ const parentPath = {
 Pareto Resources provides transformers to format errors for display:
 
 ```typescript
-import * as t_read_file_error from "pareto-resources/dist/implementation/manual/schemas/read_file/transformers/fountain_pen"
+import * as t_read_file_error from "pareto-resources/dist/implementation/manual/transformers/read_file/fountain_pen"
 
 // Format read file errors
 const errorMessage = t_read_file_error.Error(error)
@@ -338,7 +338,7 @@ const errorMessage = t_read_file_error.Error(error)
 ```
 
 ```typescript
-import * as t_cmd_error from "pareto-resources/dist/implementation/manual/schemas/execute_command_executable/transformers/fountain_pen"
+import * as t_cmd_error from "pareto-resources/dist/implementation/manual/transformers/execute_command_executable/fountain_pen"
 
 // Format command execution errors
 const errorDisplay = t_cmd_error.Error(error)
@@ -566,7 +566,7 @@ export const $$: signatures.commands.write_directory_content =
 Convert strings to paths with validation:
 
 ```typescript
-import * as r_path from "pareto-resources/dist/implementation/manual/schemas/context_path/refiners/text"
+import * as r_path from "pareto-resources/dist/implementation/manual/refiners/context_path/text"
 
 const path = r_path.from_text(
     "/path/to/directory",
