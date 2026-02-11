@@ -8,7 +8,7 @@ import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
 import { build_list_with_loop } from '../../../temp/temp_core'
 
 import * as d_out from "../../../../interface/generated/liana/schemas/path/data"
-import * as d_in from "pareto-fountain-pen/dist/interface/to_be_generated/list_of_characters"
+import * as d_in from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
 export const Non_Normalized_Path = (
     $: d_in.List_of_Characters,

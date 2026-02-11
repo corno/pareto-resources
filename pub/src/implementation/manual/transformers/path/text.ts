@@ -3,7 +3,7 @@ import _p_list_build_deprecated from 'pareto-core/dist/_p_list_build_deprecated'
 import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 import * as d_in from "../../../../interface/generated/liana/schemas/path/data"
-import * as d_out from "pareto-fountain-pen/dist/interface/to_be_generated/list_of_characters"
+import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
 export const Node_Path = ($: d_in.Node_Path): d_out.List_of_Characters => {
     return _p.list.nested_literal_old([
