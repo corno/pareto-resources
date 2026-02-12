@@ -6,6 +6,10 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 
 export type Error = _pi.Transformer<d_in.Error, d_out.Phrase>
 
+
+//dependencies
+import * as t_path_to_text from "../path/text"
+
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
@@ -13,7 +17,11 @@ export const Error: Error = ($) => {
     return _p.decide.state($, ($) => {
         switch ($[0]) {
             case 'permission denied': return _p.ss($, ($) => sh.ph.literal("permission denied"))
-            case 'file does not exist': return _p.ss($, ($) => sh.ph.literal("file does not exist"))
+            case 'file does not exist': return _p.ss($, ($) => sh.ph.composed([
+                sh.ph.literal("file does not exist: "),
+                sh.ph.serialize(t_path_to_text.Node_Path($.path)),
+
+            ]))
             case 'node is not a file': return _p.ss($, ($) => sh.ph.literal("node is not a file"))
             case 'file too large': return _p.ss($, ($) => sh.ph.literal("file too large"))
             case 'device not ready': return _p.ss($, ($) => sh.ph.literal("device not ready"))

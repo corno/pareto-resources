@@ -30,7 +30,16 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                     $,
                     ($) => ({
                         'option': 'file does not exist',
-                        'value': ['nothing', null],
+                        'value': ['group', ['verbose', _p.dictionary.literal(
+                            {
+                                "path": _p_change_context(
+                                    $['path'],
+                                    ($) => v_external_path.Node_Path(
+                                        $,
+                                    ),
+                                ),
+                            },
+                        )]],
                     }),
                 )
             case 'node is not a file':

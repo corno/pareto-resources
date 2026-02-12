@@ -9,7 +9,15 @@ export type Parameters_ = i__imports_path.Node_Path
 
 export namespace Error_ {
     
-    export type file_does_not_exist = null
+    export namespace file_does_not_exist {
+        
+        export type path = i__imports_path.Node_Path
+        
+    }
+    
+    export type file_does_not_exist = {
+        readonly 'path': file_does_not_exist.path
+    }
     
     export type node_is_not_a_file = null
     

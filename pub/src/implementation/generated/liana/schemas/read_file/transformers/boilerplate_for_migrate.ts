@@ -22,7 +22,14 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
             case 'file does not exist':
                 return _p.ss(
                     $,
-                    ($) => ['file does not exist', null],
+                    ($) => ['file does not exist', {
+                        'path': _p_change_context(
+                            $['path'],
+                            ($) => v_path.Node_Path(
+                                $,
+                            ),
+                        ),
+                    }],
                 )
             case 'node is not a file':
                 return _p.ss(

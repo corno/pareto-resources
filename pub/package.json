@@ -1,6 +1,6 @@
 {
   "name": "pareto-resources",
-  "version": "0.2.50",
+  "version": "0.2.51",
   "author": "Corno",
   "license": "Apache-2.0",
   "description": "A library providing resources for the Pareto programming Language",
@@ -10,7 +10,7 @@
     "dist"
   ],
   "dependencies": {
-    "liana-core": "^0.0.22",
+    "liana-core": "^0.0.23",
     "pareto-fountain-pen": "^0.4.45"
   }
 }
