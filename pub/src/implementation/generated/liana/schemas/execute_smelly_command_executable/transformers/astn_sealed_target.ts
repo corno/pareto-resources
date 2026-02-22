@@ -9,9 +9,7 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_target/data"
 
-import * as v_serialize_number from "liana-core/dist/implementation/manual/primitives/integer/serializers/decimal"
-
-import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
+import * as v_primitives_to_text from "liana-core/dist/implementation/manual/transformers/primitives/text"
 
 import * as v_external_terminal_output from "../../terminal_output/transformers/astn_sealed_target"
 
@@ -65,11 +63,8 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                                         $,
                                         ($): t_out.Value.optional => ['set', ['text', {
                                             'delimiter': ['none', null],
-                                            'value': _p_text_from_list(
-                                                v_serialize_number.serialize(
-                                                    $,
-                                                ),
-                                                ($) => $,
+                                            'value': v_primitives_to_text.decimal(
+                                                $,
                                             ),
                                         }]],
                                         () => ['not set', null],

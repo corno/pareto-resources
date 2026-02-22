@@ -9,9 +9,7 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_target/data"
 
-import * as v_serialize_number from "liana-core/dist/implementation/manual/primitives/integer/serializers/decimal"
-
-import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
+import * as v_primitives_to_text from "liana-core/dist/implementation/manual/transformers/primitives/text"
 
 import * as v_external_path from "../../path/transformers/astn_sealed_target"
 
@@ -37,11 +35,8 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                         $['recursive'],
                         ($) => ['text', {
                             'delimiter': ['none', null],
-                            'value': _p_text_from_list(
-                                v_serialize_boolean.serialize(
-                                    $,
-                                ),
-                                ($) => $,
+                            'value': v_primitives_to_text.true_false(
+                                $,
                             ),
                         }],
                     ),
@@ -49,11 +44,8 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                         $['force'],
                         ($) => ['text', {
                             'delimiter': ['none', null],
-                            'value': _p_text_from_list(
-                                v_serialize_boolean.serialize(
-                                    $,
-                                ),
-                                ($) => $,
+                            'value': v_primitives_to_text.true_false(
+                                $,
                             ),
                         }],
                     ),
@@ -61,11 +53,8 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                         $['errorOnExist'],
                         ($) => ['text', {
                             'delimiter': ['none', null],
-                            'value': _p_text_from_list(
-                                v_serialize_boolean.serialize(
-                                    $,
-                                ),
-                                ($) => $,
+                            'value': v_primitives_to_text.true_false(
+                                $,
                             ),
                         }],
                     ),
