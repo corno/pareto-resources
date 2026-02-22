@@ -13,22 +13,33 @@ export const Parameters: t_signatures.Parameters = ($) => v_path.Node_Path(
     $,
 )
 
-export const Error: t_signatures.Error = ($) => _p.decide.state(
-    $,
-    ($): t_out.Error => {
-        switch ($[0]) {
-            case 'node does not exist':
-                return _p.ss(
-                    $,
-                    ($) => ['node does not exist', null],
-                )
-            default:
-                return _p.au(
-                    $[0],
-                )
-        }
-    },
-)
+export const Error: t_signatures.Error = ($) => ({
+    'path': _p_change_context(
+        $['path'],
+        ($) => v_path.Node_Path(
+            $,
+        ),
+    ),
+    'type': _p_change_context(
+        $['type'],
+        ($) => _p.decide.state(
+            $,
+            ($): t_out.Error.type_ => {
+                switch ($[0]) {
+                    case 'node does not exist':
+                        return _p.ss(
+                            $,
+                            ($) => ['node does not exist', null],
+                        )
+                    default:
+                        return _p.au(
+                            $[0],
+                        )
+                }
+            },
+        ),
+    ),
+})
 
 export const Result: t_signatures.Result = ($) => Node_Type(
     $,

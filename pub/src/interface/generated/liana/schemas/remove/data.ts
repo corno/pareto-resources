@@ -18,15 +18,26 @@ export type Parameters_ = {
 
 export namespace Error_ {
     
-    export type node_does_not_exist = null
+    export type path = i__imports_path.Node_Path
     
-    export type permission_denied = null
+    export namespace type_ {
+        
+        export type node_does_not_exist = null
+        
+        export type permission_denied = null
+        
+    }
+    
+    export type type_ = 
+        | readonly ['node does not exist', type_.node_does_not_exist]
+        | readonly ['permission denied', type_.permission_denied]
     
 }
 
-export type Error_ = 
-    | readonly ['node does not exist', Error_.node_does_not_exist]
-    | readonly ['permission denied', Error_.permission_denied]
+export type Error_ = {
+    readonly 'path': Error_.path
+    readonly 'type': Error_.type_
+}
 
 export { 
     Parameters_ as Parameters, 

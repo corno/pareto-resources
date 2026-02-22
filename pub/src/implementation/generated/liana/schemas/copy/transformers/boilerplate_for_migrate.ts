@@ -41,39 +41,50 @@ export const Parameters: t_signatures.Parameters = ($) => ({
     ),
 })
 
-export const Error: t_signatures.Error = ($) => _p.decide.state(
-    $,
-    ($): t_out.Error => {
-        switch ($[0]) {
-            case 'source does not exist':
-                return _p.ss(
-                    $,
-                    ($) => ['source does not exist', null],
-                )
-            case 'node is not a file':
-                return _p.ss(
-                    $,
-                    ($) => ['node is not a file', null],
-                )
-            case 'permission denied':
-                return _p.ss(
-                    $,
-                    ($) => ['permission denied', null],
-                )
-            case 'file too large':
-                return _p.ss(
-                    $,
-                    ($) => ['file too large', null],
-                )
-            case 'device not ready':
-                return _p.ss(
-                    $,
-                    ($) => ['device not ready', null],
-                )
-            default:
-                return _p.au(
-                    $[0],
-                )
-        }
-    },
-)
+export const Error: t_signatures.Error = ($) => ({
+    'path': _p_change_context(
+        $['path'],
+        ($) => v_path.Node_Path(
+            $,
+        ),
+    ),
+    'type': _p_change_context(
+        $['type'],
+        ($) => _p.decide.state(
+            $,
+            ($): t_out.Error.type_ => {
+                switch ($[0]) {
+                    case 'source does not exist':
+                        return _p.ss(
+                            $,
+                            ($) => ['source does not exist', null],
+                        )
+                    case 'node is not a file':
+                        return _p.ss(
+                            $,
+                            ($) => ['node is not a file', null],
+                        )
+                    case 'permission denied':
+                        return _p.ss(
+                            $,
+                            ($) => ['permission denied', null],
+                        )
+                    case 'file too large':
+                        return _p.ss(
+                            $,
+                            ($) => ['file too large', null],
+                        )
+                    case 'device not ready':
+                        return _p.ss(
+                            $,
+                            ($) => ['device not ready', null],
+                        )
+                    default:
+                        return _p.au(
+                            $[0],
+                        )
+                }
+            },
+        ),
+    ),
+})

@@ -13,13 +13,12 @@ import * as t_path_to_text from "../path/text"
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const Error: Error = ($) => {
-    return _p.decide.state($, ($) => {
+export const Error: Error = ($) => sh.ph.composed([
+    _p.decide.state($.type, ($) => {
         switch ($[0]) {
             case 'permission denied': return _p.ss($, ($) => sh.ph.literal("permission denied"))
             case 'file does not exist': return _p.ss($, ($) => sh.ph.composed([
-                sh.ph.literal("file does not exist: "),
-                sh.ph.serialize(t_path_to_text.Node_Path($.path)),
+                sh.ph.literal("file does not exist"),
 
             ]))
             case 'node is not a file': return _p.ss($, ($) => sh.ph.literal("node is not a file"))
@@ -27,5 +26,8 @@ export const Error: Error = ($) => {
             case 'device not ready': return _p.ss($, ($) => sh.ph.literal("device not ready"))
             default: return _p.au($[0])
         }
-    })
-}
+    }),
+    sh.ph.literal(": "),
+    sh.ph.serialize(t_path_to_text.Node_Path($.path)),
+
+])

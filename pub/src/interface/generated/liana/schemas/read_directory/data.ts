@@ -15,15 +15,26 @@ export type Parameters_ = {
 
 export namespace Error_ {
     
-    export type directory_does_not_exist = null
+    export type path = i__imports_path.Node_Path
     
-    export type node_is_not_a_directory = null
+    export namespace type_ {
+        
+        export type directory_does_not_exist = null
+        
+        export type node_is_not_a_directory = null
+        
+    }
+    
+    export type type_ = 
+        | readonly ['directory does not exist', type_.directory_does_not_exist]
+        | readonly ['node is not a directory', type_.node_is_not_a_directory]
     
 }
 
-export type Error_ = 
-    | readonly ['directory does not exist', Error_.directory_does_not_exist]
-    | readonly ['node is not a directory', Error_.node_is_not_a_directory]
+export type Error_ = {
+    readonly 'path': Error_.path
+    readonly 'type': Error_.type_
+}
 
 export namespace Result_ {
     

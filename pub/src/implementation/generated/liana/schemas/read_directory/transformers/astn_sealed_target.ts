@@ -26,33 +26,46 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     },
 )]]
 
-export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
-    $,
-    ($): t_out.Value.state => {
-        switch ($[0]) {
-            case 'directory does not exist':
-                return _p.ss(
-                    $,
-                    ($) => ({
-                        'option': 'directory does not exist',
-                        'value': ['nothing', null],
-                    }),
-                )
-            case 'node is not a directory':
-                return _p.ss(
-                    $,
-                    ($) => ({
-                        'option': 'node is not a directory',
-                        'value': ['nothing', null],
-                    }),
-                )
-            default:
-                return _p.au(
-                    $[0],
-                )
-        }
+export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.dictionary.literal(
+    {
+        "path": _p_change_context(
+            $['path'],
+            ($) => v_external_path.Node_Path(
+                $,
+            ),
+        ),
+        "type": _p_change_context(
+            $['type'],
+            ($) => ['state', _p.decide.state(
+                $,
+                ($): t_out.Value.state => {
+                    switch ($[0]) {
+                        case 'directory does not exist':
+                            return _p.ss(
+                                $,
+                                ($) => ({
+                                    'option': 'directory does not exist',
+                                    'value': ['nothing', null],
+                                }),
+                            )
+                        case 'node is not a directory':
+                            return _p.ss(
+                                $,
+                                ($) => ({
+                                    'option': 'node is not a directory',
+                                    'value': ['nothing', null],
+                                }),
+                            )
+                        default:
+                            return _p.au(
+                                $[0],
+                            )
+                    }
+                },
+            )],
+        ),
     },
-)]
+)]]
 
 export const Result: t_signatures.Result = ($) => ['dictionary', _p.dictionary.from.dictionary(
     $,
