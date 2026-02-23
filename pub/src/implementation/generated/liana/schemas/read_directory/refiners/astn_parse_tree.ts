@@ -166,95 +166,87 @@ export const Result: t_signatures.Result = ($, abort) => _p_change_context(
             $,
         ),
     ),
-    ($) => _p_variables(
-        () => {
-            
-            const var_dictionary_range = v_parse_tree_to_location.Value(
-                $['value'],
-            )
-            return _p.dictionary.from.dictionary(
-                $['entries'],
-            ).map(
-                ($, id) => _p_change_context(
-                    v_unmarshalled_from_parse_tree.Verbose_Group(
-                        $,
-                        ($) => abort(
-                            $,
-                        ),
+    ($) => _p.dictionary.from.dictionary(
+        $['entries'],
+    ).map(
+        ($, id) => _p_change_context(
+            v_unmarshalled_from_parse_tree.Verbose_Group(
+                $,
+                ($) => abort(
+                    $,
+                ),
+                {
+                    'expected properties': _p.dictionary.literal(
                         {
-                            'expected properties': _p.dictionary.literal(
+                            "node type": null,
+                            "context directory": null,
+                            "path": null,
+                        },
+                    ),
+                },
+            ),
+            ($) => _p_variables(
+                () => {
+                    
+                    const var_verbose_group_range = v_parse_tree_to_location.Value(
+                        $['value'],
+                    )
+                    return {
+                        'node type': _p_change_context(
+                            v_unmarshalled_from_parse_tree.Property(
+                                $,
+                                ($) => abort(
+                                    $,
+                                ),
                                 {
-                                    "node type": null,
-                                    "context directory": null,
-                                    "path": null,
+                                    'id': 'node type',
                                 },
                             ),
-                        },
-                    ),
-                    ($) => _p_variables(
-                        () => {
-                            
-                            const var_verbose_group_range = v_parse_tree_to_location.Value(
-                                $['value'],
-                            )
-                            return {
-                                'node type': _p_change_context(
-                                    v_unmarshalled_from_parse_tree.Property(
-                                        $,
-                                        ($) => abort(
-                                            $,
-                                        ),
-                                        {
-                                            'id': 'node type',
-                                        },
-                                    ),
-                                    ($) => Node_Type(
-                                        $,
-                                        ($) => abort(
-                                            $,
-                                        ),
-                                    ),
+                            ($) => Node_Type(
+                                $,
+                                ($) => abort(
+                                    $,
                                 ),
-                                'context directory': _p_change_context(
-                                    v_unmarshalled_from_parse_tree.Property(
-                                        $,
-                                        ($) => abort(
-                                            $,
-                                        ),
-                                        {
-                                            'id': 'context directory',
-                                        },
-                                    ),
-                                    ($) => v_external_path.Context_Path(
-                                        $,
-                                        ($) => abort(
-                                            $,
-                                        ),
-                                    ),
+                            ),
+                        ),
+                        'context directory': _p_change_context(
+                            v_unmarshalled_from_parse_tree.Property(
+                                $,
+                                ($) => abort(
+                                    $,
                                 ),
-                                'path': _p_change_context(
-                                    v_unmarshalled_from_parse_tree.Property(
-                                        $,
-                                        ($) => abort(
-                                            $,
-                                        ),
-                                        {
-                                            'id': 'path',
-                                        },
-                                    ),
-                                    ($) => v_external_path.Node_Path(
-                                        $,
-                                        ($) => abort(
-                                            $,
-                                        ),
-                                    ),
+                                {
+                                    'id': 'context directory',
+                                },
+                            ),
+                            ($) => v_external_path.Context_Path(
+                                $,
+                                ($) => abort(
+                                    $,
                                 ),
-                            }
-                        },
-                    ),
-                ),
-            )
-        },
+                            ),
+                        ),
+                        'path': _p_change_context(
+                            v_unmarshalled_from_parse_tree.Property(
+                                $,
+                                ($) => abort(
+                                    $,
+                                ),
+                                {
+                                    'id': 'path',
+                                },
+                            ),
+                            ($) => v_external_path.Node_Path(
+                                $,
+                                ($) => abort(
+                                    $,
+                                ),
+                            ),
+                        ),
+                    }
+                },
+            ),
+        ),
     ),
 )
 
