@@ -13,7 +13,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/foun
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/dist/implementation/manual/refiners/unmarshalled/astn_parse_tree"
 
-import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/location"
+import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 
 import * as v_external_list_of_characters from "../../list_of_characters/refiners/astn_parse_tree"
 
