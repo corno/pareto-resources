@@ -8,7 +8,7 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 export type Error = _pi.Transformer<d_in.Error, d_out.Phrase>
 
 //dependencies
-import * as t_path_to_text from "../path/text"
+import * as t_path_to_text from "../path/list_of_characters"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
