@@ -1,6 +1,8 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
+import * as i__imports_path from "../path/data"
+
 import * as i__imports_terminal_output from "../terminal_output/data"
 
 export namespace Parameters_ {
@@ -13,10 +15,13 @@ export namespace Parameters_ {
     
     export type args = _pi.List<args.L>
     
+    export type working_directory = i__imports_path.Context_Path
+    
 }
 
 export type Parameters_ = {
     readonly 'args': Parameters_.args
+    readonly 'working directory': Parameters_.working_directory
 }
 
 export namespace Error_ {

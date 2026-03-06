@@ -7,6 +7,8 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/execute_any_command_executable/data"
 
+import * as v_path from "../../path/transformers/boilerplate_for_migrate"
+
 import * as v_terminal_output from "../../terminal_output/transformers/boilerplate_for_migrate"
 
 export const Parameters: t_signatures.Parameters = ($) => ({
@@ -20,6 +22,12 @@ export const Parameters: t_signatures.Parameters = ($) => ({
             $,
         ).map(
             ($) => $,
+        ),
+    ),
+    'working directory': _p_change_context(
+        $['working directory'],
+        ($) => v_path.Context_Path(
+            $,
         ),
     ),
 })

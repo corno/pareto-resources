@@ -11,6 +11,8 @@ import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 
 import * as v_primitives_to_text from "liana-core/dist/implementation/manual/transformers/primitives/text"
 
+import * as v_external_path from "../../path/transformers/astn_sealed_target"
+
 import * as v_external_terminal_output from "../../terminal_output/transformers/astn_sealed_target"
 
 export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
@@ -25,6 +27,12 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                     'value': $,
                 }],
             )],
+        ),
+        "working directory": _p_change_context(
+            $['working directory'],
+            ($) => v_external_path.Context_Path(
+                $,
+            ),
         ),
     },
 )]]
