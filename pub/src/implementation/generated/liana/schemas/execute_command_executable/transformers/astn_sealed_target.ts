@@ -30,9 +30,13 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
         ),
         "working directory": _p_change_context(
             $['working directory'],
-            ($) => v_external_path.Context_Path(
+            ($) => ['optional', _p.decide.optional(
                 $,
-            ),
+                ($): t_out.Value.optional => ['set', v_external_path.Context_Path(
+                    $,
+                )],
+                () => ['not set', null],
+            )],
         ),
     },
 )]]

@@ -17,7 +17,13 @@ export namespace Parameters_ {
     
     export type args = _pi.List<args.L>
     
-    export type working_directory = i__imports_path.Context_Path
+    export namespace working_directory {
+        
+        export type O = i__imports_path.Context_Path
+        
+    }
+    
+    export type working_directory = _pi.Optional_Value<working_directory.O>
     
 }
 

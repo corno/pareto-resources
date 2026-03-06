@@ -80,10 +80,19 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                             'id': 'working directory',
                         },
                     ),
-                    ($) => v_external_path.Context_Path(
-                        $,
-                        ($) => abort(
+                    ($) => _p.optional.from.optional(
+                        v_unmarshalled_from_parse_tree.Optional(
                             $,
+                            ($) => abort(
+                                $,
+                            ),
+                        )['optional'],
+                    ).map(
+                        ($) => v_external_path.Context_Path(
+                            $,
+                            ($) => abort(
+                                $,
+                            ),
                         ),
                     ),
                 ),

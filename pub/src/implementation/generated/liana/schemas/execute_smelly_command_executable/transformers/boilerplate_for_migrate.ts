@@ -22,8 +22,12 @@ export const Parameters: t_signatures.Parameters = ($) => ({
     ),
     'working directory': _p_change_context(
         $['working directory'],
-        ($) => v_path.Context_Path(
+        ($) => _p.optional.from.optional(
             $,
+        ).map(
+            ($) => v_path.Context_Path(
+                $,
+            ),
         ),
     ),
 })
