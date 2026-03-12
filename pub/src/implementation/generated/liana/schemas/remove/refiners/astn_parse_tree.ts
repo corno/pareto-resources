@@ -164,7 +164,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                     default:
                                         return abort(
                                             ['liana', {
-                                                'type': ['state', ['unknown option', $['option'].token['value']]],
+                                                'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                 'range': v_parse_tree_to_location.Value(
                                                     $['value'],
                                                 ),
