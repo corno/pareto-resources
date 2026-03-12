@@ -25,7 +25,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
         ),
     ),
     ($) => _p.decide.text(
-        $['option']['value'],
+        $['option']['token']['value'],
         ($t): t_out.Paragraph => {
             switch ($t) {
                 case 'composed':
@@ -327,7 +327,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                 default:
                     return abort(
                         ['liana', {
-                            'type': ['state', ['unknown option', $['option']['value']]],
+                            'type': ['state', ['unknown option', $['option'].token['value']]],
                             'range': v_parse_tree_to_location.Value(
                                 $['value'],
                             ),
@@ -365,7 +365,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
         ),
     ),
     ($) => _p.decide.text(
-        $['option']['value'],
+        $['option']['token']['value'],
         ($t): t_out.Phrase => {
             switch ($t) {
                 case 'value':
@@ -379,7 +379,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                 ),
                             ),
                             ($) => _p.decide.text(
-                                $['option']['value'],
+                                $['option']['token']['value'],
                                 ($t): t_out.Phrase.value => {
                                     switch ($t) {
                                         case 'text':
@@ -405,7 +405,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                         default:
                                             return abort(
                                                 ['liana', {
-                                                    'type': ['state', ['unknown option', $['option']['value']]],
+                                                    'type': ['state', ['unknown option', $['option'].token['value']]],
                                                     'range': v_parse_tree_to_location.Value(
                                                         $['value'],
                                                     ),
@@ -646,7 +646,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                 default:
                     return abort(
                         ['liana', {
-                            'type': ['state', ['unknown option', $['option']['value']]],
+                            'type': ['state', ['unknown option', $['option'].token['value']]],
                             'range': v_parse_tree_to_location.Value(
                                 $['value'],
                             ),

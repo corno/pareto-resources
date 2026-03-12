@@ -22,21 +22,21 @@ export const build_list_with_loop = <Iterator_Element, List_Element>(
     callback: ($: Iterator_Element, $i: { 'add item': (element: List_Element) => void }) => boolean,
 ): _pi.List<List_Element> => {
     const loop = (callback: () => boolean) => {
-    while (true) {
-        if (callback()) {
-            break
+        while (true) {
+            if (callback()) {
+                break
+            }
         }
     }
-}
 
     const loop_elements = <T>(iterator: _pi.Iterator<T>, callback: ($: T) => boolean) => {
-    loop(() => {
-        const next = iterator.look()
-        return next === null
-            ? true
-            : callback(next[0])
-    })
-}
+        loop(() => {
+            const next = iterator.look()
+            return next === null
+                ? true
+                : callback(next[0])
+        })
+    }
     return _p_list_build_deprecated(($i) => {
         loop_elements(iterator, ($) => {
             return callback($, {
