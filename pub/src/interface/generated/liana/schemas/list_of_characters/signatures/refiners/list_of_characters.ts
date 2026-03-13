@@ -17,8 +17,6 @@ export namespace List_of_Characters_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -29,7 +27,6 @@ export type List_of_Characters_ = (
     context: List_of_Characters_.I,
     abort: _pi.Abort<List_of_Characters_.E>,
     parameters: {
-        readonly 'document resource identifier': List_of_Characters_.P.document_resource_identifier
         readonly 'tab size': List_of_Characters_.P.tab_size
     },
 ) => List_of_Characters_.O

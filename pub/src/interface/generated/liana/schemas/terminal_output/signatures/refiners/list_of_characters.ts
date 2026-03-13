@@ -17,8 +17,6 @@ export namespace Message_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -29,7 +27,6 @@ export type Message_ = (
     context: Message_.I,
     abort: _pi.Abort<Message_.E>,
     parameters: {
-        readonly 'document resource identifier': Message_.P.document_resource_identifier
         readonly 'tab size': Message_.P.tab_size
     },
 ) => Message_.O

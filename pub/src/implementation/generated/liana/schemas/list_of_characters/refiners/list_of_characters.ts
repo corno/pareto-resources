@@ -14,7 +14,6 @@ export const List_of_Characters: t_signatures.List_of_Characters = ($, abort, $p
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],

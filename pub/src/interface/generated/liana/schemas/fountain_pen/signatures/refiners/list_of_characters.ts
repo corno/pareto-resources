@@ -17,8 +17,6 @@ export namespace Paragraph_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -29,7 +27,6 @@ export type Paragraph_ = (
     context: Paragraph_.I,
     abort: _pi.Abort<Paragraph_.E>,
     parameters: {
-        readonly 'document resource identifier': Paragraph_.P.document_resource_identifier
         readonly 'tab size': Paragraph_.P.tab_size
     },
 ) => Paragraph_.O
@@ -44,8 +41,6 @@ export namespace Sentence_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -56,7 +51,6 @@ export type Sentence_ = (
     context: Sentence_.I,
     abort: _pi.Abort<Sentence_.E>,
     parameters: {
-        readonly 'document resource identifier': Sentence_.P.document_resource_identifier
         readonly 'tab size': Sentence_.P.tab_size
     },
 ) => Sentence_.O
@@ -71,8 +65,6 @@ export namespace Phrase_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -83,7 +75,6 @@ export type Phrase_ = (
     context: Phrase_.I,
     abort: _pi.Abort<Phrase_.E>,
     parameters: {
-        readonly 'document resource identifier': Phrase_.P.document_resource_identifier
         readonly 'tab size': Phrase_.P.tab_size
     },
 ) => Phrase_.O

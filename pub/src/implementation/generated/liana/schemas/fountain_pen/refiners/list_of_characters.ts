@@ -14,7 +14,6 @@ export const Paragraph: t_signatures.Paragraph = ($, abort, $p) => v_unmarshall.
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -30,7 +29,6 @@ export const Sentence: t_signatures.Sentence = ($, abort, $p) => v_unmarshall.Se
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -46,7 +44,6 @@ export const Phrase: t_signatures.Phrase = ($, abort, $p) => v_unmarshall.Phrase
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],

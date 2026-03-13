@@ -14,7 +14,6 @@ export const Message: t_signatures.Message = ($, abort, $p) => v_unmarshall.Mess
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
