@@ -22,7 +22,7 @@ export const List_of_Characters: t_signatures.List_of_Characters = ($, abort) =>
             $,
         ),
         {
-            'document resource identifier': "dummy dri",
+            'subdocument context': _p.optional.literal.not_set(),
         },
     )['items'],
 ).map(
@@ -35,7 +35,7 @@ export const List_of_Characters: t_signatures.List_of_Characters = ($, abort) =>
             ),
             {
                 'type': ['decimal', null],
-                'document resource identifier': "dummy dri",
+                'subdocument context': _p.optional.literal.not_set(),
             },
         ),
     ),

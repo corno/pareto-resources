@@ -28,7 +28,7 @@ export const Message: t_signatures.Message = ($, abort) => _p_change_context(
                     "raw": null,
                 },
             ),
-            'document resource identifier': "dummy dri",
+            'subdocument context': _p.optional.literal.not_set(),
         },
     ),
     ($) => _p_variables(
@@ -37,7 +37,7 @@ export const Message: t_signatures.Message = ($, abort) => _p_change_context(
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
                 {
-                    'document resource identifier': "dummy dri",
+                    'subdocument context': _p.optional.literal.not_set(),
                 },
             )
             return {
@@ -49,7 +49,7 @@ export const Message: t_signatures.Message = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'lines',
-                            'document resource identifier': "dummy dri",
+                            'subdocument context': _p.optional.literal.not_set(),
                         },
                     ),
                     ($) => _p.list.from.list(
@@ -59,7 +59,7 @@ export const Message: t_signatures.Message = ($, abort) => _p_change_context(
                                 $,
                             ),
                             {
-                                'document resource identifier': "dummy dri",
+                                'subdocument context': _p.optional.literal.not_set(),
                             },
                         )['items'],
                     ).map(
@@ -82,7 +82,7 @@ export const Message: t_signatures.Message = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'raw',
-                            'document resource identifier': "dummy dri",
+                            'subdocument context': _p.optional.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
