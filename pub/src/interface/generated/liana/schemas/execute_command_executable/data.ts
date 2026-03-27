@@ -1,9 +1,9 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i__imports_path from "../path/data"
+import * as i_imports_path from "../path/data"
 
-import * as i__imports_terminal_output from "../terminal_output/data"
+import * as i_imports_terminal_output from "../terminal_output/data"
 
 export namespace Parameters_ {
     
@@ -17,7 +17,7 @@ export namespace Parameters_ {
     
     export namespace working_directory {
         
-        export type O = i__imports_path.Context_Path
+        export type O = i_imports_path.Context_Path
         
     }
     
@@ -34,7 +34,7 @@ export namespace Error_ {
     
     export namespace failed_to_spawn {
         
-        export type message = i__imports_terminal_output.Message
+        export type message = i_imports_terminal_output.Message
         
     }
     
@@ -52,7 +52,7 @@ export namespace Error_ {
         
         export type exit_code = _pi.Optional_Value<exit_code.O>
         
-        export type stderr = i__imports_terminal_output.Message
+        export type stderr = i_imports_terminal_output.Message
         
     }
     

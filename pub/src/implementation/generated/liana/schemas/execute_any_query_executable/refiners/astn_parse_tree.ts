@@ -13,7 +13,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/exec
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/dist/implementation/manual/refiners/unmarshalled/astn_parse_tree"
 
-import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
+import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 
 import * as v_external_path from "../../path/refiners/astn_parse_tree"
 
@@ -33,6 +33,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                     "working directory": null,
                 },
             ),
+            'document resource identifier': "dummy dri",
         },
     ),
     ($) => _p_variables(
@@ -40,6 +41,9 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
             
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
+                {
+                    'document resource identifier': "dummy dri",
+                },
             )
             return {
                 'program': _p_change_context(
@@ -50,6 +54,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                         ),
                         {
                             'id': 'program',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -67,6 +72,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                         ),
                         {
                             'id': 'args',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p.list.from.list(
@@ -75,6 +81,9 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                             ($) => abort(
                                 $,
                             ),
+                            {
+                                'document resource identifier': "dummy dri",
+                            },
                         )['items'],
                     ).map(
                         ($) => _p_change_context(
@@ -96,6 +105,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                         ),
                         {
                             'id': 'working directory',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p.optional.from.optional(
@@ -145,6 +155,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                             "message": null,
                                         },
                                     ),
+                                    'document resource identifier': "dummy dri",
                                 },
                             ),
                             ($) => _p_variables(
@@ -152,6 +163,9 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                     
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
+                                        {
+                                            'document resource identifier': "dummy dri",
+                                        },
                                     )
                                     return {
                                         'message': _p_change_context(
@@ -162,6 +176,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                                 ),
                                                 {
                                                     'id': 'message',
+                                                    'document resource identifier': "dummy dri",
                                                 },
                                             ),
                                             ($) => v_external_terminal_output.Message(
@@ -192,6 +207,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                             "stderr": null,
                                         },
                                     ),
+                                    'document resource identifier': "dummy dri",
                                 },
                             ),
                             ($) => _p_variables(
@@ -199,6 +215,9 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                     
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
+                                        {
+                                            'document resource identifier': "dummy dri",
+                                        },
                                     )
                                     return {
                                         'exit code': _p_change_context(
@@ -209,6 +228,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                                 ),
                                                 {
                                                     'id': 'exit code',
+                                                    'document resource identifier': "dummy dri",
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -226,6 +246,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
+                                                        'document resource identifier': "dummy dri",
                                                     },
                                                 ),
                                             ),
@@ -238,6 +259,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                                 ),
                                                 {
                                                     'id': 'stderr',
+                                                    'document resource identifier': "dummy dri",
                                                 },
                                             ),
                                             ($) => v_external_terminal_output.Message(
@@ -258,6 +280,9 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                             'type': ['state', ['unknown option', $['option']['token']['value']]],
                             'range': v_parse_tree_to_location.Value(
                                 $['value'],
+                                {
+                                    'document resource identifier': "dummy dri",
+                                },
                             ),
                         }],
                     )
@@ -278,6 +303,7 @@ export const Result: t_signatures.Result = ($, abort) => _p_change_context(
                     "stdout": null,
                 },
             ),
+            'document resource identifier': "dummy dri",
         },
     ),
     ($) => _p_variables(
@@ -285,6 +311,9 @@ export const Result: t_signatures.Result = ($, abort) => _p_change_context(
             
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
+                {
+                    'document resource identifier': "dummy dri",
+                },
             )
             return {
                 'stdout': _p_change_context(
@@ -295,6 +324,7 @@ export const Result: t_signatures.Result = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'stdout',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => v_external_terminal_output.Message(

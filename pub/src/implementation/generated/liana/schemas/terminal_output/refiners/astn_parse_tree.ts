@@ -13,7 +13,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/term
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/dist/implementation/manual/refiners/unmarshalled/astn_parse_tree"
 
-import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
+import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 
 export const Message: t_signatures.Message = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Verbose_Group(
@@ -28,6 +28,7 @@ export const Message: t_signatures.Message = ($, abort) => _p_change_context(
                     "raw": null,
                 },
             ),
+            'document resource identifier': "dummy dri",
         },
     ),
     ($) => _p_variables(
@@ -35,6 +36,9 @@ export const Message: t_signatures.Message = ($, abort) => _p_change_context(
             
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
+                {
+                    'document resource identifier': "dummy dri",
+                },
             )
             return {
                 'lines': _p_change_context(
@@ -45,6 +49,7 @@ export const Message: t_signatures.Message = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'lines',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p.list.from.list(
@@ -53,6 +58,9 @@ export const Message: t_signatures.Message = ($, abort) => _p_change_context(
                             ($) => abort(
                                 $,
                             ),
+                            {
+                                'document resource identifier': "dummy dri",
+                            },
                         )['items'],
                     ).map(
                         ($) => _p_change_context(
@@ -74,6 +82,7 @@ export const Message: t_signatures.Message = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'raw',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(

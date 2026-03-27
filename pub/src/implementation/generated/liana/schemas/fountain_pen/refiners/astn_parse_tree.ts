@@ -13,7 +13,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/foun
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/dist/implementation/manual/refiners/unmarshalled/astn_parse_tree"
 
-import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
+import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 
 import * as v_external_list_of_characters from "../../list_of_characters/refiners/astn_parse_tree"
 
@@ -37,6 +37,9 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                 ($) => abort(
                                     $,
                                 ),
+                                {
+                                    'document resource identifier': "dummy dri",
+                                },
                             )['items'],
                         ).map(
                             ($) => _p_change_context(
@@ -59,6 +62,9 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                 ($) => abort(
                                     $,
                                 ),
+                                {
+                                    'document resource identifier': "dummy dri",
+                                },
                             )['items'],
                         ).map(
                             ($) => _p_change_context(
@@ -118,6 +124,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                             "if not empty": null,
                                         },
                                     ),
+                                    'document resource identifier': "dummy dri",
                                 },
                             ),
                             ($) => _p_variables(
@@ -125,6 +132,9 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                     
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
+                                        {
+                                            'document resource identifier': "dummy dri",
+                                        },
                                     )
                                     return {
                                         'items': _p_change_context(
@@ -135,6 +145,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                 ),
                                                 {
                                                     'id': 'items',
+                                                    'document resource identifier': "dummy dri",
                                                 },
                                             ),
                                             ($) => _p.list.from.list(
@@ -143,6 +154,9 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                     ($) => abort(
                                                         $,
                                                     ),
+                                                    {
+                                                        'document resource identifier': "dummy dri",
+                                                    },
                                                 )['items'],
                                             ).map(
                                                 ($) => _p_change_context(
@@ -164,6 +178,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                 ),
                                                 {
                                                     'id': 'if empty',
+                                                    'document resource identifier': "dummy dri",
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -190,6 +205,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                 ),
                                                 {
                                                     'id': 'if not empty',
+                                                    'document resource identifier': "dummy dri",
                                                 },
                                             ),
                                             ($) => _p_change_context(
@@ -207,6 +223,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                                 "after": null,
                                                             },
                                                         ),
+                                                        'document resource identifier': "dummy dri",
                                                     },
                                                 ),
                                                 ($) => _p_variables(
@@ -214,6 +231,9 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                         
                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                             $['value'],
+                                                            {
+                                                                'document resource identifier': "dummy dri",
+                                                            },
                                                         )
                                                         return {
                                                             'before': _p_change_context(
@@ -224,6 +244,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                                     ),
                                                                     {
                                                                         'id': 'before',
+                                                                        'document resource identifier': "dummy dri",
                                                                     },
                                                                 ),
                                                                 ($) => _p.optional.from.optional(
@@ -250,6 +271,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                                     ),
                                                                     {
                                                                         'id': 'indent',
+                                                                        'document resource identifier': "dummy dri",
                                                                     },
                                                                 ),
                                                                 ($) => v_unmarshalled_from_parse_tree.Boolean(
@@ -259,6 +281,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                                     ),
                                                                     {
                                                                         'type': ['true/false', null],
+                                                                        'document resource identifier': "dummy dri",
                                                                     },
                                                                 ),
                                                             ),
@@ -270,6 +293,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                                     ),
                                                                     {
                                                                         'id': 'separator',
+                                                                        'document resource identifier': "dummy dri",
                                                                     },
                                                                 ),
                                                                 ($) => _p.optional.from.optional(
@@ -296,6 +320,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                                                                     ),
                                                                     {
                                                                         'id': 'after',
+                                                                        'document resource identifier': "dummy dri",
                                                                     },
                                                                 ),
                                                                 ($) => _p.optional.from.optional(
@@ -330,6 +355,9 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => _p_change_context
                             'type': ['state', ['unknown option', $['option']['token']['value']]],
                             'range': v_parse_tree_to_location.Value(
                                 $['value'],
+                                {
+                                    'document resource identifier': "dummy dri",
+                                },
                             ),
                         }],
                     )
@@ -344,6 +372,9 @@ export const Sentence: t_signatures.Sentence = ($, abort) => _p.list.from.list(
         ($) => abort(
             $,
         ),
+        {
+            'document resource identifier': "dummy dri",
+        },
     )['items'],
 ).map(
     ($) => _p_change_context(
@@ -408,6 +439,9 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                                     'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                     'range': v_parse_tree_to_location.Value(
                                                         $['value'],
+                                                        {
+                                                            'document resource identifier': "dummy dri",
+                                                        },
                                                     ),
                                                 }],
                                             )
@@ -435,6 +469,9 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                 ($) => abort(
                                     $,
                                 ),
+                                {
+                                    'document resource identifier': "dummy dri",
+                                },
                             )['items'],
                         ).map(
                             ($) => _p_change_context(
@@ -494,6 +531,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                             "if not empty": null,
                                         },
                                     ),
+                                    'document resource identifier': "dummy dri",
                                 },
                             ),
                             ($) => _p_variables(
@@ -501,6 +539,9 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                     
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
+                                        {
+                                            'document resource identifier': "dummy dri",
+                                        },
                                     )
                                     return {
                                         'items': _p_change_context(
@@ -511,6 +552,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                                 ),
                                                 {
                                                     'id': 'items',
+                                                    'document resource identifier': "dummy dri",
                                                 },
                                             ),
                                             ($) => _p.list.from.list(
@@ -519,6 +561,9 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                                     ($) => abort(
                                                         $,
                                                     ),
+                                                    {
+                                                        'document resource identifier': "dummy dri",
+                                                    },
                                                 )['items'],
                                             ).map(
                                                 ($) => _p_change_context(
@@ -540,6 +585,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                                 ),
                                                 {
                                                     'id': 'if empty',
+                                                    'document resource identifier': "dummy dri",
                                                 },
                                             ),
                                             ($) => Phrase(
@@ -557,6 +603,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                                 ),
                                                 {
                                                     'id': 'if not empty',
+                                                    'document resource identifier': "dummy dri",
                                                 },
                                             ),
                                             ($) => _p_change_context(
@@ -573,6 +620,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                                                 "after": null,
                                                             },
                                                         ),
+                                                        'document resource identifier': "dummy dri",
                                                     },
                                                 ),
                                                 ($) => _p_variables(
@@ -580,6 +628,9 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                                         
                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                             $['value'],
+                                                            {
+                                                                'document resource identifier': "dummy dri",
+                                                            },
                                                         )
                                                         return {
                                                             'before': _p_change_context(
@@ -590,6 +641,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                                                     ),
                                                                     {
                                                                         'id': 'before',
+                                                                        'document resource identifier': "dummy dri",
                                                                     },
                                                                 ),
                                                                 ($) => Phrase(
@@ -607,6 +659,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                                                     ),
                                                                     {
                                                                         'id': 'separator',
+                                                                        'document resource identifier': "dummy dri",
                                                                     },
                                                                 ),
                                                                 ($) => Phrase(
@@ -624,6 +677,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                                                                     ),
                                                                     {
                                                                         'id': 'after',
+                                                                        'document resource identifier': "dummy dri",
                                                                     },
                                                                 ),
                                                                 ($) => Phrase(
@@ -649,6 +703,9 @@ export const Phrase: t_signatures.Phrase = ($, abort) => _p_change_context(
                             'type': ['state', ['unknown option', $['option']['token']['value']]],
                             'range': v_parse_tree_to_location.Value(
                                 $['value'],
+                                {
+                                    'document resource identifier': "dummy dri",
+                                },
                             ),
                         }],
                     )

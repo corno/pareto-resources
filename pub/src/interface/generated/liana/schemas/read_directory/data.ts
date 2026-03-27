@@ -1,11 +1,11 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i__imports_path from "../path/data"
+import * as i_imports_path from "../path/data"
 
 export namespace Parameters_ {
     
-    export type path = i__imports_path.Node_Path
+    export type path = i_imports_path.Node_Path
     
 }
 
@@ -15,7 +15,7 @@ export type Parameters_ = {
 
 export namespace Error_ {
     
-    export type path = i__imports_path.Node_Path
+    export type path = i_imports_path.Node_Path
     
     export namespace type_ {
         
@@ -42,9 +42,9 @@ export namespace Result_ {
         
         export type node_type = Node_Type_
         
-        export type context_directory = i__imports_path.Context_Path
+        export type context_directory = i_imports_path.Context_Path
         
-        export type path = i__imports_path.Node_Path
+        export type path = i_imports_path.Node_Path
         
     }
     

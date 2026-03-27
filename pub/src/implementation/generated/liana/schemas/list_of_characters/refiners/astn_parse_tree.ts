@@ -13,7 +13,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/list
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/dist/implementation/manual/refiners/unmarshalled/astn_parse_tree"
 
-import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
+import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 
 export const List_of_Characters: t_signatures.List_of_Characters = ($, abort) => _p.list.from.list(
     v_unmarshalled_from_parse_tree.List(
@@ -21,6 +21,9 @@ export const List_of_Characters: t_signatures.List_of_Characters = ($, abort) =>
         ($) => abort(
             $,
         ),
+        {
+            'document resource identifier': "dummy dri",
+        },
     )['items'],
 ).map(
     ($) => _p_change_context(
@@ -32,6 +35,7 @@ export const List_of_Characters: t_signatures.List_of_Characters = ($, abort) =>
             ),
             {
                 'type': ['decimal', null],
+                'document resource identifier': "dummy dri",
             },
         ),
     ),

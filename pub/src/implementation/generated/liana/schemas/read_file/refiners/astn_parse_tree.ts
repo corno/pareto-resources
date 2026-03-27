@@ -13,7 +13,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/read
 
 import * as v_unmarshalled_from_parse_tree from "liana-core/dist/implementation/manual/refiners/unmarshalled/astn_parse_tree"
 
-import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
+import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 
 import * as v_external_path from "../../path/refiners/astn_parse_tree"
 
@@ -39,6 +39,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                     "type": null,
                 },
             ),
+            'document resource identifier': "dummy dri",
         },
     ),
     ($) => _p_variables(
@@ -46,6 +47,9 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
             
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
+                {
+                    'document resource identifier': "dummy dri",
+                },
             )
             return {
                 'path': _p_change_context(
@@ -56,6 +60,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'path',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => v_external_path.Node_Path(
@@ -73,6 +78,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'type',
+                            'document resource identifier': "dummy dri",
                         },
                     ),
                     ($) => _p_change_context(
@@ -142,6 +148,9 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                                 'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                 'range': v_parse_tree_to_location.Value(
                                                     $['value'],
+                                                    {
+                                                        'document resource identifier': "dummy dri",
+                                                    },
                                                 ),
                                             }],
                                         )
