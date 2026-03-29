@@ -7,7 +7,14 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {
+                    'Natural': (
+                        `precision`: | `exact` (
+                            `decimal separator offset`: _
+                            `type`: | `natural` ~
+                        )
+                    )
+                }
             )
             `modules`: {
                 'Node Path': (
@@ -79,12 +86,7 @@
                     )
                 )
                 'Up Steps': (
-                    `root value`: | `number` | `local` (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `natural` ~
-                        )
-                    )
+                    `root value`: | `number` | `global` 'Natural'
                 )
                 'Non Normalized Path': (
                     `root value`: | `group` {
@@ -145,7 +147,7 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
@@ -245,7 +247,7 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Message': (
@@ -285,7 +287,14 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {
+                    'Integer': (
+                        `precision`: | `exact` (
+                            `decimal separator offset`: _
+                            `type`: | `integer` ~
+                        )
+                    )
+                }
             )
             `modules`: {
                 'Parameters': (
@@ -342,12 +351,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `integer` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -383,7 +387,14 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {
+                    'Integer': (
+                        `precision`: | `exact` (
+                            `decimal separator offset`: _
+                            `type`: | `integer` ~
+                        )
+                    )
+                }
             )
             `modules`: {
                 'Parameters': (
@@ -440,12 +451,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `integer` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -495,7 +501,14 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {
+                    'Integer': (
+                        `precision`: | `exact` (
+                            `decimal separator offset`: _
+                            `type`: | `integer` ~
+                        )
+                    )
+                }
             )
             `modules`: {
                 'Parameters': (
@@ -552,12 +565,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `integer` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -603,7 +611,14 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {
+                    'Integer': (
+                        `precision`: | `exact` (
+                            `decimal separator offset`: _
+                            `type`: | `integer` ~
+                        )
+                    )
+                }
             )
             `modules`: {
                 'Parameters': (
@@ -654,12 +669,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `integer` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -695,7 +705,14 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {
+                    'Integer': (
+                        `precision`: | `exact` (
+                            `decimal separator offset`: _
+                            `type`: | `integer` ~
+                        )
+                    )
+                }
             )
             `modules`: {
                 'Parameters': (
@@ -783,12 +800,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `integer` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -824,7 +836,14 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {
+                    'Integer': (
+                        `precision`: | `exact` (
+                            `decimal separator offset`: _
+                            `type`: | `integer` ~
+                        )
+                    )
+                }
             )
             `modules`: {
                 'Parameters': (
@@ -875,12 +894,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `integer` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -930,7 +944,14 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {
+                    'Integer': (
+                        `precision`: | `exact` (
+                            `decimal separator offset`: _
+                            `type`: | `integer` ~
+                        )
+                    )
+                }
             )
             `modules`: {
                 'Parameters': (
@@ -981,12 +1002,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `integer` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -1023,17 +1039,19 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {
+                    'Natural': (
+                        `precision`: | `exact` (
+                            `decimal separator offset`: _
+                            `type`: | `natural` ~
+                        )
+                    )
+                }
             )
             `modules`: {
                 'List of Characters': (
                     `root value`: | `list` (
-                        `value`: | `number` | `local` (
-                            `precision`: | `exact` (
-                                `decimal separator offset`: _
-                                `type`: | `natural` ~
-                            )
-                        )
+                        `value`: | `number` | `global` 'Natural'
                         `results`: _
                     )
                 )
@@ -1055,7 +1073,7 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Paragraph': (
@@ -1284,7 +1302,7 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
@@ -1309,7 +1327,7 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
@@ -1343,7 +1361,7 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
@@ -1377,7 +1395,7 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
@@ -1435,7 +1453,7 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
@@ -1557,7 +1575,7 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
@@ -1639,7 +1657,7 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
@@ -1706,7 +1724,7 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
@@ -1786,7 +1804,7 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
@@ -1849,7 +1867,7 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
@@ -1866,7 +1884,7 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
