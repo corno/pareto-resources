@@ -6,13 +6,22 @@
             `resolver imports`: {}
             `globals`: (
                 `complexity`: | `unconstrained` ~
-                `text types`: {}
+                `text types`: {
+                    'text': (
+                        `type`: | `single line` ~
+                    )
+                }
                 `simple types`: {
                     'Natural': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `natural` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `natural` ~
+                            )
                         )
+                    )
+                    'boolean': (
+                        `type`: | `boolean` ~
                     )
                 }
             )
@@ -28,9 +37,7 @@
                         )
                         'node': (
                             `description`: _
-                            `value`: | `text` | `local` (
-                                `type`: | `single line` ~
-                            )
+                            `value`: | `text` | `global` 'text'
                         )
                     }
                 )
@@ -54,9 +61,7 @@
                 )
                 'Context Subpath': (
                     `root value`: | `list` (
-                        `value`: | `text` | `local` (
-                            `type`: | `single line` ~
-                        )
+                        `value`: | `text` | `global` 'text'
                         `results`: _
                     )
                 )
@@ -86,13 +91,13 @@
                     )
                 )
                 'Up Steps': (
-                    `root value`: | `number` | `global` 'Natural'
+                    `root value`: | `simple` | `global` 'Natural'
                 )
                 'Non Normalized Path': (
                     `root value`: | `group` {
                         'leading slash': (
                             `description`: _
-                            `value`: | `boolean` ~
+                            `value`: | `simple` | `global` 'boolean'
                         )
                         'segments': (
                             `description`: _
@@ -107,9 +112,7 @@
                                         'child': (
                                             `constraints`: _
                                             `description`: _
-                                            `value`: | `text` | `local` (
-                                                `type`: | `single line` ~
-                                            )
+                                            `value`: | `text` | `global` 'text'
                                         )
                                         'current': (
                                             `constraints`: _
@@ -129,7 +132,7 @@
                         )
                         'trailing slash': (
                             `description`: _
-                            `value`: | `boolean` ~
+                            `value`: | `simple` | `global` 'boolean'
                         )
                     }
                 )
@@ -147,7 +150,11 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `simple types`: {}
+                `simple types`: {
+                    'boolean': (
+                        `type`: | `boolean` ~
+                    )
+                }
             )
             `modules`: {
                 'Parameters': (
@@ -177,15 +184,15 @@
                             `value`: | `group` {
                                 'recursive': (
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'force': (
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                                 'errorOnExist': (
                                     `description`: _
-                                    `value`: | `boolean` ~
+                                    `value`: | `simple` | `global` 'boolean'
                                 )
                             }
                         )
@@ -246,7 +253,14 @@
             `resolver imports`: {}
             `globals`: (
                 `complexity`: | `unconstrained` ~
-                `text types`: {}
+                `text types`: {
+                    'multi line text': (
+                        `type`: | `multi line` ~
+                    )
+                    'text': (
+                        `type`: | `single line` ~
+                    )
+                }
                 `simple types`: {}
             )
             `modules`: {
@@ -255,17 +269,13 @@
                         'lines': (
                             `description`: _
                             `value`: | `list` (
-                                `value`: | `text` | `local` (
-                                    `type`: | `single line` ~
-                                )
+                                `value`: | `text` | `global` 'text'
                                 `results`: _
                             )
                         )
                         'raw': (
                             `description`: _
-                            `value`: | `text` | `local` (
-                                `type`: | `multi line` ~
-                            )
+                            `value`: | `text` | `global` 'multi line text'
                         )
                     }
                 )
@@ -286,12 +296,18 @@
             `resolver imports`: {}
             `globals`: (
                 `complexity`: | `unconstrained` ~
-                `text types`: {}
+                `text types`: {
+                    'text': (
+                        `type`: | `single line` ~
+                    )
+                }
                 `simple types`: {
                     'Integer': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `integer` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `integer` ~
+                            )
                         )
                     )
                 }
@@ -301,16 +317,12 @@
                     `root value`: | `group` {
                         'program': (
                             `description`: _
-                            `value`: | `text` | `local` (
-                                `type`: | `single line` ~
-                            )
+                            `value`: | `text` | `global` 'text'
                         )
                         'args': (
                             `description`: _
                             `value`: | `list` (
-                                `value`: | `text` | `local` (
-                                    `type`: | `single line` ~
-                                )
+                                `value`: | `text` | `global` 'text'
                                 `results`: _
                             )
                         )
@@ -351,7 +363,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Integer'
+                                        `value`: | `optional` | `simple` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -386,12 +398,18 @@
             `resolver imports`: {}
             `globals`: (
                 `complexity`: | `unconstrained` ~
-                `text types`: {}
+                `text types`: {
+                    'text': (
+                        `type`: | `single line` ~
+                    )
+                }
                 `simple types`: {
                     'Integer': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `integer` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `integer` ~
+                            )
                         )
                     )
                 }
@@ -401,16 +419,12 @@
                     `root value`: | `group` {
                         'program': (
                             `description`: _
-                            `value`: | `text` | `local` (
-                                `type`: | `single line` ~
-                            )
+                            `value`: | `text` | `global` 'text'
                         )
                         'args': (
                             `description`: _
                             `value`: | `list` (
-                                `value`: | `text` | `local` (
-                                    `type`: | `single line` ~
-                                )
+                                `value`: | `text` | `global` 'text'
                                 `results`: _
                             )
                         )
@@ -451,7 +465,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Integer'
+                                        `value`: | `optional` | `simple` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -500,12 +514,18 @@
             `resolver imports`: {}
             `globals`: (
                 `complexity`: | `unconstrained` ~
-                `text types`: {}
+                `text types`: {
+                    'text': (
+                        `type`: | `single line` ~
+                    )
+                }
                 `simple types`: {
                     'Integer': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `integer` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `integer` ~
+                            )
                         )
                     )
                 }
@@ -515,16 +535,12 @@
                     `root value`: | `group` {
                         'program': (
                             `description`: _
-                            `value`: | `text` | `local` (
-                                `type`: | `single line` ~
-                            )
+                            `value`: | `text` | `global` 'text'
                         )
                         'args': (
                             `description`: _
                             `value`: | `list` (
-                                `value`: | `text` | `local` (
-                                    `type`: | `single line` ~
-                                )
+                                `value`: | `text` | `global` 'text'
                                 `results`: _
                             )
                         )
@@ -565,7 +581,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Integer'
+                                        `value`: | `optional` | `simple` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -610,12 +626,18 @@
             `resolver imports`: {}
             `globals`: (
                 `complexity`: | `unconstrained` ~
-                `text types`: {}
+                `text types`: {
+                    'text': (
+                        `type`: | `single line` ~
+                    )
+                }
                 `simple types`: {
                     'Integer': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `integer` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `integer` ~
+                            )
                         )
                     )
                 }
@@ -626,9 +648,7 @@
                         'args': (
                             `description`: _
                             `value`: | `list` (
-                                `value`: | `text` | `local` (
-                                    `type`: | `single line` ~
-                                )
+                                `value`: | `text` | `global` 'text'
                                 `results`: _
                             )
                         )
@@ -669,7 +689,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Integer'
+                                        `value`: | `optional` | `simple` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -704,12 +724,18 @@
             `resolver imports`: {}
             `globals`: (
                 `complexity`: | `unconstrained` ~
-                `text types`: {}
+                `text types`: {
+                    'text': (
+                        `type`: | `single line` ~
+                    )
+                }
                 `simple types`: {
                     'Integer': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `integer` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `integer` ~
+                            )
                         )
                     )
                 }
@@ -719,16 +745,12 @@
                     `root value`: | `group` {
                         'program': (
                             `description`: _
-                            `value`: | `text` | `local` (
-                                `type`: | `single line` ~
-                            )
+                            `value`: | `text` | `global` 'text'
                         )
                         'args': (
                             `description`: _
                             `value`: | `list` (
-                                `value`: | `text` | `local` (
-                                    `type`: | `single line` ~
-                                )
+                                `value`: | `text` | `global` 'text'
                                 `results`: _
                             )
                         )
@@ -800,7 +822,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Integer'
+                                        `value`: | `optional` | `simple` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -835,12 +857,18 @@
             `resolver imports`: {}
             `globals`: (
                 `complexity`: | `unconstrained` ~
-                `text types`: {}
+                `text types`: {
+                    'text': (
+                        `type`: | `single line` ~
+                    )
+                }
                 `simple types`: {
                     'Integer': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `integer` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `integer` ~
+                            )
                         )
                     )
                 }
@@ -851,9 +879,7 @@
                         'args': (
                             `description`: _
                             `value`: | `list` (
-                                `value`: | `text` | `local` (
-                                    `type`: | `single line` ~
-                                )
+                                `value`: | `text` | `global` 'text'
                                 `results`: _
                             )
                         )
@@ -894,7 +920,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Integer'
+                                        `value`: | `optional` | `simple` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -943,12 +969,18 @@
             `resolver imports`: {}
             `globals`: (
                 `complexity`: | `unconstrained` ~
-                `text types`: {}
+                `text types`: {
+                    'text': (
+                        `type`: | `single line` ~
+                    )
+                }
                 `simple types`: {
                     'Integer': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `integer` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `integer` ~
+                            )
                         )
                     )
                 }
@@ -959,9 +991,7 @@
                         'args': (
                             `description`: _
                             `value`: | `list` (
-                                `value`: | `text` | `local` (
-                                    `type`: | `single line` ~
-                                )
+                                `value`: | `text` | `global` 'text'
                                 `results`: _
                             )
                         )
@@ -1002,7 +1032,7 @@
                                 `value`: | `group` {
                                     'exit code': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Integer'
+                                        `value`: | `optional` | `simple` | `global` 'Integer'
                                     )
                                     'stderr': (
                                         `description`: _
@@ -1041,9 +1071,11 @@
                 `text types`: {}
                 `simple types`: {
                     'Natural': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `natural` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `natural` ~
+                            )
                         )
                     )
                 }
@@ -1051,7 +1083,7 @@
             `modules`: {
                 'List of Characters': (
                     `root value`: | `list` (
-                        `value`: | `number` | `global` 'Natural'
+                        `value`: | `simple` | `global` 'Natural'
                         `results`: _
                     )
                 )
@@ -1073,7 +1105,11 @@
                         `type`: | `single line` ~
                     )
                 }
-                `simple types`: {}
+                `simple types`: {
+                    'boolean': (
+                        `type`: | `boolean` ~
+                    )
+                }
             )
             `modules`: {
                 'Paragraph': (
@@ -1147,7 +1183,7 @@
                                             )
                                             'indent': (
                                                 `description`: _
-                                                `value`: | `boolean` ~
+                                                `value`: | `simple` | `global` 'boolean'
                                             )
                                             'separator': (
                                                 `description`: _
@@ -1301,7 +1337,11 @@
             `resolver imports`: {}
             `globals`: (
                 `complexity`: | `unconstrained` ~
-                `text types`: {}
+                `text types`: {
+                    'multi line text': (
+                        `type`: | `multi line` ~
+                    )
+                }
                 `simple types`: {}
             )
             `modules`: {
@@ -1309,9 +1349,7 @@
                     `root value`: | `nothing` ~
                 )
                 'Result': (
-                    `root value`: | `text` | `local` (
-                        `type`: | `multi line` ~
-                    )
+                    `root value`: | `text` | `global` 'multi line text'
                 )
             }
             `complexity`: | `unconstrained` ~
@@ -1657,7 +1695,11 @@
             `globals`: (
                 `complexity`: | `unconstrained` ~
                 `text types`: {}
-                `simple types`: {}
+                `simple types`: {
+                    'boolean': (
+                        `type`: | `boolean` ~
+                    )
+                }
             )
             `modules`: {
                 'Parameters': (
@@ -1674,7 +1716,7 @@
                         )
                         'error if not exists': (
                             `description`: _
-                            `value`: | `boolean` ~
+                            `value`: | `simple` | `global` 'boolean'
                         )
                     }
                 )
@@ -1866,14 +1908,16 @@
             `resolver imports`: {}
             `globals`: (
                 `complexity`: | `unconstrained` ~
-                `text types`: {}
+                `text types`: {
+                    'text': (
+                        `type`: | `single line` ~
+                    )
+                }
                 `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
-                    `root value`: | `text` | `local` (
-                        `type`: | `single line` ~
-                    )
+                    `root value`: | `text` | `global` 'text'
                 )
             }
             `complexity`: | `unconstrained` ~
@@ -1883,14 +1927,16 @@
             `resolver imports`: {}
             `globals`: (
                 `complexity`: | `unconstrained` ~
-                `text types`: {}
+                `text types`: {
+                    'text': (
+                        `type`: | `single line` ~
+                    )
+                }
                 `simple types`: {}
             )
             `modules`: {
                 'Parameters': (
-                    `root value`: | `text` | `local` (
-                        `type`: | `single line` ~
-                    )
+                    `root value`: | `text` | `global` 'text'
                 )
             }
             `complexity`: | `unconstrained` ~
