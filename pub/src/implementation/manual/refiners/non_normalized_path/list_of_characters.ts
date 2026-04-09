@@ -4,8 +4,7 @@ import _p_iterate from 'pareto-core/dist/_p_iterate'
 import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
-
-import { build_list_with_loop } from '../../../temp/temp_core'
+import _p_log_debug_message from 'pareto-core-dev/dist/log_debug_message'
 
 import * as d_out from "../../../../interface/generated/liana/schemas/path/data"
 import * as d_in from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
@@ -15,10 +14,11 @@ export const Non_Normalized_Path = (
 ): d_out.Non_Normalized_Path => {
     return _p_iterate(
         $,
+        null,
         (iterator) => {
             return {
                 'leading slash': (() => {
-                    const next = iterator.look()
+                    const next = iterator.look_raw()
                     if (next === null) {
                         return false
                     } else {
@@ -30,54 +30,32 @@ export const Non_Normalized_Path = (
                         }
                     }
                 })(),
-                'segments': build_list_with_loop<number, d_out.Non_Normalized_Path.segments.L>(iterator, ($, $i) => {
-                    $i['add item'](_p_change_context(
-                        _p_text_from_list(
-                            build_list_with_loop<number, number>(
-                                iterator,
-                                ($, $i) => {
-                                    if ($ !== 47) { // '/'
-                                        $i['add item']($)
-                                        iterator.discard(() => null)
-                                        return false
-                                    } else {
-                                        return true
-                                    }
-                                }
-                            ),
+                'segments': iterator.list({
+                    has_more_items: (item) =>
+                        item !== 47// '/' //a non-slash -> continue
+                        || iterator.look_ahead_raw(1) !== null,  // a slash followed by another item -> continue
+                    handle: (item) => {
+                        const segment_text = _p_text_from_list(
+                            iterator.list({
+                                has_more_items: (item) => item !== 47, // '/'
+                                handle: (item) => {
+                                    iterator.discard(() => null)
+                                    return item
+                                },
+                            }),
                             ($) => $
-                        ),
-                        ($) => {
-                            switch ($) {
-                                case "..": return ['parent', null]
-                                case ".": return ['current', null]
-                                case "": return ['nothing', null]
-                                default: return ['child', $]
-                            }
-                        })
-                    )
-                    const next = iterator.look()
-                    if (next === null) {
-                        return true
-                    } else {
-                        if (next[0] !== 47) { // '/'
-                            return _p_unreachable_code_path("the slash was used as a separator, so we should never encounter a non-slash here")
-                        } else {
-                            const la = iterator.look_ahead(1)
-                            if (la === null) {
-                                // There's no more content after the slash, this is a trailing slash - don't consume, stop loop
-                                return true
-                            } else {
-                                // There's more content after the slash, consume and continue
-                                iterator.discard(() => null)
-                                return false
-                            }
+                        )
+                        iterator.discard(() => null) // discard the slash or the end of the list
+                        switch (segment_text) {
+                            case "..": return ['parent', null]
+                            case ".": return ['current', null]
+                            case "": return ['nothing', null]
+                            default: return ['child', segment_text]
                         }
                     }
                 }),
                 'trailing slash': (() => {
-
-                    const next = iterator.look()
+                    const next = iterator.look_raw()
                     if (next === null) {
                         return false
                     } else {
