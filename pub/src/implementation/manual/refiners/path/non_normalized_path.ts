@@ -86,3 +86,57 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
     }
 
 }
+
+type Intermediate_Result2 = {
+    subppath: d_out.Context_Subpath
+    up_steps: number
+}
+
+export const Context_Path = (
+    $: d_in.Non_Normalized_Path,
+): d_out.Context_Path => {
+
+    let intermediate_result: Intermediate_Result2 = {
+
+        subppath: _p.list.literal([]),
+        up_steps: 0,
+    }
+
+    $.segments.__l_map(($) => {
+        intermediate_result = _p.decide.state($, ($): Intermediate_Result2 => {
+            switch ($[0]) {
+                case 'parent': return _p.ss($, ($) => ({
+                    'up_steps': _p.boolean.from.list(intermediate_result.subppath).is_empty()
+                        ? intermediate_result.up_steps + 1
+                        : intermediate_result.up_steps,
+                    'subppath': _p.boolean.from.list(intermediate_result.subppath).is_empty()
+                        ? intermediate_result.subppath
+                        : remove_last_element(intermediate_result.subppath),
+                    'node': null,
+                }))
+                case 'child': return _p.ss($, ($): Intermediate_Result2 => ({
+                    'up_steps': intermediate_result.up_steps,
+                    'subppath': _p.list.nested_literal_old([
+                        intermediate_result.subppath,
+                        [
+                            $
+                        ]
+                    ]),
+                }))
+                case 'current': return _p.ss($, ($) => intermediate_result)
+                case 'nothing': return _p.ss($, ($) => intermediate_result)
+                default: return _p.au($[0])
+            }
+        })
+    })
+
+    return {
+        'start': $['leading slash']
+            ? ['absolute', null]
+            : ['relative', {
+                'up steps': intermediate_result.up_steps,
+            }],
+        'subpath': intermediate_result.subppath,
+    }
+
+}

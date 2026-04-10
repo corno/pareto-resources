@@ -1,13 +1,35 @@
-import * as _p from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
+import * as _p from 'pareto-core/dist/assign'
 import _p_iterate from 'pareto-core/dist/_p_iterate'
-import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
-import _p_change_context from 'pareto-core/dist/_p_change_context'
 import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
-import _p_log_debug_message from 'pareto-core-dev/dist/log_debug_message'
 
 import * as d_out from "../../../../interface/generated/liana/schemas/path/data"
 import * as d_in from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
+import * as d_error from "./non_normalized_path"
+
+export type Parameters = { 'pedantic': boolean }
+
+export namespace signatures {
+    export type Node_Path = _pi.Refiner_With_Parameter<d_out.Node_Path, d_error.Error, d_in.List_of_Characters, Parameters>
+}
+
+
+//dependencies
+import * as r_from_non_normalized_path from "./non_normalized_path"
+
+export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
+    return r_from_non_normalized_path.Node_Path(
+        Non_Normalized_Path($),
+        abort,
+        $p,
+    )
+}
+
+export const Context_Path = ( //This one is exceptional because it will never produce errors
+    $: d_in.List_of_Characters,
+): d_out.Context_Path => r_from_non_normalized_path.Context_Path(
+    Non_Normalized_Path($),
+)
 
 export const Non_Normalized_Path = (
     $: d_in.List_of_Characters,

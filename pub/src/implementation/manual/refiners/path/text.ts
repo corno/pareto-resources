@@ -28,3 +28,23 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
         $p,
     )
 }
+
+export const Context_Path = ( //This one is exceptional because it will never produce errors
+    $: d_in.Text,
+): d_out.Context_Path => t_from_list_of_characters.Context_Path(
+    _p_list_from_text(
+        $,
+        ($) => $
+    )
+)
+
+export const Non_Normalized_Path = (
+    $: d_in.Text,
+): d_out.Non_Normalized_Path => {
+    return t_from_list_of_characters.Non_Normalized_Path(
+        _p_list_from_text(
+            $,
+            ($) => $
+        )
+    )
+}

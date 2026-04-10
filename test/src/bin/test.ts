@@ -5,9 +5,9 @@ import _p_log_debug_message from 'pareto-core-dev/dist/log_debug_message'
 import _ from 'pareto-core-dev/dist/log_debug_message'
 import _p_implement_me from 'pareto-core-dev/dist/implement_me'
 
-import * as r_non_normalized_path from "pub/dist/implementation/manual/refiners/non_normalized_path/text"
+import * as r_non_normalized_path from "pub/dist/implementation/manual/refiners/path/text"
 
-import * as r_node_path from "pub/dist/implementation/manual/refiners/node_path/non_normalized_path"
+import * as r_node_path from "pub/dist/implementation/manual/refiners/path/non_normalized_path"
 
 _p_log_debug_message("BEGIN", () => {})
 
