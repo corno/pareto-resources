@@ -17,10 +17,74 @@ import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual
 
 import * as v_external_path from "../../path/refiners/astn_parse_tree"
 
-export const Parameters: t_signatures.Parameters = ($, abort) => v_external_path.Node_Path(
-    $,
-    ($) => abort(
+export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_context(
+    v_unmarshalled_from_parse_tree.Verbose_Group(
         $,
+        ($) => abort(
+            $,
+        ),
+        {
+            'expected properties': _p.dictionary.literal(
+                {
+                    "delete existing": null,
+                    "path": null,
+                },
+            ),
+            'subdocument context': _p.optional.literal.not_set(),
+        },
+    ),
+    ($) => _p_variables(
+        () => {
+            
+            const var_verbose_group_range = v_parse_tree_to_location.Value(
+                $['value'],
+                {
+                    'subdocument context': _p.optional.literal.not_set(),
+                },
+            )
+            return {
+                'delete existing': _p_change_context(
+                    v_unmarshalled_from_parse_tree.Property(
+                        $,
+                        ($) => abort(
+                            $,
+                        ),
+                        {
+                            'id': 'delete existing',
+                            'subdocument context': _p.optional.literal.not_set(),
+                        },
+                    ),
+                    ($) => v_unmarshalled_from_parse_tree.Boolean(
+                        $,
+                        ($) => abort(
+                            $,
+                        ),
+                        {
+                            'type': ['true/false', null],
+                            'subdocument context': _p.optional.literal.not_set(),
+                        },
+                    ),
+                ),
+                'path': _p_change_context(
+                    v_unmarshalled_from_parse_tree.Property(
+                        $,
+                        ($) => abort(
+                            $,
+                        ),
+                        {
+                            'id': 'path',
+                            'subdocument context': _p.optional.literal.not_set(),
+                        },
+                    ),
+                    ($) => v_external_path.Node_Path(
+                        $,
+                        ($) => abort(
+                            $,
+                        ),
+                    ),
+                ),
+            }
+        },
     ),
 )
 

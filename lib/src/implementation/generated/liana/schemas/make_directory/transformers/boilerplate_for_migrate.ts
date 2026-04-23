@@ -9,9 +9,18 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/make
 
 import * as v_path from "../../path/transformers/boilerplate_for_migrate"
 
-export const Parameters: t_signatures.Parameters = ($) => v_path.Node_Path(
-    $,
-)
+export const Parameters: t_signatures.Parameters = ($) => ({
+    'delete existing': _p_change_context(
+        $['delete existing'],
+        ($) => $,
+    ),
+    'path': _p_change_context(
+        $['path'],
+        ($) => v_path.Node_Path(
+            $,
+        ),
+    ),
+})
 
 export const Error: t_signatures.Error = ($) => ({
     'path': _p_change_context(
