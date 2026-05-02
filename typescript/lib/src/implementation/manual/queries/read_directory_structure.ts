@@ -14,7 +14,7 @@ export const $$: signatures.queries.read_directory_structure = _p.query_function
             'path': $p.path,
         },
         ($): d_read_directory_structure.Error => ['read directory', $],
-    ).query_without_error_transformation(
+    ).query(
         ($) => _p.dictionaryx.parallel(
             $.__d_map(($): _p.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => {
                 const path = $.path
@@ -27,7 +27,7 @@ export const $$: signatures.queries.read_directory_structure = _p.query_function
                                 'path': t_path_to_path.deprecated_node_path_to_context_path(path),
                             },
                             ($): d_read_directory_structure.Node_Error => ['directory', $]
-                        ).transform_result<d_directory_structure.Node>(($): d_directory_structure.Node => ['directory', $]))
+                        ).transform<d_directory_structure.Node>(($): d_directory_structure.Node => ['directory', $]))
                         case 'file': return _p.ss($, ($) => _p.direct_result(['file', null]))
                         case 'other': return _p.ss($, ($) => _p.direct_result(['other', null]))
                         default: return _p.au($[0])
