@@ -17,6 +17,7 @@ import * as d_read_directory_structure from "./to_be_generated/read_directory_st
 import * as d_read_file from "./generated/liana/schemas/read_file/data"
 import * as d_remove from "./generated/liana/schemas/remove/data"
 import * as d_stat from "./generated/liana/schemas/stat/data"
+import * as d_stat_possible_node from "./generated/liana/schemas/stat_possible_node/data"
 import * as d_write_directory_content from "./to_be_generated/write_directory_content"
 import * as d_write_file from "./generated/liana/schemas/write_file/data"
 import * as d_write_to_stderr from "./generated/liana/schemas/write_to_stderr/data"
@@ -52,5 +53,6 @@ export namespace queries {
     export type read_directory_structure = _pi.Query<d_read_directory_structure.Result, d_read_directory_structure.Error, d_read_directory_structure.Parameters>
     export type read_file = _pi.Query<d_read_file.Result, d_read_file.Error, d_read_file.Parameters>
     export type stat = _pi.Query<d_stat.Result, d_stat.Error, d_stat.Parameters>
+    export type stat_possible_node = _pi.Query<d_stat_possible_node.Result, d_stat_possible_node.Error, d_stat_possible_node.Parameters>
 
 }
