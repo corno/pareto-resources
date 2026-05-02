@@ -7,7 +7,7 @@ import * as d_directory_structure from "./directory_structure"
 
 
 export type Parameters = {
-    'path': d_path.Node_Path,
+    'path': d_path.Context_Path,
 }
 
 export type Result = d_directory_structure.Directory

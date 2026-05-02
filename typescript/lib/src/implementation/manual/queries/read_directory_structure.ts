@@ -5,6 +5,9 @@ import * as d_read_directory_structure from "../../../interface/to_be_generated/
 
 import * as signatures from "../../../interface/signatures"
 
+//dependencies
+import * as t_path_to_path from "../transformers/path/path"
+
 export const $$: signatures.queries.read_directory_structure = _p.query_function(
     ($p, $r) => $r['read directory'](
         {
@@ -21,7 +24,7 @@ export const $$: signatures.queries.read_directory_structure = _p.query_function
                             $r,
                         )(
                             {
-                                'path': path,
+                                'path': t_path_to_path.deprecated_node_path_to_context_path(path),
                             },
                             ($): d_read_directory_structure.Node_Error => ['directory', $]
                         ).transform_result<d_directory_structure.Node>(($): d_directory_structure.Node => ['directory', $]))

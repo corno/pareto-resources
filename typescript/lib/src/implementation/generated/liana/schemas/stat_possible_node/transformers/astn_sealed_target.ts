@@ -5,7 +5,7 @@ import _p_change_context from 'pareto-core/dist/_p_change_context'
 
 import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
 
-import * as t_signatures from "../../../../../../interface/generated/liana/schemas/read_directory/signatures/transformers/astn_sealed_target"
+import * as t_signatures from "../../../../../../interface/generated/liana/schemas/stat_possible_node/signatures/transformers/astn_sealed_target"
 
 import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_target/data"
 
@@ -13,22 +13,15 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_path from "../../path/transformers/astn_sealed_target"
 
-export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
-    {
-        "path": _p_change_context(
-            $['path'],
-            ($) => v_external_path.Context_Path(
-                $,
-            ),
-        ),
-    },
-)]]
+export const Parameters: t_signatures.Parameters = ($) => v_external_path.Node_Path(
+    $,
+)
 
 export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
         "path": _p_change_context(
             $['path'],
-            ($) => v_external_path.Context_Path(
+            ($) => v_external_path.Node_Path(
                 $,
             ),
         ),
@@ -38,19 +31,11 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.diction
                 $,
                 ($): t_out.Value.state => {
                     switch ($[0]) {
-                        case 'directory does not exist':
+                        case 'unknown':
                             return _p.ss(
                                 $,
                                 ($) => ({
-                                    'option': 'directory does not exist',
-                                    'value': ['nothing', null],
-                                }),
-                            )
-                        case 'node is not a directory':
-                            return _p.ss(
-                                $,
-                                ($) => ({
-                                    'option': 'node is not a directory',
+                                    'option': 'unknown',
                                     'value': ['nothing', null],
                                 }),
                             )
@@ -65,37 +50,22 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.diction
     },
 )]]
 
-export const Result: t_signatures.Result = ($) => ['dictionary', _p.dictionary.from.dictionary(
+export const Result: t_signatures.Result = ($) => Node_Type(
     $,
-).map(
-    ($, id) => ['group', ['verbose', _p.dictionary.literal(
-        {
-            "node type": _p_change_context(
-                $['node type'],
-                ($) => Node_Type(
-                    $,
-                ),
-            ),
-            "context directory": _p_change_context(
-                $['context directory'],
-                ($) => v_external_path.Context_Path(
-                    $,
-                ),
-            ),
-            "path": _p_change_context(
-                $['path'],
-                ($) => v_external_path.Node_Path(
-                    $,
-                ),
-            ),
-        },
-    )]],
-)]
+)
 
 export const Node_Type: t_signatures.Node_Type = ($) => ['state', _p.decide.state(
     $,
     ($): t_out.Value.state => {
         switch ($[0]) {
+            case 'does not exist':
+                return _p.ss(
+                    $,
+                    ($) => ({
+                        'option': 'does not exist',
+                        'value': ['nothing', null],
+                    }),
+                )
             case 'file':
                 return _p.ss(
                     $,
@@ -109,14 +79,6 @@ export const Node_Type: t_signatures.Node_Type = ($) => ['state', _p.decide.stat
                     $,
                     ($) => ({
                         'option': 'directory',
-                        'value': ['nothing', null],
-                    }),
-                )
-            case 'other':
-                return _p.ss(
-                    $,
-                    ($) => ({
-                        'option': 'other',
                         'value': ['nothing', null],
                     }),
                 )

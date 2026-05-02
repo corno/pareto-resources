@@ -7,6 +7,9 @@ import * as d_read_directory_content from "../../../interface/to_be_generated/re
 
 import * as signatures from "../../../interface/signatures"
 
+//dependencies
+import * as t_path_to_path from "../transformers/path/path"
+
 export const $$: signatures.queries.read_directory_content = _p.query_function(
     ($p, $r) => $r['read directory'](
         {
@@ -27,7 +30,7 @@ export const $$: signatures.queries.read_directory_content = _p.query_function(
                             $r,
                         )(
                             {
-                                'path': path,
+                                'path': t_path_to_path.deprecated_node_path_to_context_path(path),
                             },
                             ($): d_read_directory_content.Node_Error => ['directory', $]
                         ).transform_result<d_directory_content.Node>(($): d_directory_content.Node => ['directory', $]))

@@ -8,7 +8,7 @@ import * as d_directory_contents from "./directory_content"
 
 
 export type Parameters = {
-    'path': d_path.Node_Path,
+    'path': d_path.Context_Path,
 }
 
 export type Result = d_directory_contents.Directory
