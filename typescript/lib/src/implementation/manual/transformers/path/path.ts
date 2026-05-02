@@ -4,7 +4,7 @@ import * as _p from 'pareto-core/dist/assign'
 import * as d_out from "../../../../interface/generated/liana/schemas/path/data"
 import * as d_in from "../../../../interface/generated/liana/schemas/path/data"
 
-export const extend_context_path = (
+export const extend_context_path_with_single_step = (
     $: d_in.Context_Path,
     $p: {
         'addition': string
@@ -33,7 +33,7 @@ export const extend_context_path_with_list = (
 })
 
 
-export const extend_node_path = (
+export const deprecated_extend_node_path = (
     $: d_in.Node_Path,
     $p: {
         'addition': string
@@ -55,7 +55,7 @@ export const create_node_path = (
 
 export const deprecated_node_path_to_context_path = (
     $: d_in.Node_Path
-): d_out.Context_Path => extend_context_path(
+): d_out.Context_Path => extend_context_path_with_single_step(
     $.context,
     {
         'addition': $.node
