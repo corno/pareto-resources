@@ -22,5 +22,5 @@ export const Error: Error = ($) => sh.ph.composed([
         }
     }),
     sh.ph.literal(": "),
-    sh.ph.serialize(t_path_to_text.Node_Path($.path)),
+    sh.ph.serialize(t_path_to_text.Context_Path($.path)),
 ])

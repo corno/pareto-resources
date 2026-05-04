@@ -54,7 +54,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                             'subdocument context': _p.optional.literal.not_set(),
                         },
                     ),
-                    ($) => v_external_path.Node_Path(
+                    ($) => v_external_path.Context_Path(
                         $,
                         ($) => abort(
                             $,
@@ -125,7 +125,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                             'subdocument context': _p.optional.literal.not_set(),
                         },
                     ),
-                    ($) => v_external_path.Node_Path(
+                    ($) => v_external_path.Context_Path(
                         $,
                         ($) => abort(
                             $,

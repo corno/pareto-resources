@@ -17,7 +17,7 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     {
         "path": _p_change_context(
             $['path'],
-            ($) => v_external_path.Node_Path(
+            ($) => v_external_path.Context_Path(
                 $,
             ),
         ),
@@ -37,7 +37,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.diction
     {
         "path": _p_change_context(
             $['path'],
-            ($) => v_external_path.Node_Path(
+            ($) => v_external_path.Context_Path(
                 $,
             ),
         ),

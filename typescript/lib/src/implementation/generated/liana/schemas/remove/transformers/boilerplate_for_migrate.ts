@@ -12,7 +12,7 @@ import * as v_path from "../../path/transformers/boilerplate_for_migrate"
 export const Parameters: t_signatures.Parameters = ($) => ({
     'path': _p_change_context(
         $['path'],
-        ($) => v_path.Node_Path(
+        ($) => v_path.Context_Path(
             $,
         ),
     ),
@@ -25,7 +25,7 @@ export const Parameters: t_signatures.Parameters = ($) => ({
 export const Error: t_signatures.Error = ($) => ({
     'path': _p_change_context(
         $['path'],
-        ($) => v_path.Node_Path(
+        ($) => v_path.Context_Path(
             $,
         ),
     ),
