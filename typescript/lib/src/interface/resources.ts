@@ -1,5 +1,6 @@
 import * as _pi from 'pareto-core/dist/interface'
 
+import * as d_chmod from "./generated/liana/schemas/chmod/data"
 import * as d_copy from "./generated/liana/schemas/copy/data"
 import * as d_execute_any_command_command from "./generated/liana/schemas/execute_any_command_executable/data"
 import * as d_execute_query_executable from "./generated/liana/schemas/execute_query_executable/data"
@@ -27,6 +28,7 @@ import * as d_main from "./to_be_generated/temp_main"
 
 export namespace commands {
 
+    export type chmod = _pi.Command<d_chmod.Error, d_chmod.Parameters>
     export type copy = _pi.Command<d_copy.Error, d_copy.Parameters>
     export type execute_any_command_executable = _pi.Command<d_execute_any_command_command.Error, d_execute_any_command_command.Parameters>
     export type execute_any_smelly_command_executable = _pi.Command<d_execute_any_smelly_command_executable.Error, d_execute_any_smelly_command_executable.Parameters>
