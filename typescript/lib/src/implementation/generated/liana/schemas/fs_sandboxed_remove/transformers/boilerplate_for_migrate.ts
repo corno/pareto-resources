@@ -9,7 +9,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/fs_s
 
 import * as v_path from "../../fs_sandboxed_path/transformers/boilerplate_for_migrate"
 
-import * as v_unrestricted from "../../fs_unrestricted_make_directory/transformers/boilerplate_for_migrate"
+import * as v_unrestricted from "../../fs_unrestricted_remove/transformers/boilerplate_for_migrate"
 
 export const Parameters: t_signatures.Parameters = ($) => ({
     'path': _p_change_context(

@@ -1,11 +1,11 @@
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as d_execute_any_command_command from "./generated/liana/schemas/execute_any_command_executable/data"
-import * as d_execute_any_query_executable from "./generated/liana/schemas/execute_any_query_executable/data"
-import * as d_execute_any_smelly_command_executable from "./generated/liana/schemas/execute_any_smelly_command_executable/data"
-import * as d_execute_command_command from "./generated/liana/schemas/execute_command_executable/data"
-import * as d_execute_query_executable from "./generated/liana/schemas/execute_query_executable/data"
-import * as d_execute_smelly_command_command from "./generated/liana/schemas/execute_smelly_command_executable/data"
+import * as d_execute_unrestricted_command_command from "./generated/liana/schemas/execute_unrestricted_command_executable/data"
+import * as d_execute_unrestricted_query_executable from "./generated/liana/schemas/execute_unrestricted_query_executable/data"
+import * as d_execute_unrestricted_smelly_command_executable from "./generated/liana/schemas/execute_unrestricted_smelly_command_executable/data"
+import * as d_execute_sandboxed_command_command from "./generated/liana/schemas/execute_sandboxed_command_executable/data"
+import * as d_execute_sandboxed_query_executable from "./generated/liana/schemas/execute_sandboxed_query_executable/data"
+import * as d_execute_sandboxed_smelly_command_command from "./generated/liana/schemas/execute_sandboxed_smelly_command_executable/data"
 import * as d_fs_sandboxed_chmod from "./generated/liana/schemas/fs_sandboxed_chmod/data"
 import * as d_fs_sandboxed_copy from "./generated/liana/schemas/fs_sandboxed_copy/data"
 import * as d_fs_sandboxed_make_directory from "./generated/liana/schemas/fs_sandboxed_make_directory/data"
@@ -35,44 +35,113 @@ import * as d_stream_write_to_stderr from "./generated/liana/schemas/stream_writ
 import * as d_stream_write_to_stdout from "./generated/liana/schemas/stream_write_to_stdout/data"
 
 
-export namespace commands {
+export namespace filesystem_unrestricted {
 
-    export type execute_any_command_executable = _pi.Command<d_execute_any_command_command.Error, d_execute_any_command_command.Parameters>
-    export type execute_any_smelly_command_executable = _pi.Command<d_execute_any_smelly_command_executable.Error, d_execute_any_smelly_command_executable.Parameters>
-    export type execute_command_executable = _pi.Command<d_execute_command_command.Error, d_execute_command_command.Parameters>
-    export type execute_smelly_command_executable = _pi.Command<d_execute_smelly_command_command.Error, d_execute_smelly_command_command.Parameters>
-    export type fs_sandboxed_chmod = _pi.Command<d_fs_sandboxed_chmod.Error, d_fs_sandboxed_chmod.Parameters>
-    export type fs_sandboxed_copy = _pi.Command<d_fs_sandboxed_copy.Error, d_fs_sandboxed_copy.Parameters>
-    export type fs_sandboxed_make_directory = _pi.Command<d_fs_sandboxed_make_directory.Error, d_fs_sandboxed_make_directory.Parameters>
-    export type fs_sandboxed_remove = _pi.Command<d_fs_sandboxed_remove.Error, d_fs_sandboxed_remove.Parameters>
-    export type fs_sandboxed_write_file = _pi.Command<d_fs_sandboxed_write_file.Error, d_fs_sandboxed_write_file.Parameters>
-    export type fs_unrestricted_chmod = _pi.Command<d_fs_unrestricted_chmod.Error, d_fs_unrestricted_chmod.Parameters>
-    export type fs_unrestricted_copy = _pi.Command<d_fs_unrestricted_copy.Error, d_fs_unrestricted_copy.Parameters>
-    export type fs_unrestricted_make_directory = _pi.Command<d_fs_unrestricted_make_directory.Error, d_fs_unrestricted_make_directory.Parameters>
-    export type fs_unrestricted_remove = _pi.Command<d_fs_unrestricted_remove.Error, d_fs_unrestricted_remove.Parameters>
-    export type fs_unrestricted_write_file = _pi.Command<d_fs_unrestricted_write_file.Error, d_fs_unrestricted_write_file.Parameters>
-    export type main = _pi.Command<d_main.Error, d_main.Parameters>
-    export type stream_log = _pi.Command<null, d_stream_log.Parameters>
-    export type stream_log_error = _pi.Command<null, d_stream_log_error.Parameters>
-    export type stream_write_to_stderr = _pi.Command<null, d_stream_write_to_stderr.Parameters>
-    export type stream_write_to_stdout = _pi.Command<null, d_stream_write_to_stdout.Parameters>
-    export type write_directory_content = _pi.Command<d_write_directory_content.Error, d_write_directory_content.Parameters>
+    export namespace commands {
+
+        export type chmod = _pi.Command<d_fs_unrestricted_chmod.Error, d_fs_unrestricted_chmod.Parameters>
+        export type copy = _pi.Command<d_fs_unrestricted_copy.Error, d_fs_unrestricted_copy.Parameters>
+        export type make_directory = _pi.Command<d_fs_unrestricted_make_directory.Error, d_fs_unrestricted_make_directory.Parameters>
+        export type remove = _pi.Command<d_fs_unrestricted_remove.Error, d_fs_unrestricted_remove.Parameters>
+        export type write_file = _pi.Command<d_fs_unrestricted_write_file.Error, d_fs_unrestricted_write_file.Parameters>
+
+    }
+
+    export namespace queries {
+
+        export type read_directory = _pi.Query<d_fs_unrestricted_read_directory.Result, d_fs_unrestricted_read_directory.Error, d_fs_unrestricted_read_directory.Parameters>
+        export type read_file = _pi.Query<d_fs_unrestricted_read_file.Result, d_fs_unrestricted_read_file.Error, d_fs_unrestricted_read_file.Parameters>
+        export type stat = _pi.Query<d_fs_unrestricted_stat.Result, d_fs_unrestricted_stat.Error, d_fs_unrestricted_stat.Parameters>
+        export type stat_possible_node = _pi.Query<d_fs_unrestricted_stat_possible_node.Result, d_fs_unrestricted_stat_possible_node.Error, d_fs_unrestricted_stat_possible_node.Parameters>
+
+    }
 }
 
-export namespace queries {
+export namespace filesystem_sandboxed {
 
-    export type execute_any_query_executable = _pi.Query<d_execute_any_query_executable.Result, d_execute_any_query_executable.Error, d_execute_any_query_executable.Parameters>
-    export type execute_query_executable = _pi.Query<d_execute_query_executable.Result, d_execute_query_executable.Error, d_execute_query_executable.Parameters>
-    export type fs_sandboxed_read_directory = _pi.Query<d_fs_sandboxed_read_directory.Result, d_fs_sandboxed_read_directory.Error, d_fs_sandboxed_read_directory.Parameters>
-    export type fs_sandboxed_read_file = _pi.Query<d_fs_sandboxed_read_file.Result, d_fs_sandboxed_read_file.Error, d_fs_sandboxed_read_file.Parameters>
-    export type fs_sandboxed_stat = _pi.Query<d_fs_sandboxed_stat.Result, d_fs_sandboxed_stat.Error, d_fs_sandboxed_stat.Parameters>
-    export type fs_sandboxed_stat_possible_node = _pi.Query<d_fs_sandboxed_stat_possible_node.Result, d_fs_sandboxed_stat_possible_node.Error, d_fs_sandboxed_stat_possible_node.Parameters>
-    export type fs_unrestricted_read_directory = _pi.Query<d_fs_unrestricted_read_directory.Result, d_fs_unrestricted_read_directory.Error, d_fs_unrestricted_read_directory.Parameters>
-    export type fs_unrestricted_read_file = _pi.Query<d_fs_unrestricted_read_file.Result, d_fs_unrestricted_read_file.Error, d_fs_unrestricted_read_file.Parameters>
-    export type fs_unrestricted_stat = _pi.Query<d_fs_unrestricted_stat.Result, d_fs_unrestricted_stat.Error, d_fs_unrestricted_stat.Parameters>
-    export type fs_unrestricted_stat_possible_node = _pi.Query<d_fs_unrestricted_stat_possible_node.Result, d_fs_unrestricted_stat_possible_node.Error, d_fs_unrestricted_stat_possible_node.Parameters>
-    export type read_directory_content = _pi.Query<d_read_directory_content.Result, d_read_directory_content.Error, d_read_directory_content.Parameters>
-    export type read_directory_structure = _pi.Query<d_read_directory_structure.Result, d_read_directory_structure.Error, d_read_directory_structure.Parameters>
-    export type stream_get_instream_data = _pi.Query<d_stream_get_instream_data.Result, null, d_stream_get_instream_data.Parameters>
+    export namespace commands {
+
+        export type chmod = _pi.Command<d_fs_sandboxed_chmod.Error, d_fs_sandboxed_chmod.Parameters>
+        export type copy = _pi.Command<d_fs_sandboxed_copy.Error, d_fs_sandboxed_copy.Parameters>
+        export type make_directory = _pi.Command<d_fs_sandboxed_make_directory.Error, d_fs_sandboxed_make_directory.Parameters>
+        export type remove = _pi.Command<d_fs_sandboxed_remove.Error, d_fs_sandboxed_remove.Parameters>
+        export type write_file = _pi.Command<d_fs_sandboxed_write_file.Error, d_fs_sandboxed_write_file.Parameters>
+
+    }
+
+    export namespace queries {
+
+        export type read_directory = _pi.Query<d_fs_sandboxed_read_directory.Result, d_fs_sandboxed_read_directory.Error, d_fs_sandboxed_read_directory.Parameters>
+        export type read_file = _pi.Query<d_fs_sandboxed_read_file.Result, d_fs_sandboxed_read_file.Error, d_fs_sandboxed_read_file.Parameters>
+        export type stat = _pi.Query<d_fs_sandboxed_stat.Result, d_fs_sandboxed_stat.Error, d_fs_sandboxed_stat.Parameters>
+        export type stat_possible_node = _pi.Query<d_fs_sandboxed_stat_possible_node.Result, d_fs_sandboxed_stat_possible_node.Error, d_fs_sandboxed_stat_possible_node.Parameters>
+
+    }
+}
+
+export namespace execute_unrestricted {
+
+    export namespace commands {
+
+        export type command_executable = _pi.Command<d_execute_unrestricted_command_command.Error, d_execute_unrestricted_command_command.Parameters>
+        export type smelly_command_executable = _pi.Command<d_execute_unrestricted_smelly_command_executable.Error, d_execute_unrestricted_smelly_command_executable.Parameters>
+
+    }
+
+    export namespace queries {
+
+        export type query_executable = _pi.Query<d_execute_unrestricted_query_executable.Result, d_execute_unrestricted_query_executable.Error, d_execute_unrestricted_query_executable.Parameters>
+
+    }
+}
+
+export namespace execute_sandboxed {
+
+    export namespace commands {
+
+        export type command_executable = _pi.Command<d_execute_sandboxed_command_command.Error, d_execute_sandboxed_command_command.Parameters>
+        export type smelly_command_executable = _pi.Command<d_execute_sandboxed_smelly_command_command.Error, d_execute_sandboxed_smelly_command_command.Parameters>
+
+    }
+
+    export namespace queries {
+
+        export type query_executable = _pi.Query<d_execute_sandboxed_query_executable.Result, d_execute_sandboxed_query_executable.Error, d_execute_sandboxed_query_executable.Parameters>
+
+    }
+}
+
+export namespace stream {
+
+    export namespace commands {
+
+        export type log = _pi.Command<null, d_stream_log.Parameters>
+        export type log_error = _pi.Command<null, d_stream_log_error.Parameters>
+        export type write_to_stderr = _pi.Command<null, d_stream_write_to_stderr.Parameters>
+        export type write_to_stdout = _pi.Command<null, d_stream_write_to_stdout.Parameters>
+
+    }
+
+    export namespace queries {
+
+        export type get_instream_data = _pi.Query<d_stream_get_instream_data.Result, null, d_stream_get_instream_data.Parameters>
+
+    }
+}
+
+export namespace resources {
+
+    export namespace commands {
+
+        export type main = _pi.Command<d_main.Error, d_main.Parameters>
+        export type write_directory_content = _pi.Command<d_write_directory_content.Error, d_write_directory_content.Parameters>
+    }
+
+    export namespace queries {
+
+        export type read_directory_content = _pi.Query<d_read_directory_content.Result, d_read_directory_content.Error, d_read_directory_content.Parameters>
+        export type read_directory_structure = _pi.Query<d_read_directory_structure.Result, d_read_directory_structure.Error, d_read_directory_structure.Parameters>
+
+    }
 
 }

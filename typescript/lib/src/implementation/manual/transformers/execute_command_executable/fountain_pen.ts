@@ -1,7 +1,7 @@
 import * as _p from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as d_in from "../../../../interface/generated/liana/schemas/execute_command_executable/data"
+import * as d_in from "../../../../interface/generated/liana/schemas/execute_sandboxed_command_executable/data"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 export namespace signatures {
