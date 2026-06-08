@@ -6,7 +6,7 @@ import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 import * as d_directory_content from "../../../interface/to_be_generated/directory_content"
 import * as d_write_directory_content from "../../../interface/to_be_generated/write_directory_content"
 
-import * as signatures from "../../../interface/signatures"
+import * as signatures from "../../../interface/signatures/resources"
 
 import * as t_path_to_path from "../transformers/unrestricted_path/unrestricted_path"
 

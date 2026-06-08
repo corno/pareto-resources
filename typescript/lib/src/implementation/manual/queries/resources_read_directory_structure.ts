@@ -3,7 +3,7 @@ import * as _p from 'pareto-core/dist/query'
 import * as d_directory_structure from "../../../interface/to_be_generated/directory_structure"
 import * as d_read_directory_structure from "../../../interface/to_be_generated/read_directory_structure"
 
-import * as signatures from "../../../interface/signatures"
+import * as signatures from "../../../interface/signatures/resources"
 
 //dependencies
 import * as t_path_to_path from "../transformers/unrestricted_path/unrestricted_path"
@@ -22,6 +22,7 @@ export const $$: signatures.queries.read_directory_structure = _p.query_function
                     switch ($[0]) {
                         case 'directory': return _p.ss($, ($): _p.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => $$(
                             $r,
+                            null,
                         )(
                             {
                                 'path': t_path_to_path.deprecated_node_path_to_context_path(path),

@@ -5,7 +5,7 @@ import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
 import * as d_directory_content from "../../../interface/to_be_generated/directory_content"
 import * as d_read_directory_content from "../../../interface/to_be_generated/read_directory_content"
 
-import * as signatures from "../../../interface/signatures"
+import * as signatures from "../../../interface/signatures/resources"
 
 //dependencies
 import * as t_path_to_path from "../transformers/unrestricted_path/unrestricted_path"
@@ -28,6 +28,7 @@ export const $$: signatures.queries.read_directory_content = _p.query_function(
                         ).transform<d_directory_content.Node>(($) => ['file', _p_text_from_list($, ($) => $)]))
                         case 'directory': return _p.ss($, ($): _p.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $$(
                             $r,
+                            null,
                         )(
                             {
                                 'path': t_path_to_path.deprecated_node_path_to_context_path(path),

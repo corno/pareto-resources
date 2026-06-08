@@ -1,6 +1,6 @@
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as resources from "./resources"
+import * as resources from "../resources"
 
 export namespace commands {
 
@@ -29,7 +29,8 @@ export namespace queries {
         {
             'read directory': resources.filesystem_unrestricted.queries.read_directory,
             'read file': resources.filesystem_unrestricted.queries.read_file,
-        }
+        },
+        null
     >
     /**
      * creates a tree structure representing the directory structure, excluding file contents
@@ -38,7 +39,8 @@ export namespace queries {
         resources.resources.queries.read_directory_structure,
         {
             'read directory': resources.filesystem_unrestricted.queries.read_directory,
-        }
+        },
+        null
     >
 
 }
