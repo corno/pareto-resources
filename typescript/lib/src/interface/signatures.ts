@@ -14,6 +14,7 @@ export namespace commands {
             'write file': resources.filesystem_unrestricted.commands.write_file
 
         },
+        null,
         null
     >
 

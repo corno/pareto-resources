@@ -32,7 +32,7 @@ export const $$: signatures.commands.write_directory_content = _p.command_proced
                             },
                             ($): d_write_directory_content.Node_Error => ['file', $]
                         ))
-                        case 'directory': return _pt.ss($, ($) => $$($cr, null).execute(
+                        case 'directory': return _pt.ss($, ($) => $$($cr, null, null).execute(
                             {
                                 'directory': $,
                                 'path': t_path_to_path.extend_context_path_with_single_step($p.path, { 'addition': id }),
