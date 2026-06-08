@@ -566,7 +566,7 @@ export const $$: signatures.commands.write_directory_content =
 Convert strings to paths with validation:
 
 ```typescript
-import * as r_path from "pareto-resources/dist/implementation/manual/refiners/path/text"
+import * as r_path from "pareto-resources/dist/implementation/manual/refiners/path_unrestricted/text"
 
 const path = r_path.from_text(
     "/path/to/directory",
