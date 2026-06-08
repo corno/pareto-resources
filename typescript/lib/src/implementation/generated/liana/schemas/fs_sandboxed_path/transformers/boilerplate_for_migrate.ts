@@ -21,6 +21,7 @@ export const Node_Path: t_signatures.Node_Path = ($) => ({
 })
 
 export const Context_Path: t_signatures.Context_Path = ($) => ({
+    'start': null,
     'subpath': _p_change_context(
         $['subpath'],
         ($) => Context_Subpath(

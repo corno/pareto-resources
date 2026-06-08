@@ -10,6 +10,7 @@ export const extend_context_path_with_single_step = (
         'addition': string
     }
 ): d_out.Context_Path => ({
+    'start': null,
     'subpath': _p.list.nested_literal_old([
         $.subpath,
         [
@@ -24,6 +25,7 @@ export const extend_context_path_with_list = (
         'addition': _pi.List<string>
     }
 ): d_out.Context_Path => ({
+    'start': null,
     'subpath': _p.list.nested_literal_old([
         $.subpath,
         $p.addition,

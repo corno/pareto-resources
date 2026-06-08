@@ -85,6 +85,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
     }
     return {
         'context': {
+            'start': null,
             'subpath': intermediate_result.subppath,
         },
         'node': intermediate_result.node
@@ -143,6 +144,7 @@ export const Context_Path: _pi.Refiner<d_out.Context_Path, d_function.Error, d_i
         return abort(['up steps not allowed', null])
     }
     return {
+        'start': null,
         'subpath': intermediate_result.subppath,
     }
 

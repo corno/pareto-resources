@@ -107,6 +107,7 @@ export const Context_Path: t_signatures.Context_Path = ($, abort) => _p_change_c
                 },
             )
             return {
+                'start': null,
                 'subpath': _p_change_context(
                     v_unmarshalled_from_parse_tree.Property(
                         $,

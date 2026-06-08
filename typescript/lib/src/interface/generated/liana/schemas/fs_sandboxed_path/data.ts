@@ -15,12 +15,13 @@ export type Node_Path_ = {
 }
 
 export namespace Context_Path_ {
-    
+
     export type subpath = Context_Subpath_
     
 }
 
 export type Context_Path_ = {
+    readonly 'start': null
     readonly 'subpath': Context_Path_.subpath
 }
 
