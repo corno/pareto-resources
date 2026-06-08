@@ -11,7 +11,7 @@ import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 
 import * as v_primitives_to_text from "liana-core/dist/implementation/manual/transformers/primitives/text"
 
-import * as v_external_path from "../../path/transformers/astn_sealed_target"
+import * as v_external_path from "../../fs_unrestricted_path/transformers/astn_sealed_target"
 
 import * as v_external_terminal_output from "../../terminal_output/transformers/astn_sealed_target"
 

@@ -15,7 +15,7 @@ import * as v_unmarshalled_from_parse_tree from "liana-core/dist/implementation/
 
 import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 
-import * as v_external_path from "../../path/refiners/astn_parse_tree"
+import * as v_external_path from "../../fs_unrestricted_path/refiners/astn_parse_tree"
 
 import * as v_external_terminal_output from "../../terminal_output/refiners/astn_parse_tree"
 

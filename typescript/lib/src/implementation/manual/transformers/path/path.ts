@@ -1,8 +1,8 @@
 import * as _pi from 'pareto-core/dist/interface'
 import * as _p from 'pareto-core/dist/assign'
 
-import * as d_out from "../../../../interface/generated/liana/schemas/path/data"
-import * as d_in from "../../../../interface/generated/liana/schemas/path/data"
+import * as d_out from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
+import * as d_in from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
 
 export const extend_context_path_with_single_step = (
     $: d_in.Context_Path,

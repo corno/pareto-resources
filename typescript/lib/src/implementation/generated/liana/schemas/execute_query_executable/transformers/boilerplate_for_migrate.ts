@@ -7,7 +7,7 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/execute_query_executable/data"
 
-import * as v_path from "../../path/transformers/boilerplate_for_migrate"
+import * as v_path from "../../fs_unrestricted_path/transformers/boilerplate_for_migrate"
 
 import * as v_terminal_output from "../../terminal_output/transformers/boilerplate_for_migrate"
 

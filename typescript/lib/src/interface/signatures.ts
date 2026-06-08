@@ -11,7 +11,7 @@ export namespace commands {
         resources.commands.write_directory_content,
         {
             // 'make directory': resources_pareto.commands.make_directory
-            'write file': resources.commands.write_file
+            'write file': resources.commands.fs_unrestricted_write_file
 
         },
         null
@@ -26,8 +26,8 @@ export namespace queries {
     export type read_directory_content = _pi.Query_Function<
         resources.queries.read_directory_content,
         {
-            'read directory': resources.queries.read_directory,
-            'read file': resources.queries.read_file,
+            'read directory': resources.queries.fs_unrestricted_read_directory,
+            'read file': resources.queries.fs_unrestricted_read_file,
         }
     >
     /**
@@ -36,7 +36,7 @@ export namespace queries {
     export type read_directory_structure = _pi.Query_Function<
         resources.queries.read_directory_structure,
         {
-            'read directory': resources.queries.read_directory,
+            'read directory': resources.queries.fs_unrestricted_read_directory,
         }
     >
 

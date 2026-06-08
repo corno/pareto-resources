@@ -1,7 +1,7 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i_imports_path from "../path/data"
+import * as i_imports_path from "../fs_unrestricted_path/data"
 
 import * as i_imports_terminal_output from "../terminal_output/data"
 
