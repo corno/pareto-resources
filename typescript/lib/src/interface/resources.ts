@@ -25,15 +25,10 @@ import * as d_fs_unrestricted_remove from "./generated/liana/schemas/fs_unrestri
 import * as d_fs_unrestricted_stat from "./generated/liana/schemas/fs_unrestricted_stat/data"
 import * as d_fs_unrestricted_stat_possible_node from "./generated/liana/schemas/fs_unrestricted_stat_possible_node/data"
 import * as d_fs_unrestricted_write_file from "./generated/liana/schemas/fs_unrestricted_write_file/data"
-import * as d_stream_get_instream_data from "./generated/liana/schemas/stream_get_instream_data/data"
-import * as d_stream_log from "./generated/liana/schemas/stream_log/data"
-import * as d_stream_log_error from "./generated/liana/schemas/stream_log_error/data"
 import * as d_main from "./to_be_generated/temp_main"
 import * as d_read_directory_content from "./to_be_generated/read_directory_content"
 import * as d_read_directory_structure from "./to_be_generated/read_directory_structure"
 import * as d_write_directory_content from "./to_be_generated/write_directory_content"
-import * as d_stream_write_to_stderr from "./generated/liana/schemas/stream_write_to_stderr/data"
-import * as d_stream_write_to_stdout from "./generated/liana/schemas/stream_write_to_stdout/data"
 
 
 export namespace filesystem_unrestricted {
@@ -109,24 +104,6 @@ export namespace execute_sandboxed {
     export namespace queries {
 
         export type query_executable = _pi.Query<d_execute_sandboxed_query_executable.Result, d_execute_sandboxed_query_executable.Error, d_execute_sandboxed_query_executable.Parameters>
-
-    }
-}
-
-export namespace stream {
-
-    export namespace commands {
-
-        export type log = _pi.Command<null, d_stream_log.Parameters>
-        export type log_error = _pi.Command<null, d_stream_log_error.Parameters>
-        export type write_to_stderr = _pi.Command<null, d_stream_write_to_stderr.Parameters>
-        export type write_to_stdout = _pi.Command<null, d_stream_write_to_stdout.Parameters>
-
-    }
-
-    export namespace queries {
-
-        export type get_instream_data = _pi.Query<d_stream_get_instream_data.Result, null, d_stream_get_instream_data.Parameters>
 
     }
 }
