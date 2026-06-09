@@ -16,9 +16,9 @@ export namespace commands {
     >
 
     export type smelly_command_executable = _pi.Command_Procedure<
-        resources.execute_sandboxed.commands.command_executable,
+        resources.execute_sandboxed.commands.smelly_command_executable,
         {
-            'unrestricted': resources.execute_unrestricted.commands.command_executable,
+            'unrestricted': resources.execute_unrestricted.commands.smelly_command_executable,
         },
         null,
         {
