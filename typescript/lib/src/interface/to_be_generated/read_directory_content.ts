@@ -1,8 +1,8 @@
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as d_read_directory from "../generated/liana/schemas/fs_sandboxed_read_directory/data"
-import * as d_read_file from "../generated/liana/schemas/fs_sandboxed_read_file/data"
-import * as d_path from "../generated/liana/schemas/fs_sandboxed_path/data"
+import * as d_read_directory from "../generated/liana/schemas/fs_unrestricted_read_directory/data"
+import * as d_read_file from "../generated/liana/schemas/fs_unrestricted_read_file/data"
+import * as d_path from "../generated/liana/schemas/fs_unrestricted_path/data"
 import * as d_directory_contents from "./directory_content"
 
 

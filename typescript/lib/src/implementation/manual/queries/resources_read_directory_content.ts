@@ -8,7 +8,7 @@ import * as d_read_directory_content from "../../../interface/to_be_generated/re
 import * as signatures from "../../../interface/signatures/resources"
 
 //dependencies
-import * as t_path_to_path from "../transformers/sandboxed_path/sandboxed_path"
+import * as t_path_to_path from "../transformers/unrestricted_path/unrestricted_path"
 
 export const $$: signatures.queries.read_directory_content = _p.query_function(
     ($p, $r) => $r['read directory'](
