@@ -22,7 +22,7 @@ export const $$: signatures.queries.read_directory_content = _p.query_function(
                 const path = $.path
                 return _p.decide.state($['node type'], ($) => {
                     switch ($[0]) {
-                        case 'file': return _p.ss($, ($): _p.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $r['read file within context'](
+                        case 'file': return _p.ss($, ($): _p.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $r['read file'](
                             path,
                             ($): d_read_directory_content.Node_Error => ['file', $],
                         ).transform<d_directory_content.Node>(($) => ['file', _p_text_from_list($, ($) => $)]))
