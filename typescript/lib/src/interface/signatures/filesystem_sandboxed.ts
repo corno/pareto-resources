@@ -60,6 +60,16 @@ export namespace queries {
             'unrestricted': resources_pareto.filesystem_unrestricted.queries.read_file
         },
         {
+            'path': d_unrestricted_path.Node_Path
+        }
+    >
+
+    export type read_file_within_context = _pi.Query_Function<
+        resources_pareto.filesystem_sandboxed.queries.read_file_within_context,
+        {
+            'unrestricted': resources_pareto.filesystem_unrestricted.queries.read_file
+        },
+        {
             'context': d_unrestricted_path.Context_Path
         }
     >

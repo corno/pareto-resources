@@ -28,7 +28,7 @@ export namespace queries {
         resources.resources.queries.read_directory_content,
         {
             'read directory': resources.filesystem_sandboxed.queries.read_directory,
-            'read file': resources.filesystem_sandboxed.queries.read_file,
+            'read file within context': resources.filesystem_sandboxed.queries.read_file_within_context,
         },
         null
     >

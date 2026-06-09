@@ -21,12 +21,7 @@ import * as v_external_list_of_characters from "../../list_of_characters/refiner
 
 import * as v_external_unrestricted from "../../fs_unrestricted_read_file/refiners/astn_parse_tree"
 
-export const Parameters: t_signatures.Parameters = ($, abort) => v_external_path.Node_Path(
-    $,
-    ($) => abort(
-        $,
-    ),
-)
+export const Parameters: t_signatures.Parameters = ($, abort) => null
 
 export const Result: t_signatures.Result = ($, abort) => v_external_list_of_characters.List_of_Characters(
     $,

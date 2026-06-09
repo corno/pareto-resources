@@ -11,6 +11,7 @@ import * as d_fs_sandboxed_copy from "./generated/liana/schemas/fs_sandboxed_cop
 import * as d_fs_sandboxed_make_directory from "./generated/liana/schemas/fs_sandboxed_make_directory/data"
 import * as d_fs_sandboxed_read_directory from "./generated/liana/schemas/fs_sandboxed_read_directory/data"
 import * as d_fs_sandboxed_read_file from "./generated/liana/schemas/fs_sandboxed_read_file/data"
+import * as d_fs_sandboxed_read_file_within_context from "./generated/liana/schemas/fs_sandboxed_read_file_within_context/data"
 import * as d_fs_sandboxed_remove from "./generated/liana/schemas/fs_sandboxed_remove/data"
 import * as d_fs_sandboxed_stat from "./generated/liana/schemas/fs_sandboxed_stat/data"
 import * as d_fs_sandboxed_stat_possible_node from "./generated/liana/schemas/fs_sandboxed_stat_possible_node/data"
@@ -73,6 +74,7 @@ export namespace filesystem_sandboxed {
 
         export type read_directory = _pi.Query<d_fs_sandboxed_read_directory.Result, d_fs_sandboxed_read_directory.Error, d_fs_sandboxed_read_directory.Parameters>
         export type read_file = _pi.Query<d_fs_sandboxed_read_file.Result, d_fs_sandboxed_read_file.Error, d_fs_sandboxed_read_file.Parameters>
+        export type read_file_within_context = _pi.Query<d_fs_sandboxed_read_file_within_context.Result, d_fs_sandboxed_read_file_within_context.Error, d_fs_sandboxed_read_file_within_context.Parameters>
         export type stat = _pi.Query<d_fs_sandboxed_stat.Result, d_fs_sandboxed_stat.Error, d_fs_sandboxed_stat.Parameters>
         export type stat_possible_node = _pi.Query<d_fs_sandboxed_stat_possible_node.Result, d_fs_sandboxed_stat_possible_node.Error, d_fs_sandboxed_stat_possible_node.Parameters>
 
