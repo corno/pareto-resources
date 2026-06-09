@@ -13,7 +13,7 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_path from "../../fs_sandboxed_path/transformers/astn_sealed_target"
 
-import * as v_external_unrestricted from "../../fs_unrestricted_stat/transformers/astn_sealed_target"
+import * as v_external_unrestricted from "../../fs_unrestricted_stat_possible_node/transformers/astn_sealed_target"
 
 export const Parameters: t_signatures.Parameters = ($) => v_external_path.Node_Path(
     $,

@@ -3,7 +3,7 @@ import * as _pi from 'pareto-core/dist/interface'
 
 import * as i_imports_path from "../fs_sandboxed_path/data"
 
-import * as i_imports_unrestricted from "../fs_unrestricted_stat/data"
+import * as i_imports_unrestricted from "../fs_unrestricted_stat_possible_node/data"
 
 export type Parameters_ = i_imports_path.Node_Path
 
