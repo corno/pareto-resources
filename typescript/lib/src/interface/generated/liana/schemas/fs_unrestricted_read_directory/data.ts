@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as i_imports_path from "../fs_unrestricted_path/data"
 
@@ -56,7 +57,7 @@ export namespace Result_ {
     
 }
 
-export type Result_ = _pi.Dictionary<Result_.D>
+export type Result_ = p_di.Dictionary<Result_.D>
 
 export namespace Node_Type_ {
     

@@ -1,4 +1,4 @@
-// import * as pi from 'pareto-core/dist/interface'
+// import * as p_di from 'pareto-core/dist/data/interface'
 
 // import * as d_unrestricted_path from "../generated/liana/schemas/fs_unrestricted_path/data"
 // import * as d_sandboxed_path from "../generated/liana/schemas/fs_sandboxed_path/data"
@@ -7,7 +7,7 @@
 
 // export namespace commands {
 
-//     export type remove = pci.Command_Procedure<
+//     export type remove = p_ci.Command_Procedure<
 //         resources_pareto.filesystem_sandboxed.commands.remove,
 //         {
 //             'unrestricted': resources_pareto.filesystem_unrestricted.commands.remove
@@ -18,7 +18,7 @@
 //         }
 //     >
     
-//     export type write_file = pci.Command_Procedure<
+//     export type write_file = p_ci.Command_Procedure<
 //         resources_pareto.filesystem_sandboxed.commands.write_file,
 //         {
 //             'unrestricted': resources_pareto.filesystem_unrestricted.commands.write_file
@@ -29,7 +29,7 @@
 //         }
 //     >
     
-//     export type make_directory = pci.Command_Procedure<
+//     export type make_directory = p_ci.Command_Procedure<
 //         resources_pareto.filesystem_sandboxed.commands.make_directory,
 //         {
 //             'unrestricted': resources_pareto.filesystem_unrestricted.commands.make_directory
@@ -40,7 +40,7 @@
 //         }
 //     >
     
-//     export type copy = pci.Command_Procedure<
+//     export type copy = p_ci.Command_Procedure<
 //         resources_pareto.filesystem_sandboxed.commands.copy,
 //         {
 //             'unrestricted': resources_pareto.filesystem_unrestricted.commands.copy
@@ -55,7 +55,7 @@
 
 // export namespace queries {
 
-//     export type read_file_from_unrestricted = pqi.Query_Function<
+//     export type read_file_from_unrestricted = p_qi.Query_Function<
 //         resources_pareto.filesystem_sandboxed.queries.read_file,
 //         {
 //             'unrestricted': resources_pareto.filesystem_unrestricted.queries.read_file
@@ -65,7 +65,7 @@
 //         }
 //     >
 
-//     export type read_file_from_sandboxed = pqi.Query_Function<
+//     export type read_file_from_sandboxed = p_qi.Query_Function<
 //         resources_pareto.filesystem_sandboxed.queries.read_file,
 //         {
 //             'sandboxed': resources_pareto.filesystem_sandboxed.queries.read_file
@@ -75,7 +75,7 @@
 //         }
 //     >
 
-//     export type read_file_within_context_from_unrestricted = pqi.Query_Function<
+//     export type read_file_within_context_from_unrestricted = p_qi.Query_Function<
 //         resources_pareto.filesystem_sandboxed.queries.read_file_within_context,
 //         {
 //             'unrestricted': resources_pareto.filesystem_unrestricted.queries.read_file
@@ -85,7 +85,7 @@
 //         }
 //     >
 
-//     export type read_file_within_context_from_sandboxed = pqi.Query_Function<
+//     export type read_file_within_context_from_sandboxed = p_qi.Query_Function<
 //         resources_pareto.filesystem_sandboxed.queries.read_file_within_context,
 //         {
 //             'sandboxed': resources_pareto.filesystem_sandboxed.queries.read_file

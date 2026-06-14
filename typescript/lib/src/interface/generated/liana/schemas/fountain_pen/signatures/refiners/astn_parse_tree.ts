@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/unmarshall"
 
@@ -23,7 +23,7 @@ export namespace Paragraph_ {
 
 export type Paragraph_ = (
     context: Paragraph_.I,
-    abort: _pi.Abort<Paragraph_.E>,
+    abort: p_i.Abort<Paragraph_.E>,
 ) => Paragraph_.O
 
 export namespace Sentence_ {
@@ -42,7 +42,7 @@ export namespace Sentence_ {
 
 export type Sentence_ = (
     context: Sentence_.I,
-    abort: _pi.Abort<Sentence_.E>,
+    abort: p_i.Abort<Sentence_.E>,
 ) => Sentence_.O
 
 export namespace Phrase_ {
@@ -61,7 +61,7 @@ export namespace Phrase_ {
 
 export type Phrase_ = (
     context: Phrase_.I,
-    abort: _pi.Abort<Phrase_.E>,
+    abort: p_i.Abort<Phrase_.E>,
 ) => Phrase_.O
 
 export { 

@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 export namespace Message_ {
     
@@ -9,7 +10,7 @@ export namespace Message_ {
         
     }
     
-    export type lines = _pi.List<lines.L>
+    export type lines = p_di.List<lines.L>
     
     export type raw = string
     

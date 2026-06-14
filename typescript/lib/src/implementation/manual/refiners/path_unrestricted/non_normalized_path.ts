@@ -1,5 +1,5 @@
 import * as pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
+import * as p_ri from 'pareto-core/dist/refiner/interface'
 
 import * as d_out from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
 import * as d_in from "../../../../interface/generated/liana/schemas/path_non_normalized/data"
@@ -18,7 +18,7 @@ export type Error =
     | ['no node', null]
 
 export namespace signatures {
-    export type Node_Path = pi.Refiner_With_Parameter<d_out.Node_Path, Error, d_in.Non_Normalized_Path, { 'pedantic': boolean }>
+    export type Node_Path = p_ri.Refiner_With_Parameter<d_out.Node_Path, Error, d_in.Non_Normalized_Path, { 'pedantic': boolean }>
 }
 
 export const Node_Path: signatures.Node_Path = ($, abort, $p) => {

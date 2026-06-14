@@ -1,4 +1,4 @@
-// import * as pi from 'pareto-core/dist/interface'
+// import * as p_di from 'pareto-core/dist/data/interface'
 // import * as pt from 'pareto-core/dist/assign'
 
 // import * as d_out from "../../../../interface/generated/liana/schemas/fs_sandboxed_path/data"
@@ -22,7 +22,7 @@
 // export const extend_context_path_with_list = (
 //     $: d_in.Context_Path,
 //     $p: {
-//         'addition': pi.List<string>
+//         'addition': p_di.List<string>
 //     }
 // ): d_out.Context_Path => ({
 //     'start': null,

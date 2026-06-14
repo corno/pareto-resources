@@ -1,6 +1,6 @@
-import * as pi from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 import * as pt from 'pareto-core/dist/assign'
-import p_list_from_text from 'pareto-core/dist/_p_list_from_text'
+import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
 
 //data types
 import * as d_out from "../../../../interface/generated/liana/schemas/path_non_normalized/data"

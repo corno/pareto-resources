@@ -1,5 +1,5 @@
 // import * as pt from 'pareto-core/dist/assign'
-// import * as pi from 'pareto-core/dist/interface'
+// import * as p_di from 'pareto-core/dist/data/interface'
 
 // import * as d_out from "../../../../interface/generated/liana/schemas/fs_sandboxed_path/data"
 // import * as d_in from "../../../../interface/generated/liana/schemas/path_non_normalized/data"
@@ -21,7 +21,7 @@
 //     | ['up steps not allowed', null]
 
 // export namespace signatures {
-//     export type Node_Path = pi.Refiner_With_Parameter<d_out.Node_Path, Error, d_in.Non_Normalized_Path, { 'pedantic': boolean }>
+//     export type Node_Path = p_ri.Refiner_With_Parameter<d_out.Node_Path, Error, d_in.Non_Normalized_Path, { 'pedantic': boolean }>
 // }
 
 // export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
@@ -98,7 +98,7 @@
 //     up_steps: number
 // }
 
-// export const Context_Path: pi.Refiner<d_out.Context_Path, d_function.Error, d_in.Non_Normalized_Path> = (
+// export const Context_Path: p_ri.Refiner<d_out.Context_Path, d_function.Error, d_in.Non_Normalized_Path> = (
 //     $,
 //     abort,
 // ) => {

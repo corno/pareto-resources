@@ -1,4 +1,4 @@
-import * as p_ from 'pareto-core/dist/query'
+import * as p_ from 'pareto-core/dist/query/implementation'
 
 import * as signatures from "../../../interface/signatures/execute_sandboxed"
 

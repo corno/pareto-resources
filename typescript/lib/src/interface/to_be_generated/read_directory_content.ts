@@ -1,4 +1,4 @@
-import * as pi from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as d_read_directory from "../generated/liana/schemas/fs_unrestricted_read_directory/data"
 import * as d_read_file from "../generated/liana/schemas/fs_unrestricted_read_file/data"
@@ -19,4 +19,4 @@ export type Node_Error =
 
 export type Error =
     | ['read directory', d_read_directory.Error]
-    | ['directory content processing', pi.Dictionary<Node_Error>]
+    | ['directory content processing', p_di.Dictionary<Node_Error>]

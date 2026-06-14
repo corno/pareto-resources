@@ -1,5 +1,5 @@
-import * as pci from 'pareto-core/dist/command_interface'
-import * as pqi from 'pareto-core/dist/query_interface'
+import * as p_ci from 'pareto-core/dist/command/interface'
+import * as p_qi from 'pareto-core/dist/query/interface'
 
 import * as resources from "../resources"
 
@@ -8,7 +8,7 @@ export namespace commands {
     /**
      * uses a directory content representation to write files in a directory structure
      */
-    export type write_directory_content = pci.Command_Procedure<
+    export type write_directory_content = p_ci.Command_Procedure<
         resources.resources.commands.write_directory_content,
         null,
         null,
@@ -25,7 +25,7 @@ export namespace queries {
     /**
      * creates a tree structure representing the directory structure, including file contents
      */
-    export type read_directory_content = pqi.Query_Function<
+    export type read_directory_content = p_qi.Query_Function<
         resources.resources.queries.read_directory_content,
         null,
         {
@@ -36,7 +36,7 @@ export namespace queries {
     /**
      * creates a tree structure representing the directory structure, excluding file contents
      */
-    export type read_directory_structure = pqi.Query_Function<
+    export type read_directory_structure = p_qi.Query_Function<
         resources.resources.queries.read_directory_structure,
         null,
         {

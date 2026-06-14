@@ -1,6 +1,6 @@
-import * as pi from 'pareto-core/dist/interface'
+import * as p_ri from 'pareto-core/dist/refiner/interface'
 import * as pt from 'pareto-core/dist/assign'
-import p_list_from_text from 'pareto-core/dist/_p_list_from_text'
+import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
 
 //data types
 import * as d_out from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
@@ -10,7 +10,7 @@ import * as d_error from "./non_normalized_path"
 export type Parameters = { 'pedantic': boolean }
 
 export namespace signatures {
-    export type Node_Path = pi.Refiner_With_Parameter<d_out.Node_Path, d_error.Error, d_in.Text, Parameters>
+    export type Node_Path = p_ri.Refiner_With_Parameter<d_out.Node_Path, d_error.Error, d_in.Text, Parameters>
 }
 
 

@@ -1,7 +1,7 @@
-import * as p_ from 'pareto-core/dist/query'
-import * as p_qi from 'pareto-core/dist/query_interface'
+import * as p_ from 'pareto-core/dist/query/implementation'
+import * as p_qi from 'pareto-core/dist/query/interface'
 
-import p_text_from_list from 'pareto-core/dist/_p_text_from_list'
+import p_text_from_list from 'pareto-core/dist/specials/text_from_list'
 
 import * as d_directory_content from "../../../interface/to_be_generated/directory_content"
 import * as d_read_directory_content from "../../../interface/to_be_generated/read_directory_content"

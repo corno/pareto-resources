@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as i_imports_path from "../fs_unrestricted_path/data"
 
@@ -15,7 +16,7 @@ export namespace Parameters_ {
         
     }
     
-    export type args = _pi.List<args.L>
+    export type args = p_di.List<args.L>
     
     export namespace working_directory {
         
@@ -23,7 +24,7 @@ export namespace Parameters_ {
         
     }
     
-    export type working_directory = _pi.Optional_Value<working_directory.O>
+    export type working_directory = p_di.Optional_Value<working_directory.O>
     
 }
 
@@ -53,7 +54,7 @@ export namespace Error_ {
             
         }
         
-        export type exit_code = _pi.Optional_Value<exit_code.O>
+        export type exit_code = p_di.Optional_Value<exit_code.O>
         
         export type stderr = i_imports_terminal_output.Message
         

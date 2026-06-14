@@ -1,11 +1,11 @@
-import * as pci from 'pareto-core/dist/command_interface'
-import * as pqi from 'pareto-core/dist/query_interface'
+import * as p_ci from 'pareto-core/dist/command/interface'
+import * as p_qi from 'pareto-core/dist/query/interface'
 
 import * as resources from "../resources"
 
 export namespace commands {
 
-    export type command_executable = pci.Command_Procedure<
+    export type command_executable = p_ci.Command_Procedure<
         resources.execute_sandboxed.commands.command_executable,
         {
             'program': string,
@@ -16,7 +16,7 @@ export namespace commands {
         }
     >
 
-    export type smelly_command_executable = pci.Command_Procedure<
+    export type smelly_command_executable = p_ci.Command_Procedure<
         resources.execute_sandboxed.commands.smelly_command_executable,
         {
             'program': string,
@@ -31,7 +31,7 @@ export namespace commands {
 
 export namespace queries {
 
-    export type query_executable = pqi.Query_Function<
+    export type query_executable = p_qi.Query_Function<
         resources.execute_sandboxed.queries.query_executable,
         {
             'program': string,

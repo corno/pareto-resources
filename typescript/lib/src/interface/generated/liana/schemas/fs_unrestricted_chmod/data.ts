@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as i_imports_path from "../fs_unrestricted_path/data"
 
@@ -35,7 +36,7 @@ export namespace Parameters_ {
             
         }
         
-        export type special_bits = _pi.Optional_Value<special_bits.O>
+        export type special_bits = p_di.Optional_Value<special_bits.O>
         
     }
     

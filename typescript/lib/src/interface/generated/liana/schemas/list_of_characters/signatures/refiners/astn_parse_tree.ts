@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/unmarshall"
 
@@ -23,7 +23,7 @@ export namespace List_of_Characters_ {
 
 export type List_of_Characters_ = (
     context: List_of_Characters_.I,
-    abort: _pi.Abort<List_of_Characters_.E>,
+    abort: p_i.Abort<List_of_Characters_.E>,
 ) => List_of_Characters_.O
 
 export { 

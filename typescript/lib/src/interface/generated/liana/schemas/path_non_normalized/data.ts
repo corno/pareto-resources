@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 export namespace Non_Normalized_Path_ {
     
@@ -27,7 +28,7 @@ export namespace Non_Normalized_Path_ {
         
     }
     
-    export type segments = _pi.List<segments.L>
+    export type segments = p_di.List<segments.L>
     
     export type trailing_slash = boolean
     
