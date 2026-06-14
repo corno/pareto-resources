@@ -1,11 +1,11 @@
-import * as pt from 'pareto-core/dist/query'
+import * as p_ from 'pareto-core/dist/query'
 
 import * as signatures from "../../../interface/signatures/execute_sandboxed"
 
 //dependencies
 
 
-export const $$: signatures.queries.query_executable = pt.query_function(
+export const $$: signatures.queries.query_executable = p_.query_function(
     ($d, $s, $q) => $q.unrestricted(
         {
             'program': $s.program,

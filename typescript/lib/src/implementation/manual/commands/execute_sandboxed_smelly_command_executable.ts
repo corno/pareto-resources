@@ -1,8 +1,8 @@
-import * as pt from 'pareto-core/dist/command'
+import * as p_ from 'pareto-core/dist/command'
 
 import * as signatures from "../../../interface/signatures/execute_sandboxed"
 
-export const $$: signatures.commands.smelly_command_executable = pt.command_procedure(
+export const $$: signatures.commands.smelly_command_executable = p_.command_procedure(
     ($d, $s, $q, $c) => [
         $c.unrestricted.execute(
             {

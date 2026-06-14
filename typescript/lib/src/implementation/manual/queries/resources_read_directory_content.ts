@@ -1,6 +1,5 @@
-import * as pt from 'pareto-core/dist/query'
-import * as pi from 'pareto-core/dist/interface'
-import * as pqi from 'pareto-core/dist/query_interface'
+import * as p_ from 'pareto-core/dist/query'
+import * as p_qi from 'pareto-core/dist/query_interface'
 
 import p_text_from_list from 'pareto-core/dist/_p_text_from_list'
 
@@ -12,24 +11,24 @@ import * as signatures from "../../../interface/signatures/resources"
 //dependencies
 import * as t_path_to_path from "../transformers/unrestricted_path/unrestricted_path"
 
-export const $$: signatures.queries.read_directory_content = pt.query_function(
+export const $$: signatures.queries.read_directory_content = p_.query_function(
     ($d, $s, $q) => $q['read directory'](
         {
             'path': $d.path,
         },
         ($): d_read_directory_content.Error => ['read directory', $],
     ).query(
-        ($) => pt.dictionaryx.parallel(
+        ($) => p_.dictionaryx.parallel(
             $,
-            ($): pqi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
+            ($): p_qi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
                 const path = $.path
-                return pt.decide.state($['node type'], ($) => {
+                return p_.decide.state($['node type'], ($) => {
                     switch ($[0]) {
-                        case 'file': return pt.ss($, ($): pqi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $q['read file'](
+                        case 'file': return p_.ss($, ($): p_qi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $q['read file'](
                             path,
                             ($): d_read_directory_content.Node_Error => ['file', $],
                         ).transform<d_directory_content.Node>(($) => ['file', p_text_from_list($, ($) => $)]))
-                        case 'directory': return pt.ss($, ($): pqi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $$(
+                        case 'directory': return p_.ss($, ($): p_qi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $$(
                             null,
                             $q,
                         )(
@@ -38,8 +37,8 @@ export const $$: signatures.queries.read_directory_content = pt.query_function(
                             },
                             ($): d_read_directory_content.Node_Error => ['directory', $]
                         ).transform<d_directory_content.Node>(($): d_directory_content.Node => ['directory', $]))
-                        case 'other': return pt.ss($, ($) => pt.direct_result(['other', null]))
-                        default: return pt.au($[0])
+                        case 'other': return p_.ss($, ($) => p_.direct_result(['other', null]))
+                        default: return p_.au($[0])
                     }
                 })
             },

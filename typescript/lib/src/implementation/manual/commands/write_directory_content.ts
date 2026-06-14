@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/command'
+import * as p_ from 'pareto-core/dist/command'
 import p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 
@@ -11,19 +11,19 @@ import * as d_write_directory_content from "../../../interface/to_be_generated/w
 //dependencies
 import * as t_path_to_path from "../transformers/unrestricted_path/unrestricted_path"
 
-export const $$: signatures.commands.write_directory_content = pt.command_procedure(
+export const $$: signatures.commands.write_directory_content = p_.command_procedure(
     ($d, $s, $q, $c) => [
         // $c['make directory'].execute(
         //     $p.path,
         //     ($): inf.Error => ['make directory', $]
         // ),
-        pt.dictionaryx.parallel<d_directory_content.Node, d_write_directory_content.Error, d_write_directory_content.Node_Error>(
+        p_.dictionaryx.parallel<d_directory_content.Node, d_write_directory_content.Error, d_write_directory_content.Node_Error>(
             $d.directory,
             ($, id) => [
-                pt.decide.state($, ($) => {
+                p_.decide.state($, ($) => {
                     switch ($[0]) {
-                        case 'other': return pt.ss($, ($) => pt.nothing())
-                        case 'file': return pt.ss($, ($) => $c['write file'].execute(
+                        case 'other': return p_.ss($, ($) => p_.nothing())
+                        case 'file': return p_.ss($, ($) => $c['write file'].execute(
                             {
                                 'path': t_path_to_path.create_node_path($d.path, { 'node': id }),
                                 'data': p_list_from_text(
@@ -33,7 +33,7 @@ export const $$: signatures.commands.write_directory_content = pt.command_proced
                             },
                             ($): d_write_directory_content.Node_Error => ['file', $]
                         ))
-                        case 'directory': return pt.ss($, ($) => $$(null, null, $c).execute(
+                        case 'directory': return p_.ss($, ($) => $$(null, null, $c).execute(
                             {
                                 'directory': $,
                                 'path': t_path_to_path.extend_context_path_with_single_step($d.path, { 'addition': id }),
@@ -42,7 +42,7 @@ export const $$: signatures.commands.write_directory_content = pt.command_proced
 
                         ))
 
-                        default: return pt.au($[0])
+                        default: return p_.au($[0])
                     }
                 })
             ],

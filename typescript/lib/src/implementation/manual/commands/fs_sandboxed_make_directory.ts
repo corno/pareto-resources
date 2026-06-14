@@ -1,4 +1,3 @@
-// import * as pt from 'pareto-core/dist/command'
 
 // import * as signatures from "../../../interface/signatures/filesystem_sandboxed"
 
