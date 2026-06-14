@@ -1,11 +1,11 @@
-import * as _p from 'pareto-core/dist/assign'
-import * as _pi from 'pareto-core/dist/interface'
+import * as pt from 'pareto-core/dist/assign'
+import * as pi from 'pareto-core/dist/interface'
 
 //data types
 import * as d_in from "../../../../interface/generated/liana/schemas/fs_unrestricted_chmod/data"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
-export type Error = _pi.Transformer<d_in.Error, d_out.Phrase>
+export type Error = pi.Transformer<d_in.Error, d_out.Phrase>
 
 //dependencies
 import * as t_path_to_text from "../unrestricted_path/list_of_characters"
@@ -14,12 +14,12 @@ import * as t_path_to_text from "../unrestricted_path/list_of_characters"
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error: Error = ($) => sh.ph.composed([
-    _p.decide.state($.type, ($) => {
+    pt.decide.state($.type, ($) => {
         switch ($[0]) {
-            case 'path does not exist': return _p.ss($, ($) => sh.ph.literal("path does not exist"))
-            case 'permission denied':return _p.ss($, ($) => sh.ph.literal("permission denied"))
-            case 'invalid mode':return _p.ss($, ($) => sh.ph.literal("invalid mode"))
-            default: return _p.au($[0])
+            case 'path does not exist': return pt.ss($, ($) => sh.ph.literal("path does not exist"))
+            case 'permission denied':return pt.ss($, ($) => sh.ph.literal("permission denied"))
+            case 'invalid mode':return pt.ss($, ($) => sh.ph.literal("invalid mode"))
+            default: return pt.au($[0])
         }
     }),
     sh.ph.literal(": "),

@@ -1,20 +1,20 @@
-import * as _p from 'pareto-core/dist/assign'
-import * as _pi from 'pareto-core/dist/interface'
+import * as pt from 'pareto-core/dist/assign'
+import * as pi from 'pareto-core/dist/interface'
 
 import * as d_in from "../../../../interface/generated/liana/schemas/execute_sandboxed_smelly_command_executable/data"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
-export type Error = _pi.Transformer<d_in.Error, d_out.Phrase>
+export type Error = pi.Transformer<d_in.Error, d_out.Phrase>
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const Error: Error = ($) => _p.decide.state($, ($) => {
+export const Error: Error = ($) => pt.decide.state($, ($) => {
     switch ($[0]) {
-        case 'failed to spawn': return _p.ss($, ($) => sh.ph.composed([
+        case 'failed to spawn': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("failed to spawn process:"),
             sh.ph.composed($.message.lines.__l_map(($) => sh.ph.literal($)))
         ]))
-        case 'non zero exit code': return _p.ss($, ($) => sh.ph.composed([
+        case 'non zero exit code': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("non zero exit code:"),
             sh.ph.indent(sh.pg.sentences([
                 sh.sentence([
@@ -41,6 +41,6 @@ export const Error: Error = ($) => _p.decide.state($, ($) => {
                 ])
             ]))
         ]))
-        default: return _p.au($[0])
+        default: return pt.au($[0])
     }
 })

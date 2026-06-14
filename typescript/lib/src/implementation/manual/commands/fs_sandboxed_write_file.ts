@@ -1,4 +1,4 @@
-// import * as _p from 'pareto-core/dist/command'
+// import * as pt from 'pareto-core/dist/command'
 
 // import * as signatures from "../../../interface/signatures/filesystem_sandboxed"
 
@@ -6,7 +6,7 @@
 // import * as t_path_to_path from "../transformers/sandboxed_path/unrestricted_path"
 
 
-// export const $$: signatures.commands.write_file = _p.command_procedure(
+// export const $$: signatures.commands.write_file = pt.command_procedure(
 //     ($d, $s, $q, $c, $x) => [
 //         $c.unrestricted.execute(
 //             {

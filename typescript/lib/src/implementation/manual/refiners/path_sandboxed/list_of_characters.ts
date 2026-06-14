@@ -1,7 +1,7 @@
-// import * as _pi from 'pareto-core/dist/interface'
-// import * as _p from 'pareto-core/dist/assign'
-// import _p_iterate from 'pareto-core/dist/_p_iterate'
-// import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
+// import * as pi from 'pareto-core/dist/interface'
+// import * as pt from 'pareto-core/dist/assign'
+// import p_iterate from 'pareto-core/dist/_p_iterate'
+// import p_text_from_list from 'pareto-core/dist/_p_text_from_list'
 
 // import * as d_out from "../../../../interface/generated/liana/schemas/fs_sandboxed_path/data"
 // import * as d_in from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
@@ -11,7 +11,7 @@
 // export type Parameters = { 'pedantic': boolean }
 
 // export namespace signatures {
-//     export type Node_Path = _pi.Refiner_With_Parameter<d_out.Node_Path, d_error.Error, d_in.List_of_Characters, Parameters>
+//     export type Node_Path = pi.Refiner_With_Parameter<d_out.Node_Path, d_error.Error, d_in.List_of_Characters, Parameters>
 // }
 
 
@@ -27,7 +27,7 @@
 //     )
 // }
 
-// export const Context_Path: _pi.Refiner<d_out.Context_Path, d_function.Error, d_in.List_of_Characters> = (
+// export const Context_Path: pi.Refiner<d_out.Context_Path, d_function.Error, d_in.List_of_Characters> = (
 //     $,
 //     abort,
 // ) => r_from_non_normalized_path.Context_Path(

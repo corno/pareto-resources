@@ -1,5 +1,5 @@
-import * as _p from 'pareto-core/dist/assign'
-import * as _pi from 'pareto-core/dist/interface'
+import * as pt from 'pareto-core/dist/assign'
+import * as pi from 'pareto-core/dist/interface'
 
 import * as d_out from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
 import * as d_in from "../../../../interface/generated/liana/schemas/path_non_normalized/data"
@@ -18,7 +18,7 @@ export type Error =
     | ['no node', null]
 
 export namespace signatures {
-    export type Node_Path = _pi.Refiner_With_Parameter<d_out.Node_Path, Error, d_in.Non_Normalized_Path, { 'pedantic': boolean }>
+    export type Node_Path = pi.Refiner_With_Parameter<d_out.Node_Path, Error, d_in.Non_Normalized_Path, { 'pedantic': boolean }>
 }
 
 export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
@@ -30,32 +30,32 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
     }
     let intermediate_result: Intermediate_Result = {
 
-        subppath: _p.list.literal([]),
+        subppath: pt.list.literal([]),
         node: null,
         up_steps: 0,
     }
 
     $.segments.__l_map(($) => {
-        intermediate_result = _p.decide.state($, ($): Intermediate_Result => {
+        intermediate_result = pt.decide.state($, ($): Intermediate_Result => {
             switch ($[0]) {
-                case 'parent': return _p.ss($, ($) => ({
+                case 'parent': return pt.ss($, ($) => ({
                     'up_steps': intermediate_result.node === null
-                        ? _p.boolean.from.list( intermediate_result.subppath).is_empty()
+                        ? pt.boolean.from.list( intermediate_result.subppath).is_empty()
                             ? intermediate_result.up_steps + 1
                             : intermediate_result.up_steps
                         : intermediate_result.up_steps,
                     'subppath': intermediate_result.node === null
-                        ? _p.boolean.from.list( intermediate_result.subppath).is_empty()
-                            ? _p.list.literal([])
+                        ? pt.boolean.from.list( intermediate_result.subppath).is_empty()
+                            ? pt.list.literal([])
                             : remove_last_element(intermediate_result.subppath)
                         : intermediate_result.subppath,
                     'node': null,
                 }))
-                case 'child': return _p.ss($, ($): Intermediate_Result => ({
+                case 'child': return pt.ss($, ($): Intermediate_Result => ({
                     'up_steps': intermediate_result.up_steps,
                     'subppath': intermediate_result.node === null
                         ? intermediate_result.subppath
-                        : _p.list.nested_literal_old([
+                        : pt.list.nested_literal_old([
                             intermediate_result.subppath,
                             [
                                 intermediate_result.node
@@ -63,9 +63,9 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
                         ]),
                     'node': $,
                 }))
-                case 'current': return _p.ss($, ($) => intermediate_result)
-                case 'nothing': return _p.ss($, ($) => intermediate_result)
-                default: return _p.au($[0])
+                case 'current': return pt.ss($, ($) => intermediate_result)
+                case 'nothing': return pt.ss($, ($) => intermediate_result)
+                default: return pt.au($[0])
             }
         })
         return null
@@ -99,34 +99,34 @@ export const Context_Path = (
 
     let intermediate_result: Intermediate_Result2 = {
 
-        subppath: _p.list.literal([]),
+        subppath: pt.list.literal([]),
         up_steps: 0,
     }
 
     $.segments.__l_map(($) => {
-        intermediate_result = _p.decide.state($, ($): Intermediate_Result2 => {
+        intermediate_result = pt.decide.state($, ($): Intermediate_Result2 => {
             switch ($[0]) {
-                case 'parent': return _p.ss($, ($) => ({
-                    'up_steps': _p.boolean.from.list(intermediate_result.subppath).is_empty()
+                case 'parent': return pt.ss($, ($) => ({
+                    'up_steps': pt.boolean.from.list(intermediate_result.subppath).is_empty()
                         ? intermediate_result.up_steps + 1
                         : intermediate_result.up_steps,
-                    'subppath': _p.boolean.from.list(intermediate_result.subppath).is_empty()
+                    'subppath': pt.boolean.from.list(intermediate_result.subppath).is_empty()
                         ? intermediate_result.subppath
                         : remove_last_element(intermediate_result.subppath),
                     'node': null,
                 }))
-                case 'child': return _p.ss($, ($): Intermediate_Result2 => ({
+                case 'child': return pt.ss($, ($): Intermediate_Result2 => ({
                     'up_steps': intermediate_result.up_steps,
-                    'subppath': _p.list.nested_literal_old([
+                    'subppath': pt.list.nested_literal_old([
                         intermediate_result.subppath,
                         [
                             $
                         ]
                     ]),
                 }))
-                case 'current': return _p.ss($, ($) => intermediate_result)
-                case 'nothing': return _p.ss($, ($) => intermediate_result)
-                default: return _p.au($[0])
+                case 'current': return pt.ss($, ($) => intermediate_result)
+                case 'nothing': return pt.ss($, ($) => intermediate_result)
+                default: return pt.au($[0])
             }
         })
         return null

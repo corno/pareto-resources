@@ -1,8 +1,8 @@
-import * as _pi from 'pareto-core/dist/interface'
+import * as pi from 'pareto-core/dist/interface'
 
 export type Node =
     | ['other', null]
     | ['file', null]
     | ['directory', Directory]
 
-export type Directory = _pi.Dictionary<Node>
+export type Directory = pi.Dictionary<Node>

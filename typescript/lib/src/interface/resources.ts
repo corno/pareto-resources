@@ -1,5 +1,5 @@
-import * as _pci from 'pareto-core/dist/command_interface'
-import * as _pqi from 'pareto-core/dist/query_interface'
+import * as pci from 'pareto-core/dist/command_interface'
+import * as pqi from 'pareto-core/dist/query_interface'
 
 import * as d_execute_unrestricted_command_command from "./generated/liana/schemas/execute_unrestricted_command_executable/data"
 import * as d_execute_unrestricted_query_executable from "./generated/liana/schemas/execute_unrestricted_query_executable/data"
@@ -36,20 +36,20 @@ export namespace filesystem_unrestricted {
 
     export namespace commands {
 
-        export type chmod = _pci.Command<d_fs_unrestricted_chmod.Error, d_fs_unrestricted_chmod.Parameters>
-        export type copy = _pci.Command<d_fs_unrestricted_copy.Error, d_fs_unrestricted_copy.Parameters>
-        export type make_directory = _pci.Command<d_fs_unrestricted_make_directory.Error, d_fs_unrestricted_make_directory.Parameters>
-        export type remove = _pci.Command<d_fs_unrestricted_remove.Error, d_fs_unrestricted_remove.Parameters>
-        export type write_file = _pci.Command<d_fs_unrestricted_write_file.Error, d_fs_unrestricted_write_file.Parameters>
+        export type chmod = pci.Command<d_fs_unrestricted_chmod.Error, d_fs_unrestricted_chmod.Parameters>
+        export type copy = pci.Command<d_fs_unrestricted_copy.Error, d_fs_unrestricted_copy.Parameters>
+        export type make_directory = pci.Command<d_fs_unrestricted_make_directory.Error, d_fs_unrestricted_make_directory.Parameters>
+        export type remove = pci.Command<d_fs_unrestricted_remove.Error, d_fs_unrestricted_remove.Parameters>
+        export type write_file = pci.Command<d_fs_unrestricted_write_file.Error, d_fs_unrestricted_write_file.Parameters>
 
     }
 
     export namespace queries {
 
-        export type read_directory = _pqi.Query<d_fs_unrestricted_read_directory.Result, d_fs_unrestricted_read_directory.Error, d_fs_unrestricted_read_directory.Parameters>
-        export type read_file = _pqi.Query<d_fs_unrestricted_read_file.Result, d_fs_unrestricted_read_file.Error, d_fs_unrestricted_read_file.Parameters>
-        export type stat = _pqi.Query<d_fs_unrestricted_stat.Result, d_fs_unrestricted_stat.Error, d_fs_unrestricted_stat.Parameters>
-        export type stat_possible_node = _pqi.Query<d_fs_unrestricted_stat_possible_node.Result, d_fs_unrestricted_stat_possible_node.Error, d_fs_unrestricted_stat_possible_node.Parameters>
+        export type read_directory = pqi.Query<d_fs_unrestricted_read_directory.Result, d_fs_unrestricted_read_directory.Error, d_fs_unrestricted_read_directory.Parameters>
+        export type read_file = pqi.Query<d_fs_unrestricted_read_file.Result, d_fs_unrestricted_read_file.Error, d_fs_unrestricted_read_file.Parameters>
+        export type stat = pqi.Query<d_fs_unrestricted_stat.Result, d_fs_unrestricted_stat.Error, d_fs_unrestricted_stat.Parameters>
+        export type stat_possible_node = pqi.Query<d_fs_unrestricted_stat_possible_node.Result, d_fs_unrestricted_stat_possible_node.Error, d_fs_unrestricted_stat_possible_node.Parameters>
 
     }
 }
@@ -58,21 +58,21 @@ export namespace filesystem_unrestricted {
 
 //     export namespace commands {
 
-//         export type chmod = _pci.Command<d_fs_sandboxed_chmod.Error, d_fs_sandboxed_chmod.Parameters>
-//         export type copy = _pci.Command<d_fs_sandboxed_copy.Error, d_fs_sandboxed_copy.Parameters>
-//         export type make_directory = _pci.Command<d_fs_sandboxed_make_directory.Error, d_fs_sandboxed_make_directory.Parameters>
-//         export type remove = _pci.Command<d_fs_sandboxed_remove.Error, d_fs_sandboxed_remove.Parameters>
-//         export type write_file = _pci.Command<d_fs_sandboxed_write_file.Error, d_fs_sandboxed_write_file.Parameters>
+//         export type chmod = pci.Command<d_fs_sandboxed_chmod.Error, d_fs_sandboxed_chmod.Parameters>
+//         export type copy = pci.Command<d_fs_sandboxed_copy.Error, d_fs_sandboxed_copy.Parameters>
+//         export type make_directory = pci.Command<d_fs_sandboxed_make_directory.Error, d_fs_sandboxed_make_directory.Parameters>
+//         export type remove = pci.Command<d_fs_sandboxed_remove.Error, d_fs_sandboxed_remove.Parameters>
+//         export type write_file = pci.Command<d_fs_sandboxed_write_file.Error, d_fs_sandboxed_write_file.Parameters>
 
 //     }
 
 //     export namespace queries {
 
-//         export type read_directory = _pqi.Query<d_fs_sandboxed_read_directory.Result, d_fs_sandboxed_read_directory.Error, d_fs_sandboxed_read_directory.Parameters>
-//         export type read_file = _pqi.Query<d_fs_sandboxed_read_file.Result, d_fs_sandboxed_read_file.Error, d_fs_sandboxed_read_file.Parameters>
-//         export type read_file_within_context = _pqi.Query<d_fs_sandboxed_read_file_within_context.Result, d_fs_sandboxed_read_file_within_context.Error, d_fs_sandboxed_read_file_within_context.Parameters>
-//         export type stat = _pqi.Query<d_fs_sandboxed_stat.Result, d_fs_sandboxed_stat.Error, d_fs_sandboxed_stat.Parameters>
-//         export type stat_possible_node = _pqi.Query<d_fs_sandboxed_stat_possible_node.Result, d_fs_sandboxed_stat_possible_node.Error, d_fs_sandboxed_stat_possible_node.Parameters>
+//         export type read_directory = pqi.Query<d_fs_sandboxed_read_directory.Result, d_fs_sandboxed_read_directory.Error, d_fs_sandboxed_read_directory.Parameters>
+//         export type read_file = pqi.Query<d_fs_sandboxed_read_file.Result, d_fs_sandboxed_read_file.Error, d_fs_sandboxed_read_file.Parameters>
+//         export type read_file_within_context = pqi.Query<d_fs_sandboxed_read_file_within_context.Result, d_fs_sandboxed_read_file_within_context.Error, d_fs_sandboxed_read_file_within_context.Parameters>
+//         export type stat = pqi.Query<d_fs_sandboxed_stat.Result, d_fs_sandboxed_stat.Error, d_fs_sandboxed_stat.Parameters>
+//         export type stat_possible_node = pqi.Query<d_fs_sandboxed_stat_possible_node.Result, d_fs_sandboxed_stat_possible_node.Error, d_fs_sandboxed_stat_possible_node.Parameters>
 
 //     }
 // }
@@ -81,14 +81,14 @@ export namespace execute_unrestricted {
 
     export namespace commands {
 
-        export type command_executable = _pci.Command<d_execute_unrestricted_command_command.Error, d_execute_unrestricted_command_command.Parameters>
-        export type smelly_command_executable = _pci.Command<d_execute_unrestricted_smelly_command_executable.Error, d_execute_unrestricted_smelly_command_executable.Parameters>
+        export type command_executable = pci.Command<d_execute_unrestricted_command_command.Error, d_execute_unrestricted_command_command.Parameters>
+        export type smelly_command_executable = pci.Command<d_execute_unrestricted_smelly_command_executable.Error, d_execute_unrestricted_smelly_command_executable.Parameters>
 
     }
 
     export namespace queries {
 
-        export type query_executable = _pqi.Query<d_execute_unrestricted_query_executable.Result, d_execute_unrestricted_query_executable.Error, d_execute_unrestricted_query_executable.Parameters>
+        export type query_executable = pqi.Query<d_execute_unrestricted_query_executable.Result, d_execute_unrestricted_query_executable.Error, d_execute_unrestricted_query_executable.Parameters>
 
     }
 }
@@ -97,14 +97,14 @@ export namespace execute_sandboxed {
 
     export namespace commands {
 
-        export type command_executable = _pci.Command<d_execute_sandboxed_command_command.Error, d_execute_sandboxed_command_command.Parameters>
-        export type smelly_command_executable = _pci.Command<d_execute_sandboxed_smelly_command_command.Error, d_execute_sandboxed_smelly_command_command.Parameters>
+        export type command_executable = pci.Command<d_execute_sandboxed_command_command.Error, d_execute_sandboxed_command_command.Parameters>
+        export type smelly_command_executable = pci.Command<d_execute_sandboxed_smelly_command_command.Error, d_execute_sandboxed_smelly_command_command.Parameters>
 
     }
 
     export namespace queries {
 
-        export type query_executable = _pqi.Query<d_execute_sandboxed_query_executable.Result, d_execute_sandboxed_query_executable.Error, d_execute_sandboxed_query_executable.Parameters>
+        export type query_executable = pqi.Query<d_execute_sandboxed_query_executable.Result, d_execute_sandboxed_query_executable.Error, d_execute_sandboxed_query_executable.Parameters>
 
     }
 }
@@ -113,14 +113,14 @@ export namespace resources {
 
     export namespace commands {
 
-        export type main = _pci.Command<d_main.Error, d_main.Parameters>
-        export type write_directory_content = _pci.Command<d_write_directory_content.Error, d_write_directory_content.Parameters>
+        export type main = pci.Command<d_main.Error, d_main.Parameters>
+        export type write_directory_content = pci.Command<d_write_directory_content.Error, d_write_directory_content.Parameters>
     }
 
     export namespace queries {
 
-        export type read_directory_content = _pqi.Query<d_read_directory_content.Result, d_read_directory_content.Error, d_read_directory_content.Parameters>
-        export type read_directory_structure = _pqi.Query<d_read_directory_structure.Result, d_read_directory_structure.Error, d_read_directory_structure.Parameters>
+        export type read_directory_content = pqi.Query<d_read_directory_content.Result, d_read_directory_content.Error, d_read_directory_content.Parameters>
+        export type read_directory_structure = pqi.Query<d_read_directory_structure.Result, d_read_directory_structure.Error, d_read_directory_structure.Parameters>
 
     }
 
