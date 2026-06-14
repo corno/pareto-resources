@@ -66,7 +66,7 @@ Write data to a file:
 import * as resources from "pareto-resources/dist/interface/resources"
 
 // In your command procedure
-$cr['write file'].execute(
+$c['write file'].execute(
     {
         'path': {
             'context': {
@@ -86,7 +86,7 @@ $cr['write file'].execute(
 Create a directory (including parent directories):
 
 ```typescript
-$cr['make directory'].execute(
+$c['make directory'].execute(
     {
         'start': ['absolute', null],
         'subpath': ['path', 'to', 'directory']
@@ -100,7 +100,7 @@ $cr['make directory'].execute(
 Delete a file or directory:
 
 ```typescript
-$cr.remove.execute(
+$c.remove.execute(
     {
         'path': contextPath,
         'error if not exists': false  // Don't error if already gone
@@ -114,7 +114,7 @@ $cr.remove.execute(
 Copy files or directories:
 
 ```typescript
-$cr.copy.execute(
+$c.copy.execute(
     {
         'source': sourcePath,
         'destination': destPath
@@ -130,7 +130,7 @@ $cr.copy.execute(
 Execute a command with success/failure handling:
 
 ```typescript
-$cr['execute command executable'].execute(
+$c['execute command executable'].execute(
     {
         'command': 'tsc',
         'arguments': ['--build'],
@@ -146,7 +146,7 @@ $cr['execute command executable'].execute(
 Execute a command and receive structured output:
 
 ```typescript
-const result = $qr['execute any command executable'](
+const result = $q['execute any command executable'](
     {
         'command': 'git',
         'arguments': ['status'],
@@ -164,11 +164,11 @@ const result = $qr['execute any command executable'](
 Write messages to stdout/stderr:
 
 ```typescript
-$cr.log.execute({
+$c.log.execute({
     'data': messageText
 })
 
-$cr['log error'].execute({
+$c['log error'].execute({
     'data': errorText
 })
 ```
@@ -178,7 +178,7 @@ $cr['log error'].execute({
 Low-level stream writing:
 
 ```typescript
-$cr['write to stdout'].execute({
+$c['write to stdout'].execute({
     'data': outputData
 })
 ```
@@ -192,7 +192,7 @@ $cr['write to stdout'].execute({
 Read a file's contents:
 
 ```typescript
-const fileData = $qr['read file'](
+const fileData = $q['read file'](
     {
         'context': {
             'start': ['relative', { 'up steps': 0 }],
@@ -210,7 +210,7 @@ const fileData = $qr['read file'](
 List directory contents:
 
 ```typescript
-const entries = $qr['read directory'](
+const entries = $q['read directory'](
     {
         'prepend results with path': false,
         'path': directoryPath
@@ -226,8 +226,8 @@ Recursively read directory with file contents:
 
 ```typescript
 const tree = q_read_directory_content({
-    'read directory': $qr['read directory'],
-    'read file': $qr['read file']
+    'read directory': $q['read directory'],
+    'read file': $q['read file']
 })(
     {
         'path': rootPath
@@ -242,7 +242,7 @@ const tree = q_read_directory_content({
 Get file/directory information:
 
 ```typescript
-const info = $qr.stat(
+const info = $q.stat(
     nodePath,
     ($) => ['stat failed', $]
 )
@@ -256,7 +256,7 @@ const info = $qr.stat(
 Read from standard input:
 
 ```typescript
-const input = $qr['get instream data'](
+const input = $q['get instream data'](
     {},
     null
 )
@@ -353,9 +353,9 @@ Read a file, transform it, write the result:
 
 ```typescript
 export const file_transformer: signatures.commands.transform_file = 
-    _p.command_procedure(($p, $cr, $qr) => [
+    _p.command_procedure(($d, $s, $q, $c) => [
         _p.query(
-            $qr['read file'](
+            $q['read file'](
                 inputPath,
                 ($) => ['reading file', $]
             ),
@@ -367,7 +367,7 @@ export const file_transformer: signatures.commands.transform_file =
                 )
             }),
             ($v) => [
-                $cr['write file'].execute(
+                $c['write file'].execute(
                     {
                         'path': $v.path,
                         'data': $v.data
@@ -385,12 +385,12 @@ Process stdin to stdout:
 
 ```typescript
 export const stream_processor: signatures.commands.stream_in_to_stream_out =
-    _p.command_procedure(($p, $cr, $qr) => [
+    _p.command_procedure(($d, $s, $q, $c) => [
         _p.query(
-            $qr['get instream data']({}, null),
+            $q['get instream data']({}, null),
             ($) => $,
             ($) => [
-                $cr['write to stdout'].execute({
+                $c['write to stdout'].execute({
                     'data': process($)
                 })
             ]
@@ -405,7 +405,7 @@ Write a complete directory tree:
 ```typescript
 import * as t_fp_to_loc from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
 
-$cr['write directory content'].execute(
+$c['write directory content'].execute(
     {
         'path': outputDir,
         'directory': {
@@ -427,7 +427,7 @@ $cr['write directory content'].execute(
 Execute build commands with error handling:
 
 ```typescript
-$cr['execute command executable'].execute(
+$c['execute command executable'].execute(
     {
         'command': 'npm',
         'arguments': ['run', 'build'],
@@ -537,7 +537,7 @@ Pareto Resources is used throughout the Pareto ecosystem:
 ```typescript
 // Write structured directory content
 export const $$: signatures.commands.write_directory_content = 
-    _p.command_procedure(($p, $cr, $qr) => [
+    _p.command_procedure(($d, $s, $q, $c) => [
         _p.dictionaryx.parallel(
             $p.directory,
             ($, id) => [
@@ -548,7 +548,7 @@ export const $$: signatures.commands.write_directory_content =
                     )
                     switch ($[0]) {
                         case 'file': return _pt.ss($, ($) => 
-                            $cr['write file'].execute({ ... })
+                            $c['write file'].execute({ ... })
                         )
                         case 'directory': return _pt.ss($, ($) =>
                             // Recursive directory handling
@@ -580,16 +580,16 @@ const path = r_path.from_text(
 Chain multiple commands safely:
 
 ```typescript
-_p.command_procedure(($p, $cr, $qr) => [
-    $cr['make directory'].execute(
+_p.command_procedure(($d, $s, $q, $c) => [
+    $c['make directory'].execute(
         outputDir,
         ($) => ['mkdir', $]
     ),
-    $cr.copy.execute(
+    $c.copy.execute(
         { 'source': sourceDir, 'destination': outputDir },
         ($) => ['copy', $]
     ),
-    $cr['write file'].execute(
+    $c['write file'].execute(
         { 'path': configPath, 'data': configData },
         ($) => ['write config', $]
     )

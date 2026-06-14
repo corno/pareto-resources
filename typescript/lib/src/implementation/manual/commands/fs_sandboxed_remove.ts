@@ -7,8 +7,8 @@
 
 
 // export const $$: signatures.commands.remove = _p.command_procedure(
-//     ($p, $cr, $qr, $x) => [
-//         $cr.unrestricted.execute(
+//     ($d, $s, $q, $c, $x) => [
+//         $c.unrestricted.execute(
 //             {
 //                 'path': t_path_to_path.Context_Path(
 //                     $p.path,

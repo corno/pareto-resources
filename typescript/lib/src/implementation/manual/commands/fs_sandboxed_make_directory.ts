@@ -7,8 +7,8 @@
 
 
 // export const $$: signatures.commands.make_directory = _p.command_procedure(
-//     ($p, $cr, $qr, $x) => [
-//         $cr.unrestricted.execute(
+//     ($d, $s, $q, $c, $x) => [
+//         $c.unrestricted.execute(
 //             {
 //                 'path': t_path_to_path.Node_Path(
 //                     $p.path,

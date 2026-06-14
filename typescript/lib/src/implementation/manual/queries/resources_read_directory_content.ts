@@ -1,5 +1,7 @@
 import * as _p from 'pareto-core/dist/query'
 import * as _pi from 'pareto-core/dist/interface'
+import * as _pqi from 'pareto-core/dist/query_interface'
+
 import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
 
 import * as d_directory_content from "../../../interface/to_be_generated/directory_content"
@@ -11,24 +13,25 @@ import * as signatures from "../../../interface/signatures/resources"
 import * as t_path_to_path from "../transformers/unrestricted_path/unrestricted_path"
 
 export const $$: signatures.queries.read_directory_content = _p.query_function(
-    ($p, $r) => $r['read directory'](
+    ($d, $s, $q) => $q['read directory'](
         {
-            'path': $p.path,
+            'path': $d.path,
         },
         ($): d_read_directory_content.Error => ['read directory', $],
     ).query(
         ($) => _p.dictionaryx.parallel(
-            $.__d_map(($): _p.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
+            $,
+            ($): _pqi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
                 const path = $.path
                 return _p.decide.state($['node type'], ($) => {
                     switch ($[0]) {
-                        case 'file': return _p.ss($, ($): _p.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $r['read file'](
+                        case 'file': return _p.ss($, ($): _pqi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $q['read file'](
                             path,
                             ($): d_read_directory_content.Node_Error => ['file', $],
                         ).transform<d_directory_content.Node>(($) => ['file', _p_text_from_list($, ($) => $)]))
-                        case 'directory': return _p.ss($, ($): _p.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $$(
-                            $r,
+                        case 'directory': return _p.ss($, ($): _pqi.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => $$(
                             null,
+                            $q,
                         )(
                             {
                                 'path': t_path_to_path.deprecated_node_path_to_context_path(path),
@@ -39,7 +42,7 @@ export const $$: signatures.queries.read_directory_content = _p.query_function(
                         default: return _p.au($[0])
                     }
                 })
-            }),
+            },
             ($): d_read_directory_content.Error => ['directory content processing', $],
         )
     )

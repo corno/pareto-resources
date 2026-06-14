@@ -6,11 +6,11 @@ import * as signatures from "../../../interface/signatures/execute_sandboxed"
 
 
 export const $$: signatures.queries.query_executable = _p.query_function(
-    ($p, $qr, $x) => $qr.unrestricted(
+    ($d, $s, $q) => $q.unrestricted(
         {
-            'program': $x.program,
-            'args': $p.args,
-            'working directory': $p['working directory']
+            'program': $s.program,
+            'args': $d.args,
+            'working directory': $d['working directory']
         },
         ($) => $,
     )

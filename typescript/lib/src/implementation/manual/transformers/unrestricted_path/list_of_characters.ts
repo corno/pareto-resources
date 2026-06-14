@@ -20,10 +20,11 @@ export const Node_Path: _pi.Transformer<d_in.Node_Path, d_out.List_of_Characters
 
 export const Context_Path: _pi.Transformer<d_in.Context_Path, d_out.List_of_Characters> = ($) => {
     return _p_list_build_deprecated(($i) => {
-        _p.decide.state($.start, ($) => {
+        _p.decide.state($.start, ($): null => {
             switch ($[0]) {
                 case 'absolute': return _p.ss($, ($) => {
                     // $i.add_character(47) // '/'
+                    return null
                 })
                 case 'relative': return _p.ss($, ($) => {
                     $i['add item'](46) // .
@@ -36,6 +37,7 @@ export const Context_Path: _pi.Transformer<d_in.Context_Path, d_out.List_of_Char
 
                         k -= 1
                     }
+                    return null
                 })
                 default: return _p.au($[0])
             }
@@ -46,6 +48,7 @@ export const Context_Path: _pi.Transformer<d_in.Context_Path, d_out.List_of_Char
         $.subpath.__l_map(($) => {
             $i['add item'](47) // '/'
             $i['add list'](_p_list_from_text($, ($) => $))
+            return null
         })
     })
 }

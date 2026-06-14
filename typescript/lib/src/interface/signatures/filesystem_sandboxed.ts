@@ -7,7 +7,7 @@
 
 // export namespace commands {
 
-//     export type remove = _pi.Command_Procedure<
+//     export type remove = _pci.Command_Procedure<
 //         resources_pareto.filesystem_sandboxed.commands.remove,
 //         {
 //             'unrestricted': resources_pareto.filesystem_unrestricted.commands.remove
@@ -18,7 +18,7 @@
 //         }
 //     >
     
-//     export type write_file = _pi.Command_Procedure<
+//     export type write_file = _pci.Command_Procedure<
 //         resources_pareto.filesystem_sandboxed.commands.write_file,
 //         {
 //             'unrestricted': resources_pareto.filesystem_unrestricted.commands.write_file
@@ -29,7 +29,7 @@
 //         }
 //     >
     
-//     export type make_directory = _pi.Command_Procedure<
+//     export type make_directory = _pci.Command_Procedure<
 //         resources_pareto.filesystem_sandboxed.commands.make_directory,
 //         {
 //             'unrestricted': resources_pareto.filesystem_unrestricted.commands.make_directory
@@ -40,7 +40,7 @@
 //         }
 //     >
     
-//     export type copy = _pi.Command_Procedure<
+//     export type copy = _pci.Command_Procedure<
 //         resources_pareto.filesystem_sandboxed.commands.copy,
 //         {
 //             'unrestricted': resources_pareto.filesystem_unrestricted.commands.copy
@@ -55,7 +55,7 @@
 
 // export namespace queries {
 
-//     export type read_file_from_unrestricted = _pi.Query_Function<
+//     export type read_file_from_unrestricted = _pqi.Query_Function<
 //         resources_pareto.filesystem_sandboxed.queries.read_file,
 //         {
 //             'unrestricted': resources_pareto.filesystem_unrestricted.queries.read_file
@@ -65,7 +65,7 @@
 //         }
 //     >
 
-//     export type read_file_from_sandboxed = _pi.Query_Function<
+//     export type read_file_from_sandboxed = _pqi.Query_Function<
 //         resources_pareto.filesystem_sandboxed.queries.read_file,
 //         {
 //             'sandboxed': resources_pareto.filesystem_sandboxed.queries.read_file
@@ -75,7 +75,7 @@
 //         }
 //     >
 
-//     export type read_file_within_context_from_unrestricted = _pi.Query_Function<
+//     export type read_file_within_context_from_unrestricted = _pqi.Query_Function<
 //         resources_pareto.filesystem_sandboxed.queries.read_file_within_context,
 //         {
 //             'unrestricted': resources_pareto.filesystem_unrestricted.queries.read_file
@@ -85,7 +85,7 @@
 //         }
 //     >
 
-//     export type read_file_within_context_from_sandboxed = _pi.Query_Function<
+//     export type read_file_within_context_from_sandboxed = _pqi.Query_Function<
 //         resources_pareto.filesystem_sandboxed.queries.read_file_within_context,
 //         {
 //             'sandboxed': resources_pareto.filesystem_sandboxed.queries.read_file

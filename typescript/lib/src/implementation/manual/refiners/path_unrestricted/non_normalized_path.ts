@@ -68,6 +68,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
                 default: return _p.au($[0])
             }
         })
+        return null
     })
 
     if (intermediate_result.node === null) {
@@ -128,6 +129,7 @@ export const Context_Path = (
                 default: return _p.au($[0])
             }
         })
+        return null
     })
 
     return {

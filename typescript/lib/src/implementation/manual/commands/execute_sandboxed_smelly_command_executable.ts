@@ -1,17 +1,14 @@
 import * as _p from 'pareto-core/dist/command'
-import * as _pt from 'pareto-core/dist/assign'
-import * as _pq from 'pareto-core/dist/query'
-import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 import * as signatures from "../../../interface/signatures/execute_sandboxed"
 
 export const $$: signatures.commands.smelly_command_executable = _p.command_procedure(
-    ($p, $cr, $qr, $x) => [
-        $cr.unrestricted.execute(
+    ($d, $s, $q, $c) => [
+        $c.unrestricted.execute(
             {
-                'program': $x.program,
-                'args': $p.args,
-                'working directory': $p['working directory']
+                'program': $s.program,
+                'args': $d.args,
+                'working directory': $d['working directory']
             },
             ($) => $
         )

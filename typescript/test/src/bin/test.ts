@@ -16,6 +16,7 @@ const x = r_non_normalized_path.Non_Normalized_Path("/a//b/../c/./d")
 _p_log_debug_message(`leading slash: ${x['leading slash']}`, () => { })
 x.segments.__l_map(($) => {
     _p_log_debug_message(`segment: ${$[0]}`, () => { })
+    return null
 })
 _p_log_debug_message(`trailing slash: ${x['trailing slash']}`, () => { })
 
@@ -33,10 +34,16 @@ const $ = r_node_path.Node_Path(
     },
 )
 
-_p.decide.state($.context.start, ($) => {
+_p.decide.state($.context.start, ($): null => {
     switch ($[0]) {
-        case 'absolute': return _p.ss($, ($) => _p_log_debug_message("abs", () => {}))
-        case 'relative': return _p.ss($, ($) => _p_log_debug_message(`rel up steps: ${$['up steps']}`, () => {}))
+        case 'absolute': return _p.ss($, ($) => {
+            _p_log_debug_message("abs", () => {})
+            return null
+        })
+        case 'relative': return _p.ss($, ($) => {
+            _p_log_debug_message(`rel up steps: ${$['up steps']}`, () => {})
+            return null
+        })
         default: return _p.au($[0])
     }
 })

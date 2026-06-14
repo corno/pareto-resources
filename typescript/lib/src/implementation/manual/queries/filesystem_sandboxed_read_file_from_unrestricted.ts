@@ -7,7 +7,7 @@
 
 
 // export const $$: signatures.queries.read_file_from_unrestricted = _p.query_function(
-//     ($p, $qr, $x) => $qr.unrestricted(
+//     ($d, $s, $q) => $q.unrestricted(
 //         $x.path,
 //         ($) => $,
 //     )

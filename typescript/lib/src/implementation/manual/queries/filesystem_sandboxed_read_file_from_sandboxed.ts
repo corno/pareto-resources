@@ -7,7 +7,7 @@
 
 
 // export const $$: signatures.queries.read_file_from_sandboxed = _p.query_function(
-//     ($p, $qr, $x) => $qr.sandboxed(
+//     ($d, $s, $q) => $q.sandboxed(
 //         null,
 //         ($) => $,
 //     )

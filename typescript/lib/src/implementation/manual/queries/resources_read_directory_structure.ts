@@ -1,4 +1,5 @@
 import * as _p from 'pareto-core/dist/query'
+import * as _pqi from 'pareto-core/dist/query_interface'
 
 import * as d_directory_structure from "../../../interface/to_be_generated/directory_structure"
 import * as d_read_directory_structure from "../../../interface/to_be_generated/read_directory_structure"
@@ -9,20 +10,21 @@ import * as signatures from "../../../interface/signatures/resources"
 import * as t_path_to_path from "../transformers/unrestricted_path/unrestricted_path"
 
 export const $$: signatures.queries.read_directory_structure = _p.query_function(
-    ($p, $r) => $r['read directory'](
+    ($d, $s, $q) => $q['read directory'](
         {
-            'path': $p.path,
+            'path': $d.path,
         },
         ($): d_read_directory_structure.Error => ['read directory', $],
     ).query(
         ($) => _p.dictionaryx.parallel(
-            $.__d_map(($): _p.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => {
+            $,
+            ($): _pqi.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => {
                 const path = $.path
                 return _p.decide.state($['node type'], ($) => {
                     switch ($[0]) {
-                        case 'directory': return _p.ss($, ($): _p.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => $$(
-                            $r,
+                        case 'directory': return _p.ss($, ($): _pqi.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => $$(
                             null,
+                            $q,
                         )(
                             {
                                 'path': t_path_to_path.deprecated_node_path_to_context_path(path),
@@ -34,7 +36,7 @@ export const $$: signatures.queries.read_directory_structure = _p.query_function
                         default: return _p.au($[0])
                     }
                 })
-            }),
+            },
             ($): d_read_directory_structure.Error => ['directory structure processing', $],
         )
     )
