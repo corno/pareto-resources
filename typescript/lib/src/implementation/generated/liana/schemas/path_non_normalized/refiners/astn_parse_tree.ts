@@ -22,14 +22,14 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
             $,
         ),
         {
-            'expected properties': _p.dictionary.literal(
+            'expected properties': _p.literal.dictionary(
                 {
                     "leading slash": null,
                     "segments": null,
                     "trailing slash": null,
                 },
             ),
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     ),
     ($) => _p_variables(
@@ -38,7 +38,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
                 {
-                    'subdocument context': _p.optional.literal.not_set(),
+                    'subdocument context': _p.literal.not_set(),
                 },
             )
             return {
@@ -50,7 +50,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
                         ),
                         {
                             'id': 'leading slash',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Boolean(
@@ -60,7 +60,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
                         ),
                         {
                             'type': ['true/false', null],
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                 ),
@@ -72,7 +72,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
                         ),
                         {
                             'id': 'segments',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => _p.list.from.list(
@@ -82,7 +82,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
                                 $,
                             ),
                             {
-                                'subdocument context': _p.optional.literal.not_set(),
+                                'subdocument context': _p.literal.not_set(),
                             },
                         )['items'],
                     ).map(
@@ -146,7 +146,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
                                                         'range': v_parse_tree_to_location.Value(
                                                             $['value'],
                                                             {
-                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                'subdocument context': _p.literal.not_set(),
                                                             },
                                                         ),
                                                     }],
@@ -166,7 +166,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
                         ),
                         {
                             'id': 'trailing slash',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Boolean(
@@ -176,7 +176,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
                         ),
                         {
                             'type': ['true/false', null],
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                 ),

@@ -15,7 +15,7 @@ import * as v_external_path from "../../fs_unrestricted_path/transformers/astn_s
 
 import * as v_external_terminal_output from "../../terminal_output/transformers/astn_sealed_target"
 
-export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "program": _p_change_context(
             $['program'],
@@ -57,7 +57,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                     $,
                     ($) => ({
                         'option': 'failed to spawn',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "message": _p_change_context(
                                     $['message'],
@@ -74,7 +74,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                     $,
                     ($) => ({
                         'option': 'non zero exit code',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "exit code": _p_change_context(
                                     $['exit code'],
@@ -107,7 +107,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
     },
 )]
 
-export const Result: t_signatures.Result = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Result: t_signatures.Result = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "stdout": _p_change_context(
             $['stdout'],

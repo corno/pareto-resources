@@ -1,5 +1,4 @@
 import * as pt from 'pareto-core/dist/transformer/implementation'
-import * as p_di from 'pareto-core/dist/data/interface'
 import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 import * as d_in from "../../../../interface/generated/liana/schemas/fs_unrestricted_read_file/data"

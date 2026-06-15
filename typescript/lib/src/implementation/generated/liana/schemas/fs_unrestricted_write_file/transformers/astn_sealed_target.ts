@@ -15,7 +15,7 @@ import * as v_external_path from "../../fs_unrestricted_path/transformers/astn_s
 
 import * as v_external_list_of_characters from "../../list_of_characters/transformers/astn_sealed_target"
 
-export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "path": _p_change_context(
             $['path'],
@@ -32,7 +32,7 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     },
 )]]
 
-export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "path": _p_change_context(
             $['path'],

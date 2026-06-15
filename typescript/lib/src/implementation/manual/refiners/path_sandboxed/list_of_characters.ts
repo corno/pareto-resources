@@ -1,4 +1,3 @@
-// import * as p_di from 'pareto-core/dist/data/interface'
 // import p_iterate from 'pareto-core/dist/specials/iterate'
 // import p_text_from_list from 'pareto-core/dist/specials/text_from_list'
 

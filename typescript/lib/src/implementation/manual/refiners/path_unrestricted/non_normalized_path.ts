@@ -30,7 +30,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
     }
     let intermediate_result: Intermediate_Result = {
 
-        subppath: pt.list.literal([]),
+        subppath: pt.literal.list([]),
         node: null,
         up_steps: 0,
     }
@@ -46,7 +46,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
                         : intermediate_result.up_steps,
                     'subppath': intermediate_result.node === null
                         ? pt.boolean.from.list( intermediate_result.subppath).is_empty()
-                            ? pt.list.literal([])
+                            ? pt.literal.list([])
                             : remove_last_element(intermediate_result.subppath)
                         : intermediate_result.subppath,
                     'node': null,
@@ -55,7 +55,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
                     'up_steps': intermediate_result.up_steps,
                     'subppath': intermediate_result.node === null
                         ? intermediate_result.subppath
-                        : pt.list.nested_literal_old([
+                        : pt.literal.nested_list([
                             intermediate_result.subppath,
                             [
                                 intermediate_result.node
@@ -99,7 +99,7 @@ export const Context_Path = (
 
     let intermediate_result: Intermediate_Result2 = {
 
-        subppath: pt.list.literal([]),
+        subppath: pt.literal.list([]),
         up_steps: 0,
     }
 
@@ -117,7 +117,7 @@ export const Context_Path = (
                 }))
                 case 'child': return pt.ss($, ($): Intermediate_Result2 => ({
                     'up_steps': intermediate_result.up_steps,
-                    'subppath': pt.list.nested_literal_old([
+                    'subppath': pt.literal.nested_list([
                         intermediate_result.subppath,
                         [
                             $

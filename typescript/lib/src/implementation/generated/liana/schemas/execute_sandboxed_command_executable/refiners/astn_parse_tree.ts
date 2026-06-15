@@ -26,13 +26,13 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
             $,
         ),
         {
-            'expected properties': _p.dictionary.literal(
+            'expected properties': _p.literal.dictionary(
                 {
                     "args": null,
                     "working directory": null,
                 },
             ),
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     ),
     ($) => _p_variables(
@@ -41,7 +41,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
                 {
-                    'subdocument context': _p.optional.literal.not_set(),
+                    'subdocument context': _p.literal.not_set(),
                 },
             )
             return {
@@ -53,7 +53,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                         ),
                         {
                             'id': 'args',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => _p.list.from.list(
@@ -63,7 +63,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                                 $,
                             ),
                             {
-                                'subdocument context': _p.optional.literal.not_set(),
+                                'subdocument context': _p.literal.not_set(),
                             },
                         )['items'],
                     ).map(
@@ -86,7 +86,7 @@ export const Parameters: t_signatures.Parameters = ($, abort) => _p_change_conte
                         ),
                         {
                             'id': 'working directory',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => _p.optional.from.optional(
@@ -131,12 +131,12 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                     $,
                                 ),
                                 {
-                                    'expected properties': _p.dictionary.literal(
+                                    'expected properties': _p.literal.dictionary(
                                         {
                                             "message": null,
                                         },
                                     ),
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -145,7 +145,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.optional.literal.not_set(),
+                                            'subdocument context': _p.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -157,7 +157,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                                 ),
                                                 {
                                                     'id': 'message',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_external_terminal_output.Message(
@@ -182,13 +182,13 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                     $,
                                 ),
                                 {
-                                    'expected properties': _p.dictionary.literal(
+                                    'expected properties': _p.literal.dictionary(
                                         {
                                             "exit code": null,
                                             "stderr": null,
                                         },
                                     ),
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -197,7 +197,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.optional.literal.not_set(),
+                                            'subdocument context': _p.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -209,7 +209,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                                 ),
                                                 {
                                                     'id': 'exit code',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -227,7 +227,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                             ),
@@ -240,7 +240,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                                                 ),
                                                 {
                                                     'id': 'stderr',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_external_terminal_output.Message(
@@ -262,7 +262,7 @@ export const Error: t_signatures.Error = ($, abort) => _p_change_context(
                             'range': v_parse_tree_to_location.Value(
                                 $['value'],
                                 {
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                         }],

@@ -17,7 +17,7 @@ export const Parameters: t_signatures.Parameters = ($) => v_external_path.Node_P
     $,
 )
 
-export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "path": _p_change_context(
             $['path'],

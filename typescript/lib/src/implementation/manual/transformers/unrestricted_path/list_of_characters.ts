@@ -1,8 +1,7 @@
 import * as pt from 'pareto-core/dist/transformer/implementation'
-import * as p_di from 'pareto-core/dist/data/interface'
+import * as p_ti from 'pareto-core/dist/transformer/interface'
 import p_list_build_deprecated from 'pareto-core/dist/specials/list_build_deprecated'
 import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
-import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 //data types
 import * as d_in from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
@@ -10,7 +9,7 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 
 
 export const Node_Path: p_ti.Transformer<d_in.Node_Path, d_out.List_of_Characters> = ($) => {
-    return pt.list.nested_literal_old([
+    return pt.literal.nested_list([
         Context_Path($.context),
         [
             47, // '/'

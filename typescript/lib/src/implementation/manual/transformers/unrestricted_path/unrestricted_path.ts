@@ -11,7 +11,7 @@ export const extend_context_path_with_single_step = (
     }
 ): d_out.Context_Path => ({
     'start': $.start,
-    'subpath': pt.list.nested_literal_old([
+    'subpath': pt.literal.nested_list([
         $.subpath,
         [
             $p.addition
@@ -26,7 +26,7 @@ export const extend_context_path_with_list = (
     }
 ): d_out.Context_Path => ({
     'start': $.start,
-    'subpath': pt.list.nested_literal_old([
+    'subpath': pt.literal.nested_list([
         $.subpath,
         $p.addition,
     ]),

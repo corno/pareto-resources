@@ -72,7 +72,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => ['state', _p.decide.stat
                     $,
                     ($) => ({
                         'option': 'rich list',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "items": _p_change_context(
                                     $['items'],
@@ -96,7 +96,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => ['state', _p.decide.stat
                                 ),
                                 "if not empty": _p_change_context(
                                     $['if not empty'],
-                                    ($) => ['group', ['verbose', _p.dictionary.literal(
+                                    ($) => ['group', ['verbose', _p.literal.dictionary(
                                         {
                                             "before": _p_change_context(
                                                 $['before'],
@@ -254,7 +254,7 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', _p.decide.state(
                     $,
                     ($) => ({
                         'option': 'rich list',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "items": _p_change_context(
                                     $['items'],
@@ -274,7 +274,7 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', _p.decide.state(
                                 ),
                                 "if not empty": _p_change_context(
                                     $['if not empty'],
-                                    ($) => ['group', ['verbose', _p.dictionary.literal(
+                                    ($) => ['group', ['verbose', _p.literal.dictionary(
                                         {
                                             "before": _p_change_context(
                                                 $['before'],

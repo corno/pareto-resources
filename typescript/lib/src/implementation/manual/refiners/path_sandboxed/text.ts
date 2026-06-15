@@ -1,4 +1,3 @@
-// import * as p_di from 'pareto-core/dist/data/interface'
 // import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
 
 // //data types

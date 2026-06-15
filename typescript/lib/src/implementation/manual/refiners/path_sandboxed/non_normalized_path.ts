@@ -1,4 +1,3 @@
-// import * as p_di from 'pareto-core/dist/data/interface'
 
 // import * as d_out from "../../../../interface/generated/liana/schemas/fs_sandboxed_path/data"
 // import * as d_in from "../../../../interface/generated/liana/schemas/path_non_normalized/data"
@@ -32,7 +31,7 @@
 //     }
 //     let intermediate_result: Intermediate_Result = {
 
-//         subppath: pt.list.literal([]),
+//         subppath: pt.literal.list([]),
 //         node: null,
 //         up_steps: 0,
 //     }
@@ -48,7 +47,7 @@
 //                         : intermediate_result.up_steps,
 //                     'subppath': intermediate_result.node === null
 //                         ? pt.boolean.from.list( intermediate_result.subppath).is_empty()
-//                             ? pt.list.literal([])
+//                             ? pt.literal.list([])
 //                             : remove_last_element(intermediate_result.subppath)
 //                         : intermediate_result.subppath,
 //                     'node': null,
@@ -57,7 +56,7 @@
 //                     'up_steps': intermediate_result.up_steps,
 //                     'subppath': intermediate_result.node === null
 //                         ? intermediate_result.subppath
-//                         : pt.list.nested_literal_old([
+//                         : pt.literal.nested_list([
 //                             intermediate_result.subppath,
 //                             [
 //                                 intermediate_result.node
@@ -104,7 +103,7 @@
 
 //     let intermediate_result: Intermediate_Result2 = {
 
-//         subppath: pt.list.literal([]),
+//         subppath: pt.literal.list([]),
 //         up_steps: 0,
 //     }
 
@@ -122,7 +121,7 @@
 //                 }))
 //                 case 'child': return pt.ss($, ($): Intermediate_Result2 => ({
 //                     'up_steps': intermediate_result.up_steps,
-//                     'subppath': pt.list.nested_literal_old([
+//                     'subppath': pt.literal.nested_list([
 //                         intermediate_result.subppath,
 //                         [
 //                             $

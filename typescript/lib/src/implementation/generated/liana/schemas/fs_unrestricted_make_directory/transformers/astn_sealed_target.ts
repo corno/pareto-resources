@@ -13,7 +13,7 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_path from "../../fs_unrestricted_path/transformers/astn_sealed_target"
 
-export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "delete existing": _p_change_context(
             $['delete existing'],
@@ -33,7 +33,7 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     },
 )]]
 
-export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "path": _p_change_context(
             $['path'],

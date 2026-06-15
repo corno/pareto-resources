@@ -13,7 +13,7 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_path from "../../fs_unrestricted_path/transformers/astn_sealed_target"
 
-export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "path": _p_change_context(
             $['path'],
@@ -23,7 +23,7 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
         ),
         "mode": _p_change_context(
             $['mode'],
-            ($) => ['group', ['verbose', _p.dictionary.literal(
+            ($) => ['group', ['verbose', _p.literal.dictionary(
                 {
                     "owner": _p_change_context(
                         $['owner'],
@@ -47,7 +47,7 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                         $['special bits'],
                         ($) => ['optional', _p.decide.optional(
                             $,
-                            ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.dictionary.literal(
+                            ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.literal.dictionary(
                                 {
                                     "setuid": _p_change_context(
                                         $['setuid'],
@@ -87,7 +87,7 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     },
 )]]
 
-export const Permissions: t_signatures.Permissions = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Permissions: t_signatures.Permissions = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "read": _p_change_context(
             $['read'],
@@ -119,7 +119,7 @@ export const Permissions: t_signatures.Permissions = ($) => ['group', ['verbose'
     },
 )]]
 
-export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "path": _p_change_context(
             $['path'],

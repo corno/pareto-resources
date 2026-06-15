@@ -1,4 +1,3 @@
-// import * as p_di from 'pareto-core/dist/data/interface'
 
 // import * as d_unrestricted_path from "../generated/liana/schemas/fs_unrestricted_path/data"
 // import * as d_sandboxed_path from "../generated/liana/schemas/fs_sandboxed_path/data"

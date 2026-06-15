@@ -11,7 +11,7 @@ import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 
 import * as v_primitives_to_text from "liana-core/dist/implementation/manual/transformers/primitives/text"
 
-export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "leading slash": _p_change_context(
             $['leading slash'],
