@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/assign'
+import * as pt from 'pareto-core/dist/transformer/implementation'
 import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 import * as d_in from "../../../../interface/generated/liana/schemas/execute_sandboxed_smelly_command_executable/data"
