@@ -1,5 +1,5 @@
 import * as pt from 'pareto-core/dist/transformer/implementation'
-import * as p_ti from 'pareto-core/dist/transformer/interface'
+import * as p_i from 'pareto-core/dist/transformer/interface'
 import p_list_build_deprecated from 'pareto-core/dist/specials/list_build_deprecated'
 import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
 
@@ -8,7 +8,7 @@ import * as d_in from "../../../../interface/generated/liana/schemas/fs_unrestri
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
 
-export const Node_Path: p_ti.Transformer<d_in.Node_Path, d_out.List_of_Characters> = ($) => {
+export const Node_Path: p_i.Transformer<d_in.Node_Path, d_out.List_of_Characters> = ($) => {
     return pt.literal.nested_list([
         Context_Path($.context),
         [
@@ -18,7 +18,7 @@ export const Node_Path: p_ti.Transformer<d_in.Node_Path, d_out.List_of_Character
     ])
 }
 
-export const Context_Path: p_ti.Transformer<d_in.Context_Path, d_out.List_of_Characters> = ($) => {
+export const Context_Path: p_i.Transformer<d_in.Context_Path, d_out.List_of_Characters> = ($) => {
     return p_list_build_deprecated(($i) => {
         pt.decide.state($.start, ($): null => {
             switch ($[0]) {

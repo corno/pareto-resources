@@ -18,11 +18,11 @@ export const $$: signatures.queries.read_directory_structure = p_.query_function
     ).query(
         ($) => p_.dictionaryx.parallel(
             $,
-            ($): p_qi.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => {
+            ($): p_.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => {
                 const path = $.path
                 return p_.decide.state($['node type'], ($) => {
                     switch ($[0]) {
-                        case 'directory': return p_.ss($, ($): p_qi.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => $$(
+                        case 'directory': return p_.ss($, ($): p_.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => $$(
                             null,
                             $q,
                         )(
