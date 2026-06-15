@@ -19,7 +19,7 @@
 //     | ['up steps not allowed', null]
 
 // export namespace signatures {
-//     export type Node_Path = p_ri.Refiner_With_Parameter<d_out.Node_Path, Error, d_in.Non_Normalized_Path, { 'pedantic': boolean }>
+//     export type Node_Path = p_i.Refiner_With_Parameter<d_out.Node_Path, Error, d_in.Non_Normalized_Path, { 'pedantic': boolean }>
 // }
 
 // export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
@@ -96,7 +96,7 @@
 //     up_steps: number
 // }
 
-// export const Context_Path: p_ri.Refiner<d_out.Context_Path, d_function.Error, d_in.Non_Normalized_Path> = (
+// export const Context_Path: p_i.Refiner<d_out.Context_Path, d_function.Error, d_in.Non_Normalized_Path> = (
 //     $,
 //     abort,
 // ) => {

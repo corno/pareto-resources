@@ -1,4 +1,4 @@
-import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
+import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
 
 //data types
 import * as d_out from "../../../../interface/generated/liana/schemas/path_non_normalized/data"

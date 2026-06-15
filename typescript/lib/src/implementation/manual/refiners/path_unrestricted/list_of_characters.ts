@@ -1,4 +1,4 @@
-import * as p_ri from 'pareto-core/dist/refiner/interface'
+import * as p_i from 'pareto-core/dist/interface/refiner'
 
 import * as d_out from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
 import * as d_in from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
@@ -7,7 +7,7 @@ import * as d_error from "./non_normalized_path"
 export type Parameters = { 'pedantic': boolean }
 
 export namespace signatures {
-    export type Node_Path = p_ri.Refiner_With_Parameter<d_out.Node_Path, d_error.Error, d_in.List_of_Characters, Parameters>
+    export type Node_Path = p_i.Refiner_With_Parameter<d_out.Node_Path, d_error.Error, d_in.List_of_Characters, Parameters>
 }
 
 

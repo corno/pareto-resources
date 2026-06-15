@@ -1,5 +1,5 @@
-import * as p_ci from 'pareto-core/dist/command/interface'
-import * as p_qi from 'pareto-core/dist/query/interface'
+import * as p_ci from 'pareto-core/dist/interface/command'
+import * as p_qi from 'pareto-core/dist/interface/query'
 
 import * as d_execute_unrestricted_command_command from "./generated/liana/schemas/execute_unrestricted_command_executable/data"
 import * as d_execute_unrestricted_query_executable from "./generated/liana/schemas/execute_unrestricted_query_executable/data"

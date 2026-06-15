@@ -1,4 +1,4 @@
-// import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
+// import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
 
 // //data types
 // import * as d_out from "../../../../interface/generated/liana/schemas/fs_sandboxed_path/data"
@@ -9,7 +9,7 @@
 // export type Parameters = { 'pedantic': boolean }
 
 // export namespace signatures {
-//     export type Node_Path = p_ri.Refiner_With_Parameter<d_out.Node_Path, d_error.Error, d_in.Text, Parameters>
+//     export type Node_Path = p_i.Refiner_With_Parameter<d_out.Node_Path, d_error.Error, d_in.Text, Parameters>
 // }
 
 
@@ -28,7 +28,7 @@
 //     )
 // }
 
-// export const Context_Path: p_ri.Refiner<d_out.Context_Path, d_function.Error, d_in.Text> = (
+// export const Context_Path: p_i.Refiner<d_out.Context_Path, d_function.Error, d_in.Text> = (
 //     $,
 //     abort,
 // ) => t_from_list_of_characters.Context_Path(

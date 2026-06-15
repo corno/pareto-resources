@@ -1,5 +1,5 @@
-import * as p_i from 'pareto-core/dist/transformer/interface'
-import p_text_from_list from 'pareto-core/dist/specials/text_from_list'
+import * as p_i from 'pareto-core/dist/interface/transformer'
+import p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
 //data types
 import * as d_in from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"

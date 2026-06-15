@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as pt from 'pareto-core/dist/assign'
+import * as pt from 'pareto-core/dist/implementation/transformer'
 import p_log_debug_message from 'pareto-core-dev/dist/log_debug_message'
 import p_implement_me from 'pareto-core-dev/dist/implement_me'
 
