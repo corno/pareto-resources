@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 import p_list_build_deprecated from 'pareto-core/dist/implementation/specials/list_build_deprecated'
 import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
@@ -9,7 +9,7 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 
 
 export const Node_Path: p_i.Transformer<d_in.Node_Path, d_out.List_of_Characters> = ($) => {
-    return pt.literal.nested_list([
+    return p_.literal.nested_list([
         Context_Path($.context),
         [
             47, // '/'
@@ -20,13 +20,13 @@ export const Node_Path: p_i.Transformer<d_in.Node_Path, d_out.List_of_Characters
 
 export const Context_Path: p_i.Transformer<d_in.Context_Path, d_out.List_of_Characters> = ($) => {
     return p_list_build_deprecated(($i) => {
-        pt.decide.state($.start, ($): null => {
+        p_.decide.state($.start, ($): null => {
             switch ($[0]) {
-                case 'absolute': return pt.ss($, ($) => {
+                case 'absolute': return p_.ss($, ($) => {
                     // $i.add_character(47) // '/'
                     return null
                 })
-                case 'relative': return pt.ss($, ($) => {
+                case 'relative': return p_.ss($, ($) => {
                     $i['add item'](46) // .
 
                     let k = $['up steps']
@@ -39,10 +39,10 @@ export const Context_Path: p_i.Transformer<d_in.Context_Path, d_out.List_of_Char
                     }
                     return null
                 })
-                default: return pt.au($[0])
+                default: return p_.au($[0])
             }
         })
-        if (pt.boolean.from.list($.subpath).is_empty() && $.start[0] === 'absolute') {
+        if (p_.boolean.from.list($.subpath).is_empty() && $.start[0] === 'absolute') {
             $i['add item'](47) // '/'
         }
         $.subpath.__l_map(($) => {

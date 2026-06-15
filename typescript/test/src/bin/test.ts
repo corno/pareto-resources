@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 import p_log_debug_message from 'pareto-core-dev/dist/log_debug_message'
 import p_implement_me from 'pareto-core-dev/dist/implement_me'
 
@@ -33,17 +33,17 @@ const $ = r_node_path.Node_Path(
     },
 )
 
-pt.decide.state($.context.start, ($): null => {
+p_.decide.state($.context.start, ($): null => {
     switch ($[0]) {
-        case 'absolute': return pt.ss($, ($) => {
+        case 'absolute': return p_.ss($, ($) => {
             p_log_debug_message("abs", () => {})
             return null
         })
-        case 'relative': return pt.ss($, ($) => {
+        case 'relative': return p_.ss($, ($) => {
             p_log_debug_message(`rel up steps: ${$['up steps']}`, () => {})
             return null
         })
-        default: return pt.au($[0])
+        default: return p_.au($[0])
     }
 })
 

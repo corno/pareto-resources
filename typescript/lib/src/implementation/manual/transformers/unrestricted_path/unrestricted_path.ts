@@ -1,5 +1,5 @@
 import * as p_di from 'pareto-core/dist/interface/data'
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
 import * as d_out from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
 import * as d_in from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
@@ -11,7 +11,7 @@ export const extend_context_path_with_single_step = (
     }
 ): d_out.Context_Path => ({
     'start': $.start,
-    'subpath': pt.literal.nested_list([
+    'subpath': p_.literal.nested_list([
         $.subpath,
         [
             $p.addition
@@ -26,7 +26,7 @@ export const extend_context_path_with_list = (
     }
 ): d_out.Context_Path => ({
     'start': $.start,
-    'subpath': pt.literal.nested_list([
+    'subpath': p_.literal.nested_list([
         $.subpath,
         $p.addition,
     ]),

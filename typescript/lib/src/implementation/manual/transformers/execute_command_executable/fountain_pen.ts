@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 
 import * as d_in from "../../../../interface/generated/liana/schemas/execute_sandboxed_command_executable/data"
@@ -12,13 +12,13 @@ export namespace signatures {
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const Error: signatures.Error = ($) => pt.decide.state($, ($) => {
+export const Error: signatures.Error = ($) => p_.decide.state($, ($) => {
     switch ($[0]) {
-        case 'failed to spawn': return pt.ss($, ($) => sh.ph.composed([
+        case 'failed to spawn': return p_.ss($, ($) => sh.ph.composed([
             sh.ph.literal("failed to spawn process:"),
             sh.ph.composed($.message.lines.__l_map(($) => sh.ph.literal($)))
         ]))
-        case 'non zero exit code': return pt.ss($, ($) => sh.ph.composed([
+        case 'non zero exit code': return p_.ss($, ($) => sh.ph.composed([
             sh.ph.literal("non zero exit code:"),
             sh.ph.indent(sh.pg.sentences([
                 sh.sentence([
@@ -42,6 +42,6 @@ export const Error: signatures.Error = ($) => pt.decide.state($, ($) => {
                 ])
             ])),
         ]))
-        default: return pt.au($[0])
+        default: return p_.au($[0])
     }
 })

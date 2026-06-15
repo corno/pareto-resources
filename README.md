@@ -353,8 +353,8 @@ Read a file, transform it, write the result:
 
 ```typescript
 export const file_transformer: signatures.commands.transform_file = 
-    pt.command_procedure(($d, $s, $q, $c) => [
-        pt.query(
+    p_.command_procedure(($d, $s, $q, $c) => [
+        p_.query(
             $q['read file'](
                 inputPath,
                 ($) => ['reading file', $]
@@ -385,8 +385,8 @@ Process stdin to stdout:
 
 ```typescript
 export const stream_processor: signatures.commands.stream_in_to_stream_out =
-    pt.command_procedure(($d, $s, $q, $c) => [
-        pt.query(
+    p_.command_procedure(($d, $s, $q, $c) => [
+        p_.query(
             $q['get instream data']({}, null),
             ($) => $,
             ($) => [
@@ -436,13 +436,13 @@ $c['execute command executable'].execute(
             'NODE_ENV': 'production'
         }
     },
-    ($) => pt.decide.state($, ($) => {
+    ($) => p_.decide.state($, ($) => {
         switch ($[0]) {
             case 'failed to spawn':
                 return ['build', ['spawn failed', $]]
             case 'non zero exit code':
                 return ['build', ['exit code', $]]
-            default: return pt.au($[0])
+            default: return p_.au($[0])
         }
     })
 )
@@ -537,8 +537,8 @@ Pareto Resources is used throughout the Pareto ecosystem:
 ```typescript
 // Write structured directory content
 export const $$: signatures.commands.write_directory_content = 
-    pt.command_procedure(($d, $s, $q, $c) => [
-        pt.dictionaryx.parallel(
+    p_.command_procedure(($d, $s, $q, $c) => [
+        p_.dictionaryx.parallel(
             $p.directory,
             ($, id) => [
                 _pt.decide.state($, ($) => {

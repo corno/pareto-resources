@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 
 //data types
@@ -14,11 +14,11 @@ import * as t_path_to_text from "../unrestricted_path/list_of_characters"
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error: Error = ($) => sh.ph.composed([
-    pt.decide.state($.type, ($) => {
+    p_.decide.state($.type, ($) => {
         switch ($[0]) {
-            case 'node does not exist': return pt.ss($, ($) => sh.ph.literal("node does not exist"))
-            case 'permission denied': return pt.ss($, ($) => sh.ph.literal("permission denied"))
-            default: return pt.au($[0])
+            case 'node does not exist': return p_.ss($, ($) => sh.ph.literal("node does not exist"))
+            case 'permission denied': return p_.ss($, ($) => sh.ph.literal("permission denied"))
+            default: return p_.au($[0])
         }
     }),
     sh.ph.literal(": "),

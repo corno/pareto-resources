@@ -1,4 +1,4 @@
-// import * as pt from 'pareto-core/dist/implementation/transformer'
+// import * as p_ from 'pareto-core/dist/implementation/transformer'
 
 // import * as d_out from "../../../../interface/generated/liana/schemas/fs_sandboxed_path/data"
 // import * as d_in from "../../../../interface/generated/liana/schemas/fs_sandboxed_path/data"
@@ -10,7 +10,7 @@
 //     }
 // ): d_out.Context_Path => ({
 //     'start': null,
-//     'subpath': pt.literal.nested_list([
+//     'subpath': p_.literal.nested_list([
 //         $.subpath,
 //         [
 //             $p.addition
@@ -25,7 +25,7 @@
 //     }
 // ): d_out.Context_Path => ({
 //     'start': null,
-//     'subpath': pt.literal.nested_list([
+//     'subpath': p_.literal.nested_list([
 //         $.subpath,
 //         $p.addition,
 //     ]),

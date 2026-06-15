@@ -5,7 +5,7 @@
 // import * as t_path_to_path from "../transformers/sandboxed_path/unrestricted_path"
 
 
-// export const $$: signatures.commands.write_file = pt.command_procedure(
+// export const $$: signatures.commands.write_file = p_.command_procedure(
 //     ($d, $s, $q, $c, $x) => [
 //         $c.unrestricted.execute(
 //             {

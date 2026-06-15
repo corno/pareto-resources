@@ -31,32 +31,32 @@
 //     }
 //     let intermediate_result: Intermediate_Result = {
 
-//         subppath: pt.literal.list([]),
+//         subppath: p_.literal.list([]),
 //         node: null,
 //         up_steps: 0,
 //     }
 
 //     $.segments.__l_map(($) => {
-//         intermediate_result = pt.decide.state($, ($): Intermediate_Result => {
+//         intermediate_result = p_.decide.state($, ($): Intermediate_Result => {
 //             switch ($[0]) {
-//                 case 'parent': return pt.ss($, ($) => ({
+//                 case 'parent': return p_.ss($, ($) => ({
 //                     'up_steps': intermediate_result.node === null
-//                         ? pt.boolean.from.list( intermediate_result.subppath).is_empty()
+//                         ? p_.boolean.from.list( intermediate_result.subppath).is_empty()
 //                             ? intermediate_result.up_steps + 1
 //                             : intermediate_result.up_steps
 //                         : intermediate_result.up_steps,
 //                     'subppath': intermediate_result.node === null
-//                         ? pt.boolean.from.list( intermediate_result.subppath).is_empty()
-//                             ? pt.literal.list([])
+//                         ? p_.boolean.from.list( intermediate_result.subppath).is_empty()
+//                             ? p_.literal.list([])
 //                             : remove_last_element(intermediate_result.subppath)
 //                         : intermediate_result.subppath,
 //                     'node': null,
 //                 }))
-//                 case 'child': return pt.ss($, ($): Intermediate_Result => ({
+//                 case 'child': return p_.ss($, ($): Intermediate_Result => ({
 //                     'up_steps': intermediate_result.up_steps,
 //                     'subppath': intermediate_result.node === null
 //                         ? intermediate_result.subppath
-//                         : pt.literal.nested_list([
+//                         : p_.literal.nested_list([
 //                             intermediate_result.subppath,
 //                             [
 //                                 intermediate_result.node
@@ -64,9 +64,9 @@
 //                         ]),
 //                     'node': $,
 //                 }))
-//                 case 'current': return pt.ss($, ($) => intermediate_result)
-//                 case 'nothing': return pt.ss($, ($) => intermediate_result)
-//                 default: return pt.au($[0])
+//                 case 'current': return p_.ss($, ($) => intermediate_result)
+//                 case 'nothing': return p_.ss($, ($) => intermediate_result)
+//                 default: return p_.au($[0])
 //             }
 //         })
 //     })
@@ -103,34 +103,34 @@
 
 //     let intermediate_result: Intermediate_Result2 = {
 
-//         subppath: pt.literal.list([]),
+//         subppath: p_.literal.list([]),
 //         up_steps: 0,
 //     }
 
 //     $.segments.__l_map(($) => {
-//         intermediate_result = pt.decide.state($, ($): Intermediate_Result2 => {
+//         intermediate_result = p_.decide.state($, ($): Intermediate_Result2 => {
 //             switch ($[0]) {
-//                 case 'parent': return pt.ss($, ($) => ({
-//                     'up_steps': pt.boolean.from.list(intermediate_result.subppath).is_empty()
+//                 case 'parent': return p_.ss($, ($) => ({
+//                     'up_steps': p_.boolean.from.list(intermediate_result.subppath).is_empty()
 //                         ? intermediate_result.up_steps + 1
 //                         : intermediate_result.up_steps,
-//                     'subppath': pt.boolean.from.list(intermediate_result.subppath).is_empty()
+//                     'subppath': p_.boolean.from.list(intermediate_result.subppath).is_empty()
 //                         ? intermediate_result.subppath
 //                         : remove_last_element(intermediate_result.subppath),
 //                     'node': null,
 //                 }))
-//                 case 'child': return pt.ss($, ($): Intermediate_Result2 => ({
+//                 case 'child': return p_.ss($, ($): Intermediate_Result2 => ({
 //                     'up_steps': intermediate_result.up_steps,
-//                     'subppath': pt.literal.nested_list([
+//                     'subppath': p_.literal.nested_list([
 //                         intermediate_result.subppath,
 //                         [
 //                             $
 //                         ]
 //                     ]),
 //                 }))
-//                 case 'current': return pt.ss($, ($) => intermediate_result)
-//                 case 'nothing': return pt.ss($, ($) => intermediate_result)
-//                 default: return pt.au($[0])
+//                 case 'current': return p_.ss($, ($) => intermediate_result)
+//                 case 'nothing': return p_.ss($, ($) => intermediate_result)
+//                 default: return p_.au($[0])
 //             }
 //         })
 //     })
