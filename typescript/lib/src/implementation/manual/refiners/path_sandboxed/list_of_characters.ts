@@ -4,7 +4,7 @@
 // import * as d_out from "../../../../interface/generated/liana/schemas/fs_sandboxed_path/data"
 // import * as d_in from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 // import * as d_error from "./non_normalized_path"
-// import * as d_function from "../../../../interface/to_be_generated/sandboxed_path_from_non_normalized_path"
+// import * as d_function from "../../../../interface/data/sandboxed_path_from_non_normalized_path"
 
 // export type Parameters = { 'pedantic': boolean }
 

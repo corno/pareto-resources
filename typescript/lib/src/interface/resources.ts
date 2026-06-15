@@ -26,10 +26,10 @@ import * as d_fs_unrestricted_remove from "./generated/liana/schemas/fs_unrestri
 import * as d_fs_unrestricted_stat from "./generated/liana/schemas/fs_unrestricted_stat/data"
 import * as d_fs_unrestricted_stat_possible_node from "./generated/liana/schemas/fs_unrestricted_stat_possible_node/data"
 import * as d_fs_unrestricted_write_file from "./generated/liana/schemas/fs_unrestricted_write_file/data"
-import * as d_main from "./to_be_generated/temp_main"
-import * as d_read_directory_content from "./to_be_generated/read_directory_content"
-import * as d_read_directory_structure from "./to_be_generated/read_directory_structure"
-import * as d_write_directory_content from "./to_be_generated/write_directory_content"
+import * as d_main from "./data/temp_main"
+import * as d_read_directory_content from "./data/read_directory_content"
+import * as d_read_directory_structure from "./data/read_directory_structure"
+import * as d_write_directory_content from "./data/write_directory_content"
 
 
 export namespace filesystem_unrestricted {
