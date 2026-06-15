@@ -1,5 +1,5 @@
 import * as p_ from 'pareto-core/dist/implementation/query'
-import * as p_qi from 'pareto-core/dist/interface/query'
+import p_super_query_result from 'pareto-core/dist/implementation/query/super_query_result'
 
 import * as d_directory_structure from "../../../interface/data/directory_structure"
 import * as d_read_directory_structure from "../../../interface/data/read_directory_structure"
@@ -10,19 +10,19 @@ import * as signatures from "../../../interface/signatures/resources"
 import * as t_path_to_path from "../transformers/unrestricted_path/unrestricted_path"
 
 export const $$: signatures.queries.read_directory_structure = p_.query_function(
-    ($d, $s, $q) => $q['read directory'](
+    ($d, $s, $q) => p_super_query_result($q['read directory'](
         {
             'path': $d.path,
         },
         ($): d_read_directory_structure.Error => ['read directory', $],
-    ).query(
+    )).query(
         ($) => p_.dictionaryx.parallel(
             $,
             ($): p_.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => {
                 const path = $.path
                 return p_.decide.state($['node type'], ($) => {
                     switch ($[0]) {
-                        case 'directory': return p_.ss($, ($): p_.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => $$(
+                        case 'directory': return p_.ss($, ($): p_.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => p_super_query_result($$(
                             null,
                             $q,
                         )(
@@ -30,7 +30,7 @@ export const $$: signatures.queries.read_directory_structure = p_.query_function
                                 'path': t_path_to_path.deprecated_node_path_to_context_path(path),
                             },
                             ($): d_read_directory_structure.Node_Error => ['directory', $]
-                        ).transform<d_directory_structure.Node>(($): d_directory_structure.Node => ['directory', $]))
+                        )).transform<d_directory_structure.Node>(($): d_directory_structure.Node => ['directory', $]))
                         case 'file': return p_.ss($, ($) => p_.direct_result(['file', null]))
                         case 'other': return p_.ss($, ($) => p_.direct_result(['other', null]))
                         default: return p_.au($[0])

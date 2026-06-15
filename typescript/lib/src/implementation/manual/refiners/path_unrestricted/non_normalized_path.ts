@@ -5,9 +5,6 @@ import * as p_i from 'pareto-core/dist/interface/refiner'
 import * as d_out from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
 import * as d_in from "../../../../interface/generated/liana/schemas/path_non_normalized/data"
 
-import { remove_last_element } from "../../../temp/temp_core"
-
-
 type Intermediate_Result = {
     subppath: d_out.Context_Subpath
     node: string | null
@@ -39,19 +36,34 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
     $.segments.__l_map(($) => {
         intermediate_result = p_.decide.state($, ($): Intermediate_Result => {
             switch ($[0]) {
-                case 'parent': return p_.ss($, ($) => ({
-                    'up_steps': intermediate_result.node === null
-                        ? p_temp.boolean.from.list( intermediate_result.subppath).is_empty()
-                            ? intermediate_result.up_steps + 1
-                            : intermediate_result.up_steps
-                        : intermediate_result.up_steps,
-                    'subppath': intermediate_result.node === null
-                        ? p_temp.boolean.from.list( intermediate_result.subppath).is_empty()
-                            ? p_.literal.list([])
-                            : remove_last_element(intermediate_result.subppath)
-                        : intermediate_result.subppath,
-                    'node': null,
-                }))
+                case 'parent': return p_.ss($, ($) => {
+
+                    return intermediate_result.node === null
+                        ? p_temp.decide.list(intermediate_result.subppath).has_last_item(
+                            ($, rest) => { //there are subpath steps, the last one will be removed
+                                return {
+                                    'up_steps': intermediate_result.up_steps,
+                                    'subppath': rest,
+                                    'node': null,
+
+                                }
+                            },
+                            () => { //there are no subpath steps, the up_steps will be increased
+                                return {
+                                    'up_steps': intermediate_result.up_steps + 1,
+                                    'subppath': p_.literal.list([]),
+                                    'node': null,
+                                }
+                            }
+                        )
+                        : { //node was not null, now it will be
+                            'up_steps': intermediate_result.up_steps,
+                            'subppath': intermediate_result.subppath,
+                            'node': null,
+                        }
+
+
+                })
                 case 'child': return p_.ss($, ($): Intermediate_Result => ({
                     'up_steps': intermediate_result.up_steps,
                     'subppath': intermediate_result.node === null
@@ -107,15 +119,26 @@ export const Context_Path = (
     $.segments.__l_map(($) => {
         intermediate_result = p_.decide.state($, ($): Intermediate_Result2 => {
             switch ($[0]) {
-                case 'parent': return p_.ss($, ($) => ({
-                    'up_steps': p_temp.boolean.from.list(intermediate_result.subppath).is_empty()
-                        ? intermediate_result.up_steps + 1
-                        : intermediate_result.up_steps,
-                    'subppath': p_temp.boolean.from.list(intermediate_result.subppath).is_empty()
-                        ? intermediate_result.subppath
-                        : remove_last_element(intermediate_result.subppath),
-                    'node': null,
-                }))
+                case 'parent': return p_.ss($, ($) => {
+
+                    return p_temp.decide.list(intermediate_result.subppath).has_last_item(
+                        ($, rest) => { //there are subpath steps, the last one will be removed
+                            return {
+                                'up_steps': intermediate_result.up_steps,
+                                'subppath': rest,
+                                'node': null,
+
+                            }
+                        },
+                        () => { //there are no subpath steps, the up_steps will be increased
+                            return {
+                                'up_steps': intermediate_result.up_steps + 1,
+                                'subppath': p_.literal.list([]),
+                                'node': null,
+                            }
+                        }
+                    )
+                })
                 case 'child': return p_.ss($, ($): Intermediate_Result2 => ({
                     'up_steps': intermediate_result.up_steps,
                     'subppath': p_.literal.nested_list([
