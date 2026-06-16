@@ -18,11 +18,11 @@ export const $$: signatures.queries.read_directory_structure = p_.query_function
     )).query(
         ($) => p_.dictionary(
             $,
-            ($): p_.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => {
+            ($) => {
                 const path = $.path
                 return p_.decide.state($['node type'], ($) => {
                     switch ($[0]) {
-                        case 'directory': return p_.ss($, ($): p_.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => p_super_query_result($$(
+                        case 'directory': return p_.ss($, ($) => p_super_query_result($$(
                             null,
                             $q,
                         )(

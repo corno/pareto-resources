@@ -20,15 +20,15 @@ export const $$: signatures.queries.read_directory_content = p_.query_function(
     )).query(
         ($) => p_.dictionary(
             $,
-            ($): p_.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => {
+            ($) => {
                 const path = $.path
                 return p_.decide.state($['node type'], ($) => {
                     switch ($[0]) {
-                        case 'file': return p_.ss($, ($): p_.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => p_super_query_result($q['read file'](
+                        case 'file': return p_.ss($, ($) => p_super_query_result($q['read file'](
                             path,
                             ($): d_read_directory_content.Node_Error => ['file', $],
                         )).transform<d_directory_content.Node>(($) => ['file', p_text_from_list($, ($) => $)]))
-                        case 'directory': return p_.ss($, ($): p_.Query_Result<d_directory_content.Node, d_read_directory_content.Node_Error> => p_super_query_result( $$(
+                        case 'directory': return p_.ss($, ($) => p_super_query_result( $$(
                             null,
                             $q,
                         )(
