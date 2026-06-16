@@ -16,7 +16,7 @@ export const $$: signatures.queries.read_directory_structure = p_.query_function
         },
         ($): d_read_directory_structure.Error => ['read directory', $],
     )).query(
-        ($) => p_.dictionaryx.parallel(
+        ($) => p_.dictionary(
             $,
             ($): p_.Query_Result<d_directory_structure.Node, d_read_directory_structure.Node_Error> => {
                 const path = $.path

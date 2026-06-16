@@ -538,7 +538,7 @@ Pareto Resources is used throughout the Pareto ecosystem:
 // Write structured directory content
 export const $$: signatures.commands.write_directory_content = 
     p_.command_procedure(($d, $s, $q, $c) => [
-        p_.dictionaryx.parallel(
+        p_.dictionary(
             $p.directory,
             ($, id) => [
                 _pt.decide.state($, ($) => {
