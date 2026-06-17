@@ -14,11 +14,11 @@ export namespace signatures {
 
 
 //dependencies
-import * as t_from_list_of_characters from "./list_of_characters"
+import * as r_from_list_of_characters from "./list_of_characters"
 
 
 export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
-    return t_from_list_of_characters.Node_Path(
+    return r_from_list_of_characters.Node_Path(
         p_list_from_text(
             $,
             ($) => $
@@ -30,7 +30,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
 
 export const Context_Path = ( //This one is exceptional because it will never produce errors
     $: d_in.Text,
-): d_out.Context_Path => t_from_list_of_characters.Context_Path(
+): d_out.Context_Path => r_from_list_of_characters.Context_Path(
     p_list_from_text(
         $,
         ($) => $
