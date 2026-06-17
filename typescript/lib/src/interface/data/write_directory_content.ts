@@ -1,4 +1,4 @@
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_ from 'pareto-core/dist/interface/data'
 
 // import * as d_make_directory from "../generated/liana/schemas/make_directory/data"
 import * as d_write_file from "../generated/liana/schemas/fs_unrestricted_write_file/data"
@@ -16,4 +16,4 @@ export type Node_Error =
 
 export type Error =
     // | ['make directory', d_make_directory.Error]
-    | ['directory content', p_di.Dictionary<Node_Error>]
+    | ['directory content', p_.Dictionary<Node_Error>]

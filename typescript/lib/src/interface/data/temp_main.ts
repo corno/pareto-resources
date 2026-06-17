@@ -1,7 +1,7 @@
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_ from 'pareto-core/dist/interface/data'
 
 export type Parameters = {
-    'arguments': p_di.List<string>,
+    'arguments': p_.List<string>,
 }
 
 export type Error = {
