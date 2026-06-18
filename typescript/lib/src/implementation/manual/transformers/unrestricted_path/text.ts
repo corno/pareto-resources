@@ -8,6 +8,12 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 //dependencies
 import * as t_to_loc from "./list_of_characters"
 
-export const Node_Path: p_i.Transformer<d_in.Node_Path, d_out.Text> = ($) => p_text_from_list(t_to_loc.Node_Path($), ($) => $)
+export const Node_Path: p_i.Transformer<d_in.Node_Path, d_out.Text> = ($) => p_text_from_list(
+    t_to_loc.Node_Path($),
+     ($) => $
+    )
 
-export const Context_Path: p_i.Transformer<d_in.Context_Path, d_out.Text> = ($) => p_text_from_list(t_to_loc.Context_Path($), ($) => $)
+export const Context_Path: p_i.Transformer<d_in.Context_Path, d_out.Text> = ($) => p_text_from_list(
+    t_to_loc.Context_Path($), 
+    ($) => $
+)

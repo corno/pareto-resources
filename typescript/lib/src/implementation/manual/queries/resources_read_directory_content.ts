@@ -27,7 +27,9 @@ export const $$: interface_.queries.read_directory_content = p_.query_function(
                         case 'file': return p_.ss($, ($) => p_super_query_result($q['read file'](
                             path,
                             ($): d_read_directory_content.Node_Error => ['file', $],
-                        )).transform<d_directory_content.Node>(($) => ['file', p_text_from_list($, ($) => $)]))
+                        )).transform<d_directory_content.Node>(($) => ['file', p_text_from_list(
+                            $, ($) => $
+                        )]))
                         case 'directory': return p_.ss($, ($) => p_super_query_result( $$(
                             null,
                             $q,

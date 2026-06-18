@@ -14,7 +14,10 @@ export const Node_Path: p_i.Transformer<d_in.Node_Path, d_out.List_of_Characters
         [
             47, // '/'
         ],
-        p_list_from_text($.node, ($) => $)
+        p_list_from_text(
+            $.node,
+            ($) => $
+        )
     ])
 }
 
@@ -47,7 +50,10 @@ export const Context_Path: p_i.Transformer<d_in.Context_Path, d_out.List_of_Char
         }
         $.subpath.__l_map(($) => {
             $i['add item'](47) // '/'
-            $i['add list'](p_list_from_text($, ($) => $))
+            $i['add list'](p_list_from_text(
+                $,
+                ($) => $
+            ))
             return null
         })
     })
