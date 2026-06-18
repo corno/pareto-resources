@@ -1,7 +1,9 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <State, B>($: State,  assign: ($: State) => B,  otherwise: () => B) => assign($)
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -11,9 +13,9 @@ import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 
 import * as v_primitives_to_text from "liana-core/dist/implementation/manual/transformers/primitives/text"
 
-export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "leading slash": _p_change_context(
+        "leading slash": p_change_context(
             $['leading slash'],
             ($) => ['text', {
                 'delimiter': ['none', null],
@@ -22,17 +24,17 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
                 ),
             }],
         ),
-        "segments": _p_change_context(
+        "segments": p_change_context(
             $['segments'],
-            ($) => ['list', _p.list.from.list(
+            ($) => ['list', p_.from.list(
                 $,
             ).map(
-                ($) => ['state', _p.decide.state(
+                ($) => ['state', p_decide_state(
                     $,
                     ($): t_out.Value.state => {
                         switch ($[0]) {
                             case 'parent':
-                                return _p.ss(
+                                return p_.ss(
                                     $,
                                     ($) => ({
                                         'option': 'parent',
@@ -40,7 +42,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
                                     }),
                                 )
                             case 'child':
-                                return _p.ss(
+                                return p_.ss(
                                     $,
                                     ($) => ({
                                         'option': 'child',
@@ -51,7 +53,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
                                     }),
                                 )
                             case 'current':
-                                return _p.ss(
+                                return p_.ss(
                                     $,
                                     ($) => ({
                                         'option': 'current',
@@ -59,7 +61,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
                                     }),
                                 )
                             case 'nothing':
-                                return _p.ss(
+                                return p_.ss(
                                     $,
                                     ($) => ({
                                         'option': 'nothing',
@@ -67,7 +69,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
                                     }),
                                 )
                             default:
-                                return _p.au(
+                                return p_.au(
                                     $[0],
                                 )
                         }
@@ -75,7 +77,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
                 )],
             )],
         ),
-        "trailing slash": _p_change_context(
+        "trailing slash": p_change_context(
             $['trailing slash'],
             ($) => ['text', {
                 'delimiter': ['none', null],

@@ -1,5 +1,5 @@
 import * as p_ from 'pareto-core/dist/implementation/refiner'
-import * as p_temp from 'pareto-core/dist/assign'
+import * as p_t from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/refiner'
 
 import * as d_out from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
@@ -33,13 +33,13 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
         up_steps: 0,
     }
 
-    $.segments.__l_map(($) => {
-        intermediate_result = p_.decide.state($, ($): Intermediate_Result => {
+    $.segments.__l_map_deprecated(($) => {
+        intermediate_result = p_t.from.state($).decide(($): Intermediate_Result => {
             switch ($[0]) {
                 case 'parent': return p_.ss($, ($) => {
 
                     return intermediate_result.node === null
-                        ? p_temp.decide.list(intermediate_result.subppath).has_last_item(
+                        ? p_t.from.list(intermediate_result.subppath).on_has_last_item(
                             ($, rest) => { //there are subpath steps, the last one will be removed
                                 return {
                                     'up_steps': intermediate_result.up_steps,
@@ -116,12 +116,12 @@ export const Context_Path = (
         up_steps: 0,
     }
 
-    $.segments.__l_map(($) => {
-        intermediate_result = p_.decide.state($, ($): Intermediate_Result2 => {
+    $.segments.__l_map_deprecated(($) => {
+        intermediate_result = p_t.from.state($).decide(($): Intermediate_Result2 => {
             switch ($[0]) {
                 case 'parent': return p_.ss($, ($) => {
 
-                    return p_temp.decide.list(intermediate_result.subppath).has_last_item(
+                    return p_t.from.list(intermediate_result.subppath).on_has_last_item(
                         ($, rest) => { //there are subpath steps, the last one will be removed
                             return {
                                 'up_steps': intermediate_result.up_steps,

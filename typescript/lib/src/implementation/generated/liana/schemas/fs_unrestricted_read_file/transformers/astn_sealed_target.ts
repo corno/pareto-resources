@@ -1,7 +1,9 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <State, B>($: State,  assign: ($: State) => B,  otherwise: () => B) => assign($)
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -19,22 +21,22 @@ export const Parameters: t_signatures.Parameters = ($) => v_external_path.Node_P
     $,
 )
 
-export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "path": _p_change_context(
+        "path": p_change_context(
             $['path'],
             ($) => v_external_path.Node_Path(
                 $,
             ),
         ),
-        "type": _p_change_context(
+        "type": p_change_context(
             $['type'],
-            ($) => ['state', _p.decide.state(
+            ($) => ['state', p_decide_state(
                 $,
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'file does not exist':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'file does not exist',
@@ -42,7 +44,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         case 'node is not a file':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'node is not a file',
@@ -50,7 +52,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         case 'permission denied':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'permission denied',
@@ -58,7 +60,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         case 'file too large':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'file too large',
@@ -66,7 +68,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         case 'device not ready':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'device not ready',
@@ -74,7 +76,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         default:
-                            return _p.au(
+                            return p_.au(
                                 $[0],
                             )
                     }

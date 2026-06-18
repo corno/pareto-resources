@@ -14,7 +14,7 @@ import * as t_path_to_text from "../unrestricted_path/list_of_characters"
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error: Error = ($) => sh.ph.composed([
-    p_.decide.state($.type, ($) => {
+    p_.from.state($.type).decide(($) => {
         switch ($[0]) {
             case 'permission denied': return p_.ss($, ($) => sh.ph.literal("permission denied"))
             case 'file does not exist': return p_.ss($, ($) => sh.ph.composed([

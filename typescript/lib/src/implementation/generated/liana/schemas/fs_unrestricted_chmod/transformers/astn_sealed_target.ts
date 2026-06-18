@@ -1,7 +1,9 @@
 
-import * as _p from 'pareto-core/dist/assign'
-
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -13,43 +15,43 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_path from "../../fs_unrestricted_path/transformers/astn_sealed_target"
 
-export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "path": _p_change_context(
+        "path": p_change_context(
             $['path'],
             ($) => v_external_path.Node_Path(
                 $,
             ),
         ),
-        "mode": _p_change_context(
+        "mode": p_change_context(
             $['mode'],
-            ($) => ['group', ['verbose', _p.literal.dictionary(
+            ($) => ['group', ['verbose', p_.literal.dictionary(
                 {
-                    "owner": _p_change_context(
+                    "owner": p_change_context(
                         $['owner'],
                         ($) => Permissions(
                             $,
                         ),
                     ),
-                    "group": _p_change_context(
+                    "group": p_change_context(
                         $['group'],
                         ($) => Permissions(
                             $,
                         ),
                     ),
-                    "others": _p_change_context(
+                    "others": p_change_context(
                         $['others'],
                         ($) => Permissions(
                             $,
                         ),
                     ),
-                    "special bits": _p_change_context(
+                    "special bits": p_change_context(
                         $['special bits'],
-                        ($) => ['optional', _p.decide.optional(
+                        ($) => ['optional', p_decide_optional(
                             $,
-                            ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.literal.dictionary(
+                            ($): t_out.Value.optional => ['set', ['group', ['verbose', p_.literal.dictionary(
                                 {
-                                    "setuid": _p_change_context(
+                                    "setuid": p_change_context(
                                         $['setuid'],
                                         ($) => ['text', {
                                             'delimiter': ['none', null],
@@ -58,7 +60,7 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                                             ),
                                         }],
                                     ),
-                                    "setgid": _p_change_context(
+                                    "setgid": p_change_context(
                                         $['setgid'],
                                         ($) => ['text', {
                                             'delimiter': ['none', null],
@@ -67,7 +69,7 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                                             ),
                                         }],
                                     ),
-                                    "sticky": _p_change_context(
+                                    "sticky": p_change_context(
                                         $['sticky'],
                                         ($) => ['text', {
                                             'delimiter': ['none', null],
@@ -87,9 +89,9 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     },
 )]]
 
-export const Permissions: t_signatures.Permissions = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Permissions: t_signatures.Permissions = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "read": _p_change_context(
+        "read": p_change_context(
             $['read'],
             ($) => ['text', {
                 'delimiter': ['none', null],
@@ -98,7 +100,7 @@ export const Permissions: t_signatures.Permissions = ($) => ['group', ['verbose'
                 ),
             }],
         ),
-        "write": _p_change_context(
+        "write": p_change_context(
             $['write'],
             ($) => ['text', {
                 'delimiter': ['none', null],
@@ -107,7 +109,7 @@ export const Permissions: t_signatures.Permissions = ($) => ['group', ['verbose'
                 ),
             }],
         ),
-        "execute": _p_change_context(
+        "execute": p_change_context(
             $['execute'],
             ($) => ['text', {
                 'delimiter': ['none', null],
@@ -119,22 +121,22 @@ export const Permissions: t_signatures.Permissions = ($) => ['group', ['verbose'
     },
 )]]
 
-export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "path": _p_change_context(
+        "path": p_change_context(
             $['path'],
             ($) => v_external_path.Node_Path(
                 $,
             ),
         ),
-        "type": _p_change_context(
+        "type": p_change_context(
             $['type'],
-            ($) => ['state', _p.decide.state(
+            ($) => ['state', p_decide_state(
                 $,
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'path does not exist':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'path does not exist',
@@ -142,7 +144,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         case 'permission denied':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'permission denied',
@@ -150,7 +152,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         case 'invalid mode':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'invalid mode',
@@ -158,7 +160,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         default:
-                            return _p.au(
+                            return p_.au(
                                 $[0],
                             )
                     }

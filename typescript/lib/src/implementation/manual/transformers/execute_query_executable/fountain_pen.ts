@@ -13,13 +13,13 @@ export namespace signatures {
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const Error: signatures.Error = ($) => p_.decide.state($, ($) => {
+export const Error: signatures.Error = ($) => p_.from.state($).decide(($) => {
     switch ($[0]) {
         case 'failed to spawn': return p_.ss($, ($) => sh.ph.composed([
             sh.ph.literal("failed to spawn process:"),
             sh.ph.indent(
                 sh.pg.sentences(
-                    $.message.lines.__l_map(($) => sh.sentence([
+                    $.message.lines.__l_map_deprecated(($) => sh.sentence([
                         sh.ph.literal($)
                     ]))
                 )
@@ -39,7 +39,7 @@ export const Error: signatures.Error = ($) => p_.decide.state($, ($) => {
                     sh.ph.literal("output:"),
                     sh.ph.indent(
                         sh.pg.sentences(
-                            $.stderr.lines.__l_map(($) => sh.sentence([
+                            $.stderr.lines.__l_map_deprecated(($) => sh.sentence([
                                 sh.ph.literal($)
                             ]))
                         ))

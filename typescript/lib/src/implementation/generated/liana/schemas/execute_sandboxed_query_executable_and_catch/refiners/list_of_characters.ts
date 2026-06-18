@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/refiner'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/execute_sandboxed_query_executable_and_catch/signatures/refiners/list_of_characters"
 

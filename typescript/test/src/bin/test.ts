@@ -13,7 +13,7 @@ p_log_debug_message("BEGIN", () => {})
 const x = r_non_normalized_path.Non_Normalized_Path("/a//b/../c/./d")
 
 p_log_debug_message(`leading slash: ${x['leading slash']}`, () => { })
-x.segments.__l_map(($) => {
+x.segments.__l_map_deprecated(($) => {
     p_log_debug_message(`segment: ${$[0]}`, () => { })
     return null
 })
@@ -33,7 +33,7 @@ const $ = r_node_path.Node_Path(
     },
 )
 
-p_.decide.state($.context.start, ($): null => {
+p_.from.state($.context.start).decide(($): null => {
     switch ($[0]) {
         case 'absolute': return p_.ss($, ($) => {
             p_log_debug_message("abs", () => {})

@@ -18,7 +18,7 @@ import * as t_read_file_to_fountain_pen from "../read_file/fountain_pen"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export const Node_Error: signatures.Node_Error = ($) => p_.decide.state($, ($) => {
+export const Node_Error: signatures.Node_Error = ($) => p_.from.state($).decide(($) => {
     switch ($[0]) {
         case 'file': return p_.ss($, ($) => t_read_file_to_fountain_pen.Error($))
         case 'directory': return p_.ss($, ($) => Error($))
@@ -26,10 +26,10 @@ export const Node_Error: signatures.Node_Error = ($) => p_.decide.state($, ($) =
     }
 })
 
-export const Error: signatures.Error = ($) => p_.decide.state($, ($) => {
+export const Error: signatures.Error = ($) => p_.from.state($).decide(($) => {
     switch ($[0]) {
         case 'directory content processing': return p_.ss($, ($) => sh.ph.indent(
-            sh.pg.sentences(p_.list.from.dictionary($).convert(($, id) => sh.sentence([
+            sh.pg.sentences(p_.from.dictionary($).convert_to_list(($, id) => sh.sentence([
                 sh.ph.literal(id),
                 sh.ph.literal(": "),
                 Node_Error($)

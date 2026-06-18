@@ -1,7 +1,9 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <State, B>($: State,  assign: ($: State) => B,  otherwise: () => B) => assign($)
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -11,15 +13,15 @@ import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 
 import * as v_primitives_to_text from "liana-core/dist/implementation/manual/transformers/primitives/text"
 
-export const Node_Path: t_signatures.Node_Path = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Node_Path: t_signatures.Node_Path = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "context": _p_change_context(
+        "context": p_change_context(
             $['context'],
             ($) => Context_Path(
                 $,
             ),
         ),
-        "node": _p_change_context(
+        "node": p_change_context(
             $['node'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
@@ -29,15 +31,15 @@ export const Node_Path: t_signatures.Node_Path = ($) => ['group', ['verbose', _p
     },
 )]]
 
-export const Context_Path: t_signatures.Context_Path = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Context_Path: t_signatures.Context_Path = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "start": _p_change_context(
+        "start": p_change_context(
             $['start'],
             ($) => Start(
                 $,
             ),
         ),
-        "subpath": _p_change_context(
+        "subpath": p_change_context(
             $['subpath'],
             ($) => Context_Subpath(
                 $,
@@ -46,7 +48,7 @@ export const Context_Path: t_signatures.Context_Path = ($) => ['group', ['verbos
     },
 )]]
 
-export const Context_Subpath: t_signatures.Context_Subpath = ($) => ['list', _p.list.from.list(
+export const Context_Subpath: t_signatures.Context_Subpath = ($) => ['list', p_.from.list(
     $,
 ).map(
     ($) => ['text', {
@@ -55,12 +57,12 @@ export const Context_Subpath: t_signatures.Context_Subpath = ($) => ['list', _p.
     }],
 )]
 
-export const Start: t_signatures.Start = ($) => ['state', _p.decide.state(
+export const Start: t_signatures.Start = ($) => ['state', p_decide_state(
     $,
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'absolute':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'absolute',
@@ -68,13 +70,13 @@ export const Start: t_signatures.Start = ($) => ['state', _p.decide.state(
                     }),
                 )
             case 'relative':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'relative',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "up steps": _p_change_context(
+                                "up steps": p_change_context(
                                     $['up steps'],
                                     ($) => Up_Steps(
                                         $,
@@ -85,7 +87,7 @@ export const Start: t_signatures.Start = ($) => ['state', _p.decide.state(
                     }),
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }

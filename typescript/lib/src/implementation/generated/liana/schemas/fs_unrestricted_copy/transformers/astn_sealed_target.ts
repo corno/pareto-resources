@@ -1,7 +1,9 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <State, B>($: State,  assign: ($: State) => B,  otherwise: () => B) => assign($)
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -13,25 +15,25 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_path from "../../fs_unrestricted_path/transformers/astn_sealed_target"
 
-export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "source": _p_change_context(
+        "source": p_change_context(
             $['source'],
             ($) => v_external_path.Node_Path(
                 $,
             ),
         ),
-        "target": _p_change_context(
+        "target": p_change_context(
             $['target'],
             ($) => v_external_path.Node_Path(
                 $,
             ),
         ),
-        "options": _p_change_context(
+        "options": p_change_context(
             $['options'],
-            ($) => ['group', ['verbose', _p.literal.dictionary(
+            ($) => ['group', ['verbose', p_.literal.dictionary(
                 {
-                    "recursive": _p_change_context(
+                    "recursive": p_change_context(
                         $['recursive'],
                         ($) => ['text', {
                             'delimiter': ['none', null],
@@ -40,7 +42,7 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                             ),
                         }],
                     ),
-                    "force": _p_change_context(
+                    "force": p_change_context(
                         $['force'],
                         ($) => ['text', {
                             'delimiter': ['none', null],
@@ -49,7 +51,7 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                             ),
                         }],
                     ),
-                    "errorOnExist": _p_change_context(
+                    "errorOnExist": p_change_context(
                         $['errorOnExist'],
                         ($) => ['text', {
                             'delimiter': ['none', null],
@@ -64,22 +66,22 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     },
 )]]
 
-export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "path": _p_change_context(
+        "path": p_change_context(
             $['path'],
             ($) => v_external_path.Node_Path(
                 $,
             ),
         ),
-        "type": _p_change_context(
+        "type": p_change_context(
             $['type'],
-            ($) => ['state', _p.decide.state(
+            ($) => ['state', p_decide_state(
                 $,
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'source does not exist':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'source does not exist',
@@ -87,7 +89,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         case 'node is not a file':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'node is not a file',
@@ -95,7 +97,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         case 'permission denied':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'permission denied',
@@ -103,7 +105,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         case 'file too large':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'file too large',
@@ -111,7 +113,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         case 'device not ready':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'device not ready',
@@ -119,7 +121,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         default:
-                            return _p.au(
+                            return p_.au(
                                 $[0],
                             )
                     }

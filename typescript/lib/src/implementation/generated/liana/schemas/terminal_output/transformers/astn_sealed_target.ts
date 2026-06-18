@@ -1,7 +1,7 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -11,11 +11,11 @@ import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 
 import * as v_primitives_to_text from "liana-core/dist/implementation/manual/transformers/primitives/text"
 
-export const Message: t_signatures.Message = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Message: t_signatures.Message = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "lines": _p_change_context(
+        "lines": p_change_context(
             $['lines'],
-            ($) => ['list', _p.list.from.list(
+            ($) => ['list', p_.from.list(
                 $,
             ).map(
                 ($) => ['text', {
@@ -24,7 +24,7 @@ export const Message: t_signatures.Message = ($) => ['group', ['verbose', _p.lit
                 }],
             )],
         ),
-        "raw": _p_change_context(
+        "raw": p_change_context(
             $['raw'],
             ($) => ['text', {
                 'delimiter': ['quote', null],

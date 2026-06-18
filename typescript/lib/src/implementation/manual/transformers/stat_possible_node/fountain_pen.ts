@@ -14,7 +14,7 @@ import * as t_path_to_text from "../unrestricted_path/list_of_characters"
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error: Error = ($) => sh.ph.composed([
-    p_.decide.state($.type, ($) => {
+    p_.from.state($.type).decide(($) => {
         switch ($[0]) {
             case 'unknown': return p_.ss($, ($) => sh.ph.literal("unknown"))
             default: return p_.au($[0])

@@ -1,7 +1,9 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <State, B>($: State,  assign: ($: State) => B,  otherwise: () => B) => assign($)
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -13,15 +15,15 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_path from "../../fs_unrestricted_path/transformers/astn_sealed_target"
 
-export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "path": _p_change_context(
+        "path": p_change_context(
             $['path'],
             ($) => v_external_path.Context_Path(
                 $,
             ),
         ),
-        "error if not exists": _p_change_context(
+        "error if not exists": p_change_context(
             $['error if not exists'],
             ($) => ['text', {
                 'delimiter': ['none', null],
@@ -33,22 +35,22 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     },
 )]]
 
-export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "path": _p_change_context(
+        "path": p_change_context(
             $['path'],
             ($) => v_external_path.Context_Path(
                 $,
             ),
         ),
-        "type": _p_change_context(
+        "type": p_change_context(
             $['type'],
-            ($) => ['state', _p.decide.state(
+            ($) => ['state', p_decide_state(
                 $,
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'node does not exist':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'node does not exist',
@@ -56,7 +58,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         case 'permission denied':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'permission denied',
@@ -64,7 +66,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         default:
-                            return _p.au(
+                            return p_.au(
                                 $[0],
                             )
                     }

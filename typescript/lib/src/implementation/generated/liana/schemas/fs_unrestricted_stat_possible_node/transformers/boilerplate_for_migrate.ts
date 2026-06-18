@@ -1,7 +1,9 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <State, B>($: State,  assign: ($: State) => B,  otherwise: () => B) => assign($)
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/fs_unrestricted_stat_possible_node/signatures/transformers/boilerplate_for_migrate"
 
@@ -14,25 +16,25 @@ export const Parameters: t_signatures.Parameters = ($) => v_path.Node_Path(
 )
 
 export const Error: t_signatures.Error = ($) => ({
-    'path': _p_change_context(
+    'path': p_change_context(
         $['path'],
         ($) => v_path.Node_Path(
             $,
         ),
     ),
-    'type': _p_change_context(
+    'type': p_change_context(
         $['type'],
-        ($) => _p.decide.state(
+        ($) => p_decide_state(
             $,
             ($): t_out.Error.type_ => {
                 switch ($[0]) {
                     case 'unknown':
-                        return _p.ss(
+                        return p_.ss(
                             $,
                             ($) => ['unknown', null],
                         )
                     default:
-                        return _p.au(
+                        return p_.au(
                             $[0],
                         )
                 }
@@ -45,27 +47,27 @@ export const Result: t_signatures.Result = ($) => Node_Type(
     $,
 )
 
-export const Node_Type: t_signatures.Node_Type = ($) => _p.decide.state(
+export const Node_Type: t_signatures.Node_Type = ($) => p_decide_state(
     $,
     ($): t_out.Node_Type => {
         switch ($[0]) {
             case 'does not exist':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['does not exist', null],
                 )
             case 'file':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['file', null],
                 )
             case 'directory':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['directory', null],
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }

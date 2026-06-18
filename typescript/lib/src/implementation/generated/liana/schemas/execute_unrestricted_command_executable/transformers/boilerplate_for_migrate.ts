@@ -1,7 +1,9 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <State, B>($: State,  assign: ($: State) => B,  otherwise: () => B) => assign($)
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/execute_unrestricted_command_executable/signatures/transformers/boilerplate_for_migrate"
 
@@ -12,21 +14,21 @@ import * as v_path from "../../fs_unrestricted_path/transformers/boilerplate_for
 import * as v_terminal_output from "../../terminal_output/transformers/boilerplate_for_migrate"
 
 export const Parameters: t_signatures.Parameters = ($) => ({
-    'program': _p_change_context(
+    'program': p_change_context(
         $['program'],
         ($) => $,
     ),
-    'args': _p_change_context(
+    'args': p_change_context(
         $['args'],
-        ($) => _p.list.from.list(
+        ($) => p_.from.list(
             $,
         ).map(
             ($) => $,
         ),
     ),
-    'working directory': _p_change_context(
+    'working directory': p_change_context(
         $['working directory'],
-        ($) => _p.optional.from.optional(
+        ($) => p_.from.optional(
             $,
         ).map(
             ($) => v_path.Context_Path(
@@ -36,15 +38,15 @@ export const Parameters: t_signatures.Parameters = ($) => ({
     ),
 })
 
-export const Error: t_signatures.Error = ($) => _p.decide.state(
+export const Error: t_signatures.Error = ($) => p_decide_state(
     $,
     ($): t_out.Error => {
         switch ($[0]) {
             case 'failed to spawn':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['failed to spawn', {
-                        'message': _p_change_context(
+                        'message': p_change_context(
                             $['message'],
                             ($) => v_terminal_output.Message(
                                 $,
@@ -53,18 +55,18 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
                     }],
                 )
             case 'non zero exit code':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['non zero exit code', {
-                        'exit code': _p_change_context(
+                        'exit code': p_change_context(
                             $['exit code'],
-                            ($) => _p.optional.from.optional(
+                            ($) => p_.from.optional(
                                 $,
                             ).map(
                                 ($) => $,
                             ),
                         ),
-                        'stderr': _p_change_context(
+                        'stderr': p_change_context(
                             $['stderr'],
                             ($) => v_terminal_output.Message(
                                 $,
@@ -73,7 +75,7 @@ export const Error: t_signatures.Error = ($) => _p.decide.state(
                     }],
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }

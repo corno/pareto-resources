@@ -1,7 +1,9 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <State, B>($: State,  assign: ($: State) => B,  otherwise: () => B) => assign($)
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -13,9 +15,9 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_path from "../../fs_unrestricted_path/transformers/astn_sealed_target"
 
-export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "path": _p_change_context(
+        "path": p_change_context(
             $['path'],
             ($) => v_external_path.Context_Path(
                 $,
@@ -24,22 +26,22 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     },
 )]]
 
-export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "path": _p_change_context(
+        "path": p_change_context(
             $['path'],
             ($) => v_external_path.Context_Path(
                 $,
             ),
         ),
-        "type": _p_change_context(
+        "type": p_change_context(
             $['type'],
-            ($) => ['state', _p.decide.state(
+            ($) => ['state', p_decide_state(
                 $,
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'directory does not exist':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'directory does not exist',
@@ -47,7 +49,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         case 'node is not a directory':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'node is not a directory',
@@ -55,7 +57,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
                                 }),
                             )
                         default:
-                            return _p.au(
+                            return p_.au(
                                 $[0],
                             )
                     }
@@ -65,24 +67,24 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', _p.literal
     },
 )]]
 
-export const Result: t_signatures.Result = ($) => ['dictionary', _p.dictionary.from.dictionary(
+export const Result: t_signatures.Result = ($) => ['dictionary', p_.from.dictionary(
     $,
 ).map(
-    ($, id) => ['group', ['verbose', _p.literal.dictionary(
+    ($, id) => ['group', ['verbose', p_.literal.dictionary(
         {
-            "node type": _p_change_context(
+            "node type": p_change_context(
                 $['node type'],
                 ($) => Node_Type(
                     $,
                 ),
             ),
-            "context directory": _p_change_context(
+            "context directory": p_change_context(
                 $['context directory'],
                 ($) => v_external_path.Context_Path(
                     $,
                 ),
             ),
-            "path": _p_change_context(
+            "path": p_change_context(
                 $['path'],
                 ($) => v_external_path.Node_Path(
                     $,
@@ -92,12 +94,12 @@ export const Result: t_signatures.Result = ($) => ['dictionary', _p.dictionary.f
     )]],
 )]
 
-export const Node_Type: t_signatures.Node_Type = ($) => ['state', _p.decide.state(
+export const Node_Type: t_signatures.Node_Type = ($) => ['state', p_decide_state(
     $,
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'file':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'file',
@@ -105,7 +107,7 @@ export const Node_Type: t_signatures.Node_Type = ($) => ['state', _p.decide.stat
                     }),
                 )
             case 'directory':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'directory',
@@ -113,7 +115,7 @@ export const Node_Type: t_signatures.Node_Type = ($) => ['state', _p.decide.stat
                     }),
                 )
             case 'other':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'other',
@@ -121,7 +123,7 @@ export const Node_Type: t_signatures.Node_Type = ($) => ['state', _p.decide.stat
                     }),
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }

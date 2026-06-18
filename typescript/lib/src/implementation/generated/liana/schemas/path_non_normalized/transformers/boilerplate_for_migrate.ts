@@ -1,48 +1,50 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <State, B>($: State,  assign: ($: State) => B,  otherwise: () => B) => assign($)
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/path_non_normalized/signatures/transformers/boilerplate_for_migrate"
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/path_non_normalized/data"
 
 export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ({
-    'leading slash': _p_change_context(
+    'leading slash': p_change_context(
         $['leading slash'],
         ($) => $,
     ),
-    'segments': _p_change_context(
+    'segments': p_change_context(
         $['segments'],
-        ($) => _p.list.from.list(
+        ($) => p_.from.list(
             $,
         ).map(
-            ($) => _p.decide.state(
+            ($) => p_decide_state(
                 $,
                 ($): t_out.Non_Normalized_Path.segments.L => {
                     switch ($[0]) {
                         case 'parent':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ['parent', null],
                             )
                         case 'child':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ['child', $],
                             )
                         case 'current':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ['current', null],
                             )
                         case 'nothing':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ['nothing', null],
                             )
                         default:
-                            return _p.au(
+                            return p_.au(
                                 $[0],
                             )
                     }
@@ -50,7 +52,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ({
             ),
         ),
     ),
-    'trailing slash': _p_change_context(
+    'trailing slash': p_change_context(
         $['trailing slash'],
         ($) => $,
     ),

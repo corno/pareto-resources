@@ -1,7 +1,9 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <State, B>($: State,  assign: ($: State) => B,  otherwise: () => B) => assign($)
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/fs_unrestricted_read_directory/signatures/transformers/boilerplate_for_migrate"
 
@@ -10,7 +12,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/fs_u
 import * as v_path from "../../fs_unrestricted_path/transformers/boilerplate_for_migrate"
 
 export const Parameters: t_signatures.Parameters = ($) => ({
-    'path': _p_change_context(
+    'path': p_change_context(
         $['path'],
         ($) => v_path.Context_Path(
             $,
@@ -19,30 +21,30 @@ export const Parameters: t_signatures.Parameters = ($) => ({
 })
 
 export const Error: t_signatures.Error = ($) => ({
-    'path': _p_change_context(
+    'path': p_change_context(
         $['path'],
         ($) => v_path.Context_Path(
             $,
         ),
     ),
-    'type': _p_change_context(
+    'type': p_change_context(
         $['type'],
-        ($) => _p.decide.state(
+        ($) => p_decide_state(
             $,
             ($): t_out.Error.type_ => {
                 switch ($[0]) {
                     case 'directory does not exist':
-                        return _p.ss(
+                        return p_.ss(
                             $,
                             ($) => ['directory does not exist', null],
                         )
                     case 'node is not a directory':
-                        return _p.ss(
+                        return p_.ss(
                             $,
                             ($) => ['node is not a directory', null],
                         )
                     default:
-                        return _p.au(
+                        return p_.au(
                             $[0],
                         )
                 }
@@ -51,23 +53,23 @@ export const Error: t_signatures.Error = ($) => ({
     ),
 })
 
-export const Result: t_signatures.Result = ($) => _p.dictionary.from.dictionary(
+export const Result: t_signatures.Result = ($) => p_.from.dictionary(
     $,
 ).map(
     ($, id) => ({
-        'node type': _p_change_context(
+        'node type': p_change_context(
             $['node type'],
             ($) => Node_Type(
                 $,
             ),
         ),
-        'context directory': _p_change_context(
+        'context directory': p_change_context(
             $['context directory'],
             ($) => v_path.Context_Path(
                 $,
             ),
         ),
-        'path': _p_change_context(
+        'path': p_change_context(
             $['path'],
             ($) => v_path.Node_Path(
                 $,
@@ -76,27 +78,27 @@ export const Result: t_signatures.Result = ($) => _p.dictionary.from.dictionary(
     }),
 )
 
-export const Node_Type: t_signatures.Node_Type = ($) => _p.decide.state(
+export const Node_Type: t_signatures.Node_Type = ($) => p_decide_state(
     $,
     ($): t_out.Node_Type => {
         switch ($[0]) {
             case 'file':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['file', null],
                 )
             case 'directory':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['directory', null],
                 )
             case 'other':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['other', null],
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }

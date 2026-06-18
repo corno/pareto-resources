@@ -1,33 +1,35 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <State, B>($: State,  assign: ($: State) => B,  otherwise: () => B) => assign($)
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/fs_unrestricted_path/signatures/transformers/boilerplate_for_migrate"
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
 
 export const Node_Path: t_signatures.Node_Path = ($) => ({
-    'context': _p_change_context(
+    'context': p_change_context(
         $['context'],
         ($) => Context_Path(
             $,
         ),
     ),
-    'node': _p_change_context(
+    'node': p_change_context(
         $['node'],
         ($) => $,
     ),
 })
 
 export const Context_Path: t_signatures.Context_Path = ($) => ({
-    'start': _p_change_context(
+    'start': p_change_context(
         $['start'],
         ($) => Start(
             $,
         ),
     ),
-    'subpath': _p_change_context(
+    'subpath': p_change_context(
         $['subpath'],
         ($) => Context_Subpath(
             $,
@@ -35,26 +37,26 @@ export const Context_Path: t_signatures.Context_Path = ($) => ({
     ),
 })
 
-export const Context_Subpath: t_signatures.Context_Subpath = ($) => _p.list.from.list(
+export const Context_Subpath: t_signatures.Context_Subpath = ($) => p_.from.list(
     $,
 ).map(
     ($) => $,
 )
 
-export const Start: t_signatures.Start = ($) => _p.decide.state(
+export const Start: t_signatures.Start = ($) => p_decide_state(
     $,
     ($): t_out.Start => {
         switch ($[0]) {
             case 'absolute':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['absolute', null],
                 )
             case 'relative':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['relative', {
-                        'up steps': _p_change_context(
+                        'up steps': p_change_context(
                             $['up steps'],
                             ($) => Up_Steps(
                                 $,
@@ -63,7 +65,7 @@ export const Start: t_signatures.Start = ($) => _p.decide.state(
                     }],
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }

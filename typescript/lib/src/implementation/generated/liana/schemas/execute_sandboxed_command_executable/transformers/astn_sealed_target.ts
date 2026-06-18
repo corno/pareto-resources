@@ -1,7 +1,7 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -15,11 +15,16 @@ import * as v_external_path from "../../fs_unrestricted_path/transformers/astn_s
 
 import * as v_external_terminal_output from "../../terminal_output/transformers/astn_sealed_target"
 
-export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', _p.literal.dictionary(
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+
+
+export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "args": _p_change_context(
+        "args": p_change_context(
             $['args'],
-            ($) => ['list', _p.list.from.list(
+            ($) => ['list', p_.from.list(
                 $,
             ).map(
                 ($) => ['text', {
@@ -28,9 +33,9 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
                 }],
             )],
         ),
-        "working directory": _p_change_context(
+        "working directory": p_change_context(
             $['working directory'],
-            ($) => ['optional', _p.decide.optional(
+            ($) => ['optional', p_decide_optional(
                 $,
                 ($): t_out.Value.optional => ['set', v_external_path.Context_Path(
                     $,
@@ -41,18 +46,18 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
     },
 )]]
 
-export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
+export const Error: t_signatures.Error = ($) => ['state', p_decide_state(
     $,
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'failed to spawn':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'failed to spawn',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "message": _p_change_context(
+                                "message": p_change_context(
                                     $['message'],
                                     ($) => v_external_terminal_output.Message(
                                         $,
@@ -63,15 +68,15 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                     }),
                 )
             case 'non zero exit code':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'non zero exit code',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "exit code": _p_change_context(
+                                "exit code": p_change_context(
                                     $['exit code'],
-                                    ($) => ['optional', _p.decide.optional(
+                                    ($) => ['optional', p_decide_optional(
                                         $,
                                         ($): t_out.Value.optional => ['set', ['text', {
                                             'delimiter': ['none', null],
@@ -82,7 +87,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                                         () => ['not set', null],
                                     )],
                                 ),
-                                "stderr": _p_change_context(
+                                "stderr": p_change_context(
                                     $['stderr'],
                                     ($) => v_external_terminal_output.Message(
                                         $,
@@ -93,7 +98,7 @@ export const Error: t_signatures.Error = ($) => ['state', _p.decide.state(
                     }),
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }

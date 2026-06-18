@@ -18,7 +18,7 @@ import * as t_path_to_text from "../unrestricted_path/list_of_characters"
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error: signatures.Error = ($) => sh.ph.composed([
-    p_.decide.state($.type, ($) => {
+    p_.from.state($.type).decide(($) => {
         switch ($[0]) {
             case 'directory does not exist': return p_.ss($, ($) => sh.ph.literal("directory does not exist"))
             case 'node is not a directory': return p_.ss($, ($) => sh.ph.literal("node is not a directory"))

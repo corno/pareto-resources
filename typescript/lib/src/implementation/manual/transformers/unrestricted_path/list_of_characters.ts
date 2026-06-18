@@ -23,7 +23,7 @@ export const Node_Path: p_i.Transformer<d_in.Node_Path, d_out.List_of_Characters
 
 export const Context_Path: p_i.Transformer<d_in.Context_Path, d_out.List_of_Characters> = ($) => {
     return p_list_build_deprecated(($i) => {
-        p_.decide.state($.start, ($): null => {
+        p_.from.state($.start).decide(($): null => {
             switch ($[0]) {
                 case 'absolute': return p_.ss($, ($) => {
                     // $i.add_character(47) // '/'
@@ -45,10 +45,10 @@ export const Context_Path: p_i.Transformer<d_in.Context_Path, d_out.List_of_Char
                 default: return p_.au($[0])
             }
         })
-        if (p_.boolean.from.list($.subpath).is_empty() && $.start[0] === 'absolute') {
+        if (p_.from.list($.subpath).is_empty() && $.start[0] === 'absolute') {
             $i['add item'](47) // '/'
         }
-        $.subpath.__l_map(($) => {
+        $.subpath.__l_map_deprecated(($) => {
             $i['add item'](47) // '/'
             $i['add list'](p_list_from_text(
                 $,
