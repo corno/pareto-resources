@@ -1,6 +1,6 @@
 import * as p_i from 'pareto-core/dist/interface/production'
-import p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
-import p_variables from 'pareto-core/dist/implementation/specials/variables'
+import p_text_from_list from 'pareto-core/dist/implementation/transformer/specials/text_from_list'
+import p_variables from 'pareto-core/dist/implementation/transformer/specials/variables'
 
 import * as d_out from "../../../../interface/generated/liana/schemas/path_non_normalized/data"
 

@@ -1,5 +1,5 @@
 import * as p_ from 'pareto-core/dist/implementation/command'
-import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
+import p_list_from_text from 'pareto-core/dist/implementation/refiner/specials/list_from_text'
 
 
 import * as interface_ from "../../../interface/signatures/resources"

@@ -3,7 +3,7 @@ import * as p_ from 'pareto-core/dist/implementation/transformer'
 
 const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
 const p_decide_optional = <State, B>($: State,  assign: ($: State) => B,  otherwise: () => B) => assign($)
-import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/fountain_pen/signatures/transformers/boilerplate_for_migrate"
 

@@ -1,5 +1,5 @@
 import * as p_t from 'pareto-core/dist/interface/transformer'
-import p_iterate from 'pareto-core/dist/implementation/specials/iterate'
+import p_iterate from 'pareto-core/dist/implementation/refiner/specials/iterate'
 
 import * as d_out from "../../../../interface/generated/liana/schemas/path_non_normalized/data"
 import * as d_in from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"

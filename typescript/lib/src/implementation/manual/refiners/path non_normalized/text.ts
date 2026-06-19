@@ -1,5 +1,5 @@
 import p_ti from 'pareto-core/dist/interface/transformer'
-import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
+import p_list_from_text from 'pareto-core/dist/implementation/refiner/specials/list_from_text'
 
 //data types
 import * as d_out from "../../../../interface/generated/liana/schemas/path_non_normalized/data"
