@@ -11,12 +11,10 @@ export const extend_context_path_with_single_step = (
     }
 ): d_out.Context_Path => ({
     'start': $.start,
-    'subpath': p_.literal.nested_list([
+    'subpath': p_.literal.chain(
         $.subpath,
-        p_.literal.list([
-            $p.addition
-        ])
-    ]),
+        $p.addition
+    ),
 })
 
 export const extend_context_path_with_list = (
@@ -26,7 +24,7 @@ export const extend_context_path_with_list = (
     }
 ): d_out.Context_Path => ({
     'start': $.start,
-    'subpath': p_.literal.nested_list([
+    'subpath': p_.literal.segmented_list([
         $.subpath,
         $p.addition,
     ]),

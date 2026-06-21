@@ -9,7 +9,7 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 
 
 export const Node_Path: p_i.Transformer<d_in.Node_Path, d_out.List_of_Characters> = ($) => {
-    return p_.literal.nested_list([
+    return p_.literal.segmented_list([
         Context_Path($.context),
         p_.literal.list([
             47, // '/'
@@ -22,7 +22,7 @@ export const Node_Path: p_i.Transformer<d_in.Node_Path, d_out.List_of_Characters
 }
 
 export const Context_Path: p_i.Transformer<d_in.Context_Path, d_out.List_of_Characters> = ($) => {
-    return p_.literal.nested_list([
+    return p_.literal.segmented_list([
         p_list_build_deprecated(($i) => {
             p_.from.state($.start).decide(($): null => {
                 switch ($[0]) {

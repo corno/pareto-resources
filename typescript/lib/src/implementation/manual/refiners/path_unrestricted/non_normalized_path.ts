@@ -68,12 +68,10 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
                     'up_steps': intermediate_result.up_steps,
                     'subppath': intermediate_result.node === null
                         ? intermediate_result.subppath
-                        : p_.literal.nested_list([
+                        : p_.literal.chain(
                             intermediate_result.subppath,
-                            p_.literal.list([
-                                intermediate_result.node
-                            ])
-                        ]),
+                            intermediate_result.node
+                        ),
                     'node': $,
                 }))
                 case 'current': return p_.ss($, ($) => intermediate_result)
@@ -141,12 +139,10 @@ export const Context_Path = (
                 })
                 case 'child': return p_.ss($, ($): Intermediate_Result2 => ({
                     'up_steps': intermediate_result.up_steps,
-                    'subppath': p_.literal.nested_list([
+                    'subppath': p_.literal.chain(
                         intermediate_result.subppath,
-                        p_.literal.list([
-                            $
-                        ])
-                    ]),
+                        $
+                    ),
                 }))
                 case 'current': return p_.ss($, ($) => intermediate_result)
                 case 'nothing': return p_.ss($, ($) => intermediate_result)

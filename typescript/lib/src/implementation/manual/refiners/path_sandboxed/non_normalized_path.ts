@@ -56,7 +56,7 @@
 //                     'up_steps': intermediate_result.up_steps,
 //                     'subppath': intermediate_result.node === null
 //                         ? intermediate_result.subppath
-//                         : p_.literal.nested_list([
+//                         : p_.literal.nested_ list([
 //                             intermediate_result.subppath,
 //                             [
 //                                 intermediate_result.node
@@ -121,7 +121,7 @@
 //                 }))
 //                 case 'child': return p_.ss($, ($): Intermediate_Result2 => ({
 //                     'up_steps': intermediate_result.up_steps,
-//                     'subppath': p_.literal.nested_list([
+//                     'subppath': p_.literal.nested_ list([
 //                         intermediate_result.subppath,
 //                         [
 //                             $

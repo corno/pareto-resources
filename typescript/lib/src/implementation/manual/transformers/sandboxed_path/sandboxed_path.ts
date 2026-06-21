@@ -10,7 +10,7 @@
 //     }
 // ): d_out.Context_Path => ({
 //     'start': null,
-//     'subpath': p_.literal.nested_list([
+//     'subpath': p_.literal.nested_ list([
 //         $.subpath,
 //         [
 //             $p.addition
@@ -25,7 +25,7 @@
 //     }
 // ): d_out.Context_Path => ({
 //     'start': null,
-//     'subpath': p_.literal.nested_list([
+//     'subpath': p_.literal.nested_ list([
 //         $.subpath,
 //         $p.addition,
 //     ]),
