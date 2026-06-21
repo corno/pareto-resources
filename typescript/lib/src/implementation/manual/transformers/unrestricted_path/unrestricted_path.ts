@@ -13,9 +13,9 @@ export const extend_context_path_with_single_step = (
     'start': $.start,
     'subpath': p_.literal.nested_list([
         $.subpath,
-        [
+        p_.literal.list([
             $p.addition
-        ]
+        ])
     ]),
 })
 
