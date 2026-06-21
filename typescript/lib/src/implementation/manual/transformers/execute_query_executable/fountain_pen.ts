@@ -19,7 +19,7 @@ export const Error: signatures.Error = ($) => p_.from.state($).decide(($) => {
             sh.ph.literal("failed to spawn process:"),
             sh.ph.indent(
                 sh.pg.sentences(
-                    $.message.lines.__l_map_deprecated(($) => sh.sentence([
+                    p_.from.list($.message.lines).map(($) => sh.sentence([
                         sh.ph.literal($)
                     ]))
                 )
@@ -30,7 +30,7 @@ export const Error: signatures.Error = ($) => p_.from.state($).decide(($) => {
             sh.ph.indent(sh.pg.sentences([
                 sh.sentence([
                     sh.ph.literal("exit code: "),
-                    $['exit code'].__decide(
+                    p_.from.optional($['exit code']).decide(
                         ($) => sh.ph.decimal($),
                         () => sh.ph.literal("n/a")
                     )
@@ -39,7 +39,7 @@ export const Error: signatures.Error = ($) => p_.from.state($).decide(($) => {
                     sh.ph.literal("output:"),
                     sh.ph.indent(
                         sh.pg.sentences(
-                            $.stderr.lines.__l_map_deprecated(($) => sh.sentence([
+                            p_.from.list($.stderr.lines).map(($) => sh.sentence([
                                 sh.ph.literal($)
                             ]))
                         ))

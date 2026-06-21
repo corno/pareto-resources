@@ -54,7 +54,7 @@ export const Context_Path: p_i.Transformer<d_in.Context_Path, d_out.List_of_Char
             if (p_.from.list($.subpath).is_empty() && $.start[0] === 'absolute') {
                 $i['add item'](47) // '/'
             }
-            $.subpath.__l_map_deprecated(($) => {
+            p_.from.list($.subpath).map(($) => {
                 $i['add item'](47) // '/'
                 $i['add list'](p_list_from_text(
                     $,
