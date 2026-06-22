@@ -51,7 +51,10 @@ export const Context_Path: p_i.Transformer<d_in.Context_Path, d_out.List_of_Char
                     default: return p_.au($[0])
                 }
             })
-            if (p_.from.list($.subpath).is_empty() && $.start[0] === 'absolute') {
+            if (p_.from.list($.subpath).on_has_items(
+                () => true,
+                () => false
+            ) && $.start[0] === 'absolute') {
                 $i['add item'](47) // '/'
             }
             p_.from.list($.subpath).map(($) => {

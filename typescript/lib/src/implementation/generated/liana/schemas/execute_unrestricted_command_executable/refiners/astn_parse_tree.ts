@@ -138,7 +138,7 @@ export const Error: t_signatures.Error = ($, abort) => p_change_context(
     ),
     ($) => p_temp.from.text(
         $['option']['token']['value'],
-    ).state($, 
+    ).to_state($, 
         ($, $t):t_out.Error => {
             switch ($t) {
                 case 'failed to spawn':

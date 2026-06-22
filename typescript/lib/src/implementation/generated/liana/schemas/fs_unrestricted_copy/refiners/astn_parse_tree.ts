@@ -258,7 +258,7 @@ export const Error: t_signatures.Error = ($, abort) => p_change_context(
                         ),
                         ($) => p_.from.text(
                             $['option']['token']['value'],
-                        ).state($, 
+                        ).to_state($, 
                             ($, $t):t_out.Error.type_ => {
                                 switch ($t) {
                                     case 'source does not exist':

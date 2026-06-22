@@ -26,7 +26,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => p_change_context(
     ),
     ($) => p_.from.text(
         $['option']['token']['value'],
-    ).state($, 
+    ).to_state($, 
         ($, $t):t_out.Paragraph => {
             switch ($t) {
                 case 'composed':
@@ -398,7 +398,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => p_change_context(
     ),
     ($) => p_.from.text(
         $['option']['token']['value'],
-    ).state($, 
+    ).to_state($, 
         ($, $t):t_out.Phrase => {
             switch ($t) {
                 case 'value':
@@ -413,7 +413,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => p_change_context(
                             ),
                             ($) => p_.from.text(
                                 $['option']['token']['value'],
-                            ).state($, 
+                            ).to_state($, 
                                 ($, $t):t_out.Phrase.value => {
                                     switch ($t) {
                                         case 'text':

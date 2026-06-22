@@ -97,7 +97,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
                                 ),
                                 ($) => p_.from.text(
                                     $['option']['token']['value'],
-                                ).state($, 
+                                ).to_state($, 
                                     ($, $t):t_out.Non_Normalized_Path.segments.L => {
                                         switch ($t) {
                                             case 'parent':

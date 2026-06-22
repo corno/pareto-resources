@@ -17,7 +17,7 @@ import * as v_external_terminal_output from "../../terminal_output/transformers/
 
 import * as p_di from 'pareto-core/dist/interface/data'
 const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
-const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => p_.from.optional($).decide(assign, otherwise)
 
 
 export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', p_.literal.dictionary(

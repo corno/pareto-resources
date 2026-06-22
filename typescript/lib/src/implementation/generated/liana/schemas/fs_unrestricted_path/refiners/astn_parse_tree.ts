@@ -180,7 +180,7 @@ export const Start: t_signatures.Start = ($, abort) => p_change_context(
     ),
     ($) => p_.from.text(
         $['option']['token']['value'],
-    ).state($, 
+    ).to_state($, 
         ($, $t):t_out.Start => {
             switch ($t) {
                 case 'absolute':

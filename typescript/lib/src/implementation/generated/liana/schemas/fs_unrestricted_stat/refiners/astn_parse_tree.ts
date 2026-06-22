@@ -88,7 +88,7 @@ export const Error: t_signatures.Error = ($, abort) => p_change_context(
                         ),
                         ($) => p_.from.text(
                             $['option']['token']['value'],
-                        ).state($, 
+                        ).to_state($, 
                             ($, $t):t_out.Error.type_ => {
                                 switch ($t) {
                                     case 'node does not exist':
@@ -139,7 +139,7 @@ export const Node_Type: t_signatures.Node_Type = ($, abort) => p_change_context(
     ),
     ($) => p_.from.text(
         $['option']['token']['value'],
-    ).state($, 
+    ).to_state($, 
         ($, $t):t_out.Node_Type => {
             switch ($t) {
                 case 'file':
