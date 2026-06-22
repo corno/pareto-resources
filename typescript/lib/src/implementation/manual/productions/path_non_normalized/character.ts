@@ -16,19 +16,22 @@ export const Non_Normalized_Path: p_i.Production_Without_Error<
     null
 > = (iterator) => {
     return {
-        'leading slash': p_variables(() => {
-            const next = iterator.look_raw()
-            if (next === null) {
-                return false
-            } else {
-                if (next[0] === 47) { // '/'
-                    iterator.discard(() => null)
-                    return true
-                } else {
+        'leading slash': p_variables(
+            () => {
+                const next = iterator.look_raw()
+                if (next === null) {
                     return false
+                } else {
+                    if (next[0] === 47) { // '/'
+                        iterator.discard(
+                            () => null)
+                        return true
+                    } else {
+                        return false
+                    }
                 }
             }
-        }),
+        ),
         'segments': iterator.list({
             has_more_items: (item) =>
                 item !== 47// '/' //a non-slash -> continue
@@ -38,13 +41,15 @@ export const Non_Normalized_Path: p_i.Production_Without_Error<
                     iterator.list({
                         has_more_items: (item) => item !== 47, // '/'
                         handle: (item) => {
-                            iterator.discard(() => null)
+                            iterator.discard(
+                                () => null)
                             return item
                         },
                     }),
                     ($) => $
                 )
-                iterator.discard(() => null) // discard the slash or the end of the list
+                iterator.discard(
+                    () => null) // discard the slash or the end of the list
                 switch (segment_text) {
                     case "..": return ['parent', null]
                     case ".": return ['current', null]
@@ -53,19 +58,21 @@ export const Non_Normalized_Path: p_i.Production_Without_Error<
                 }
             }
         }),
-        'trailing slash': p_variables(() => {
-            const next = iterator.look_raw()
-            if (next === null) {
-                return false
-            } else {
-                if (next[0] === 47) { // '/'
-                    iterator.discard(() => null)
-                    return true
-                } else {
+        'trailing slash': p_variables(
+            () => {
+                const next = iterator.look_raw()
+                if (next === null) {
                     return false
+                } else {
+                    if (next[0] === 47) { // '/'
+                        iterator.discard(
+                            () => null)
+                        return true
+                    } else {
+                        return false
+                    }
                 }
-            }
-        }),
+            }),
     }
 
 }

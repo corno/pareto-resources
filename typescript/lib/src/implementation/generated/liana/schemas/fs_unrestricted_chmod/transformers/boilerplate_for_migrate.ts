@@ -41,8 +41,7 @@ export const Parameters: t_signatures.Parameters = ($) => ({
             ),
             'special bits': p_change_context(
                 $['special bits'],
-                ($) => p_.from.optional(
-                    $,
+                ($) => p_.from.optional($,
                 ).map(
                     ($) => ({
                         'setuid': p_change_context(

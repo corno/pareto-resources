@@ -29,8 +29,7 @@ export const Parameters: t_signatures.Parameters = ($) => ['group', ['verbose', 
         ),
         "args": p_change_context(
             $['args'],
-            ($) => ['list', p_.from.list(
-                $,
+            ($) => ['list', p_.from.list($,
             ).map(
                 ($) => ['text', {
                     'delimiter': ['quote', null],

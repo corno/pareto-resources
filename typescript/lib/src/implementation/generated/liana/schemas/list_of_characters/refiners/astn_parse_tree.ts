@@ -15,8 +15,7 @@ import * as v_unmarshalled_from_parse_tree from "liana-core/dist/implementation/
 
 import * as v_parse_tree_to_location from "liana-core/dist/implementation/manual/transformers/parse_tree/start_token_range"
 
-export const List_of_Characters: t_signatures.List_of_Characters = ($, abort) => p_.from.list(
-    v_unmarshalled_from_parse_tree.List(
+export const List_of_Characters: t_signatures.List_of_Characters = ($, abort) => p_.from.list(v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             $,

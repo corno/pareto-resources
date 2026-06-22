@@ -27,10 +27,11 @@ export const $$: interface_.queries.read_directory_content = p_.query_function(
                         case 'file': return p_.ss($, ($) => p_super_query_result($q['read file'](
                             path,
                             ($): d_read_directory_content.Node_Error => ['file', $],
-                        )).transform<d_directory_content.Node>(($) => ['file', p_text_from_list(
-                            $, ($) => $
-                        )]))
-                        case 'directory': return p_.ss($, ($) => p_super_query_result( $$(
+                        )).transform(
+                            ($) => ['file', p_text_from_list(
+                                $, ($) => $
+                            )]))
+                        case 'directory': return p_.ss($, ($) => p_super_query_result($$(
                             null,
                             $q,
                         )(
@@ -38,7 +39,8 @@ export const $$: interface_.queries.read_directory_content = p_.query_function(
                                 'path': t_path_to_path.deprecated_node_path_to_context_path(path),
                             },
                             ($): d_read_directory_content.Node_Error => ['directory', $]
-                        )).transform<d_directory_content.Node>(($): d_directory_content.Node => ['directory', $]))
+                        )).transform(
+                            ($) => ['directory', $]))
                         case 'other': return p_.ss($, ($) => p_.e.direct_result(['other', null]))
                         default: return p_.au($[0])
                     }

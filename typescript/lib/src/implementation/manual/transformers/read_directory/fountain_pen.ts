@@ -18,13 +18,14 @@ import * as t_path_to_text from "../unrestricted_path/list_of_characters"
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error: signatures.Error = ($) => sh.ph.composed([
-    p_.from.state($.type).decide(($) => {
-        switch ($[0]) {
-            case 'directory does not exist': return p_.ss($, ($) => sh.ph.literal("directory does not exist"))
-            case 'node is not a directory': return p_.ss($, ($) => sh.ph.literal("node is not a directory"))
-            default: return p_.au($[0])
-        }
-    }),
+    p_.from.state($.type).decide(
+        ($) => {
+            switch ($[0]) {
+                case 'directory does not exist': return p_.ss($, ($) => sh.ph.literal("directory does not exist"))
+                case 'node is not a directory': return p_.ss($, ($) => sh.ph.literal("node is not a directory"))
+                default: return p_.au($[0])
+            }
+        }),
     sh.ph.literal(": "),
     sh.ph.serialize(t_path_to_text.Context_Path($.path)),
 ])

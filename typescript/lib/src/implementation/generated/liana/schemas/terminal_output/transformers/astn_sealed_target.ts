@@ -15,8 +15,7 @@ export const Message: t_signatures.Message = ($) => ['group', ['verbose', p_.lit
     {
         "lines": p_change_context(
             $['lines'],
-            ($) => ['list', p_.from.list(
-                $,
+            ($) => ['list', p_.from.list($,
             ).map(
                 ($) => ['text', {
                     'delimiter': ['quote', null],

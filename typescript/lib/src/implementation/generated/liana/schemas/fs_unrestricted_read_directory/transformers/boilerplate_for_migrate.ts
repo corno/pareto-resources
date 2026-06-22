@@ -53,8 +53,7 @@ export const Error: t_signatures.Error = ($) => ({
     ),
 })
 
-export const Result: t_signatures.Result = ($) => p_.from.dictionary(
-    $,
+export const Result: t_signatures.Result = ($) => p_.from.dictionary($,
 ).map(
     ($, id) => ({
         'node type': p_change_context(

@@ -14,16 +14,17 @@ import * as t_path_to_text from "../unrestricted_path/list_of_characters"
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const Error: Error = ($) => sh.ph.composed([
-    p_.from.state($.type).decide(($) => {
-        switch ($[0]) {
-            case 'device not ready': return p_.ss($, ($) => sh.ph.literal("device not ready"))
-            case 'source does not exist': return p_.ss($, ($) => sh.ph.literal("source does not exist"))
-            case 'node is not a file': return p_.ss($, ($) => sh.ph.literal("node is not a file"))
-            case 'permission denied': return p_.ss($, ($) => sh.ph.literal("permission denied"))
-            case 'file too large': return p_.ss($, ($) => sh.ph.literal("file too large"))
-            default: return p_.au($[0])
-        }
-    }),
+    p_.from.state($.type).decide(
+        ($) => {
+            switch ($[0]) {
+                case 'device not ready': return p_.ss($, ($) => sh.ph.literal("device not ready"))
+                case 'source does not exist': return p_.ss($, ($) => sh.ph.literal("source does not exist"))
+                case 'node is not a file': return p_.ss($, ($) => sh.ph.literal("node is not a file"))
+                case 'permission denied': return p_.ss($, ($) => sh.ph.literal("permission denied"))
+                case 'file too large': return p_.ss($, ($) => sh.ph.literal("file too large"))
+                default: return p_.au($[0])
+            }
+        }),
     sh.ph.literal(": "),
     sh.ph.serialize(t_path_to_text.Node_Path($.path)),
 ])

@@ -23,48 +23,52 @@ export const Node_Path: p_i.Transformer<d_in.Node_Path, d_out.List_of_Characters
 
 export const Context_Path: p_i.Transformer<d_in.Context_Path, d_out.List_of_Characters> = ($) => {
     return p_.literal.segmented_list([
-        p_list_build_deprecated(($i) => {
-            p_.from.state($.start).decide(($): null => {
-                switch ($[0]) {
-                    case 'absolute': return p_.ss($, ($) => {
-                        // $i.add_character(47) // '/'
-                        return null
-                    })
-                    case 'relative': return p_.ss($, ($) => {
-                        $i['add item'](46) // .
+        p_list_build_deprecated(
+            ($i) => {
+                p_.from.state($.start).decide(
+                    ($): null => {
+                        switch ($[0]) {
+                            case 'absolute': return p_.ss($, ($) => {
+                                // $i.add_character(47) // '/'
+                                return null
+                            })
+                            case 'relative': return p_.ss($, ($) => {
+                                $i['add item'](46) // .
 
-                        $i['add list'](
-                            p_.from.list(
-                                p_.from.number(
-                                    $['up steps']
-                                ).repeat(
-                                    p_.literal.list([
-                                        47, // '/'
-                                        46, // .
-                                        46, // .
-                                    ])
+                                $i['add list'](
+                                    p_.from.list(p_.from.number(
+                                            $['up steps']
+                                        ).repeat(
+                                            p_.literal.list([
+                                                47, // '/'
+                                                46, // .
+                                                46, // .
+                                            ])
+                                        )
+                                    ).flatten(
+                                        ($) => $
+                                    )
                                 )
-                            ).flatten(($) => $)
-                        )
+                                return null
+                            })
+                            default: return p_.au($[0])
+                        }
+                    })
+                if (p_.from.list($.subpath).on_has_items(
+                    () => true,
+                    () => false
+                ) && $.start[0] === 'absolute') {
+                    $i['add item'](47) // '/'
+                }
+                p_.from.list($.subpath).map(
+                    ($) => {
+                        $i['add item'](47) // '/'
+                        $i['add list'](p_list_from_text(
+                            $,
+                            ($) => $
+                        ))
                         return null
                     })
-                    default: return p_.au($[0])
-                }
             })
-            if (p_.from.list($.subpath).on_has_items(
-                () => true,
-                () => false
-            ) && $.start[0] === 'absolute') {
-                $i['add item'](47) // '/'
-            }
-            p_.from.list($.subpath).map(($) => {
-                $i['add item'](47) // '/'
-                $i['add list'](p_list_from_text(
-                    $,
-                    ($) => $
-                ))
-                return null
-            })
-        })
     ])
 }

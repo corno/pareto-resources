@@ -25,8 +25,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => ['state', p_decide_state
                     $,
                     ($) => ({
                         'option': 'composed',
-                        'value': ['list', p_.from.list(
-                            $,
+                        'value': ['list', p_.from.list($,
                         ).map(
                             ($) => Paragraph(
                                 $,
@@ -39,8 +38,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => ['state', p_decide_state
                     $,
                     ($) => ({
                         'option': 'sentences',
-                        'value': ['list', p_.from.list(
-                            $,
+                        'value': ['list', p_.from.list($,
                         ).map(
                             ($) => Sentence(
                                 $,
@@ -79,8 +77,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => ['state', p_decide_state
                             {
                                 "items": p_change_context(
                                     $['items'],
-                                    ($) => ['list', p_.from.list(
-                                        $,
+                                    ($) => ['list', p_.from.list($,
                                     ).map(
                                         ($) => Sentence(
                                             $,
@@ -155,8 +152,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => ['state', p_decide_state
     },
 )]
 
-export const Sentence: t_signatures.Sentence = ($) => ['list', p_.from.list(
-    $,
+export const Sentence: t_signatures.Sentence = ($) => ['list', p_.from.list($,
 ).map(
     ($) => Phrase(
         $,
@@ -221,8 +217,7 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', p_decide_state(
                     $,
                     ($) => ({
                         'option': 'composed',
-                        'value': ['list', p_.from.list(
-                            $,
+                        'value': ['list', p_.from.list($,
                         ).map(
                             ($) => Phrase(
                                 $,
@@ -261,8 +256,7 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', p_decide_state(
                             {
                                 "items": p_change_context(
                                     $['items'],
-                                    ($) => ['list', p_.from.list(
-                                        $,
+                                    ($) => ['list', p_.from.list($,
                                     ).map(
                                         ($) => Phrase(
                                             $,

@@ -30,7 +30,8 @@ export const $$: interface_.queries.read_directory_structure = p_.query_function
                                 'path': t_path_to_path.deprecated_node_path_to_context_path(path),
                             },
                             ($): d_read_directory_structure.Node_Error => ['directory', $]
-                        )).transform<d_directory_structure.Node>(($): d_directory_structure.Node => ['directory', $]))
+                        )).transform(
+                            ($): d_directory_structure.Node => ['directory', $]))
                         case 'file': return p_.ss($, ($) => p_.e.direct_result(['file', null]))
                         case 'other': return p_.ss($, ($) => p_.e.direct_result(['other', null]))
                         default: return p_.au($[0])

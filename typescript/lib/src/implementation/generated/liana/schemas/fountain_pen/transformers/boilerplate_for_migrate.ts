@@ -18,8 +18,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => p_decide_state(
             case 'composed':
                 return p_.ss(
                     $,
-                    ($) => ['composed', p_.from.list(
-                        $,
+                    ($) => ['composed', p_.from.list($,
                     ).map(
                         ($) => Paragraph(
                             $,
@@ -29,8 +28,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => p_decide_state(
             case 'sentences':
                 return p_.ss(
                     $,
-                    ($) => ['sentences', p_.from.list(
-                        $,
+                    ($) => ['sentences', p_.from.list($,
                     ).map(
                         ($) => Sentence(
                             $,
@@ -40,8 +38,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => p_decide_state(
             case 'optional':
                 return p_.ss(
                     $,
-                    ($) => ['optional', p_.from.optional(
-                        $,
+                    ($) => ['optional', p_.from.optional($,
                     ).map(
                         ($) => Paragraph(
                             $,
@@ -59,8 +56,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => p_decide_state(
                     ($) => ['rich list', {
                         'items': p_change_context(
                             $['items'],
-                            ($) => p_.from.list(
-                                $,
+                            ($) => p_.from.list($,
                             ).map(
                                 ($) => Sentence(
                                     $,
@@ -69,8 +65,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => p_decide_state(
                         ),
                         'if empty': p_change_context(
                             $['if empty'],
-                            ($) => p_.from.optional(
-                                $,
+                            ($) => p_.from.optional($,
                             ).map(
                                 ($) => Sentence(
                                     $,
@@ -82,8 +77,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => p_decide_state(
                             ($) => ({
                                 'before': p_change_context(
                                     $['before'],
-                                    ($) => p_.from.optional(
-                                        $,
+                                    ($) => p_.from.optional($,
                                     ).map(
                                         ($) => Sentence(
                                             $,
@@ -96,8 +90,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => p_decide_state(
                                 ),
                                 'separator': p_change_context(
                                     $['separator'],
-                                    ($) => p_.from.optional(
-                                        $,
+                                    ($) => p_.from.optional($,
                                     ).map(
                                         ($) => Phrase(
                                             $,
@@ -106,8 +99,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => p_decide_state(
                                 ),
                                 'after': p_change_context(
                                     $['after'],
-                                    ($) => p_.from.optional(
-                                        $,
+                                    ($) => p_.from.optional($,
                                     ).map(
                                         ($) => Sentence(
                                             $,
@@ -126,8 +118,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => p_decide_state(
     },
 )
 
-export const Sentence: t_signatures.Sentence = ($) => p_.from.list(
-    $,
+export const Sentence: t_signatures.Sentence = ($) => p_.from.list($,
 ).map(
     ($) => Phrase(
         $,
@@ -175,8 +166,7 @@ export const Phrase: t_signatures.Phrase = ($) => p_decide_state(
             case 'composed':
                 return p_.ss(
                     $,
-                    ($) => ['composed', p_.from.list(
-                        $,
+                    ($) => ['composed', p_.from.list($,
                     ).map(
                         ($) => Phrase(
                             $,
@@ -186,8 +176,7 @@ export const Phrase: t_signatures.Phrase = ($) => p_decide_state(
             case 'optional':
                 return p_.ss(
                     $,
-                    ($) => ['optional', p_.from.optional(
-                        $,
+                    ($) => ['optional', p_.from.optional($,
                     ).map(
                         ($) => Phrase(
                             $,
@@ -205,8 +194,7 @@ export const Phrase: t_signatures.Phrase = ($) => p_decide_state(
                     ($) => ['rich list', {
                         'items': p_change_context(
                             $['items'],
-                            ($) => p_.from.list(
-                                $,
+                            ($) => p_.from.list($,
                             ).map(
                                 ($) => Phrase(
                                     $,

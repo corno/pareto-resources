@@ -67,8 +67,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal
     },
 )]]
 
-export const Result: t_signatures.Result = ($) => ['dictionary', p_.from.dictionary(
-    $,
+export const Result: t_signatures.Result = ($) => ['dictionary', p_.from.dictionary($,
 ).map(
     ($, id) => ['group', ['verbose', p_.literal.dictionary(
         {

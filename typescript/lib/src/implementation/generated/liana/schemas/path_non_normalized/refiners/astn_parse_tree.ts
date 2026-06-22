@@ -75,8 +75,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($, abort) 
                             'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => p_.from.list(
-                        v_unmarshalled_from_parse_tree.List(
+                    ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                             $,
                             ($) => abort(
                                 $,

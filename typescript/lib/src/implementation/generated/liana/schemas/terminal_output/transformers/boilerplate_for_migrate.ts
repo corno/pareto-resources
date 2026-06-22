@@ -10,8 +10,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/term
 export const Message: t_signatures.Message = ($) => ({
     'lines': p_change_context(
         $['lines'],
-        ($) => p_.from.list(
-            $,
+        ($) => p_.from.list($,
         ).map(
             ($) => $,
         ),

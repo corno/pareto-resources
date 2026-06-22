@@ -33,54 +33,56 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
         up_steps: 0,
     }
 
-    p_.from.list($.segments).map(($) => {
-        intermediate_result = p_t.from.state($).decide(($): Intermediate_Result => {
-            switch ($[0]) {
-                case 'parent': return p_.ss($, ($) => {
+    p_.from.list($.segments).map(
+        ($) => {
+            intermediate_result = p_t.from.state($).decide(
+                ($): Intermediate_Result => {
+                    switch ($[0]) {
+                        case 'parent': return p_.ss($, ($) => {
 
-                    return intermediate_result.node === null
-                        ? p_t.from.list(intermediate_result.subppath).on_has_last_item(
-                            ($, rest) => { //there are subpath steps, the last one will be removed
-                                return {
+                            return intermediate_result.node === null
+                                ? p_t.from.list(intermediate_result.subppath).on_has_last_item(
+                                    ($, rest) => { //there are subpath steps, the last one will be removed
+                                        return {
+                                            'up_steps': intermediate_result.up_steps,
+                                            'subppath': rest,
+                                            'node': null,
+
+                                        }
+                                    },
+                                    () => { //there are no subpath steps, the up_steps will be increased
+                                        return {
+                                            'up_steps': intermediate_result.up_steps + 1,
+                                            'subppath': p_.literal.list([]),
+                                            'node': null,
+                                        }
+                                    }
+                                )
+                                : { //node was not null, now it will be
                                     'up_steps': intermediate_result.up_steps,
-                                    'subppath': rest,
+                                    'subppath': intermediate_result.subppath,
                                     'node': null,
+                                }
 
-                                }
-                            },
-                            () => { //there are no subpath steps, the up_steps will be increased
-                                return {
-                                    'up_steps': intermediate_result.up_steps + 1,
-                                    'subppath': p_.literal.list([]),
-                                    'node': null,
-                                }
-                            }
-                        )
-                        : { //node was not null, now it will be
+
+                        })
+                        case 'child': return p_.ss($, ($): Intermediate_Result => ({
                             'up_steps': intermediate_result.up_steps,
-                            'subppath': intermediate_result.subppath,
-                            'node': null,
-                        }
-
-
+                            'subppath': intermediate_result.node === null
+                                ? intermediate_result.subppath
+                                : p_.literal.chain(
+                                    intermediate_result.subppath,
+                                    intermediate_result.node
+                                ),
+                            'node': $,
+                        }))
+                        case 'current': return p_.ss($, ($) => intermediate_result)
+                        case 'nothing': return p_.ss($, ($) => intermediate_result)
+                        default: return p_.au($[0])
+                    }
                 })
-                case 'child': return p_.ss($, ($): Intermediate_Result => ({
-                    'up_steps': intermediate_result.up_steps,
-                    'subppath': intermediate_result.node === null
-                        ? intermediate_result.subppath
-                        : p_.literal.chain(
-                            intermediate_result.subppath,
-                            intermediate_result.node
-                        ),
-                    'node': $,
-                }))
-                case 'current': return p_.ss($, ($) => intermediate_result)
-                case 'nothing': return p_.ss($, ($) => intermediate_result)
-                default: return p_.au($[0])
-            }
+            return null
         })
-        return null
-    })
 
     if (intermediate_result.node === null) {
         return abort(['no node', null])
@@ -114,43 +116,45 @@ export const Context_Path = (
         up_steps: 0,
     }
 
-    p_.from.list($.segments).map(($) => {
-        intermediate_result = p_t.from.state($).decide(($): Intermediate_Result2 => {
-            switch ($[0]) {
-                case 'parent': return p_.ss($, ($) => {
+    p_.from.list($.segments).map(
+        ($) => {
+            intermediate_result = p_t.from.state($).decide(
+                ($): Intermediate_Result2 => {
+                    switch ($[0]) {
+                        case 'parent': return p_.ss($, ($) => {
 
-                    return p_t.from.list(intermediate_result.subppath).on_has_last_item(
-                        ($, rest) => { //there are subpath steps, the last one will be removed
-                            return {
-                                'up_steps': intermediate_result.up_steps,
-                                'subppath': rest,
-                                'node': null,
+                            return p_t.from.list(intermediate_result.subppath).on_has_last_item(
+                                ($, rest) => { //there are subpath steps, the last one will be removed
+                                    return {
+                                        'up_steps': intermediate_result.up_steps,
+                                        'subppath': rest,
+                                        'node': null,
 
-                            }
-                        },
-                        () => { //there are no subpath steps, the up_steps will be increased
-                            return {
-                                'up_steps': intermediate_result.up_steps + 1,
-                                'subppath': p_.literal.list([]),
-                                'node': null,
-                            }
-                        }
-                    )
+                                    }
+                                },
+                                () => { //there are no subpath steps, the up_steps will be increased
+                                    return {
+                                        'up_steps': intermediate_result.up_steps + 1,
+                                        'subppath': p_.literal.list([]),
+                                        'node': null,
+                                    }
+                                }
+                            )
+                        })
+                        case 'child': return p_.ss($, ($): Intermediate_Result2 => ({
+                            'up_steps': intermediate_result.up_steps,
+                            'subppath': p_.literal.chain(
+                                intermediate_result.subppath,
+                                $
+                            ),
+                        }))
+                        case 'current': return p_.ss($, ($) => intermediate_result)
+                        case 'nothing': return p_.ss($, ($) => intermediate_result)
+                        default: return p_.au($[0])
+                    }
                 })
-                case 'child': return p_.ss($, ($): Intermediate_Result2 => ({
-                    'up_steps': intermediate_result.up_steps,
-                    'subppath': p_.literal.chain(
-                        intermediate_result.subppath,
-                        $
-                    ),
-                }))
-                case 'current': return p_.ss($, ($) => intermediate_result)
-                case 'nothing': return p_.ss($, ($) => intermediate_result)
-                default: return p_.au($[0])
-            }
+            return null
         })
-        return null
-    })
 
     return {
         'start': $['leading slash']

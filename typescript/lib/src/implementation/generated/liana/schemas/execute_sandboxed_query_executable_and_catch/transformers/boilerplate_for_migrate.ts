@@ -20,16 +20,14 @@ export const Parameters: t_signatures.Parameters = ($) => ({
     ),
     'args': p_change_context(
         $['args'],
-        ($) => p_.from.list(
-            $,
+        ($) => p_.from.list($,
         ).map(
             ($) => $,
         ),
     ),
     'working directory': p_change_context(
         $['working directory'],
-        ($) => p_.from.optional(
-            $,
+        ($) => p_.from.optional($,
         ).map(
             ($) => v_path.Context_Path(
                 $,
@@ -91,8 +89,7 @@ export const Error: t_signatures.Error = ($) => p_decide_state(
                     ($) => ['non zero exit code', {
                         'exit code': p_change_context(
                             $['exit code'],
-                            ($) => p_.from.optional(
-                                $,
+                            ($) => p_.from.optional($,
                             ).map(
                                 ($) => $,
                             ),

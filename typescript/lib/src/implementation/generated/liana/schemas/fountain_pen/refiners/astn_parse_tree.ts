@@ -32,8 +32,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => p_change_context(
                 case 'composed':
                     return p_change_context(
                         $['value'],
-                        ($) => ['composed', p_.from.list(
-                            v_unmarshalled_from_parse_tree.List(
+                        ($) => ['composed', p_.from.list(v_unmarshalled_from_parse_tree.List(
                                 $,
                                 ($) => abort(
                                     $,
@@ -57,8 +56,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => p_change_context(
                 case 'sentences':
                     return p_change_context(
                         $['value'],
-                        ($) => ['sentences', p_.from.list(
-                            v_unmarshalled_from_parse_tree.List(
+                        ($) => ['sentences', p_.from.list(v_unmarshalled_from_parse_tree.List(
                                 $,
                                 ($) => abort(
                                     $,
@@ -82,8 +80,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => p_change_context(
                 case 'optional':
                     return p_change_context(
                         $['value'],
-                        ($) => ['optional', p_.from.optional(
-                            v_unmarshalled_from_parse_tree.Optional(
+                        ($) => ['optional', p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                 $,
                                 ($) => abort(
                                     $,
@@ -149,8 +146,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => p_change_context(
                                                     'subdocument context': p_.literal.not_set(),
                                                 },
                                             ),
-                                            ($) => p_.from.list(
-                                                v_unmarshalled_from_parse_tree.List(
+                                            ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                                                     $,
                                                     ($) => abort(
                                                         $,
@@ -182,8 +178,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => p_change_context(
                                                     'subdocument context': p_.literal.not_set(),
                                                 },
                                             ),
-                                            ($) => p_.from.optional(
-                                                v_unmarshalled_from_parse_tree.Optional(
+                                            ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                     $,
                                                     ($) => abort(
                                                         $,
@@ -248,8 +243,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => p_change_context(
                                                                         'subdocument context': p_.literal.not_set(),
                                                                     },
                                                                 ),
-                                                                ($) => p_.from.optional(
-                                                                    v_unmarshalled_from_parse_tree.Optional(
+                                                                ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                                         $,
                                                                         ($) => abort(
                                                                             $,
@@ -297,8 +291,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => p_change_context(
                                                                         'subdocument context': p_.literal.not_set(),
                                                                     },
                                                                 ),
-                                                                ($) => p_.from.optional(
-                                                                    v_unmarshalled_from_parse_tree.Optional(
+                                                                ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                                         $,
                                                                         ($) => abort(
                                                                             $,
@@ -324,8 +317,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => p_change_context(
                                                                         'subdocument context': p_.literal.not_set(),
                                                                     },
                                                                 ),
-                                                                ($) => p_.from.optional(
-                                                                    v_unmarshalled_from_parse_tree.Optional(
+                                                                ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                                         $,
                                                                         ($) => abort(
                                                                             $,
@@ -367,8 +359,7 @@ export const Paragraph: t_signatures.Paragraph = ($, abort) => p_change_context(
     ),
 )
 
-export const Sentence: t_signatures.Sentence = ($, abort) => p_.from.list(
-    v_unmarshalled_from_parse_tree.List(
+export const Sentence: t_signatures.Sentence = ($, abort) => p_.from.list(v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             $,
@@ -466,8 +457,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => p_change_context(
                 case 'composed':
                     return p_change_context(
                         $['value'],
-                        ($) => ['composed', p_.from.list(
-                            v_unmarshalled_from_parse_tree.List(
+                        ($) => ['composed', p_.from.list(v_unmarshalled_from_parse_tree.List(
                                 $,
                                 ($) => abort(
                                     $,
@@ -491,8 +481,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => p_change_context(
                 case 'optional':
                     return p_change_context(
                         $['value'],
-                        ($) => ['optional', p_.from.optional(
-                            v_unmarshalled_from_parse_tree.Optional(
+                        ($) => ['optional', p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                 $,
                                 ($) => abort(
                                     $,
@@ -558,8 +547,7 @@ export const Phrase: t_signatures.Phrase = ($, abort) => p_change_context(
                                                     'subdocument context': p_.literal.not_set(),
                                                 },
                                             ),
-                                            ($) => p_.from.list(
-                                                v_unmarshalled_from_parse_tree.List(
+                                            ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                                                     $,
                                                     ($) => abort(
                                                         $,

@@ -7,8 +7,7 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/list_of_characters/data"
 
-export const List_of_Characters: t_signatures.List_of_Characters = ($) => p_.from.list(
-    $,
+export const List_of_Characters: t_signatures.List_of_Characters = ($) => p_.from.list($,
 ).map(
     ($) => $,
 )

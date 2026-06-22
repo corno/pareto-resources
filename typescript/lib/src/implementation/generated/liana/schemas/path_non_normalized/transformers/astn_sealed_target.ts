@@ -26,8 +26,7 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ['gr
         ),
         "segments": p_change_context(
             $['segments'],
-            ($) => ['list', p_.from.list(
-                $,
+            ($) => ['list', p_.from.list($,
             ).map(
                 ($) => ['state', p_decide_state(
                     $,
