@@ -33,7 +33,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
         up_steps: 0,
     }
 
-    $.segments.__l_map_deprecated(($) => {
+    p_.from.list($.segments).map(($) => {
         intermediate_result = p_t.from.state($).decide(($): Intermediate_Result => {
             switch ($[0]) {
                 case 'parent': return p_.ss($, ($) => {
@@ -114,7 +114,7 @@ export const Context_Path = (
         up_steps: 0,
     }
 
-    $.segments.__l_map_deprecated(($) => {
+    p_.from.list($.segments).map(($) => {
         intermediate_result = p_t.from.state($).decide(($): Intermediate_Result2 => {
             switch ($[0]) {
                 case 'parent': return p_.ss($, ($) => {

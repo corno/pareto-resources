@@ -13,7 +13,7 @@ p_log_debug_message("BEGIN", () => {})
 const x = r_non_normalized_path.Non_Normalized_Path("/a//b/../c/./d")
 
 p_log_debug_message(`leading slash: ${x['leading slash']}`, () => { })
-x.segments.__l_map_deprecated(($) => {
+p_.from.list(x.segments).map(($) => {
     p_log_debug_message(`segment: ${$[0]}`, () => { })
     return null
 })

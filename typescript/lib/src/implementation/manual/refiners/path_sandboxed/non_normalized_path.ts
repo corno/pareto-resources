@@ -36,7 +36,7 @@
 //         up_steps: 0,
 //     }
 
-//     $.segments.__l_map_deprecated(($) => {
+//     $.segments.__ l_map_deprecated(($) => {
 //         intermediate_result = p_.from.state($).decide(($): Intermediate_Result => {
 //             switch ($[0]) {
 //                 case 'parent': return p_.ss($, ($) => ({
@@ -107,7 +107,7 @@
 //         up_steps: 0,
 //     }
 
-//     $.segments.__l_map_deprecated(($) => {
+//     $.segments.__ l_map_deprecated(($) => {
 //         intermediate_result = p_.from.state($).decide(($): Intermediate_Result2 => {
 //             switch ($[0]) {
 //                 case 'parent': return p_.ss($, ($) => ({
