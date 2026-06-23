@@ -5,8 +5,12 @@ import * as d_in from "../../../../interface/data/read_directory_content"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 namespace signatures {
 
-    export type Error = p_i.Transformer<d_in.Error, d_out.Phrase>
-    export type Node_Error = p_i.Transformer<d_in.Node_Error, d_out.Phrase>
+    export type Error = p_i.Transformer<
+d_in.Error, d_out.Phrase
+>
+    export type Node_Error = p_i.Transformer<
+d_in.Node_Error, d_out.Phrase
+>
 
 }
 
