@@ -20,7 +20,8 @@ export const Error: Error = ($) => p_.from.state($).decide(
             ]))
             case 'non zero exit code': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("non zero exit code:"),
-                sh.ph.indent(sh.pg.sentences([
+                sh.ph.indent(
+sh.pg.sentences([
                     sh.sentence([
                         sh.ph.literal("exit code: "),
                         p_.from.optional($['exit code']).decide(
@@ -30,7 +31,8 @@ export const Error: Error = ($) => p_.from.state($).decide(
                     ]),
                     sh.sentence([
                         sh.ph.literal("output:"),
-                        sh.ph.indent(sh.pg.composed([
+                        sh.ph.indent(
+sh.pg.composed([
                             sh.pg.sentences(
                                 p_.from.list($.stdout.lines).map(
                                     ($) => sh.sentence([

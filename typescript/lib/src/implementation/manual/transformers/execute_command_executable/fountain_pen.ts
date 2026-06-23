@@ -24,7 +24,8 @@ export const Error: signatures.Error = ($) => p_.from.state($).decide(
             ]))
             case 'non zero exit code': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("non zero exit code:"),
-                sh.ph.indent(sh.pg.sentences([
+                sh.ph.indent(
+sh.pg.sentences([
                     sh.sentence([
                         sh.ph.literal("exit code: "),
                         p_.from.optional($['exit code']).decide(
