@@ -9,7 +9,9 @@ import * as d_error from "./non_normalized_path"
 export type Parameters = { 'pedantic': boolean }
 
 export namespace signatures {
-    export type Node_Path = p_i.Refiner_With_Parameter<d_out.Node_Path, d_error.Error, d_in.Text, Parameters>
+    export type Node_Path = p_i.Refiner_With_Parameter<
+d_out.Node_Path, d_error.Error, d_in.Text, Parameters
+>
 }
 
 

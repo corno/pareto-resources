@@ -9,7 +9,9 @@
 // export type Parameters = { 'pedantic': boolean }
 
 // export namespace signatures {
-//     export type Node_Path = p_i.Refiner_With_Parameter<d_out.Node_Path, d_error.Error, d_in.List_of_Characters, Parameters>
+//     export type Node_Path = p_i.Refiner_With_Parameter<
+// d_out.Node_Path, d_error.Error, d_in.List_of_Characters, Parameters
+// >
 // }
 
 
@@ -25,7 +27,9 @@
 //     )
 // }
 
-// export const Context_Path: p_i.Refiner<d_out.Context_Path, d_function.Error, d_in.List_of_Characters> = (
+// export const Context_Path: p_i.Refiner<
+// d_out.Context_Path, d_function.Error, d_in.List_of_Characters
+// > = (
 //     $,
 //     abort,
 // ) => r_from_non_normalized_path.Context_Path(
