@@ -17,7 +17,7 @@ d_in.Error, d_out.Phrase
 import * as t_path_to_text from "../unrestricted_path/list_of_characters"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 export const Error: signatures.Error = ($) => sh.ph.composed([
     p_.from.state($.type).decide(

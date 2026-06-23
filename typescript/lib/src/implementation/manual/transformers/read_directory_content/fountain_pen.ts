@@ -20,7 +20,7 @@ import * as t_read_file_to_fountain_pen from "../read_file/fountain_pen"
 
 
 
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 export const Node_Error: signatures.Node_Error = ($) => p_.from.state($).decide(
     ($) => {
