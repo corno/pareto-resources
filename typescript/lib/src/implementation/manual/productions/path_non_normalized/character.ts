@@ -24,7 +24,8 @@ export const Non_Normalized_Path: p_i.Production_Without_Error<
                 } else {
                     if (next[0] === 47) { // '/'
                         iterator.discard(
-                            () => null)
+                            () => null
+                        )
                         return true
                     } else {
                         return false
@@ -42,14 +43,16 @@ export const Non_Normalized_Path: p_i.Production_Without_Error<
                         has_more_items: (item) => item !== 47, // '/'
                         handle: (item) => {
                             iterator.discard(
-                                () => null)
+                                () => null
+                            )
                             return item
                         },
                     }),
                     ($) => $
                 )
-                iterator.discard(
-                    () => null) // discard the slash or the end of the list
+                iterator.discard( // discard the slash or the end of the list
+                    () => null
+                )
                 switch (segment_text) {
                     case "..": return ['parent', null]
                     case ".": return ['current', null]
@@ -66,7 +69,8 @@ export const Non_Normalized_Path: p_i.Production_Without_Error<
                 } else {
                     if (next[0] === 47) { // '/'
                         iterator.discard(
-                            () => null)
+                            () => null
+                        )
                         return true
                     } else {
                         return false
