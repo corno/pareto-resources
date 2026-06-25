@@ -17,33 +17,33 @@ export const Non_Normalized_Path: p_i.Production_Without_Error<
 > = (iterator) => {
     return {
         'leading slash': iterator.peek(
+            () => false,
             ($) => $ === 47 // '/'
-                ? iterator.consume.boolean(
+                ? iterator.consume(
+                    () => p_unreachable_code_path("peeked"),
                     () => true,
-                    () => p_unreachable_code_path("peeked")
                 )
                 : false,
-            () => false
         ),
         'segments': iterator.build_list({
             has_more_items: (item) =>
                 item !== 47 // '/' //a non-slash -> continue
                 || iterator.peek(
+                    () => false, // path ends with a slash -> stop
                     ($) => true, // a slash followed by another item -> continue
-                    () => false // path ends with a slash -> stop
                 ),
             handle: () => {
                 const $p_segment_text = p_text_from_list(
                     iterator.build_list({
                         has_more_items: (item) => item !== 47, // '/'
-                        handle: () => iterator.consume.number(
+                        handle: () => iterator.consume(
+                            () => p_unreachable_code_path("has_more_items -> true"),
                             ($) => $,
-                            () => p_unreachable_code_path("has_more_items -> true")
                         ),
                     }),
                     ($) => $
                 )
-                iterator.consume.nothing( // discard the slash or the end of the list
+                iterator.consume( // discard the slash or the end of the list
                     () => null,
                     () => null
                 )
@@ -56,13 +56,13 @@ export const Non_Normalized_Path: p_i.Production_Without_Error<
             }
         }),
         'trailing slash': iterator.peek(
+            () => false,
             ($) => $ === 47 // '/'
-                ? iterator.consume.boolean(
+                ? iterator.consume(
+                    () => p_unreachable_code_path("peeked"),
                     () => true,
-                    () => p_unreachable_code_path("peeked")
                 )
                 : false,
-            () => false
         ),
     }
 
