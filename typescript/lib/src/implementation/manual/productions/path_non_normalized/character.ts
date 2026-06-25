@@ -1,6 +1,6 @@
 import * as p_i from 'pareto-core/dist/interface/production'
 import p_text_from_list from 'pareto-core/dist/implementation/transformer/specials/text_from_list'
-import p_variables from 'pareto-core/dist/implementation/transformer/specials/variables'
+import p_unreachable_code_path from 'pareto-core/dist/implementation/transformer/specials/unreachable_code_path'
 
 import * as d_out from "../../../../interface/generated/liana/schemas/path_non_normalized/data"
 
@@ -16,67 +16,54 @@ export const Non_Normalized_Path: p_i.Production_Without_Error<
     null
 > = (iterator) => {
     return {
-        'leading slash': p_variables(
-            () => {
-                const next = iterator.look_raw()
-                if (next === null) {
-                    return false
-                } else {
-                    if (next[0] === 47) { // '/'
-                        iterator.discard(
-                            () => null
-                        )
-                        return true
-                    } else {
-                        return false
-                    }
-                }
-            }
+        'leading slash': iterator.peek(
+            ($) => $ === 47 // '/'
+                ? iterator.consume.boolean(
+                    () => true,
+                    () => p_unreachable_code_path("peeked")
+                )
+                : false,
+            () => false
         ),
-        'segments': iterator.list({
+        'segments': iterator.build_list({
             has_more_items: (item) =>
-                item !== 47// '/' //a non-slash -> continue
-                || iterator.look_ahead_raw(1) !== null,  // a slash followed by another item -> continue
-            handle: (item) => {
-                const segment_text = p_text_from_list(
-                    iterator.list({
+                item !== 47 // '/' //a non-slash -> continue
+                || iterator.peek(
+                    ($) => true, // a slash followed by another item -> continue
+                    () => false // path ends with a slash -> stop
+                ),
+            handle: () => {
+                const $p_segment_text = p_text_from_list(
+                    iterator.build_list({
                         has_more_items: (item) => item !== 47, // '/'
-                        handle: (item) => {
-                            iterator.discard(
-                                () => null
-                            )
-                            return item
-                        },
+                        handle: () => iterator.consume.number(
+                            ($) => $,
+                            () => p_unreachable_code_path("has_more_items -> true")
+                        ),
                     }),
                     ($) => $
                 )
-                iterator.discard( // discard the slash or the end of the list
+                iterator.consume.nothing( // discard the slash or the end of the list
+                    () => null,
                     () => null
                 )
-                switch (segment_text) {
+                switch ($p_segment_text) {
                     case "..": return ['parent', null]
                     case ".": return ['current', null]
                     case "": return ['nothing', null]
-                    default: return ['child', segment_text]
+                    default: return ['child', $p_segment_text]
                 }
             }
         }),
-        'trailing slash': p_variables(
-            () => {
-                const next = iterator.look_raw()
-                if (next === null) {
-                    return false
-                } else {
-                    if (next[0] === 47) { // '/'
-                        iterator.discard(
-                            () => null
-                        )
-                        return true
-                    } else {
-                        return false
-                    }
-                }
-            }),
+        'trailing slash': iterator.peek(
+            ($) => $ === 47 // '/'
+                ? iterator.consume.boolean(
+                    () => true,
+                    () => p_unreachable_code_path("peeked")
+                )
+                : false,
+            () => false
+        ),
     }
 
 }
