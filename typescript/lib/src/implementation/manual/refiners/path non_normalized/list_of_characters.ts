@@ -14,6 +14,6 @@ export const Non_Normalized_Path: p_t.Transformer<
 > = ($) => p_iterate({
     list: $,
     end_info: null,
+    assign: (iterator) => pr_path.Non_Normalized_Path(iterator),
     on_dangling_item: null,
-    assign: (iterator) => pr_path.Non_Normalized_Path(iterator)
 })
