@@ -61,7 +61,7 @@ export const Start: t_signatures.Start = ($) => ['state', p_decide_state(
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'absolute':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'absolute',
@@ -69,7 +69,7 @@ export const Start: t_signatures.Start = ($) => ['state', p_decide_state(
                     }),
                 )
             case 'relative':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'relative',

@@ -19,9 +19,9 @@ export const Error: Error = ($) => sh.ph.composed([
     p_.from.state($.type).decide(
         ($) => {
             switch ($[0]) {
-                case 'path does not exist': return p_.ss($, ($) => sh.ph.literal("path does not exist"))
-                case 'permission denied': return p_.ss($, ($) => sh.ph.literal("permission denied"))
-                case 'invalid mode': return p_.ss($, ($) => sh.ph.literal("invalid mode"))
+                case 'path does not exist': return p_.option($, ($) => sh.ph.literal("path does not exist"))
+                case 'permission denied': return p_.option($, ($) => sh.ph.literal("permission denied"))
+                case 'invalid mode': return p_.option($, ($) => sh.ph.literal("invalid mode"))
                 default: return p_.au($[0])
             }
         }),

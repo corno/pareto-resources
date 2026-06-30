@@ -23,8 +23,8 @@ export const Error: signatures.Error = ($) => sh.ph.composed([
     p_.from.state($.type).decide(
         ($) => {
             switch ($[0]) {
-                case 'directory does not exist': return p_.ss($, ($) => sh.ph.literal("directory does not exist"))
-                case 'node is not a directory': return p_.ss($, ($) => sh.ph.literal("node is not a directory"))
+                case 'directory does not exist': return p_.option($, ($) => sh.ph.literal("directory does not exist"))
+                case 'node is not a directory': return p_.option($, ($) => sh.ph.literal("node is not a directory"))
                 default: return p_.au($[0])
             }
         }),

@@ -36,7 +36,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'file does not exist':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'file does not exist',
@@ -44,7 +44,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal
                                 }),
                             )
                         case 'node is not a file':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'node is not a file',
@@ -52,7 +52,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal
                                 }),
                             )
                         case 'permission denied':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'permission denied',
@@ -60,7 +60,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal
                                 }),
                             )
                         case 'file too large':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'file too large',
@@ -68,7 +68,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal
                                 }),
                             )
                         case 'device not ready':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'device not ready',

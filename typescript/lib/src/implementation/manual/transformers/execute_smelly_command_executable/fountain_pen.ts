@@ -13,12 +13,12 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 export const Error: Error = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'failed to spawn': return p_.ss($, ($) => sh.ph.composed([
+            case 'failed to spawn': return p_.option($, ($) => sh.ph.composed([
                 sh.ph.literal("failed to spawn process:"),
                 sh.ph.composed(p_.from.list($.message.lines).map(
                     ($) => sh.ph.literal($)))
             ]))
-            case 'non zero exit code': return p_.ss($, ($) => sh.ph.composed([
+            case 'non zero exit code': return p_.option($, ($) => sh.ph.composed([
                 sh.ph.literal("non zero exit code:"),
                 sh.ph.indent(
 sh.pg.sentences([

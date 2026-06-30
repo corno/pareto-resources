@@ -32,11 +32,11 @@ d_in.Context_Path, d_out.List_of_Characters
                 p_.from.state($.start).decide(
                     ($): null => {
                         switch ($[0]) {
-                            case 'absolute': return p_.ss($, ($) => {
+                            case 'absolute': return p_.option($, ($) => {
                                 // $i.add_character(47) // '/'
                                 return null
                             })
-                            case 'relative': return p_.ss($, ($) => {
+                            case 'relative': return p_.option($, ($) => {
                                 $i['add item'](46) // .
 
                                 $i['add list'](

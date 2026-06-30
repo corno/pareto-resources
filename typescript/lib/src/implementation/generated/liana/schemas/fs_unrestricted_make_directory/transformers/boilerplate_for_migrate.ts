@@ -38,12 +38,12 @@ export const Error: t_signatures.Error = ($) => ({
             ($): t_out.Error.type_ => {
                 switch ($[0]) {
                     case 'directory already exists':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['directory already exists', null],
                         )
                     case 'permission denied':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['permission denied', null],
                         )

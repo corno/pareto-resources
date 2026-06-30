@@ -19,7 +19,7 @@ export const Error: Error = ($) => sh.ph.composed([
     p_.from.state($.type).decide(
         ($) => {
             switch ($[0]) {
-                case 'unknown': return p_.ss($, ($) => sh.ph.literal("unknown"))
+                case 'unknown': return p_.option($, ($) => sh.ph.literal("unknown"))
                 default: return p_.au($[0])
             }
         }),

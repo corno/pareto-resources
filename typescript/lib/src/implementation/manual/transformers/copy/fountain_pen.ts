@@ -19,11 +19,11 @@ export const Error: Error = ($) => sh.ph.composed([
     p_.from.state($.type).decide(
         ($) => {
             switch ($[0]) {
-                case 'device not ready': return p_.ss($, ($) => sh.ph.literal("device not ready"))
-                case 'source does not exist': return p_.ss($, ($) => sh.ph.literal("source does not exist"))
-                case 'node is not a file': return p_.ss($, ($) => sh.ph.literal("node is not a file"))
-                case 'permission denied': return p_.ss($, ($) => sh.ph.literal("permission denied"))
-                case 'file too large': return p_.ss($, ($) => sh.ph.literal("file too large"))
+                case 'device not ready': return p_.option($, ($) => sh.ph.literal("device not ready"))
+                case 'source does not exist': return p_.option($, ($) => sh.ph.literal("source does not exist"))
+                case 'node is not a file': return p_.option($, ($) => sh.ph.literal("node is not a file"))
+                case 'permission denied': return p_.option($, ($) => sh.ph.literal("permission denied"))
+                case 'file too large': return p_.option($, ($) => sh.ph.literal("file too large"))
                 default: return p_.au($[0])
             }
         }),

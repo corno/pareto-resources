@@ -23,22 +23,22 @@ export const Non_Normalized_Path: t_signatures.Non_Normalized_Path = ($) => ({
                 ($): t_out.Non_Normalized_Path.segments.L => {
                     switch ($[0]) {
                         case 'parent':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ['parent', null],
                             )
                         case 'child':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ['child', $],
                             )
                         case 'current':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ['current', null],
                             )
                         case 'nothing':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ['nothing', null],
                             )

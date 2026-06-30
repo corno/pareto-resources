@@ -21,7 +21,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => ['state', p_decide_state
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'composed':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'composed',
@@ -34,7 +34,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => ['state', p_decide_state
                     }),
                 )
             case 'sentences':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'sentences',
@@ -47,7 +47,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => ['state', p_decide_state
                     }),
                 )
             case 'optional':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'optional',
@@ -61,7 +61,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => ['state', p_decide_state
                     }),
                 )
             case 'nothing':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'nothing',
@@ -69,7 +69,7 @@ export const Paragraph: t_signatures.Paragraph = ($) => ['state', p_decide_state
                     }),
                 )
             case 'rich list':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'rich list',
@@ -164,7 +164,7 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', p_decide_state(
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'value':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'value',
@@ -173,7 +173,7 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', p_decide_state(
                             ($): t_out.Value.state => {
                                 switch ($[0]) {
                                     case 'text':
-                                        return p_.ss(
+                                        return p_.option(
                                             $,
                                             ($) => ({
                                                 'option': 'text',
@@ -184,7 +184,7 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', p_decide_state(
                                             }),
                                         )
                                     case 'list of characters':
-                                        return p_.ss(
+                                        return p_.option(
                                             $,
                                             ($) => ({
                                                 'option': 'list of characters',
@@ -203,7 +203,7 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', p_decide_state(
                     }),
                 )
             case 'indent':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'indent',
@@ -213,7 +213,7 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', p_decide_state(
                     }),
                 )
             case 'composed':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'composed',
@@ -226,7 +226,7 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', p_decide_state(
                     }),
                 )
             case 'optional':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'optional',
@@ -240,7 +240,7 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', p_decide_state(
                     }),
                 )
             case 'nothing':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'nothing',
@@ -248,7 +248,7 @@ export const Phrase: t_signatures.Phrase = ($) => ['state', p_decide_state(
                     }),
                 )
             case 'rich list':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'rich list',

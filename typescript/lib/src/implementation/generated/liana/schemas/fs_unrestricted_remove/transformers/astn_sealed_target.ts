@@ -50,7 +50,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'node does not exist':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'node does not exist',
@@ -58,7 +58,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal
                                 }),
                             )
                         case 'permission denied':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'permission denied',

@@ -29,7 +29,7 @@ export const Error: t_signatures.Error = ($) => ({
             ($): t_out.Error.type_ => {
                 switch ($[0]) {
                     case 'unknown':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['unknown', null],
                         )
@@ -52,17 +52,17 @@ export const Node_Type: t_signatures.Node_Type = ($) => p_decide_state(
     ($): t_out.Node_Type => {
         switch ($[0]) {
             case 'does not exist':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['does not exist', null],
                 )
             case 'file':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['file', null],
                 )
             case 'directory':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['directory', null],
                 )

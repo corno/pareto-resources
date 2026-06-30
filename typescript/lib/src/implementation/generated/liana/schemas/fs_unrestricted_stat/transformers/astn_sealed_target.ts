@@ -34,7 +34,7 @@ export const Error: t_signatures.Error = ($) => ['group', ['verbose', p_.literal
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'node does not exist':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'node does not exist',
@@ -61,7 +61,7 @@ export const Node_Type: t_signatures.Node_Type = ($) => ['state', p_decide_state
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'file':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'file',
@@ -69,7 +69,7 @@ export const Node_Type: t_signatures.Node_Type = ($) => ['state', p_decide_state
                     }),
                 )
             case 'directory':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'directory',

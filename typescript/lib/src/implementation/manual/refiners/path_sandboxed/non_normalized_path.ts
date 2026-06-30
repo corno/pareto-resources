@@ -43,7 +43,7 @@
 //         intermediate_result = p_.from.state($).decide(
 //($): Intermediate_Result => {
 //             switch ($[0]) {
-//                 case 'parent': return p_.ss($, ($) => ({
+//                 case 'parent': return p_.option($, ($) => ({
 //                     'up_steps': intermediate_result.node === null
 //                         ? p_.from.list(intermediate_result.subppath).is_ empty()
 //                             ? intermediate_result.up_steps + 1
@@ -56,7 +56,7 @@
 //                         : intermediate_result.subppath,
 //                     'node': null,
 //                 }))
-//                 case 'child': return p_.ss($, ($): Intermediate_Result => ({
+//                 case 'child': return p_.option($, ($): Intermediate_Result => ({
 //                     'up_steps': intermediate_result.up_steps,
 //                     'subppath': intermediate_result.node === null
 //                         ? intermediate_result.subppath
@@ -68,8 +68,8 @@
 //                         ]),
 //                     'node': $,
 //                 }))
-//                 case 'current': return p_.ss($, ($) => intermediate_result)
-//                 case 'nothing': return p_.ss($, ($) => intermediate_result)
+//                 case 'current': return p_.option($, ($) => intermediate_result)
+//                 case 'nothing': return p_.option($, ($) => intermediate_result)
 //                 default: return p_.au($[0])
 //             }
 //         })
@@ -118,7 +118,7 @@
 //         intermediate_result = p_.from.state($).decide(
 // ($): Intermediate_Result2 => {
 //             switch ($[0]) {
-//                 case 'parent': return p_.ss($, ($) => ({
+//                 case 'parent': return p_.option($, ($) => ({
 //                     'up_steps': p_.from.list(intermediate_result.subppath).is_ empty()
 //                         ? intermediate_result.up_steps + 1
 //                         : intermediate_result.up_steps,
@@ -127,7 +127,7 @@
 //                         : remove_last_element(intermediate_result.subppath),
 //                     'node': null,
 //                 }))
-//                 case 'child': return p_.ss($, ($): Intermediate_Result2 => ({
+//                 case 'child': return p_.option($, ($): Intermediate_Result2 => ({
 //                     'up_steps': intermediate_result.up_steps,
 //                     'subppath': p_.literal.nested_ list([
 //                         intermediate_result.subppath,
@@ -136,8 +136,8 @@
 //                         ]
 //                     ]),
 //                 }))
-//                 case 'current': return p_.ss($, ($) => intermediate_result)
-//                 case 'nothing': return p_.ss($, ($) => intermediate_result)
+//                 case 'current': return p_.option($, ($) => intermediate_result)
+//                 case 'nothing': return p_.option($, ($) => intermediate_result)
 //                 default: return p_.au($[0])
 //             }
 //         })

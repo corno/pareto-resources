@@ -19,8 +19,8 @@ export const Error: Error = ($) => sh.ph.composed([
     p_.from.state($.type).decide(
         ($) => {
             switch ($[0]) {
-                case 'directory already exists': return p_.ss($, ($) => sh.ph.literal("directory already exists"))
-                case 'permission denied': return p_.ss($, ($) => sh.ph.literal("permission denied"))
+                case 'directory already exists': return p_.option($, ($) => sh.ph.literal("directory already exists"))
+                case 'permission denied': return p_.option($, ($) => sh.ph.literal("permission denied"))
                 default: return p_.au($[0])
             }
         }

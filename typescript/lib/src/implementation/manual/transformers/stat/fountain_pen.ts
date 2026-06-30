@@ -19,7 +19,7 @@ export const Error: Error = ($) => sh.ph.composed([
     p_.from.state($.type).decide(
         ($) => {
             switch ($[0]) {
-                case 'node does not exist': return p_.ss($, ($) => sh.ph.literal("node does not exist"))
+                case 'node does not exist': return p_.option($, ($) => sh.ph.literal("node does not exist"))
                 default: return p_.au($[0])
             }
         }),

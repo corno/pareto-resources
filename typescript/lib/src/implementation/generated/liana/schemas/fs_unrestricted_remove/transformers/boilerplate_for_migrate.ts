@@ -38,12 +38,12 @@ export const Error: t_signatures.Error = ($) => ({
             ($): t_out.Error.type_ => {
                 switch ($[0]) {
                     case 'node does not exist':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['node does not exist', null],
                         )
                     case 'permission denied':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['permission denied', null],
                         )

@@ -21,10 +21,10 @@ export const $$: interface_.commands.write_directory_content = p_.command_proced
             ($, id): p_.Command_Block<d_write_directory_content.Node_Error> => [
                 p_.decide.state($, ($) => {
                     switch ($[0]) {
-                        case 'other': return p_.ss($, ($) => [
+                        case 'other': return p_.option($, ($) => [
                             //what should be done with this?
                         ])
-                        case 'file': return p_.ss($, ($) => [
+                        case 'file': return p_.option($, ($) => [
                             $c['write file'].execute(
                                 {
                                     'path': t_path_to_path.create_node_path($d.path, { 'node': id }),
@@ -36,7 +36,7 @@ export const $$: interface_.commands.write_directory_content = p_.command_proced
                                 ($): d_write_directory_content.Node_Error => ['file', $]
                             )
                         ])
-                        case 'directory': return p_.ss($, ($) => [
+                        case 'directory': return p_.option($, ($) => [
                             $$(null, null, $c).execute(
                                 {
                                     'directory': $,

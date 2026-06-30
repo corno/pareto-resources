@@ -41,7 +41,7 @@ export const Result: t_signatures.Result = ($) => p_decide_state(
     ($): t_out.Result => {
         switch ($[0]) {
             case 'success':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['success', {
                         'stdout': p_change_context(
@@ -53,7 +53,7 @@ export const Result: t_signatures.Result = ($) => p_decide_state(
                     }],
                 )
             case 'error':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['error', Error(
                         $,
@@ -72,7 +72,7 @@ export const Error: t_signatures.Error = ($) => p_decide_state(
     ($): t_out.Error => {
         switch ($[0]) {
             case 'failed to spawn':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['failed to spawn', {
                         'message': p_change_context(
@@ -84,7 +84,7 @@ export const Error: t_signatures.Error = ($) => p_decide_state(
                     }],
                 )
             case 'non zero exit code':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['non zero exit code', {
                         'exit code': p_change_context(

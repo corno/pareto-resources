@@ -22,7 +22,7 @@ export const $$: interface_.queries.read_directory_structure = p_.query_function
                 const path = $.path
                 return p_.decide.state($['node type'], ($) => {
                     switch ($[0]) {
-                        case 'directory': return p_.ss($, ($) => p_super_query_result($$(
+                        case 'directory': return p_.option($, ($) => p_super_query_result($$(
                             null,
                             $q,
                         )(
@@ -32,8 +32,8 @@ export const $$: interface_.queries.read_directory_structure = p_.query_function
                             ($): d_read_directory_structure.Node_Error => ['directory', $]
                         )).transform(
                             ($): d_directory_structure.Node => ['directory', $]))
-                        case 'file': return p_.ss($, ($) => p_.e.direct_result(['file', null]))
-                        case 'other': return p_.ss($, ($) => p_.e.direct_result(['other', null]))
+                        case 'file': return p_.option($, ($) => p_.e.direct_result(['file', null]))
+                        case 'other': return p_.option($, ($) => p_.e.direct_result(['other', null]))
                         default: return p_.au($[0])
                     }
                 })

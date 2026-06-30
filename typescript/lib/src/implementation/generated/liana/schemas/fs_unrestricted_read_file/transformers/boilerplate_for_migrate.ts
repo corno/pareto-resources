@@ -31,27 +31,27 @@ export const Error: t_signatures.Error = ($) => ({
             ($): t_out.Error.type_ => {
                 switch ($[0]) {
                     case 'file does not exist':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['file does not exist', null],
                         )
                     case 'node is not a file':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['node is not a file', null],
                         )
                     case 'permission denied':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['permission denied', null],
                         )
                     case 'file too large':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['file too large', null],
                         )
                     case 'device not ready':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['device not ready', null],
                         )

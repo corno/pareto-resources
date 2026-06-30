@@ -40,7 +40,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
             intermediate_result = p_t.from.state($).decide(
                 ($): Intermediate_Result => {
                     switch ($[0]) {
-                        case 'parent': return p_.ss($, ($) => {
+                        case 'parent': return p_.option($, ($) => {
 
                             return intermediate_result.node === null
                                 ? p_t.from.list(intermediate_result.subppath).on_has_last_item(
@@ -68,7 +68,7 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
 
 
                         })
-                        case 'child': return p_.ss($, ($): Intermediate_Result => ({
+                        case 'child': return p_.option($, ($): Intermediate_Result => ({
                             'up_steps': intermediate_result.up_steps,
                             'subppath': intermediate_result.node === null
                                 ? intermediate_result.subppath
@@ -78,8 +78,8 @@ export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
                                 ),
                             'node': $,
                         }))
-                        case 'current': return p_.ss($, ($) => intermediate_result)
-                        case 'nothing': return p_.ss($, ($) => intermediate_result)
+                        case 'current': return p_.option($, ($) => intermediate_result)
+                        case 'nothing': return p_.option($, ($) => intermediate_result)
                         default: return p_.au($[0])
                     }
                 })
@@ -123,7 +123,7 @@ export const Context_Path = (
             intermediate_result = p_t.from.state($).decide(
                 ($): Intermediate_Result2 => {
                     switch ($[0]) {
-                        case 'parent': return p_.ss($, ($) => {
+                        case 'parent': return p_.option($, ($) => {
 
                             return p_t.from.list(intermediate_result.subppath).on_has_last_item(
                                 ($, rest) => { //there are subpath steps, the last one will be removed
@@ -143,15 +143,15 @@ export const Context_Path = (
                                 }
                             )
                         })
-                        case 'child': return p_.ss($, ($): Intermediate_Result2 => ({
+                        case 'child': return p_.option($, ($): Intermediate_Result2 => ({
                             'up_steps': intermediate_result.up_steps,
                             'subppath': p_.literal.chain(
                                 intermediate_result.subppath,
                                 $
                             ),
                         }))
-                        case 'current': return p_.ss($, ($) => intermediate_result)
-                        case 'nothing': return p_.ss($, ($) => intermediate_result)
+                        case 'current': return p_.option($, ($) => intermediate_result)
+                        case 'nothing': return p_.option($, ($) => intermediate_result)
                         default: return p_.au($[0])
                     }
                 })
