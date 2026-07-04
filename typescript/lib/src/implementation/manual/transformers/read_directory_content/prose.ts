@@ -15,8 +15,8 @@ d_in.Node_Error, d_out.Phrase
 }
 
 //dependencies
-import * as t_read_directory_to_fountain_pen from "../read_directory/fountain_pen"
-import * as t_read_file_to_fountain_pen from "../read_file/fountain_pen"
+import * as t_read_directory_to_fountain_pen from "../read_directory/prose"
+import * as t_read_file_to_fountain_pen from "../read_file/prose"
 
 
 
