@@ -6,7 +6,7 @@ import * as d_in from "../../../../interface/generated/liana/schemas/fs_unrestri
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/text/data"
 
 //dependencies
-import * as t_to_loc from "./list_of_characters"
+import * as t_to_loc from "./deprecated_list_of_characters"
 
 export const Node_Path: p_i.Transformer<
 d_in.Node_Path, d_out.Text

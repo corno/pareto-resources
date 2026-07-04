@@ -10,7 +10,7 @@ d_in.Error, d_out.Phrase
 >
 
 //dependencies
-import * as t_path_to_text from "../unrestricted_path/list_of_characters"
+import * as t_path_to_text from "../unrestricted_path/deprecated_list_of_characters"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
