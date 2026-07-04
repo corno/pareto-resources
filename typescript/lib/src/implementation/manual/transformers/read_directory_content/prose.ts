@@ -15,8 +15,8 @@ d_in.Node_Error, d_out.Phrase
 }
 
 //dependencies
-import * as t_read_directory_to_fountain_pen from "../read_directory/prose"
-import * as t_read_file_to_fountain_pen from "../read_file/prose"
+import * as t_read_directory_to_prose from "../read_directory/prose"
+import * as t_read_file_to_prose from "../read_file/prose"
 
 
 
@@ -25,7 +25,7 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 export const Node_Error: signatures.Node_Error = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'file': return p_.option($, ($) => t_read_file_to_fountain_pen.Error($))
+            case 'file': return p_.option($, ($) => t_read_file_to_prose.Error($))
             case 'directory': return p_.option($, ($) => Error($))
             default: return p_.au($[0])
         }
@@ -42,7 +42,7 @@ export const Error: signatures.Error = ($) => p_.from.state($).decide(
                         Node_Error($)
                     ])))
             ))
-            case 'read directory': return p_.option($, ($) => t_read_directory_to_fountain_pen.Error($))
+            case 'read directory': return p_.option($, ($) => t_read_directory_to_prose.Error($))
             default: return p_.au($[0])
         }
     })
