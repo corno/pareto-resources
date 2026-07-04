@@ -5,7 +5,8 @@ import * as d_in from "../../../../interface/generated/liana/schemas/execute_san
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 export type Error = p_i.Transformer<
-d_in.Error, d_out.Phrase
+    d_in.Error,
+    d_out.Phrase
 >
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
@@ -21,33 +22,33 @@ export const Error: Error = ($) => p_.from.state($).decide(
             case 'non zero exit code': return p_.option($, ($) => sh.ph.composed([
                 sh.ph.literal("non zero exit code:"),
                 sh.ph.indent(
-sh.pg.sentences([
-                    sh.sentence([
-                        sh.ph.literal("exit code: "),
-                        p_.from.optional($['exit code']).decide(
-                            ($) => sh.ph.decimal($),
-                            () => sh.ph.literal("n/a")
-                        )
-                    ]),
-                    sh.sentence([
-                        sh.ph.literal("output:"),
-                        sh.ph.indent(
-sh.pg.composed([
-                            sh.pg.sentences(
-                                p_.from.list($.stdout.lines).map(
-                                    ($) => sh.sentence([
-                                        sh.ph.literal($)
-                                    ]))
-                            ),
-                            sh.pg.sentences(
-                                p_.from.list($.stderr.lines).map(
-                                    ($) => sh.sentence([
-                                        sh.ph.literal($)
-                                    ]))
+                    sh.pg.sentences([
+                        sh.sentence([
+                            sh.ph.literal("exit code: "),
+                            p_.from.optional($['exit code']).decide(
+                                ($) => sh.ph.decimal($),
+                                () => sh.ph.literal("n/a")
                             )
-                        ]))
-                    ])
-                ]))
+                        ]),
+                        sh.sentence([
+                            sh.ph.literal("output:"),
+                            sh.ph.indent(
+                                sh.pg.composed([
+                                    sh.pg.sentences(
+                                        p_.from.list($.stdout.lines).map(
+                                            ($) => sh.sentence([
+                                                sh.ph.literal($)
+                                            ]))
+                                    ),
+                                    sh.pg.sentences(
+                                        p_.from.list($.stderr.lines).map(
+                                            ($) => sh.sentence([
+                                                sh.ph.literal($)
+                                            ]))
+                                    )
+                                ]))
+                        ])
+                    ]))
             ]))
             default: return p_.au($[0])
         }

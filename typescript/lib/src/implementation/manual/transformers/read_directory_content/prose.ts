@@ -6,11 +6,12 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 namespace signatures {
 
     export type Error = p_i.Transformer<
-d_in.Error, d_out.Phrase
->
+        d_in.Error, d_out.Phrase
+    >
     export type Node_Error = p_i.Transformer<
-d_in.Node_Error, d_out.Phrase
->
+        d_in.Node_Error,
+        d_out.Phrase
+    >
 
 }
 

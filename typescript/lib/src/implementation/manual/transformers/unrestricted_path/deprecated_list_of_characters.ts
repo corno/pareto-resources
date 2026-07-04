@@ -9,7 +9,8 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 
 
 export const Node_Path: p_i.Transformer<
-d_in.Node_Path, d_out.List_of_Characters
+    d_in.Node_Path,
+    d_out.List_of_Characters
 > = ($) => {
     return p_.literal.segmented_list([
         Context_Path($.context),
@@ -24,7 +25,8 @@ d_in.Node_Path, d_out.List_of_Characters
 }
 
 export const Context_Path: p_i.Transformer<
-d_in.Context_Path, d_out.List_of_Characters
+    d_in.Context_Path,
+    d_out.List_of_Characters
 > = ($) => {
     return p_.literal.segmented_list([
         p_list_build_deprecated(
@@ -41,14 +43,14 @@ d_in.Context_Path, d_out.List_of_Characters
 
                                 $i['add list'](
                                     p_.from.list(p_.from.number(
-                                            $['up steps']
-                                        ).repeat(
-                                            p_.literal.list([
-                                                47, // '/'
-                                                46, // .
-                                                46, // .
-                                            ])
-                                        )
+                                        $['up steps']
+                                    ).repeat(
+                                        p_.literal.list([
+                                            47, // '/'
+                                            46, // .
+                                            46, // .
+                                        ])
+                                    )
                                     ).flatten(
                                         ($) => $
                                     )

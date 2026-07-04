@@ -6,7 +6,7 @@ import * as d_in from "../../../../interface/generated/liana/schemas/fs_unrestri
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 export type Error = p_i.Transformer<
-d_in.Error, d_out.Phrase
+    d_in.Error, d_out.Phrase
 >
 
 //dependencies
@@ -19,6 +19,7 @@ export const Error: Error = ($) => sh.ph.composed([
     p_.from.state($.type).decide(
         ($) => {
             switch ($[0]) {
+
                 case 'directory already exists': return p_.option($, ($) => sh.ph.literal("directory already exists"))
                 case 'permission denied': return p_.option($, ($) => sh.ph.literal("permission denied"))
                 default: return p_.au($[0])
