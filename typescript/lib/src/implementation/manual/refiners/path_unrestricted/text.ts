@@ -4,14 +4,22 @@ import p_list_from_text from 'pareto-core/dist/implementation/refiner/specials/l
 //data types
 import * as d_out from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
 import * as d_in from "pareto-fountain-pen/dist/interface/generated/liana/schemas/text/data"
-import * as d_error from "./non_normalized_path"
+import * as d_function from "./non_normalized_path"
+
+export namespace d_function2 {
 
 export type Parameters = { 'pedantic': boolean }
 
-export namespace signatures {
+}
+
+
+export namespace interface_ {
     export type Node_Path = p_i.Refiner_With_Parameter<
-d_out.Node_Path, d_error.Error, d_in.Text, Parameters
->
+        d_out.Node_Path,
+        d_function.Error,
+        d_in.Text,
+        d_function2.Parameters
+    >
 }
 
 
@@ -19,7 +27,7 @@ d_out.Node_Path, d_error.Error, d_in.Text, Parameters
 import * as r_from_list_of_characters from "./list_of_characters"
 
 
-export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
+export const Node_Path: interface_.Node_Path = ($, abort, $p) => {
     return r_from_list_of_characters.Node_Path(
         p_list_from_text(
             $,
