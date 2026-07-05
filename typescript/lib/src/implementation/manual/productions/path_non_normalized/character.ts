@@ -40,6 +40,7 @@ export const Non_Normalized_Path: p_i.Production_Without_Error<
                             () => p_unreachable_code_path("has_more_items -> true"),
                             ($) => $,
                         ),
+                        on_no_progression: () => p_unreachable_code_path("'handle' is immediately consuming"),
                     }),
                     ($) => $
                 )
@@ -53,7 +54,8 @@ export const Non_Normalized_Path: p_i.Production_Without_Error<
                     case "": return ['nothing', null]
                     default: return ['child', $p_segment_text]
                 }
-            }
+            },
+            on_no_progression: () => p_unreachable_code_path("'handle' is expected to consume at least one item"),
         }),
         'trailing slash': iterator.peek(
             () => false,
