@@ -1,8 +1,8 @@
-import * as p_i from 'pareto-core/dist/interface/refiner'
+import * as p_i from 'pareto-core/interface/refiner'
 
-import * as d_out from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data"
-import * as d_in from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
-import * as d_function from "./non_normalized_path"
+import * as d_out from "../../../../interface/generated/liana/schemas/fs_unrestricted_path/data.js"
+import * as d_in from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
+import * as d_function from "./non_normalized_path.js"
 
 export namespace d_function2 {
     export type Parameters = { 'pedantic': boolean }
@@ -19,8 +19,8 @@ export namespace interface_ {
 
 
 //dependencies
-import * as r_from_non_normalized_path from "./non_normalized_path"
-import * as r_non_normalized_path_from_loc from "../path non_normalized/list_of_characters"
+import * as r_from_non_normalized_path from "./non_normalized_path.js"
+import * as r_non_normalized_path_from_loc from "../path non_normalized/list_of_characters.js"
 
 export const Node_Path: interface_.Node_Path = ($, abort, $p) => {
     return r_from_non_normalized_path.Node_Path(

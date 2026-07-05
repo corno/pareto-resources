@@ -1,14 +1,14 @@
-import * as p_ from 'pareto-core/dist/implementation/query'
-import p_super_query_result from 'pareto-core/dist/implementation/query/super_query_result'
+import * as p_ from 'pareto-core/implementation/query'
+import p_super_query_result from 'pareto-core/implementation/query/super_query_result'
 
-import p_text_from_list from 'pareto-core/dist/implementation/transformer/specials/text_from_list'
+import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
 
-import * as d_read_directory_content from "../../../interface/data/read_directory_content"
+import * as d_read_directory_content from "../../../interface/data/read_directory_content.js"
 
-import * as interface_ from "../../../interface/signatures/resources"
+import * as interface_ from "../../../interface/signatures/resources.js"
 
 //dependencies
-import * as t_path_to_path from "../transformers/unrestricted_path/unrestricted_path"
+import * as t_path_to_path from "../transformers/unrestricted_path/unrestricted_path.js"
 
 export const $$: interface_.queries.read_directory_content = p_.query_function(
     ($d, $s, $q) => p_super_query_result($q['read directory'](

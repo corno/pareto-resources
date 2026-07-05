@@ -1,10 +1,10 @@
-// import p_iterate from 'pareto-core/dist/implementation/refiner/specials/iterate'
-// import p_text_from_list from 'pareto-core/dist/implementation/refiner/specials/text_from_list'
+// import p_iterate from 'pareto-core/implementation/refiner/specials/iterate'
+// import p_text_from_list from 'pareto-core/implementation/refiner/specials/text_from_list'
 
-// import * as d_out from "../../../../interface/generated/liana/schemas/fs_sandboxed_path/data"
-// import * as d_in from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
-// import * as d_error from "./non_normalized_path"
-// import * as d_function from "../../../../interface/data/sandboxed_path_from_non_normalized_path"
+// import * as d_out from "../../../../interface/generated/liana/schemas/fs_sandboxed_path/data.js"
+// import * as d_in from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
+// import * as d_error from "./non_normalized_path.js"
+// import * as d_function from "../../../../interface/data/sandboxed_path_from_non_normalized_path.js"
 
 // export type Parameters = { 'pedantic': boolean }
 
@@ -16,8 +16,8 @@
 
 
 // //dependencies
-// import * as r_from_non_normalized_path from "./non_normalized_path"
-// import * as r_non_normalized_path_from_loc from "../path non_normalized/list_of_characters"
+// import * as r_from_non_normalized_path from "./non_normalized_path.js"
+// import * as r_non_normalized_path_from_loc from "../path non_normalized/list_of_characters.js"
 
 // export const Node_Path: signatures.Node_Path = ($, abort, $p) => {
 //     return r_from_non_normalized_path.Node_Path(

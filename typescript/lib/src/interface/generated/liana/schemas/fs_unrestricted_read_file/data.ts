@@ -1,9 +1,9 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_imports_path from "../fs_unrestricted_path/data"
+import * as i_imports_path from "../fs_unrestricted_path/data.js"
 
-import * as i_imports_list_of_characters from "../list_of_characters/data"
+import * as i_imports_list_of_characters from "../list_of_characters/data.js"
 
 export type Parameters_ = i_imports_path.Node_Path
 
@@ -41,7 +41,7 @@ export type Error_ = {
 
 export type Result_ = i_imports_list_of_characters.List_of_Characters
 
-export { 
+export type { 
     Parameters_ as Parameters, 
     Error_ as Error, 
     Result_ as Result, 

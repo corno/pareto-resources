@@ -1,11 +1,19 @@
 {
   "name": "pareto-resources",
-  "version": "0.2.131",
+  "version": "0.2.132",
   "author": "Corno",
   "license": "Apache-2.0",
   "description": "A library providing resources for the Pareto programming Language",
+  "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
+  },
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
+  "module": "./dist/index.js",
   "files": [
     "dist"
   ],

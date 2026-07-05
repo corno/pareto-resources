@@ -1,6 +1,6 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
 
 export namespace Non_Normalized_Path_ {
     
@@ -40,6 +40,6 @@ export type Non_Normalized_Path_ = {
     readonly 'trailing slash': Non_Normalized_Path_.trailing_slash
 }
 
-export { 
+export type { 
     Non_Normalized_Path_ as Non_Normalized_Path, 
 }

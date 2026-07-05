@@ -1,8 +1,8 @@
 
-// import * as d_unrestricted_path from "../generated/liana/schemas/fs_unrestricted_path/data"
-// import * as d_sandboxed_path from "../generated/liana/schemas/fs_sandboxed_path/data"
+// import * as d_unrestricted_path from "../generated/liana/schemas/fs_unrestricted_path/data.js"
+// import * as d_sandboxed_path from "../generated/liana/schemas/fs_sandboxed_path/data.js"
 
-// import * as resources_pareto from "../resources"
+// import * as resources_pareto from "../resources.js"
 
 // export namespace commands {
 

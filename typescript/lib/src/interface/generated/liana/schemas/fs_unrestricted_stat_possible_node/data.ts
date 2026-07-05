@@ -1,7 +1,7 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_imports_path from "../fs_unrestricted_path/data"
+import * as i_imports_path from "../fs_unrestricted_path/data.js"
 
 export type Parameters_ = i_imports_path.Node_Path
 
@@ -42,7 +42,7 @@ export type Node_Type_ =
     | readonly ['file', Node_Type_.file]
     | readonly ['directory', Node_Type_.directory]
 
-export { 
+export type { 
     Parameters_ as Parameters, 
     Error_ as Error, 
     Result_ as Result, 

@@ -1,6 +1,6 @@
-import * as p_ from 'pareto-core/dist/implementation/query'
+import * as p_ from 'pareto-core/implementation/query'
 
-import * as interface_ from "../../../interface/signatures/execute_sandboxed"
+import * as interface_ from "../../../interface/signatures/execute_sandboxed.js"
 
 //dependencies
 

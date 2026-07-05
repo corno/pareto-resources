@@ -1,8 +1,8 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
 
-import * as i_imports_path from "../fs_unrestricted_path/data"
+import * as i_imports_path from "../fs_unrestricted_path/data.js"
 
 export namespace Parameters_ {
     
@@ -74,7 +74,7 @@ export type Node_Type_ =
     | readonly ['directory', Node_Type_.directory]
     | readonly ['other', Node_Type_.other]
 
-export { 
+export type { 
     Parameters_ as Parameters, 
     Error_ as Error, 
     Result_ as Result, 

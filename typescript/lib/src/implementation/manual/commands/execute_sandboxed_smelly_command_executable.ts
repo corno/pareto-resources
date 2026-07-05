@@ -1,6 +1,6 @@
-import * as p_ from 'pareto-core/dist/implementation/command'
+import * as p_ from 'pareto-core/implementation/command'
 
-import * as interface_ from "../../../interface/signatures/execute_sandboxed"
+import * as interface_ from "../../../interface/signatures/execute_sandboxed.js"
 
 export const $$: interface_.commands.smelly_command_executable = p_.command_procedure(
     ($d, $s, $q, $c) => [

@@ -1,10 +1,10 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
 
-import * as i_imports_path from "../fs_unrestricted_path/data"
+import * as i_imports_path from "../fs_unrestricted_path/data.js"
 
-import * as i_imports_terminal_output from "../terminal_output/data"
+import * as i_imports_terminal_output from "../terminal_output/data.js"
 
 export namespace Parameters_ {
     
@@ -71,7 +71,7 @@ export type Error_ =
     | readonly ['failed to spawn', Error_.failed_to_spawn]
     | readonly ['non zero exit code', Error_.non_zero_exit_code]
 
-export { 
+export type { 
     Parameters_ as Parameters, 
     Error_ as Error, 
 }

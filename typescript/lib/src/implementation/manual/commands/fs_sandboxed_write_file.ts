@@ -1,8 +1,8 @@
 
-// import * as interface_ from "../../../interface/signatures/filesystem_sandboxed"
+// import * as interface_ from "../../../interface/signatures/filesystem_sandboxed.js"
 
 // //dependencies
-// import * as t_path_to_path from "../transformers/sandboxed_path/unrestricted_path"
+// import * as t_path_to_path from "../transformers/sandboxed_path/unrestricted_path.js"
 
 
 // export const $$: interface_.commands.write_file = p_.command_procedure(

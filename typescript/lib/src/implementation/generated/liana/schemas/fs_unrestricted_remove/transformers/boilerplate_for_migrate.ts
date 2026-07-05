@@ -1,15 +1,15 @@
 
-import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/implementation/transformer'
 
 const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
 const p_decide_optional = <State, B>($: State,  assign: ($: State) => B,  otherwise: () => B) => assign($)
-import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
+import p_change_context from 'pareto-core/implementation/refiner/specials/change_context'
 
-import * as t_signatures from "../../../../../../interface/generated/liana/schemas/fs_unrestricted_remove/signatures/transformers/boilerplate_for_migrate"
+import * as t_signatures from "../../../../../../interface/generated/liana/schemas/fs_unrestricted_remove/signatures/transformers/boilerplate_for_migrate.js"
 
-import * as t_out from "../../../../../../interface/generated/liana/schemas/fs_unrestricted_remove/data"
+import * as t_out from "../../../../../../interface/generated/liana/schemas/fs_unrestricted_remove/data.js"
 
-import * as v_path from "../../fs_unrestricted_path/transformers/boilerplate_for_migrate"
+import * as v_path from "../../fs_unrestricted_path/transformers/boilerplate_for_migrate.js"
 
 export const Parameters: t_signatures.Parameters = ($) => ({
     'path': p_change_context(

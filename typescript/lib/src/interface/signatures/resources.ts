@@ -1,7 +1,7 @@
-import * as p_ci from 'pareto-core/dist/interface/command'
-import * as p_qi from 'pareto-core/dist/interface/query'
+import * as p_ci from 'pareto-core/interface/command'
+import * as p_qi from 'pareto-core/interface/query'
 
-import * as resources from "../resources"
+import * as resources from "../resources.js"
 
 export namespace commands {
 

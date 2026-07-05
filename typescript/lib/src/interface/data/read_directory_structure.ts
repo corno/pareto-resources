@@ -1,8 +1,8 @@
-import * as p_ from 'pareto-core/dist/interface/data'
+import * as p_ from 'pareto-core/interface/data'
 
-import * as d_read_directory from "../generated/liana/schemas/fs_unrestricted_read_directory/data"
-import * as d_path from "../generated/liana/schemas/fs_unrestricted_path/data"
-import * as d_directory_structure from "./directory_structure"
+import * as d_read_directory from "../generated/liana/schemas/fs_unrestricted_read_directory/data.js"
+import * as d_path from "../generated/liana/schemas/fs_unrestricted_path/data.js"
+import * as d_directory_structure from "./directory_structure.js"
 
 
 

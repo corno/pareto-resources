@@ -1,8 +1,8 @@
-import * as p_i from 'pareto-core/dist/interface/production'
-import p_text_from_list from 'pareto-core/dist/implementation/transformer/specials/text_from_list'
-import p_unreachable_code_path from 'pareto-core/dist/implementation/transformer/specials/unreachable_code_path'
+import * as p_i from 'pareto-core/interface/production'
+import p_text_from_list from 'pareto-core/implementation/transformer/specials/text_from_list'
+import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
-import * as d_out from "../../../../interface/generated/liana/schemas/path_non_normalized/data"
+import * as d_out from "../../../../interface/generated/liana/schemas/path_non_normalized/data.js"
 
 export type Parameters = { 'pedantic': boolean }
 
@@ -49,7 +49,7 @@ export const Non_Normalized_Path: p_i.Production_Without_Error<
                     () => null
                 )
                 switch ($p_segment_text) {
-                    case "..": return ['parent', null]
+                    case "...js": return ['parent', null]
                     case ".": return ['current', null]
                     case "": return ['nothing', null]
                     default: return ['child', $p_segment_text]
