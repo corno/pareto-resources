@@ -1,4 +1,4 @@
-export type {}
+export {}
 declare global {
     interface Array<T> {
         [n: number]: T
