@@ -5,7 +5,7 @@ import * as d_out from "../../../../interface/generated/liana/schemas/path_non_n
 import * as d_in from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
 
 //dependencies
-import * as pr_path from "../../productions/path_non_normalized/character.js"
+import * as pr_path from "./character.js"
 
 
 export const Non_Normalized_Path: p_t.Transformer<
