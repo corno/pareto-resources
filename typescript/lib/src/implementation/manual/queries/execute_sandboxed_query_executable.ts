@@ -1,11 +1,11 @@
 import * as p_ from 'pareto-core/implementation/query'
 
-import * as interface_ from "../../../interface/signatures/execute_sandboxed.js"
+import * as interface_ from "../../../interface/queries.js"
 
 //dependencies
 
 
-export const $$: interface_.queries.query_executable = p_.query_function(
+export const $$: interface_.query_executable = p_.query(
     ($d, $s, $q) => $q.unrestricted(
         {
             'program': $s.program,

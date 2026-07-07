@@ -1,8 +1,8 @@
 import * as p_ from 'pareto-core/implementation/command'
 
-import * as interface_ from "../../../interface/signatures/execute_sandboxed.js"
+import * as interface_ from "../../../interface/commands.js"
 
-export const $$: interface_.commands.command_executable = p_.command_procedure(
+export const $$: interface_.command_executable = p_.command(
     ($d, $s, $q, $c) => [
         $c.unrestricted.execute(
             {
