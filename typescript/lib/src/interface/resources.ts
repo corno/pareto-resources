@@ -26,7 +26,6 @@ import * as d_fs_unrestricted_remove from "./generated/liana/schemas/fs_unrestri
 import * as d_fs_unrestricted_stat from "./generated/liana/schemas/fs_unrestricted_stat/data.js"
 import * as d_fs_unrestricted_stat_possible_node from "./generated/liana/schemas/fs_unrestricted_stat_possible_node/data.js"
 import * as d_fs_unrestricted_write_file from "./generated/liana/schemas/fs_unrestricted_write_file/data.js"
-import * as d_main from "./data/temp_main.js"
 import * as d_read_directory_content from "./data/read_directory_content.js"
 import * as d_read_directory_structure from "./data/read_directory_structure.js"
 import * as d_write_directory_content from "./data/write_directory_content.js"
@@ -113,7 +112,6 @@ export namespace resources {
 
     export namespace commands {
 
-        export type main = p_ci.Command<d_main.Error, d_main.Parameters>
         export type write_directory_content = p_ci.Command<d_write_directory_content.Error, d_write_directory_content.Parameters>
     }
 
