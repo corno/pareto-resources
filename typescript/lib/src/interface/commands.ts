@@ -2,7 +2,7 @@ import * as p_ from 'pareto-core/interface/command'
 
 import * as command_actions from "./command_actions.js"
 
-export type command_executable = p_.Command_Procedure<
+export type command_executable = p_.Command<
     command_actions.execute_sandboxed.command_executable,
     {
         'program': string,
@@ -13,7 +13,7 @@ export type command_executable = p_.Command_Procedure<
     }
 >
 
-export type smelly_command_executable = p_.Command_Procedure<
+export type smelly_command_executable = p_.Command<
     command_actions.execute_sandboxed.smelly_command_executable,
     {
         'program': string,
