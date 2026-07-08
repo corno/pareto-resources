@@ -39,4 +39,5 @@ export const Error: interface_.Error = ($) => p_.from.state($).decide(
             ]))
             default: return p_.exhaustive($[0])
         }
-    })
+    }
+)
