@@ -4,7 +4,7 @@ import p_unreachable_code_path from 'pareto-core/implementation/transformer/spec
 
 import type * as d_out from "../../../../interface/generated/liana/schemas/path_non_normalized/data.js"
 
-export type Parameters = { 'pedantic': boolean }
+type Parameters = { 'pedantic': boolean }
 
 //dependencies
 
