@@ -4,7 +4,7 @@ import * as p_i from 'pareto-core/interface/transformer'
 import type * as d_in from "../../../../interface/generated/liana/schemas/execute_sandboxed_query_executable/data.js"
 import type * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
 
-export namespace signatures {
+export namespace interface_ {
 
     export type Error = p_i.Transformer<
         d_in.Error,
@@ -16,7 +16,7 @@ export namespace signatures {
 //shorthands
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-export const Error: signatures.Error = ($) => p_.from.state($).decide(
+export const Error: interface_.Error = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'failed to spawn': return p_.option($, ($) => sh.ph.composed([
