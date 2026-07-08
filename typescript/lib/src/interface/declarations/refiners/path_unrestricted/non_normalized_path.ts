@@ -1,4 +1,4 @@
-import type * as p_i from 'pareto-core/interface/refiner'
+import type * as p_ from 'pareto-core/interface/refiner'
 
 //data types
 import type * as d_out from "../../../generated/liana/schemas/fs_unrestricted_path/data.js"
@@ -9,7 +9,7 @@ export type Error =
     | ['no node', null]
 
 
-export type Node_Path = p_i.Refiner_With_Parameter<
+export type Node_Path = p_.Refiner_With_Parameter<
     d_out.Node_Path,
     Error,
     d_in.Non_Normalized_Path,
