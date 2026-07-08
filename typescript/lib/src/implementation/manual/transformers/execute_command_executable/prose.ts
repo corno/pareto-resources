@@ -12,6 +12,7 @@ export namespace interface_ {
     >
 
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/execute_command_executable/prose.js"
 
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
