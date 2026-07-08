@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/interface/query'
 
-import * as query_actions from "./query_actions.js"
+import * as query_actions from "../actions/queries.js"
 
 
     export type query_executable = p_.Query<

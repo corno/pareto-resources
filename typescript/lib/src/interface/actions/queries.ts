@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/interface/query_action'
 
-import * as d_execute_unrestricted_query_executable from "./generated/liana/schemas/execute_unrestricted_query_executable/data.js"
-import * as d_execute_sandboxed_query_executable from "./generated/liana/schemas/execute_sandboxed_query_executable/data.js"
+import * as d_execute_unrestricted_query_executable from "../generated/liana/schemas/execute_unrestricted_query_executable/data.js"
+import * as d_execute_sandboxed_query_executable from "../generated/liana/schemas/execute_sandboxed_query_executable/data.js"
 
 export namespace execute_unrestricted {
 

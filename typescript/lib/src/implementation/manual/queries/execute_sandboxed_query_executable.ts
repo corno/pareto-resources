@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/implementation/query'
 
-import * as interface_ from "../../../interface/queries.js"
+import * as interface_ from "../../../interface/declarations/queries.js"
 
 //dependencies
 

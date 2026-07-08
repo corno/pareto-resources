@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/interface/command'
 
-import * as command_actions from "./command_actions.js"
+import * as command_actions from "../actions/commands.js"
 
 export type command_executable = p_.Command<
     command_actions.execute_sandboxed.command_executable,

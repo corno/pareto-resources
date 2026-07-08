@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/implementation/command'
 
-import * as interface_ from "../../../interface/commands.js"
+import * as interface_ from "../../../interface/declarations/commands.js"
 
 export const $$: interface_.command_executable = p_.command(
     ($d, $s, $q, $c) => [
