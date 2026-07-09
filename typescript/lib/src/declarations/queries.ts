@@ -1,9 +1,9 @@
-import * as p_ from 'pareto-core/interface/query'
+import * as p_ from 'pareto-core/interface/query_implementation'
 
-import * as query_actions from "../actions/queries.js"
+import * as query_actions from "../interface/queries.js"
 
 
-export type query_executable = p_.Query<
+export type query_executable = p_.Query_Implementation<
     query_actions.execute_sandboxed.query_executable,
     {
         'program': string,
