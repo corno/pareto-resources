@@ -27,20 +27,20 @@ export const Error: interface_.Error = ($) => p_.from.state($).decide(
                         sh.sentence([
                             sh.ph.literal("output:"),
                             sh.ph.indent(
-                                sh.pg.deprecated_composed([
-                                    sh.pg.sentences(
+                                sh.pg.sentences(
+                                    p_.literal.segmented_list([
                                         p_.from.list($.stdout.lines).map(
                                             ($) => sh.sentence([
                                                 sh.ph.literal($)
-                                            ]))
-                                    ),
-                                    sh.pg.sentences(
+                                            ])
+                                        ),
                                         p_.from.list($.stderr.lines).map(
                                             ($) => sh.sentence([
                                                 sh.ph.literal($)
-                                            ]))
-                                    )
-                                ]))
+                                            ])
+                                        ),
+                                    ])
+                                ))
                         ])
                     ]))
             ]))
