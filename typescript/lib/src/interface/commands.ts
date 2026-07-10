@@ -1,9 +1,9 @@
 import * as p_ from 'pareto-core/interface/command_interface'
 
-import type * as d_execute_unrestricted_command_command from "./generated/liana/schemas/execute_unrestricted_command_executable/data.js"
-import type * as d_execute_unrestricted_smelly_command_executable from "./generated/liana/schemas/execute_unrestricted_smelly_command_executable/data.js"
-import type * as d_execute_sandboxed_command_command from "./generated/liana/schemas/execute_sandboxed_command_executable/data.js"
-import type * as d_execute_sandboxed_smelly_command_command from "./generated/liana/schemas/execute_sandboxed_smelly_command_executable/data.js"
+import type * as d_execute_unrestricted_command_command from "./data/execute_unrestricted_command_executable.js"
+import type * as d_execute_unrestricted_smelly_command_executable from "./data/execute_unrestricted_smelly_command_executable.js"
+import type * as d_execute_sandboxed_command_command from "./data/execute_sandboxed_command_executable.js"
+import type * as d_execute_sandboxed_smelly_command_command from "./data/execute_sandboxed_smelly_command_executable.js"
 
 export namespace execute_unrestricted {
 
