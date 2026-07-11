@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/interface/query_interface'
 
-import type * as d_execute_unrestricted_query_executable from "./data/execute_unrestricted_query_executable.js"
-import type * as d_execute_sandboxed_query_executable from "./data/execute_sandboxed_query_executable.js"
+import type * as d_execute_unrestricted_query_executable from "./schemas/execute_unrestricted_query_executable.js"
+import type * as d_execute_sandboxed_query_executable from "./schemas/execute_sandboxed_query_executable.js"
 
 export namespace execute_unrestricted {
 
