@@ -1,11 +1,20 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../declarations/transformers/execute_smelly_command_executable/prose.js"
+//schemas
+import type * as s_in from "../../../interface/schemas/execute_sandboxed_smelly_command_executable.js"
+import type * as s_out from "../../../interface/schemas/prose.js"
+
+namespace declarations {
+    export type Error = p_.Transformer<
+        s_in.Error,
+        s_out.Phrase
+    >
+}
 
 //shorthands
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-export const Error: interface_.Error = ($) => p_.from.state($).decide(
+export const Error: declarations.Error = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'failed to spawn': return p_.option($, ($) => sh.ph.composed([

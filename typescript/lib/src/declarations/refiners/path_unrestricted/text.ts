@@ -1,8 +1,8 @@
 import type * as p_ from 'pareto-core/interface/refiner'
 
 //schemas
+import type * as s_in from "../../../interface/schemas/text.js"
 import type * as s_out from "../../../interface/schemas/fs_unrestricted_path.js"
-import type * as s_in from "pareto-fountain-pen/interface/data/text"
 import type * as s_function from "./non_normalized_path.js"
 
 export namespace s_function2 {

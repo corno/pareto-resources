@@ -3,7 +3,7 @@ import p_text_from_list from 'pareto-core/implementation/transformer/specials/te
 import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 
 //schemas
-import type * as s_out from "../../../interface/schemas/path_non_normalized.js"
+import * as s_out from "../../../interface/schemas/path_non_normalized.js"
 
 export const Non_Normalized_Path: p_i.Production_Without_Error<
     s_out.Non_Normalized_Path,
