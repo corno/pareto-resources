@@ -3,7 +3,7 @@ import * as p_t from 'pareto-core/implementation/transformer'
 
 import type * as interface_ from "../../../declarations/refiners/path_unrestricted/non_normalized_path.js"
 
-//data types
+//schemas
 import type * as s_out from "../../../interface/schemas/fs_unrestricted_path.js"
 import type * as s_in from "../../../interface/schemas/path_non_normalized.js"
 
