@@ -1,13 +1,11 @@
-import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_ from 'pareto-core/implementation/serializer'
 
 //schemas
-import type * as s_in from "../../../interface/schemas/execute_sandboxed_command_executable.js"
-import type * as s_out from "../../../interface/schemas/prose.js"
+import type * as s_in from "../../interface/schemas/execute_sandboxed_command_executable.js"
 
 namespace declarations {
-    export type Error = p_.Transformer<
-        s_in.Error,
-        s_out.Phrase
+    export type Error = p_.Phrase_Serializer<
+        s_in.Error
     >
 }
 

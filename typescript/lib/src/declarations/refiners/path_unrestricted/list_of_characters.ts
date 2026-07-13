@@ -12,7 +12,7 @@ export namespace s_function2 {
 export type Node_Path = p_.Refiner_With_Parameter<
     s_out.Node_Path,
     s_function.Error,
-    s_in.List_of_Characters,
+    s_in.List_Of_Characters,
     s_function2.Parameters
 >
 

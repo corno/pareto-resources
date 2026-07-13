@@ -9,11 +9,11 @@ import type * as s_out from "../../../interface/schemas/list_of_characters.js"
 namespace declarations {
     export type Node_Path = p_.Transformer<
         s_in.Node_Path,
-        s_out.List_of_Characters
+        s_out.List_Of_Characters
     >
     export type Context_Path = p_.Transformer<
         s_in.Context_Path,
-        s_out.List_of_Characters
+        s_out.List_Of_Characters
     >
 }
 
