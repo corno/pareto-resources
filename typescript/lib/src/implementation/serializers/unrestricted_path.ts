@@ -17,7 +17,7 @@ namespace declarations {
 
 
 //shorthands
-import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose_simple/deprecated"
 
 export const Node_Path: declarations.Node_Path = ($) => sh.ph.composed([
     Context_Path($.context),

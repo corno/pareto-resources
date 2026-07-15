@@ -9,7 +9,7 @@ namespace declarations {
     >
 }
 
-import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose_extended/deprecated"
 
 export const Error: declarations.Error = ($) => p_.from.state($).decide(
     ($) => {
@@ -26,7 +26,7 @@ export const Error: declarations.Error = ($) => p_.from.state($).decide(
                         sh.sentence([
                             sh.ph.literal("exit code: "),
                             p_.from.optional($['exit code']).decide(
-                                ($) => sh.ph.decimal($),
+                                ($) => sh.ph.literal(`${$}`), //FIXME
                                 () => sh.ph.literal("n/a")
                             ),
                         ]),
