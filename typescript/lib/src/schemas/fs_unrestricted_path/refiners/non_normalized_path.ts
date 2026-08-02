@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/implementation/refiner'
 import * as p_t from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../non_normalized_path_parsing/schema.js"
+import type * as declarations_ from "../../non_normalized_path_parsing/schema.js"
 import type * as s_error from "../../non_normalized_path_parsing/schema.js"
 
 //schemas
